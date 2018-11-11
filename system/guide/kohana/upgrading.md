@@ -77,7 +77,7 @@ would be located in
 
     classes/Kohana/HTTP/Header.php
 
-This also affects dynamically named classes such as drivers and ORMs. So for example, in the database config using `'mysql'` as the type instead of `'MySQL'` would throw a class not found error.
+This also affects dynamically named classes such as drivers and ORMs. So for example, in the database config using `'mysqli'` as the type instead of `'MySQLi'` would throw a class not found error.
 
 ## Query Builder Identifier Escaping
 

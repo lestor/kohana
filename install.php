@@ -211,14 +211,6 @@ else
 				<td class="fail">Kohana requires <a href="http://php.net/gd">GD</a> v2 for the Image class.</td>
 			<?php endif ?>
 		</tr>
-		<tr>
-			<th>MySQL Enabled</th>
-			<?php if (function_exists('mysql_connect')): ?>
-				<td class="pass">Pass</td>
-			<?php else: ?>
-				<td class="fail">Kohana can use the <a href="http://php.net/mysql">MySQL</a> extension to support MySQL databases.</td>
-			<?php endif ?>
-		</tr>
         <tr>
             <th>MySQLi Enabled</th>
             <?php if (function_exists('mysqli_connect')): ?>
