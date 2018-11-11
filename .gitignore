@@ -1,13 +1,14 @@
-Icon?
-.DS_Store
-.svn
-code_coverage
-*~
-*.swp
-coverage
-kohana_release
-nbproject
-build
-composer.lock
+# IDE
+/.idea
+/.vscode
+
+# Composer
+/vendor
 composer.phar
-vendor/*
+composer.lock
+
+# PHPUnit
+phpunit.phar
+
+# Coverage
+/build
