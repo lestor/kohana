@@ -219,6 +219,14 @@ else
 				<td class="fail">Kohana can use the <a href="http://php.net/mysql">MySQL</a> extension to support MySQL databases.</td>
 			<?php endif ?>
 		</tr>
+        <tr>
+            <th>MySQLi Enabled</th>
+            <?php if (function_exists('mysqli_connect')): ?>
+                <td class="pass">Pass</td>
+            <?php else: ?>
+                <td class="fail">Kohana can use the <a href="http://php.net/mysqli">MySQLi</a> extension to support MySQL databases.</td>
+            <?php endif ?>
+        </tr>
 		<tr>
 			<th>PDO Enabled</th>
 			<?php if (class_exists('PDO')): ?>
