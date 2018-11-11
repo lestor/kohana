@@ -1,6 +1,6 @@
 # Database 
 
-Kohana 3.0 comes with a robust module for working with databases. By default, the database module supports drivers for [MySQL](http://php.net/mysql) and [PDO](http://php.net/pdo), but new drivers can be made for other database servers.
+Kohana 3.0 comes with a robust module for working with databases. By default, the database module supports drivers for [MySQLi](http://php.net/mysqli) and [PDO](http://php.net/pdo), but new drivers can be made for other database servers.
 
 The database module is included with the Kohana 3.0 install, but needs to be enabled before you can use it. To enable, open your `application/bootstrap.php` file and modify the call to [Kohana::modules] by including the database module like so:
 
