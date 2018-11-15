@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.') ?>
+<?php
 
 <style type="text/css">
 <?php include Kohana::find_file('views', 'profiler/style', 'css') ?>
