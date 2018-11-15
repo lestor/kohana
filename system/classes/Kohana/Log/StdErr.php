@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * STDERR log writer. Writes out messages to STDERR.
  *

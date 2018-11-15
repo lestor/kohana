@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * File log writer. Writes out messages and stores them in a YYYY/MM directory.
  *
@@ -78,7 +78,7 @@ class Kohana_Log_File extends Log_Writer {
 		if ( ! file_exists($filename))
 		{
 			// Create the log file
-			file_put_contents($filename, Kohana::FILE_SECURITY.' ?>'.PHP_EOL);
+			file_put_contents($filename, NULL);
 
 			// Allow anyone to write to log files
 			chmod($filename, 0666);
