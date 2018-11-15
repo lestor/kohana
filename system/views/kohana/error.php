@@ -1,5 +1,4 @@
 <?php
-<?php
 
 // Unique error identifier
 $error_id = uniqid('error');
