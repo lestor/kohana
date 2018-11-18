@@ -44,10 +44,10 @@ class Kohana_Kohana_Exception extends Exception {
 	 * @param   string          $message    error message
 	 * @param   array           $variables  translation variables
 	 * @param   integer|string  $code       the exception code
-	 * @param   Exception       $previous   Previous exception
+	 * @param   Throwable       $previous   Previous throwable
 	 * @return  void
 	 */
-	public function __construct($message = "", array $variables = NULL, $code = 0, Exception $previous = NULL)
+	public function __construct($message = "", array $variables = NULL, $code = 0, Throwable $previous = NULL)
 	{
 		// Set the message
 		$message = __($message, $variables);
@@ -78,12 +78,12 @@ class Kohana_Kohana_Exception extends Exception {
 	 * exception, and the stack trace of the error.
 	 *
 	 * @uses    Kohana_Exception::response
-	 * @param   Exception  $e
+	 * @param   Throwable  $t
 	 * @return  void
 	 */
-	public static function handler(Exception $e)
+	public static function handler(Throwable $t)
 	{
-		$response = Kohana_Exception::_handler($e);
+		$response = Kohana_Exception::_handler($t);
 
 		// Send the response to the browser
 		echo $response->send_headers()->body();
@@ -96,18 +96,18 @@ class Kohana_Kohana_Exception extends Exception {
 	 * for display.
 	 *
 	 * @uses    Kohana_Exception::response
-	 * @param   Exception  $e
+	 * @param   Throwable  $t
 	 * @return  Response
 	 */
-	public static function _handler(Exception $e)
+	public static function _handler(Throwable $t)
 	{
 		try
 		{
 			// Log the exception
-			Kohana_Exception::log($e);
+			Kohana_Exception::log($t);
 
 			// Generate the response
-			$response = Kohana_Exception::response($e);
+			$response = Kohana_Exception::response($t);
 
 			return $response;
 		}
@@ -133,19 +133,19 @@ class Kohana_Kohana_Exception extends Exception {
 	 * Logs an exception.
 	 *
 	 * @uses    Kohana_Exception::text
-	 * @param   Exception  $e
+	 * @param   Throwable  $t
 	 * @param   int        $level
 	 * @return  void
 	 */
-	public static function log(Exception $e, $level = Log::EMERGENCY)
+	public static function log(Throwable $t, $level = Log::EMERGENCY)
 	{
 		if (is_object(Kohana::$log))
 		{
 			// Create a text version of the exception
-			$error = Kohana_Exception::text($e);
+			$error = Kohana_Exception::text($t);
 
 			// Add this exception to the log
-			Kohana::$log->add($level, $error, NULL, array('exception' => $e));
+			Kohana::$log->add($level, $error, NULL, array('exception' => $t));
 
 			// Make sure the logs are written
 			Kohana::$log->write();
@@ -157,46 +157,46 @@ class Kohana_Kohana_Exception extends Exception {
 	 *
 	 * Error [ Code ]: Message ~ File [ Line ]
 	 *
-	 * @param   Exception  $e
+	 * @param   Throwable  $t
 	 * @return  string
 	 */
-	public static function text(Exception $e)
+	public static function text(Throwable $t)
 	{
 		return sprintf('%s [ %s ]: %s ~ %s [ %d ]',
-			get_class($e), $e->getCode(), strip_tags($e->getMessage()), Debug::path($e->getFile()), $e->getLine());
+			get_class($t), $t->getCode(), strip_tags($t->getMessage()), Debug::path($t->getFile()), $t->getLine());
 	}
 
 	/**
 	 * Get a Response object representing the exception
 	 *
 	 * @uses    Kohana_Exception::text
-	 * @param   Exception  $e
+	 * @param   Throwable  $t
 	 * @return  Response
 	 */
-	public static function response(Exception $e)
+	public static function response(Throwable $t)
 	{
 		try
 		{
 			// Get the exception information
-			$class   = get_class($e);
-			$code    = $e->getCode();
-			$message = $e->getMessage();
-			$file    = $e->getFile();
-			$line    = $e->getLine();
-			$trace   = $e->getTrace();
+			$class   = get_class($t);
+			$code    = $t->getCode();
+			$message = $t->getMessage();
+			$file    = $t->getFile();
+			$line    = $t->getLine();
+			$trace   = $t->getTrace();
 
 			/**
 			 * HTTP_Exceptions are constructed in the HTTP_Exception::factory()
 			 * method. We need to remove that entry from the trace and overwrite
 			 * the variables from above.
 			 */
-			if ($e instanceof HTTP_Exception AND $trace[0]['function'] == 'factory')
+			if ($t instanceof HTTP_Exception AND $trace[0]['function'] == 'factory')
 			{
 				extract(array_shift($trace));
 			}
 
 
-			if ($e instanceof ErrorException)
+			if ($t instanceof ErrorException)
 			{
 				/**
 				 * If XDebug is installed, and this is a fatal error,
@@ -266,7 +266,7 @@ class Kohana_Kohana_Exception extends Exception {
 			$response = Response::factory();
 
 			// Set the response status
-			$response->status(($e instanceof HTTP_Exception) ? $e->getCode() : 500);
+			$response->status(($t instanceof HTTP_Exception) ? $t->getCode() : 500);
 
 			// Set the response headers
 			$response->headers('Content-Type', Kohana_Exception::$error_view_content_type.'; charset='.Kohana::$charset);

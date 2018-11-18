@@ -16,26 +16,26 @@ class Kohana_Minion_Exception extends Kohana_Exception {
 	 * Should this display a stack trace? It's useful.
 	 *
 	 * @uses    Kohana_Exception::text
-	 * @param   Exception   $e
+	 * @param   Throwable   $t
 	 * @return  boolean
 	 */
-	public static function handler(Exception $e)
+	public static function handler(Throwable $t)
 	{
 		try
 		{
 			// Log the exception
-			Kohana_Exception::log($e);
+			Kohana_Exception::log($t);
 
-			if ($e instanceof Minion_Exception)
+			if ($t instanceof Minion_Exception)
 			{
-				echo $e->format_for_cli();
+				echo $t->format_for_cli();
 			}
 			else
 			{
-				echo Kohana_Exception::text($e);
+				echo Kohana_Exception::text($t);
 			}
 
-			$exit_code = $e->getCode();
+			$exit_code = $t->getCode();
 
 			// Never exit "0" after an exception.
 			if ($exit_code == 0)
