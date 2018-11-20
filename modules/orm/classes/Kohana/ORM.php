@@ -1463,19 +1463,26 @@ class Kohana_ORM extends Model implements serializable {
 	 * @param  mixed   $far_keys Related model, primary key, or an array of primary keys
 	 * @return boolean
 	 */
-	public function has($alias, $far_keys = NULL)
-	{
-		$count = $this->count_relations($alias, $far_keys);
-		if ($far_keys === NULL)
-		{
-			return (bool) $count;
-		}
-		else
-		{
-			return $count === count($far_keys);
-		}
+    public function has($alias, $far_keys = NULL)
+    {
+        $count = $this->count_relations($alias, $far_keys);
 
-	}
+        if ($far_keys === NULL)
+        {
+            return (bool) $count;
+        }
+
+        if (is_array($far_keys) OR $far_keys instanceof Countable)
+        {
+            $keys = count($far_keys);
+        }
+        else
+        {
+            $keys = 1;
+        }
+
+        return $keys === $count;
+    }
 
 	/**
 	 * Tests if this object has a relationship to a different model,
