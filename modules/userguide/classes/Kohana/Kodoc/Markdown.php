@@ -8,7 +8,7 @@
  * @copyright  (c) 2008-2013 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
+class Kohana_Kodoc_Markdown extends \Michelf\MarkdownExtra {
 
 	/**
 	 * @var  string  base url for links
@@ -31,7 +31,7 @@ class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
 	/**
 	 * @var  string   the generated table of contents
 	 */
-	protected static $_toc = "";
+	protected static $_toc = array();
 	
 	/**
 	 * Slightly less terrible way to make it so the TOC only shows up when we
@@ -97,7 +97,7 @@ class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
 		if ($matches[3] == '-' AND preg_match('{^- }', $matches[1]))
 			return $matches[0];
 		$level = ($matches[3]{0} == '=') ? 1 : 2;
-		$attr  = $this->_doHeaders_attr($id =& $matches[2]);
+		$attr  = $this->doExtraAttributes(NULL, $id =& $matches[2]);
 		
 		// Only auto-generate id if one doesn't exist
 		if (empty($attr))
@@ -123,7 +123,7 @@ class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
 	function _doHeaders_callback_atx($matches)
 	{
 		$level = strlen($matches[1]);
-		$attr  = $this->_doHeaders_attr($id =& $matches[3]);
+		$attr  = $this->doExtraAttributes(NULL, $id =& $matches[3]);
 		
 		// Only auto-generate id if one doesn't exist
 		if (empty($attr))
