@@ -1,7 +1,8 @@
 {
 	"require": {
-		"phpunit/phpunit": "3.7.24 - 4",
-		"phing/phing": "dev-master",
+		"phpunit/phpunit": "^7.4",
+		"phpunit/dbunit":"^4.0",
+		"phpunit/phpcov": "^5.0",
 		"michelf/php-markdown": "^1.8"
 	}
 }
