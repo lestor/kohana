@@ -10,9 +10,9 @@
  * @license    http://http://kohanaframework.org/license
  */
 
-class Kohana_ImageTest extends PHPUnit_Framework_TestCase {
+class Kohana_ImageTest extends Unittest_TestCase {
 
-	protected function setUp()
+	public function setUp()
 	{
 		if ( ! extension_loaded('gd'))
 		{

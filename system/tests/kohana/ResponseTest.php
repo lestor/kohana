@@ -22,7 +22,8 @@ class Kohana_ResponseTest extends Unittest_TestCase
 	 */
 	public function provider_body()
 	{
-		$view = $this->getMock('View');
+		$view = $this->createMock('View');
+
 		$view->expects($this->any())
 			->method('__toString')
 			->will($this->returnValue('foo'));

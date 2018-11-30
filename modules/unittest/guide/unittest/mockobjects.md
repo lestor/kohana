@@ -9,36 +9,50 @@ It creates a class that extends the one you want to mock.  You can also tell PHP
 
 ## Creating an instance of a mock class
 
-You create mocks from within testcases using the getMock() function, which is defined in `PHPUnit_Framework_TestCase` like so:
+You create mocks from within testcases using the `createMock()` function, which is defined in `\PHPUnit\Framework\TestCase` like so:
 
-	    getMock($originalClassName, $methods = array(), array $arguments = array(), $mockClassName = '', $callOriginalConstructor = TRUE, $callOriginalClone = TRUE, $callAutoload = TRUE)
+    $this->createMock($originalClassName);
 
 `$originalClassName`
 : The name of the class that you want to mock
 
-`$methods`
-: The methods of $originalClassName that you want to mock.  
-  You need to tell PHPUnit in advance because PHP doesn't allow you to extend an object once it's been initialised.
+When the defaults used by the `createMock()` method to generate the test double do not match your needs then you can use the `getMockBuilder($type)` method to customize the test double generation using a fluent interface. 
 
-`$arguments`
-: An array of arguments to pass to the mock's constructor
+Here is a list of methods provided by the Mock Builder: 
 
-`$mockClassName`
-: Allows you to specify the name that will be given to the mock
+`setMethods(array $methods)`
+: Can be called on the Mock Builder object to specify the methods that are to be replaced with a configurable test double. The behavior of the other methods is not changed. If you call `setMethods(NULL)`, then no methods will be replaced.
 
-`$callOriginalConstructor`
-: Should the mock call its parent's constructor automatically?
+`setMethodsExcept(array $methods)`
+: Can be called on the Mock Builder object to specify the methods that will not be replaced with a configurable test double while replacing all other public methods. This works inverse to `setMethods()`.
 
-`$callOriginalClone`
-: Should the mock call its parent's clone method?
+`setConstructorArgs(array $args)`
+: Can be called to provide a parameter array that is passed to the original class' constructor (which is not replaced with a dummy implementation by default).
 
-Most of the time you'll only need to use the first two parameters, i.e.:
+`setMockClassName()`
+: Can be used to specify a class name for the generated test double class.
 
-	$mock = $this->getMock('ORM');
+`disableOriginalConstructor()`
+: Can be used to disable the call to the original class' constructor.
+
+`disableOriginalClone()`
+: Can be used to disable the call to the original class' clone constructor.
+
+`disableAutoload()`
+: Can be used to disable `__autoload()` during the generation of the test double class.
+
+See detailed documentation on the [official website](https://phpunit.de/manual/7.0/en/test-doubles.html).
+
+Most of the time you will need to use only a few parameters:
+
+	$mock = $this->createMock('ORM');
 
 `$mock` now contains a mock of ORM and can be handled as though it were a vanilla instance of `ORM`
 
-	$mock = $this->getMock('ORM', array('check'));
+	$mock = $this
+		->getMockBuilder('ORM')
+		->setMethods(array('check'))
+		->getMock();
 
 `$mock` now contains a mock of ORM, but this time we're also mocking the check() method.
 
@@ -46,7 +60,10 @@ Most of the time you'll only need to use the first two parameters, i.e.:
 
 Assuming we've created a mock object like so:
 
-	$mock = $this->getMock('ORM', array('check'));
+	$mock = $this
+		->getMockBuilder('ORM')
+		->setMethods(array('check'))
+		->getMock();
 
 We now need to tell PHPUnit how to mock the check function when its called.
 
@@ -56,31 +73,34 @@ You start off by telling PHPUnit how many times the method should be called by c
 
 	$mock->expects($matcher);
 
-`expects()` takes one argument, an invoker matcher which you can create using factory methods defined in `PHPUnit_Framework_TestCase`:
+`expects()` takes one argument, an invoker matcher which you can create using factory methods defined in `\PHPUnit\Framework\TestCase`:
 
 #### Possible invoker matchers:
 
 `$this->any()`
-: Returns a matcher that allows the method to be called any number of times
+: Returns a matcher that matches when the method it is evaluated for is executed zero or more times.
 
 `$this->never()`
-: Returns a matcher that asserts that the method is never called
+: Returns a matcher that matches when the method it is evaluated for is never executed.
 
 `$this->once()`
-: Returns a matcher that asserts that the method is only called once
+: Returns a matcher that matches when the method it is evaluated for is executed exactly once.
 
 `$this->atLeastOnce()`
-: Returns a matcher that asserts that the method is called at least once
+: Returns a matcher that matches when the method it is evaluated for is executed at least once.
 
 `$this->exactly($count)`
-: Returns a matcher that asserts that the method is called at least `$count` times
+: Returns a matcher that matches when the method it is evaluated for is executed exactly `$count` times.
 
 `$this->at($index)`
-: Returns a matcher that matches when the method it is evaluated for is invoked at the given $index.
+: Returns a matcher that matches when the method it is evaluated for is invoked at the given `$index`.
 
 In our example we want `check()` to be called once on our mock object, so if we update it accordingly:
 
-	$mock = $this->getMock('ORM', array('check'));
+	$mock = $this
+    	->getMockBuilder('ORM')
+    	->setMethods(array('check'))
+    	->getMock();
 
 	$mock->expects($this->once());
 
@@ -95,7 +115,10 @@ You do this by calling `method()` on the returned from `expects()`:
 As you can probably guess, `method()` takes one parameter, the name of the method you're mocking.  
 There's nothing very fancy about this function.
 
-	$mock = $this->GetMock('ORM', array('check'));
+	$mock = $this
+    	->getMockBuilder('ORM')
+    	->setMethods(array('check'))
+    	->getMock();
 
 	$mock->expects($this->once())
 		->method('check');
@@ -138,7 +161,7 @@ Sometimes you need to be more specific about how PHPUnit should compare paramete
 
 In PHPUnit, the logic for validating objects and datatypes has been refactored into "constraint objects".  If you look in any of the assertX() methods you can see that they are nothing more than wrappers for associating constraint objects with tests.
 
-If a parameter passed to `with()` is not an instance of a constraint object (one which extends `PHPUnit_Framework_Constraint`) then PHPUnit creates a new `IsEqual` comparision object for it.
+If a parameter passed to `with()` is not an instance of a constraint object (one which extends `\PHPUnit\Framework\Constraint`) then PHPUnit creates a new `IsEqual` comparision object for it.
 
 i.e., the following methods produce the same result:
 
@@ -146,64 +169,8 @@ i.e., the following methods produce the same result:
 
 	->with($this->equalTo('foo'), $this->equalTo(1));
 
-Here are some of the wrappers PHPUnit provides for creating constraint objects:
 
-`$this->arrayHasKey($key)`
-: Asserts that the parameter will have an element with index `$key`
-
-`$this->attribute(PHPUnit_Framework_Constraint $constraint, $attributeName)`
-: Asserts that object attribute `$attributeName` of the parameter will satisfy `$constraint`, where constraint is an instance of a constraint (i.e. `$this->equalTo()`)
-
-`$this->fileExists()`
-: Accepts no parameters, asserts that the parameter is a path to a valid file (i.e. `file_exists() === TRUE`)
-
-`$this->greaterThan($value)`
-: Asserts that the parameter is greater than `$value`
-
-`$this->anything()`
-: Returns TRUE regardless of what the parameter is
-
-`$this->equalTo($value, $delta = 0, $canonicalizeEOL = FALSE, $ignoreCase = False)`
-: Asserts that the parameter is equal to `$value` (same as not passing a constraint object to `with()`)
-: `$delta` is the degree of accuracy to use when comparing numbers. i.e. 0 means numbers need to be identical, 1 means numbers can be within a distance of one from each other
-: If `$canonicalizeEOL` is TRUE then all newlines in string values will be converted to `\n` before comparision
-: If `$ignoreCase` is TRUE then both strings will be converted to lowercase before comparision
-
-`$this->identicalTo($value)`
-: Asserts that the parameter is identical to `$value`
-
-`$this->isType($type)`
-: Asserts that the parameter is of type `$type`, where `$type` is a string representation of the core PHP data types
-
-`$this->isInstanceOf($className)`
-: Asserts that the parameter is an instance of `$className`
-
-`$this->lessThan($value)`
-: Asserts that the parameter is less than `$value`
-
-`$this->objectHasAttribute($attribute)`
-: Asserts that the paramater (which is assumed to be an object) has an attribute `$attribute`
-
-`$this->matchesRegularExpression($pattern)`
-: Asserts that the parameter matches the PCRE pattern `$pattern` (using `preg_match()`)
-
-`$this->stringContains($string, $ignoreCase = FALSE)`
-: Asserts that the parameter contains the string `$string`.  If `$ignoreCase` is TRUE then a case insensitive comparision is done
-
-`$this->stringEndsWith($suffix)`
-: Asserts that the parameter ends with `$suffix` (assumes parameter is a string)
-
-`$this->stringStartsWith($prefix)`
-: Asserts that the parameter starts with `$prefix` (assumes parameter is a string)
-
-`$this->contains($value)`
-: Asserts that the parameter contains at least one value that is identical to `$value` (assumes parameter is array or `SplObjectStorage`)
-
-`$this->containsOnly($type, $isNativeType = TRUE)`
-: Asserts that the parameter only contains items of type `$type`. `$isNativeType` should be set to TRUE when `$type` refers to a built in PHP data type (i.e. int, string etc.) (assumes parameter is array)
-
-
-There are more constraint objects than listed here, look in `PHPUnit_Framework_Assert` and `PHPUnit/Framework/Constraint` if you need more constraints.
+See also`\PHPUnit\Framework\Assert` and `\PHPUnit\Framework\Constraint` or [official documentation](https://phpunit.de/manual/7.0/en/appendixes.assertions.html) for more information about this.
 
 If we continue our example, we have the following:  
 	
@@ -227,7 +194,7 @@ Specifying a return value is easy, just call `will()` on the object returned by 
 
 The function is defined like so:
 
-	public function will(PHPUnit_Framework_MockObject_Stub $stub)
+	public function will(\PHPUnit\Framework\MockObject\Stub $stub)
 
 PHPUnit provides some MockObject stubs out of the box, you can access them via (when called from a testcase):
 
@@ -250,7 +217,6 @@ Updating our example gives:
 		->method('check')
 		->with()
 		->will($this->returnValue(TRUE));
-
 
 And we're done!
 
