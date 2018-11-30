@@ -9,7 +9,7 @@
  * @copyright  (c) 2009-2012 Kohana Team
  * @license    http://kohanaphp.com/license
  */
-class Kohana_CacheTest extends PHPUnit_Framework_TestCase {
+class Kohana_CacheTest extends Unittest_TestCase {
 
 	const BAD_GROUP_DEFINITION  = 1010;
 	const EXPECT_SELF           = 1001;
@@ -65,7 +65,7 @@ class Kohana_CacheTest extends PHPUnit_Framework_TestCase {
 			)
 		))
 		{
-			$this->setExpectedException('Cache_Exception');
+			$this->expectException('Cache_Exception');
 		}
 
 		try
@@ -90,7 +90,8 @@ class Kohana_CacheTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function test_cloning_fails()
 	{
-		$cache = $this->getMockBuilder('Cache')
+		$cache = $this
+			->getMockBuilder('Cache')
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
@@ -164,7 +165,11 @@ class Kohana_CacheTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function test_config($key, $value, $expected_result, array $expected_config)
 	{
-		$cache = $this->getMock('Cache_File', NULL, array(), '', FALSE);
+		$cache = $this
+			->getMockBuilder('Cache_File')
+			->setMethods(NULL)
+			->disableOriginalConstructor()
+			->getMock();
 
 		if ($expected_result === Kohana_CacheTest::EXPECT_SELF)
 		{
@@ -223,14 +228,17 @@ class Kohana_CacheTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function test_sanitize_id($id, $expected)
 	{
-		$cache = $this->getMock('Cache', array(
-			'get',
-			'set',
-			'delete',
-			'delete_all'
-			), array(array()),
-			'', FALSE
-		);
+		$cache = $this
+            ->getMockBuilder('Cache')
+            ->setMethods(array(
+				'get',
+				'set',
+				'delete',
+				'delete_all'
+            ))
+            ->setConstructorArgs(array(array()))
+            ->disableOriginalConstructor()
+            ->getMock();
 
 		$cache_reflection = new ReflectionClass($cache);
 		$sanitize_id = $cache_reflection->getMethod('_sanitize_id');
