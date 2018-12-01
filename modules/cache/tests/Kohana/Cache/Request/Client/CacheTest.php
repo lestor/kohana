@@ -13,7 +13,7 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_Request_Client_CacheTest extends Unittest_TestCase {
+class Kohana_Cache_Request_Client_CacheTest extends Unittest_TestCase {
 
 	/**
 	 * Sets up a test route for caching

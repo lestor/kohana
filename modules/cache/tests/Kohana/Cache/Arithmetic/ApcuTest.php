@@ -1,5 +1,4 @@
 <?php
-include_once(Kohana::find_file('tests/cache/arithmetic', 'CacheArithmeticMethods'));
 
 /**
  * @package    Kohana/Cache
@@ -10,7 +9,7 @@ include_once(Kohana::find_file('tests/cache/arithmetic', 'CacheArithmeticMethods
  * @copyright  (c) 2009-2012 Kohana Team
  * @license    http://kohanaphp.com/license
  */
-class Kohana_ApcuTest extends Kohana_CacheArithmeticMethodsTest {
+class Kohana_Cache_Arithmetic_ApcuTest extends Kohana_Cache_Arithmetic_AbstractTest {
 
     /**
      * This method MUST be implemented by each driver to setup the `Cache`

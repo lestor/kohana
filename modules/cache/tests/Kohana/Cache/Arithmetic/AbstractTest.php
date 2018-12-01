@@ -1,5 +1,4 @@
 <?php
-include_once(Kohana::find_file('tests/cache', 'CacheBasicMethodsTest'));
 
 /**
  * @package    Kohana/Cache/Memcache
@@ -10,7 +9,7 @@ include_once(Kohana::find_file('tests/cache', 'CacheBasicMethodsTest'));
  * @copyright  (c) 2009-2012 Kohana Team
  * @license    http://kohanaphp.com/license
  */
-abstract class Kohana_CacheArithmeticMethodsTest extends Kohana_CacheBasicMethodsTest {
+abstract class Kohana_Cache_Arithmetic_AbstractTest extends Kohana_Cache_AbstractTest {
 
 	public function tearDown()
 	{
