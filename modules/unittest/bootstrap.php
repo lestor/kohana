@@ -121,10 +121,19 @@ if (($ob_len = ob_get_length()) !== FALSE)
 	}
 }
 
-// Enable the unittest module if it is not already loaded - use the absolute path
-$modules = Kohana::modules();
-$unittest_path = realpath(__DIR__).DIRECTORY_SEPARATOR;
-if ( ! in_array($unittest_path, $modules)) {
-	$modules['unittest'] = $unittest_path;
-	Kohana::modules($modules);
+// Enable all modules we can find
+$modules_iterator = new DirectoryIterator(MODPATH);
+
+$modules = array();
+
+foreach ($modules_iterator as $module)
+{
+    if ($module->isDir() AND ! $module->isDot())
+    {
+        $modules[$module->getFilename()] = MODPATH.$module->getFilename();
+    }
 }
+
+Kohana::modules($modules);
+
+unset ($modules_iterator, $modules, $module);

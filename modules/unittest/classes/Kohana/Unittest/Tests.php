@@ -56,7 +56,7 @@ class Kohana_Unittest_Tests {
 	{
 		static $suite = NULL;
 
-		if ($suite instanceof PHPUnit_Framework_TestSuite)
+		if ($suite instanceof Unittest_TestSuite)
 		{
 			return $suite;
 		}
@@ -71,11 +71,6 @@ class Kohana_Unittest_Tests {
 		if ($config->use_whitelist)
 		{
 			Unittest_Tests::whitelist(NULL, $suite);
-		}
-		
-		if (count($config['blacklist']))
-		{
-			Unittest_Tests::blacklist($config->blacklist, $suite);
 		}
 
 		// Add tests
@@ -119,30 +114,7 @@ class Kohana_Unittest_Tests {
 					{
 						require_once($file);
 					}
-
-					$suite->addFileToBlacklist($file);
 				}
-			}
-		}
-	}
-
-	/**
-	 * Blacklist a set of files in PHPUnit code coverage
-	 *
-	 * @param array $blacklist_items A set of files to blacklist
-	 * @param Unittest_TestSuite $suite The test suite
-	 */
-	static public function blacklist(array $blacklist_items, Unittest_TestSuite $suite = NULL)
-	{
-		foreach ($blacklist_items as $item)
-		{
-			if (is_dir($item))
-			{
-				$suite->addDirectoryToBlacklist($item);
-			}
-			else
-			{
-				$suite->addFileToBlacklist($item);
 			}
 		}
 	}
@@ -255,10 +227,6 @@ class Kohana_Unittest_Tests {
 					if (isset($suite))
 					{
 						$suite->addFileToWhitelist($file);
-					}
-					else
-					{
-						PHPUnit_Util_Filter::addFileToWhitelist($file);
 					}
 				}
 			}
