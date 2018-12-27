@@ -14,6 +14,8 @@ class Kohana_ImageTest extends Unittest_TestCase {
 
 	public function setUp()
 	{
+		parent::setUp();
+
 		if ( ! extension_loaded('gd'))
 		{
 			$this->markTestSkipped('The GD extension is not available.');
