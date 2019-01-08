@@ -124,6 +124,8 @@ class Kohana_DebugTest extends Unittest_TestCase
 	 */
 	public function test_dump($input, $length, $limit, $expected)
 	{
+		$expected = str_replace("\r\n","\n", $expected);
+
 		$this->assertEquals($expected, Debug::dump($input, $length, $limit));
 	}
 }
