@@ -55,12 +55,12 @@ class Kohana_DebugTest extends Unittest_TestCase
 	{
 		return array(
 			array(
-				SYSPATH.'classes'.DIRECTORY_SEPARATOR.'kohana'.EXT,
-				'SYSPATH'.DIRECTORY_SEPARATOR.'classes'.DIRECTORY_SEPARATOR.'kohana.php'
+				SYSPATH.'classes/kohana'.EXT,
+				'SYSPATH/classes/kohana.php'
 			),
 			array(
-				MODPATH.$this->dirSeparator('unittest/classes/kohana/unittest/runner').EXT,
-				$this->dirSeparator('MODPATH/unittest/classes/kohana/unittest/runner').EXT
+				MODPATH.'unittest/classes/kohana/unittest/runner'.EXT,
+				'MODPATH/unittest/classes/kohana/unittest/runner'.EXT
 			),
 		);
 	}
@@ -76,6 +76,9 @@ class Kohana_DebugTest extends Unittest_TestCase
 	 */
 	public function test_debug_path($path, $expected)
 	{
+		$path = Unittest_Helpers::dir_separator($path);
+		$expected = Unittest_Helpers::dir_separator($expected);
+
 		$this->assertEquals($expected, Debug::path($path));
 	}
 
@@ -121,6 +124,8 @@ class Kohana_DebugTest extends Unittest_TestCase
 	 */
 	public function test_dump($input, $length, $limit, $expected)
 	{
+		$expected = str_replace("\r\n","\n", $expected);
+
 		$this->assertEquals($expected, Debug::dump($input, $length, $limit));
 	}
 }
