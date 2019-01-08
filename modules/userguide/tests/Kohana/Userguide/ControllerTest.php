@@ -19,10 +19,10 @@ class Kohana_Userguide_ControllerTest extends Unittest_TestCase
 	public function provider_file_finds_markdown_files()
 	{
 		return array(
-			array('userguide'.DIRECTORY_SEPARATOR.'adding', 'guide'.DIRECTORY_SEPARATOR.'userguide'.DIRECTORY_SEPARATOR.'adding.md'),
-			array('userguide'.DIRECTORY_SEPARATOR.'adding.md', 'guide'.DIRECTORY_SEPARATOR.'userguide'.DIRECTORY_SEPARATOR.'adding.md'),
-			array('userguide'.DIRECTORY_SEPARATOR.'adding.markdown', 'guide'.DIRECTORY_SEPARATOR.'userguide'.DIRECTORY_SEPARATOR.'adding.md'),
-			array('userguide'.DIRECTORY_SEPARATOR.'does_not_exist.md', FALSE)
+			array('userguide/adding', 'guide/userguide/adding.md'),
+			array('userguide/adding.md', 'guide/userguide/adding.md'),
+			array('userguide/adding.markdown', 'guide/userguide/adding.md'),
+			array('userguide/does_not_exist.md', FALSE)
 		);
 	}
 
@@ -44,6 +44,9 @@ class Kohana_Userguide_ControllerTest extends Unittest_TestCase
 		// Only verify trailing segments to avoid problems if file overwritten in CFS
 		$expected_len = strlen($expected_file);
 		$file = substr($path, -$expected_len, $expected_len);
+
+		$expected_file = Unittest_Helpers::dir_separator($expected_file);
+		$file = Unittest_Helpers::dir_separator($file);
 
 		$this->assertEquals($expected_file, $file);
 	}
