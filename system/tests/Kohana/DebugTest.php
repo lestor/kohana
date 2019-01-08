@@ -76,6 +76,9 @@ class Kohana_DebugTest extends Unittest_TestCase
 	 */
 	public function test_debug_path($path, $expected)
 	{
+		$path = Unittest_Helpers::dir_separator($path);
+		$expected = Unittest_Helpers::dir_separator($expected);
+
 		$this->assertEquals($expected, Debug::path($path));
 	}
 
