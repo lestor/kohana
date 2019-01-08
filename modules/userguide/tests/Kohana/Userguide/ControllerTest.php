@@ -45,6 +45,9 @@ class Kohana_Userguide_ControllerTest extends Unittest_TestCase
 		$expected_len = strlen($expected_file);
 		$file = substr($path, -$expected_len, $expected_len);
 
+		$expected_file = Unittest_Helpers::dir_separator($expected_file);
+		$file = Unittest_Helpers::dir_separator($file);
+
 		$this->assertEquals($expected_file, $file);
 	}
 
