@@ -190,7 +190,7 @@ return array(
 	'tr'       => array('application/x-troff'),
 	'tsv'      => array('text/tab-separated-values'),
 	'txt'      => array('text/plain'),
-	'wav'      => array('audio/x-wav'),
+	'wav'      => array('audio/wav', 'audio/x-wav', 'audio/wave', 'audio/x-pn-wav'),
 	'wax'      => array('audio/x-ms-wax'),
 	'wbxml'    => array('application/wbxml'),
 	'webapp'   => array('application/x-web-app-manifest+json'),
