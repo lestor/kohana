@@ -9,6 +9,7 @@
  */
 return array(
 	'323'      => array('text/h323'),
+	'3gp'      => array('audio/3gpp', 'video/3gpp'),
 	'7z'       => array('application/x-7z-compressed'),
 	'abw'      => array('application/x-abiword'),
 	'acx'      => array('application/internet-property-stream'),
