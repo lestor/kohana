@@ -13,7 +13,7 @@ There are a few things you'll want to do with your application before moving int
    This covers most of the global settings that would change between environments.
    As a general rule, you should enable caching and disable profiling ([Kohana::init] settings) for production sites.
    [Route::cache] can also help if you have a lot of routes.
-2. Turn on APC or some kind of opcode caching.
+2. Turn on OPcache or some kind of opcode caching.
    This is the single easiest performance boost you can make to PHP itself. The more complex your application, the bigger the benefit of using opcode caching.
 
 		/**

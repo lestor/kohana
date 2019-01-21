@@ -6,7 +6,7 @@ instances of cache engines through a grouped singleton pattern.
 
 ## Supported cache engines
 
- *  APC/APCu ([Cache_Apc])
+ *  APCu ([Cache_Apcu])
  *  File ([Cache_File])
  *  Memcached ([Cache_Memcache])
  *  Memcached-tags ([Cache_Memcachetag])
@@ -22,7 +22,7 @@ a complex set of instructions.
 Caching engines that use memory are considerably faster than file based alternatives. But
 memory is limited whereas disk space is plentiful. If caching large datasets, such as large database result sets, it is best to use file caching.
 
-[!!] Cache drivers require the relevant PHP extensions to be installed. APC, eAccelerator, Memecached and Xcache all require non-standard PHP extensions.
+[!!] Cache drivers require the relevant PHP extensions to be installed. APCu, eAccelerator, Memecached and Xcache all require non-standard PHP extensions.
 
 ## What the Kohana Cache module does (and does not do)
 
@@ -43,8 +43,8 @@ Getting and setting values to cache is very simple when using the _Kohana Cache_
 
 Driver           | Storage      | Speed     | Tags     | Distributed | Automatic Garbage Collection | Notes
 ---------------- | ------------ | --------- | -------- | ----------- | ---------------------------- | -----------------------
-APC/APCu         | __Memory__   | Excellent | No       | No          | Yes | Widely available PHP opcode caching solution, improves php execution performance
-Wincache         | __Memory__   | Excellent | No       | No          | Yes | Windows variant of APC
+APCu             | __Memory__   | Excellent | No       | No          | Yes | Widely available PHP opcode caching solution, improves php execution performance
+Wincache         | __Memory__   | Excellent | No       | No          | Yes | Windows variant of APCu
 File             | __Disk__     | Poor      | No       | No          | No  | Marginally faster than execution
 Memcache (tag)   | __Memory__   | Good      | No (yes) | Yes         | Yes | Generally fast distributed solution, but has a speed hit due to variable network latency and serialization
 Sqlite           | __Disk__     | Poor      | Yes      | No          | No  | Marginally faster than execution

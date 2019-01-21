@@ -35,10 +35,6 @@ return array
 		),
 		'instant_death'      => TRUE,
 	),
-	'apc'      => array(
-		'driver'             => 'apc',
-		'default_expire'     => 3600,
-	),
 	'wincache' => array(
 		'driver'             => 'wincache',
 		'default_expire'     => 3600,
