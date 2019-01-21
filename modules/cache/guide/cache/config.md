@@ -82,14 +82,6 @@ failure_callback | __NO__   | (_[callback](http://www.php.net/manual/en/language
 			),
 		),
 	),
-
-## APC settings
-
-	'apc'      => array
-	(
-		'driver'             => 'apc',
-		'default_expire'     => 3600,
-	),
 	
 ## APCu settings
 
@@ -164,7 +156,7 @@ The following example demonstrates how to add a new configuration setting, using
 		// Override the default configuration
 		'fastkv'   => array
 		(
-			'driver'         => 'apc',  // Use Memcached as the default driver
+			'driver'         => 'apcu',  // Use Memcached as the default driver
 			'default_expire' => 1000,   // Overide default expiry
 		)
 	);
