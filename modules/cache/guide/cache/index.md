@@ -9,7 +9,6 @@ instances of cache engines through a grouped singleton pattern.
  *  APCu ([Cache_Apcu])
  *  File ([Cache_File])
  *  Memcached ([Cache_Memcache])
- *  Memcached-tags ([Cache_Memcachetag])
  *  SQLite ([Cache_Sqlite])
  *  Wincache
 
@@ -46,7 +45,7 @@ Driver           | Storage      | Speed     | Tags     | Distributed | Automatic
 APCu             | __Memory__   | Excellent | No       | No          | Yes | Widely available PHP opcode caching solution, improves php execution performance
 Wincache         | __Memory__   | Excellent | No       | No          | Yes | Windows variant of APCu
 File             | __Disk__     | Poor      | No       | No          | No  | Marginally faster than execution
-Memcache (tag)   | __Memory__   | Good      | No (yes) | Yes         | Yes | Generally fast distributed solution, but has a speed hit due to variable network latency and serialization
+Memcache         | __Memory__   | Good      | No       | Yes         | Yes | Generally fast distributed solution, but has a speed hit due to variable network latency and serialization
 Sqlite           | __Disk__     | Poor      | Yes      | No          | No  | Marginally faster than execution
 
 It is possible to have hybrid cache solutions that use a combination of the engines above in different contexts. This is supported with _Kohana Cache_ as well

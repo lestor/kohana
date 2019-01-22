@@ -10,7 +10,6 @@
  * *  [eAccelerator](http://eaccelerator.net/)
  * *  File
  * *  [Memcache](http://memcached.org/)
- * *  [Memcached-tags](http://code.google.com/p/memcached-tags/)
  * *  [SQLite](http://www.sqlite.org/)
  * *  [Xcache](http://xcache.lighttpd.net/)
  *

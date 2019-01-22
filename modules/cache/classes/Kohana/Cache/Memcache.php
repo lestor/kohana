@@ -5,7 +5,6 @@
  * ### Supported cache engines
  *
  * *  [Memcache](http://www.php.net/manual/en/book.memcache.php)
- * *  [Memcached-tags](http://code.google.com/p/memcached-tags/)
  *
  * ### Configuration example
  *
@@ -70,7 +69,7 @@
  *
  * *  Kohana 3.0.x
  * *  PHP 5.2.4 or greater
- * *  Memcache (plus Memcached-tags for native tagging support)
+ * *  Memcache
  * *  Zlib
  *
  * @package    Kohana/Cache

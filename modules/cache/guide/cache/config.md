@@ -29,7 +29,7 @@ default_expire | __NO__   | (_string_) The driver type to use
 		'default_expire'     => 3600,
 	),
 
-## Memcache & Memcached-tag settings
+## Memcache settings
 
 Name           | Required | Description
 -------------- | -------- | ---------------------------------------------------------------
@@ -53,22 +53,6 @@ failure_callback | __NO__   | (_[callback](http://www.php.net/manual/en/language
 	'memcache' => array
 	(
 		'driver'             => 'memcache',
-		'default_expire'     => 3600,
-		'compression'        => FALSE,              // Use Zlib compression 
-		                                            // (can cause issues with integers)
-		'servers'            => array
-		(
-			'local' => array
-			(
-				'host'             => 'localhost',  // Memcache Server
-				'port'             => 11211,        // Memcache port number
-				'persistent'       => FALSE,        // Persistent connection
-			),
-		),
-	),
-	'memcachetag' => array
-	(
-		'driver'             => 'memcachetag',
 		'default_expire'     => 3600,
 		'compression'        => FALSE,              // Use Zlib compression 
 		                                            // (can cause issues with integers)
