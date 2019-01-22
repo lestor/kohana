@@ -9,7 +9,6 @@
  * *  [APCu](http://php.net/manual/en/book.apcu.php)
  * *  [eAccelerator](http://eaccelerator.net/)
  * *  File
- * *  [Memcache](http://memcached.org/)
  * *  [SQLite](http://www.sqlite.org/)
  * *  [Xcache](http://xcache.lighttpd.net/)
  *
@@ -17,7 +16,7 @@
  *
  * Caching should be implemented with consideration. Generally, caching the result of resources
  * is faster than reprocessing them. Choosing what, how and when to cache is vital. PHP APCu is
- * presently one of the fastest caching systems available, closely followed by Memcache. SQLite
+ * presently one of the fastest caching systems available. SQLite
  * and File caching are two of the slowest cache methods, however usually faster than reprocessing
  * a complex set of instructions.
  *
@@ -32,26 +31,19 @@
  *
  * #### Configuration example
  *
- * Below is an example of a _memcache_ server configuration.
+ * Below is an example of a APCu configuration.
  *
  *     return array(
- *          'memcache' => array(                           // Name of group
- *                  'driver'         => 'memcache',        // using Memcache driver
- *                  'servers'        => array(             // Available server definitions
- *                         array(
- *                              'host'       => 'localhost',
- *                              'port'       => 11211,
- *                              'persistent' => FALSE
- *                         )
- *                  ),
- *                  'compression'    => FALSE,             // Use compression?
+ *          'apcu' => array(                    // Name of group
+ *                  'driver'         => 'apcu', // using APCu driver
+ *                  'default_expire' => 1000,   // Overide default expiry
  *           ),
  *     )
  *
  * In cases where only one cache group is required, set `Cache::$default` (in your bootstrap,
  * or by extending `Kohana_Cache` class) to the name of the group, and use:
  *
- *     $cache = Cache::instance(); // instead of Cache::instance('memcache')
+ *     $cache = Cache::instance(); // instead of Cache::instance('apcu')
  *
  * It will return the cache instance of the group it has been set in `Cache::$default`.
  *
@@ -164,7 +156,7 @@ abstract class Kohana_Cache {
 	 * to this class.
 	 *
 	 *     // Overwrite all configuration
-	 *     $cache->config(array('driver' => 'memcache', '...'));
+	 *     $cache->config(array('driver' => 'apcu', '...'));
 	 *
 	 *     // Set a new configuration setting
 	 *     $cache->config('servers', array(
@@ -219,8 +211,8 @@ abstract class Kohana_Cache {
 	 *     // Retrieve cache entry from default group and return 'bar' if miss
 	 *     $data = Cache::instance()->get('foo', 'bar');
 	 *
-	 *     // Retrieve cache entry from memcache group
-	 *     $data = Cache::instance('memcache')->get('foo');
+	 *     // Retrieve cache entry from apcu group
+	 *     $data = Cache::instance('apcu')->get('foo');
 	 *
 	 * @param   string  $id       id of cache to entry
 	 * @param   string  $default  default value to return if cache miss
@@ -240,8 +232,8 @@ abstract class Kohana_Cache {
 	 *     // Set 'bar' to 'foo' in default group for 30 seconds
 	 *     Cache::instance()->set('foo', $data, 30);
 	 *
-	 *     // Set 'bar' to 'foo' in memcache group for 10 minutes
-	 *     if (Cache::instance('memcache')->set('foo', $data, 600))
+	 *     // Set 'bar' to 'foo' in apcu group for 10 minutes
+	 *     if (Cache::instance('apcu')->set('foo', $data, 600))
 	 *     {
 	 *          // Cache was set successfully
 	 *          return
@@ -260,8 +252,8 @@ abstract class Kohana_Cache {
 	 *     // Delete 'foo' entry from the default group
 	 *     Cache::instance()->delete('foo');
 	 *
-	 *     // Delete 'foo' entry from the memcache group
-	 *     Cache::instance('memcache')->delete('foo')
+	 *     // Delete 'foo' entry from the apcu group
+	 *     Cache::instance('apcu')->delete('foo')
 	 *
 	 * @param   string  $id  id to remove from cache
 	 * @return  boolean
@@ -278,8 +270,8 @@ abstract class Kohana_Cache {
 	 *     // Delete all cache entries in the default group
 	 *     Cache::instance()->delete_all();
 	 *
-	 *     // Delete all cache entries in the memcache group
-	 *     Cache::instance('memcache')->delete_all();
+	 *     // Delete all cache entries in the apcu group
+	 *     Cache::instance('apcu')->delete_all();
 	 *
 	 * @return  boolean
 	 */

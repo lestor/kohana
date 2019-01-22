@@ -13,23 +13,23 @@ The default group will use whatever is set to [Cache::$default] and must have a 
 
 To create a cache instance using a group other than the _default_, simply provide the group name as an argument.
 
-     // Create a new instance of the memcache group
-     $memcache = Cache::instance('memcache');
+     // Create a new instance of the apcu group
+     $cache = Cache::instance('apcu');
 
 If there is a cache instance already instantiated then you can get it directly from the class member.
 
  [!!] Beware that this can cause issues if you do not test for the instance before trying to access it.
 
      // Check for the existance of the cache driver
-     if (isset(Cache::$instances['memcache']))
+     if (isset(Cache::$instances['apcu']))
      {
           // Get the existing cache instance directly (faster)
-          $memcache = Cache::$instances['memcache'];
+          $cache = Cache::$instances['apcu'];
      }
      else
      {
           // Get the cache driver instance (slower)
-          $memcache = Cache::instance('memcache');
+          $cache = Cache::instance('apcu');
      }
 
 ## Setting and getting variables to and from cache
@@ -56,8 +56,8 @@ The first example demonstrates how to quickly load and set a value to the defaul
 If multiple cache operations are required, it is best to assign an instance of Cache to a variable and use that as below.
 
      // Set the object using a defined group for a defined time period (30 seconds)
-     $memcache = Cache::instance('memcache');
-     $memcache->set('foo', $object, 30);
+     $cache = Cache::instance('apcu');
+     $cache->set('foo', $object, 30);
 
 #### Setting a value with tags
 
