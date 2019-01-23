@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package    Kohana/Cache/Memcache
+ * @package    Kohana/Cache
  * @group      kohana
  * @group      kohana.cache
  * @category   Test

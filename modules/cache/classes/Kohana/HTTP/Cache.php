@@ -24,13 +24,13 @@ class Kohana_HTTP_Cache {
 	 * injector for the Cache library.
 	 * 
 	 *      // Create HTTP_Cache with named cache engine
-	 *      $http_cache = HTTP_Cache::factory('memcache', array(
+	 *      $http_cache = HTTP_Cache::factory('apcu', array(
 	 *          'allow_private_cache' => FALSE
 	 *          )
 	 *      );
 	 * 
 	 *      // Create HTTP_Cache with supplied cache engine
-	 *      $http_cache = HTTP_Cache::factory(Cache::instance('memcache'),
+	 *      $http_cache = HTTP_Cache::factory(Cache::instance('apcu'),
 	 *          array(
 	 *              'allow_private_cache' => FALSE
 	 *          )
