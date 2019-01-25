@@ -74,44 +74,8 @@ class Kohana_FeedTest extends Unittest_TestCase
 		return array(
 			// $source, $expected
 			array($info, array('foo' => array('foo' => 'bar', 'pubDate' => 123, 'link' => 'foo')), array('_SERVER' => array('HTTP_HOST' => 'localhost')+$_SERVER),
-				array(
-					'tag' => 'channel',
-					'descendant' => array(
-						'tag' => 'item',
-						'child' => array(
-							'tag' => 'foo',
-							'content' => 'bar'
-						)
-					)
-				),
-				array(
-					$this->matcher_composer($info, 'image', 'link'),
-					$this->matcher_composer($info, 'image', 'url'),
-					$this->matcher_composer($info, 'image', 'title')
-				)
+				file_get_contents(realpath(__DIR__.'/../test_data/feeds/test.rss')),
 			),
-		);
-	}
-
-	/**
-	 * Helper for handy matcher composing
-	 *
-	 * @param array $data
-	 * @param string $tag
-	 * @param string $child
-	 * @return array
-	 */
-	private function matcher_composer($data, $tag, $child)
-	{
-		return array(
-			'tag' => 'channel',
-			'descendant' => array(
-				'tag' => $tag,
-				'child' => array(
-					'tag' => $child,
-					'content' => $data[$tag][$child]
-				)
-			)
 		);
 	}
 
@@ -122,19 +86,18 @@ class Kohana_FeedTest extends Unittest_TestCase
 	 *
 	 * @covers feed::create
 	 *
-	 * @param string  $info     info to pass
-	 * @param integer $items    items to add
-	 * @param integer $matcher  output
+	 * @param array $info  Info to pass
+	 * @param array $items  Items to add
+	 * @param array $environment  Server environment
+	 * @param text $expected  Output for Feed::create
+	 * @throws Kohana_Exception
 	 */
-	public function test_create($info, $items, $enviroment, $matcher_item, $matchers_image)
+	public function test_create($info, $items, $environment, $expected)
 	{
-		$this->setEnvironment($enviroment);
+		$this->setEnvironment($environment);
 
-		$this->assertTag($matcher_item, Feed::create($info, $items), '', FALSE);
+		$expected = str_replace("\r\n","\n", $expected);
 
-		foreach ($matchers_image as $matcher_image)
-		{
-			$this->assertTag($matcher_image, Feed::create($info, $items), '', FALSE);
-		}
+		$this->assertSame($expected, Feed::create($info, $items));
 	}
 }
