@@ -109,7 +109,7 @@ class Kohana_Encrypt {
 	 * @param   string  $cipher   Encryption cipher
 	 * @throws Kohana_Exception
 	 */
-	public function __construct($key, $cipher = NULL)
+	public function __construct($key, $cipher)
 	{
 		if ( ! extension_loaded('sodium'))
 		{
