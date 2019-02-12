@@ -124,9 +124,11 @@ class Kohana_Encrypt {
 			}
 		}
 
+		// Store the key and cipher
 		$this->_key = $key;
 		$this->_cipher = $cipher;
 
+		// Store the IV size
 		$this->_iv_size = constant('SODIUM_CRYPTO_AEAD_'.strtoupper($this->_cipher).'_NPUBBYTES');
 	}
 
@@ -148,12 +150,14 @@ class Kohana_Encrypt {
 		// Get an initialization vector
 		$iv = random_bytes($this->_iv_size);
 
+		// Encrypt the data using the configured options and generated IV
 		$ciphertext = call_user_func(
 		 	'sodium_crypto_aead_'.$this->_cipher.'_encrypt', $data, '', $iv, $this->_key
 		);
 
 		$encrypted = $iv.$ciphertext;
 
+		// Use base64 encoding to convert to a string
 		return base64_encode($encrypted);
 	}
 
@@ -186,6 +190,7 @@ class Kohana_Encrypt {
 
 		$ciphertext = mb_substr($data, $this->_iv_size, NULL, '8bit');
 
+		// Return the decrypted data
 		$decrypted = call_user_func(
 			'sodium_crypto_aead_'.$this->_cipher.'_decrypt', $ciphertext, '', $iv, $this->_key
 		);
