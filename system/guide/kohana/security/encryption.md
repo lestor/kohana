@@ -1,12 +1,12 @@
 # Encryption
 
-Kohana supports built-in encryption and decryption via the [Encrypt] class, which is a convenient wrapper for the [Mcrypt library](http://www.php.net/mcrypt).
+Kohana supports built-in encryption and decryption via the [Sodium] class, which is a convenient wrapper for the [Sodium library](http://www.php.net/sodium).
 
-To use the class, first start by ensuring you have the Mcrypt extension loaded to your PHP config. See the [Mcrypt Installation page](http://www.php.net/manual/en/mcrypt.installation.php) on php.net. The Mcrypt extension requires [libmcrypt](http://sourceforge.net/projects/mcrypt/files/).
+To use the class, first start by ensuring you have the Sodium extension loaded to your PHP config. See the [Sodium Installation page](http://www.php.net/manual/en/sodium.setup.php) on php.net. The Sodium extension requires [libsodium](https://download.libsodium.org/doc/).
 
-Next, copy the default config/encryption.php from system/config folder to your application/config folder.
+Next, copy the default config/encrypt.php from system/config folder to your application/config folder.
 
-The default Encryption config file that ships with Kohana 3.2.x looks like this:
+The default Encryption config file that ships with Kohana 3.3.x looks like this:
 
     <?php
 
@@ -16,12 +16,11 @@ The default Encryption config file that ships with Kohana 3.2.x looks like this:
             /**
             * The following options must be set:
             *
-            * string   key     secret passphrase
-            * integer  mode    encryption mode, one of MCRYPT_MODE_*
-            * integer  cipher  encryption cipher, one of the Mcrpyt cipher constants
+            * string   key       The secret key (must be 32 chars long!)
+            * integer  cipher    The encryption cipher, one of the Sodium cipher constants
             */
-            'cipher' => MCRYPT_RIJNDAEL_128,
-            'mode'   => MCRYPT_MODE_NOFB,
+            'key' => NULL,
+            'cipher' => Encrypt::CIPHER_XCHACHA20_POLY1305_IETF,
         ),
 
     );
@@ -33,8 +32,8 @@ In this respect, the config file is similar to having multiple databases defined
 Second, notice there is no key provided. You need to add that.
 It is strongly recommended that you choose a high-strength random key using the [pwgen linux program](http://linux.die.net/man/1/pwgen)...
 
-    shell> pwgen 63 1
-    trwQwVXX96TIJoKxyBHB9AJkwAOHixuV1ENZmIWyanI0j1zNgSVvqywy044Agaj
+    shell> pwgen 32 1
+    Leir9tighahg6awiaghaiV8Chee7waes
 
 ...or by going to [GRC.com/passwords.htm](https://www.grc.com/passwords.htm).
 
@@ -48,27 +47,24 @@ Here's a sample encryption configuration with three types of encryption defined.
     return array(
 
         'default' => array(
-            'key'    => 'trwQwVXX96TIJoKxyBHB9AJkwAOHixuV1ENZmIWyanI0j1zNgSVvqywy044Agaj',
-            'cipher' => MCRYPT_RIJNDAEL_128,
-            'mode'   => MCRYPT_MODE_NOFB,
+            'key'    => 'shiekahta5cohNgeineivu3Eif1yeeg3',
+            'cipher' => Encrypt::CIPHER_XCHACHA20_POLY1305_IETF,
         ),
         'blowfish' => array(
-            'key'    => '7bZJJkmNrelj5NaKoY6h6rMSRSmeUlJuTeOd5HHka5XknyMX4uGSfeVolTz4IYy',
-            'cipher' => MCRYPT_BLOWFISH,
-            'mode'   => MCRYPT_MODE_ECB,
+            'key'    => 'Oj4geegheiweiyieYahliewei5vooho3',
+            'cipher' => Encrypt::CIPHER_AES256_GCM,
         ),
         'tripledes' => array(
-            'key'    => 'a9hcSLRvA3LkFc7EJgxXIKQuz1ec91J7P6WNq1IaxMZp4CTj5m31gZLARLxI1jD',
-            'cipher' => MCRYPT_3DES,
-            'mode'   => MCRYPT_MODE_CBC,
+            'key'    => 'Ohk7Aaca8shush8theeg2Ie2eeGhaaki',
+            'cipher' => Encrypt::CIPHER_CHACHA20_POLY1305,
         ),
     );
 
 You can view the available encryption ciphers and modes on your system by running...
 
-    shell> php -r "print_r(get_defined_constants());" | grep MCRYPT
+    shell> php -r "print_r(get_defined_constants());" | grep SODIUM
 
-For more information on Mcrypt ciphers, visit [php.net/mcrypt.ciphers](http://us3.php.net/manual/en/mcrypt.ciphers.php).
+For more information on Sodium ciphers, visit [this page](https://libsodium.gitbook.io/doc/secret-key_cryptography/aead).
 
 ## Basic Usage
 
@@ -86,7 +82,7 @@ Next, encode some data using the *encode* method:
 
     $encrypt = Encrypt::instance('tripledes');
     $encrypted_data = $encrypt->encode('Data to Encode');
-    // $encrypted_data now contains pCD5Z6oVdb9hbLxxV+FgGrhwVzZuhQoH
+    // $encrypted_data now contains 0N7i64BgUI2gqX29bU41Jm+BTWOsZG6H8zNQl0DOq6bh3NO4zk0=
 
 [!!] Raw encrypted strings usually won't print in a browser, and may not store properly in a VARCHAR or TEXT field. For this reason, Kohana's Encrypt class automatically calls base64_encode on encode, and base64_decode on decode, to prevent this problem.
 

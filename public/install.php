@@ -196,11 +196,11 @@ else
 			<?php endif ?>
 		</tr>
 		<tr>
-			<th>mcrypt Enabled</th>
-			<?php if (extension_loaded('mcrypt')): ?>
+			<th>Sodium Enabled</th>
+			<?php if (extension_loaded('sodium')): ?>
 				<td class="pass">Pass</td>
 			<?php else: ?>
-				<td class="fail">Kohana requires <a href="http://php.net/mcrypt">mcrypt</a> for the Encrypt class.</td>
+				<td class="fail">Kohana requires <a href="http://php.net/sodium">Sodium</a> for the Encrypt class.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
