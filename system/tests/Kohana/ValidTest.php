@@ -467,17 +467,10 @@ class Kohana_ValidTest extends Unittest_TestCase
 			$this->markTestSkipped('An internet connection is required for this test');
 		}
 
-		if ( ! Kohana::$is_windows OR version_compare(PHP_VERSION, '5.3.0', '>='))
-		{
-			$this->assertSame(
-				$correct,
-				Valid::email_domain($email)
-			);
-		}
-		else
-		{
-			$this->markTestSkipped('checkdnsrr() was not added on windows until PHP 5.3');
-		}
+		$this->assertSame(
+			$correct,
+			Valid::email_domain($email)
+		);
 	}
 
 	/**
@@ -569,8 +562,7 @@ class Kohana_ValidTest extends Unittest_TestCase
 	{
 		return array(
 			array('75.125.175.50',   FALSE, TRUE),
-			// PHP 5.3.6 fixed a bug that allowed 127.0.0.1 as a public ip: http://bugs.php.net/53150
-			array('127.0.0.1',       FALSE, version_compare(PHP_VERSION, '5.3.6', '<')),
+			array('127.0.0.1',       FALSE, FALSE),
 			array('256.257.258.259', FALSE, FALSE),
 			array('255.255.255.255', FALSE, FALSE),
 			array('192.168.0.1',     FALSE, FALSE),
