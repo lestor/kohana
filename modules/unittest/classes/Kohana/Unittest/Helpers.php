@@ -106,16 +106,13 @@ class Kohana_Unittest_Helpers {
 			// Handle changing superglobals
 			if (in_array($option, array('_GET', '_POST', '_SERVER', '_FILES')))
 			{
-				// For some reason we need to do this in order to change the superglobals
-				global $$option;
-
 				if ($backup_needed)
 				{
-					$this->_environment_backup[$option] = $$option;
+					$this->_environment_backup[$option] = $GLOBALS[$option];
 				}
 
 				// PHPUnit makes a backup of superglobals automatically
-				$$option = $value;
+				$GLOBALS[$option] = $value;
 			}
 			// If this is a static property i.e. Html::$windowed_urls
 			elseif (strpos($option, '::$') !== FALSE)
