@@ -3,6 +3,6 @@
 		"php": "^7.1",
 		"phpunit/phpunit": "^7.5",
 		"phpunit/phpcov": "^5.0",
-		"michelf/php-markdown": "^1.8"
+		"michelf/php-markdown": "^1.9"
 	}
 }
