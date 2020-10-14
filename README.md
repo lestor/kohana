@@ -9,3 +9,7 @@ This repository is a fork of the Kohana 3.3 branch with some changes and improve
 ## Note
 
 We do not recommend using this repository for new projects. Please do not use this repository if you are not sure what you are doing.
+
+## Documentation
+
+The `userguide` module included in all Kohana releases allows you to view the documentation locally. Once the `userguide` module is enabled in the bootstrap, it is accessible from your site via `/index.php/guide` (or just `/guide` if you are rewriting your URLs).
