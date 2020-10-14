@@ -13,3 +13,6 @@ We do not recommend using this repository for new projects. Please do not use th
 ## Documentation
 
 The `userguide` module included in all Kohana releases allows you to view the documentation locally. Once the `userguide` module is enabled in the bootstrap, it is accessible from your site via `/index.php/guide` (or just `/guide` if you are rewriting your URLs).
+
+## License
+Released under a BSD license, Kohana can be used legally for any open source, commercial, or personal project.
