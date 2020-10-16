@@ -1,6 +1,7 @@
 # Kohana PHP Framework
 
 [![Build Status](https://travis-ci.org/lestor/kohana.svg?branch=3.3/develop)](https://travis-ci.org/lestor/kohana)
+[![PHP Version](https://img.shields.io/badge/php->=7.1-8892BF.svg)](http://www.php.net/)
 
 Kohana is an elegant, open source, and object oriented HMVC framework built using PHP5, by a team of volunteers. It aims to be swift, secure, and small. The Kohana has been deprecated and is no longer supported by the core development team, but some projects still use it.
 
