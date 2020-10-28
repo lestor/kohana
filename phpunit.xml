@@ -14,6 +14,14 @@
         <log type="coverage-clover" target="build/logs/clover.xml"/>
     </logging>
 
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./application/classes</directory>
+            <directory suffix=".php">./modules/*/classes</directory>
+            <directory suffix=".php">./system/classes</directory>
+        </whitelist>
+    </filter>
+
     <testsuite name="default">
         <directory suffix="tests.php">modules/unittest/</directory>
     </testsuite>
