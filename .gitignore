@@ -9,6 +9,4 @@ composer.lock
 
 # PHPUnit
 phpunit.phar
-
-# Coverage
-/build
+/build/logs

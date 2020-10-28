@@ -10,6 +10,10 @@
         <ini name="memory_limit" value="-1" />
     </php>
 
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
+
     <testsuite name="default">
         <directory suffix="tests.php">modules/unittest/</directory>
     </testsuite>
