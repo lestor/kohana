@@ -300,7 +300,7 @@ TESTTEXT;
 	 * Tests [Cache::delete_all()] works as specified
 	 *
 	 * @return  void
-	 * @uses    Kohana_CacheBasicMethodsTest::provider_set_get()
+	 * @uses    Kohana_Cache_AbstractTest::provider_set_get()
 	 */
 	public function test_delete_all()
 	{
@@ -329,4 +329,4 @@ TESTTEXT;
 		}
 	}
 
-} // End Kohana_CacheBasicMethodsTest
+} // End Kohana_Cache_AbstractTest
