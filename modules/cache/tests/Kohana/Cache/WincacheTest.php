@@ -23,7 +23,7 @@ class Kohana_Cache_WincacheTest extends Kohana_Cache_AbstractTest {
      *
      * @return  void
      */
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
 

@@ -21,7 +21,7 @@ class Kohana_HTTPTest extends Unittest_TestCase {
 	 * Sets up the environment
 	 */
 	// @codingStandardsIgnoreStart
-	public function setUp()
+	public function setUp() : void
 	// @codingStandardsIgnoreEnd
 	{
 		parent::setUp();
@@ -34,7 +34,7 @@ class Kohana_HTTPTest extends Unittest_TestCase {
 	 * Tears down whatever is setUp
 	 */
 	// @codingStandardsIgnoreStart
-	public function tearDown()
+	public function tearDown() : void
 	// @codingStandardsIgnoreEnd
 	{
 		Request::$initial = $this->_initial_request;

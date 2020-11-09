@@ -24,7 +24,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	 * Sets up a new route to ensure that we have a matching route for our
 	 * Controller_RequestClientDummy class.
 	 */
-	public static function setUpBeforeClass()
+	public static function setUpBeforeClass() : void
 	{
 		// @codingStandardsIgnoreEnd
 		parent::setUpBeforeClass();
@@ -49,7 +49,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	/**
 	 * Resets the application's routes to their state prior to this test case
 	 */
-	public static function tearDownAfterClass()
+	public static function tearDownAfterClass() : void
 	{
 		// @codingStandardsIgnoreEnd
 		// Reset routes
@@ -62,7 +62,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	}
 
 	// @codingStandardsIgnoreStart - PHPUnit does not follow standards
-	public function setUp()
+	public function setUp() : void
 	{
 		// @codingStandardsIgnoreEnd
 		parent::setUp();
@@ -71,7 +71,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	}
 
 	// @codingStandardsIgnoreStart - PHPUnit does not follow standards
-	public function tearDown()
+	public function tearDown() : void
 	{
 		// @codingStandardsIgnoreEnd
 		Request::$initial = $this->_initial_request;

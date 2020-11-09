@@ -5,7 +5,7 @@
  */
 class Kohana_EncryptTest extends Unittest_TestCase
 {
-	public function setUp()
+	public function setUp() : void
 	{
 		parent::setUp();
 
