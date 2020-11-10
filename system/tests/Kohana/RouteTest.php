@@ -314,7 +314,7 @@ class Kohana_RouteTest extends Unittest_TestCase
 
 		$matches = $route->matches($request);
 
-		$this->assertInternalType('array', $matches);
+		$this->assertIsArray($matches);
 		$this->assertArrayHasKey('controller', $matches);
 		$this->assertArrayHasKey('action', $matches);
 		$this->assertArrayNotHasKey('id', $matches);
@@ -383,7 +383,7 @@ class Kohana_RouteTest extends Unittest_TestCase
 
 		$matches = $route->matches($request);
 
-		$this->assertInternalType('array', $matches);
+		$this->assertIsArray($matches);
 		$this->assertArrayHasKey('controller', $matches);
 		$this->assertArrayHasKey('action', $matches);
 		$this->assertArrayNotHasKey('id', $matches);
@@ -554,14 +554,14 @@ class Kohana_RouteTest extends Unittest_TestCase
 
 		$matches = $route->matches($request);
 
-		$this->assertInternalType('array', $matches);
+		$this->assertIsArray($matches);
 
 		// Mock a request class that will return route2 uri
 		$request = $this->get_request_mock($matches_route2);
 
 		$matches = $route->matches($request);
 
-		$this->assertInternalType('array', $matches);
+		$this->assertIsArray($matches);
 		// $this->assertSame(5, count($matches));
 		$this->assertArrayHasKey('controller', $matches);
 		$this->assertArrayHasKey('action', $matches);

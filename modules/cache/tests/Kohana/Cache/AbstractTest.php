@@ -262,7 +262,32 @@ TESTTEXT;
 
 		$result = $cache->get($id, $default);
 		$this->assertEquals($expected, $result);
-		$this->assertInternalType($type, $result);
+
+		switch ($type){
+			case 'array':
+				$this->assertIsArray($result);
+				break;
+			case 'boolean':
+				$this->assertIsBool($result);
+				break;
+			case 'float':
+				$this->assertIsFloat($result);
+				break;
+			case 'integer':
+				$this->assertIsInt($result);
+				break;
+			case 'object':
+				$this->assertIsObject($result);
+				break;
+			case 'string':
+				$this->assertIsString($result);
+				break;
+			case 'null':
+				$this->assertNull($result);
+				break;
+			default:
+				$this->fail('Unknown type');
+		}
 
 		unset($id, $value, $ttl, $wait, $type, $default);
 	}
