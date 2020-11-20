@@ -86,7 +86,6 @@ class Kohana_CacheTest extends Unittest_TestCase {
 	 * Tests that `clone($cache)` will be prevented to maintain singleton
 	 *
 	 * @return  void
-	 * @expectedException Cache_Exception
 	 */
 	public function test_cloning_fails()
 	{
@@ -94,6 +93,8 @@ class Kohana_CacheTest extends Unittest_TestCase {
 			->getMockBuilder('Cache')
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
+
+		$this->expectException('Cache_Exception');
 
 		try
 		{

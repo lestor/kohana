@@ -253,13 +253,14 @@ class Kohana_CoreTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_modules_detects_invalid_modules
-	 * @expectedException Kohana_Exception
 	 * @param boolean $source   Input for Kohana::modules
 	 *
 	 */
 	public function test_modules_detects_invalid_modules($source)
 	{
 		$modules = Kohana::modules();
+
+		$this->expectException('Kohana_Exception');
 
 		try
 		{
