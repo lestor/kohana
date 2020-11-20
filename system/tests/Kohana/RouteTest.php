@@ -270,11 +270,10 @@ class Kohana_RouteTest extends Unittest_TestCase
 
 		$this->assertSame($regex, $route_reflection_property->getValue($route));
 
-		$this->assertAttributeContains(
-			$regex['id'],
-			'_route_regex',
-			$route
-		);
+		$route_reflection_property = new ReflectionProperty($route, '_route_regex');
+		$route_reflection_property->setAccessible(TRUE);
+
+		$this->assertStringContainsString($regex['id'], $route_reflection_property->getValue($route));
 	}
 
 	/**

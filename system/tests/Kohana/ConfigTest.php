@@ -42,6 +42,7 @@ class Kohana_ConfigTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Config::attach
+	 * @throws ReflectionException
 	 */
 	public function test_attach_adds_reader_and_returns_this()
 	{
@@ -50,7 +51,10 @@ class Kohana_ConfigTest extends Unittest_TestCase
 
 		$this->assertSame($config, $config->attach($reader));
 
-		$this->assertAttributeContains($reader, '_sources', $config);
+		$config_reflection_property = new ReflectionProperty($config, '_sources');
+		$config_reflection_property->setAccessible(TRUE);
+
+		$this->assertContains($reader, $config_reflection_property->getValue($config));
 	}
 
 	/**
@@ -118,6 +122,7 @@ class Kohana_ConfigTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Config::detach
+	 * @throws ReflectionException
 	 */
 	public function test_detach_removes_reader_and_returns_this()
 	{
@@ -140,7 +145,11 @@ class Kohana_ConfigTest extends Unittest_TestCase
 		$this->assertSame($config, $config->detach($reader1));
 
 		$this->assertAttributeNotContains($reader1, '_sources', $config);
-		$this->assertAttributeContains($reader2, '_sources', $config);
+
+		$config_reflection_property = new ReflectionProperty($config, '_sources');
+		$config_reflection_property->setAccessible(TRUE);
+
+		$this->assertContains($reader2, $config_reflection_property->getValue($config));
 
 		$this->assertSame($config, $config->detach($reader2));
 
