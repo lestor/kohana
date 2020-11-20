@@ -294,7 +294,10 @@ class Kohana_SessionTest extends Unittest_TestCase
 
 		$data_copy['pie'] = 'awesome';
 
-		$this->assertAttributeNotSame($data_copy, '_data', $session);
+		$session_reflection_property = new ReflectionProperty($session, '_data');
+		$session_reflection_property->setAccessible(TRUE);
+
+		$this->assertNotSame($data_copy, $session_reflection_property->getValue($session));
 	}
 
 	/**
