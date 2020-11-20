@@ -66,10 +66,16 @@ class Kohana_RouteTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Route::all
+	 * @throws ReflectionException
 	 */
 	public function test_all_returns_all_defined_routes()
 	{
-		$defined_routes = self::readAttribute('Route', '_routes');
+		$route = new Route;
+
+		$route_reflection_property = new ReflectionProperty($route, '_routes');
+		$route_reflection_property->setAccessible(TRUE);
+
+		$defined_routes = $route_reflection_property->getValue($route);
 
 		$this->assertSame($defined_routes, Route::all());
 	}
