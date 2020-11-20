@@ -353,11 +353,11 @@ class Kohana_URLTest extends Unittest_TestCase
 	 * Tests if invalid host throws "Invalid host" exception
 	 *
 	 * @test
-	 * @expectedExceptionMessage Invalid host <invalid>
 	 */
 	public function test_if_invalid_host_throws_exception()
 	{
 		$this->expectException('Kohana_Exception');
+		$this->expectExceptionMessage('Invalid host <invalid>');
 
 		// set the global HTTP_HOST to <invalid>
 		$_SERVER['HTTP_HOST'] = '<invalid>';
@@ -369,11 +369,11 @@ class Kohana_URLTest extends Unittest_TestCase
 	 * Tests if untrusted host throws "Untrusted host" exception
 	 *
 	 * @test
-	 * @expectedExceptionMessage Untrusted host untrusted.com
 	 */
 	public function test_if_untrusted_host_throws_exception()
 	{
 		$this->expectException('Kohana_Exception');
+		$this->expectExceptionMessage('Untrusted host untrusted.com');
 
 		// set the global HTTP_HOST to a valid but untrusted host
 		$_SERVER['HTTP_HOST'] = 'untrusted.com';
