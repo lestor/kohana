@@ -144,7 +144,10 @@ class Kohana_ConfigTest extends Unittest_TestCase
 
 		$this->assertSame($config, $config->detach($reader1));
 
-		$this->assertAttributeNotContains($reader1, '_sources', $config);
+		$config_reflection_property = new ReflectionProperty($config, '_sources');
+		$config_reflection_property->setAccessible(TRUE);
+
+		$this->assertNotContains($reader1, $config_reflection_property->getValue($config));
 
 		$config_reflection_property = new ReflectionProperty($config, '_sources');
 		$config_reflection_property->setAccessible(TRUE);
@@ -153,7 +156,10 @@ class Kohana_ConfigTest extends Unittest_TestCase
 
 		$this->assertSame($config, $config->detach($reader2));
 
-		$this->assertAttributeNotContains($reader2, '_sources', $config);
+		$config_reflection_property = new ReflectionProperty($config, '_sources');
+		$config_reflection_property->setAccessible(TRUE);
+
+		$this->assertNotContains($reader2, $config_reflection_property->getValue($config));
 	}
 
 	/**
