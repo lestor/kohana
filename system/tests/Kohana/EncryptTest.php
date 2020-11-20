@@ -49,7 +49,7 @@ class Kohana_EncryptTest extends Unittest_TestCase
 		$encrypted_data = $encrypt->encode($data);
 
 		$this->assertNotEquals($data, $encrypted_data);
-		$this->assertNotContains(' ', $encrypted_data);
+		$this->assertStringNotContainsString(' ', $encrypted_data);
 	}
 
 	/**
@@ -83,7 +83,7 @@ class Kohana_EncryptTest extends Unittest_TestCase
 		$encrypt = new Encrypt($key, $cipher);
 
 		$this->assertNotEquals($data, $encrypted_data);
-		$this->assertNotContains(' ', $encrypted_data);
+		$this->assertStringNotContainsString(' ', $encrypted_data);
 
 		$decrypted_data = $encrypt->decode($encrypted_data);
 
@@ -155,7 +155,7 @@ class Kohana_EncryptTest extends Unittest_TestCase
 		$encrypted_data = $encrypt->encode($data);
 
 		$this->assertNotEquals($data, $encrypted_data);
-		$this->assertNotContains(' ', $encrypted_data);
+		$this->assertStringNotContainsString(' ', $encrypted_data);
 
 		$decrypted_data = $encrypt->decode($encrypted_data);
 

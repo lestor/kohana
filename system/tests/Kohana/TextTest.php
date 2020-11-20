@@ -718,7 +718,7 @@ class Kohana_TextTest extends Unittest_TestCase
 
 		if ($urls === FALSE)
 		{
-			$this->assertNotContains('http://', $linked_text);
+			$this->assertStringNotContainsString('http://', $linked_text);
 		}
 		elseif (count($urls))
 		{
