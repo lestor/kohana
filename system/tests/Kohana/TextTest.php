@@ -725,13 +725,13 @@ class Kohana_TextTest extends Unittest_TestCase
 			foreach ($urls as $url)
 			{
 				// Assert that all the urls have been caught by text auto_link_urls()
-				$this->assertContains(Text::auto_link_urls($url), $linked_text);
+				$this->assertStringContainsString(Text::auto_link_urls($url), $linked_text);
 			}
 		}
 
 		foreach ($emails as $email)
 		{
-			$this->assertContains('&#109;&#097;&#105;&#108;&#116;&#111;&#058;'.$email, $linked_text);
+			$this->assertStringContainsString('&#109;&#097;&#105;&#108;&#116;&#111;&#058;'.$email, $linked_text);
 		}
 
 	}
