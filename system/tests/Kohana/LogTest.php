@@ -23,12 +23,16 @@ class Kohana_LogTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Log
+	 * @throws ReflectionException
 	 */
 	public function test_messages_is_initially_empty()
 	{
 		$logger = new Log;
 
-		$this->assertAttributeSame(array(), '_messages', $logger);
+		$logger_reflection_property = new ReflectionProperty($logger, '_messages');
+		$logger_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array(), $logger_reflection_property->getValue($logger));
 	}
 
 	/**
@@ -37,12 +41,16 @@ class Kohana_LogTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Log
+	 * @throws ReflectionException
 	 */
 	public function test_writers_is_initially_empty()
 	{
 		$logger = new Log;
 
-		$this->assertAttributeSame(array(), '_writers', $logger);
+		$logger_reflection_property = new ReflectionProperty($logger, '_writers');
+		$logger_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array(), $logger_reflection_property->getValue($logger));
 	}
 
 	/**
@@ -52,6 +60,7 @@ class Kohana_LogTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Log::attach
+	 * @throws ReflectionException
 	 */
 	public function test_attach_attaches_log_writer_and_returns_this()
 	{
@@ -60,10 +69,12 @@ class Kohana_LogTest extends Unittest_TestCase
 
 		$this->assertSame($logger, $logger->attach($writer));
 
-		$this->assertAttributeSame(
+		$logger_reflection_property = new ReflectionProperty($logger, '_writers');
+		$logger_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(
 			array(spl_object_hash($writer) => array('object' => $writer, 'levels' => array())),
-			'_writers',
-			$logger
+			$logger_reflection_property->getValue($logger)
 		);
 	}
 
@@ -74,6 +85,7 @@ class Kohana_LogTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Log::attach
+     * @throws ReflectionException
 	 */
 	public function test_attach_attaches_log_writer_min_max_and_returns_this()
 	{
@@ -92,10 +104,12 @@ class Kohana_LogTest extends Unittest_TestCase
 				$levels = array(Log::CRITICAL, Log::ERROR, Log::WARNING, Log::NOTICE);
 		}
 
-		$this->assertAttributeSame(
+		$logger_reflection_property = new ReflectionProperty($logger, '_writers');
+		$logger_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(
 			array(spl_object_hash($writer) => array('object' => $writer, 'levels' => $levels)),
-			'_writers',
-			$logger
+			$logger_reflection_property->getValue($logger)
 		);
 	}
 
@@ -104,6 +118,7 @@ class Kohana_LogTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Log::detach
+	 * @throws ReflectionException
 	 */
 	public function test_detach_removes_log_writer_and_returns_this()
 	{
@@ -114,7 +129,10 @@ class Kohana_LogTest extends Unittest_TestCase
 
 		$this->assertSame($logger, $logger->detach($writer));
 
-		$this->assertAttributeSame(array(), '_writers', $logger);
+		$logger_reflection_property = new ReflectionProperty($logger, '_writers');
+		$logger_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array(), $logger_reflection_property->getValue($logger));
 	}
 
 

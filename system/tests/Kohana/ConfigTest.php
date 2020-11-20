@@ -24,12 +24,16 @@ class Kohana_ConfigTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Config
+	 * @throws ReflectionException
 	 */
 	public function test_initially_there_are_no_sources()
 	{
 		$config = new Config;
 
-		$this->assertAttributeSame(array(), '_sources', $config);
+		$config_reflection_property = new ReflectionProperty($config, '_sources');
+		$config_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array(), $config_reflection_property->getValue($config));
 	}
 
 	/**
@@ -55,6 +59,7 @@ class Kohana_ConfigTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Config::attach
+	 * @throws ReflectionException
 	 */
 	public function test_attach_adds_reader_to_front_of_queue()
 	{
@@ -68,7 +73,10 @@ class Kohana_ConfigTest extends Unittest_TestCase
 
 		// Rather than do two assertContains we'll do an assertSame to assert
 		// the order of the readers
-		$this->assertAttributeSame(array($reader2, $reader1), '_sources', $config);
+		$config_reflection_property = new ReflectionProperty($config, '_sources');
+		$config_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array($reader2, $reader1), $config_reflection_property->getValue($config));
 
 		// Now we test using the second parameter
 		$config = new Config;
@@ -76,7 +84,10 @@ class Kohana_ConfigTest extends Unittest_TestCase
 		$config->attach($reader1);
 		$config->attach($reader2, TRUE);
 
-		$this->assertAttributeSame(array($reader2, $reader1), '_sources', $config);
+		$config_reflection_property = new ReflectionProperty($config, '_sources');
+		$config_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array($reader2, $reader1), $config_reflection_property->getValue($config));
 	}
 
 	/**
@@ -85,6 +96,7 @@ class Kohana_ConfigTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Config::attach
+	 * @throws ReflectionException
 	 */
 	public function test_attach_can_add_reader_to_end_of_queue()
 	{
@@ -95,7 +107,10 @@ class Kohana_ConfigTest extends Unittest_TestCase
 		$config->attach($reader1);
 		$config->attach($reader2, FALSE);
 
-		$this->assertAttributeSame(array($reader1, $reader2), '_sources', $config);
+		$config_reflection_property = new ReflectionProperty($config, '_sources');
+		$config_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array($reader1, $reader2), $config_reflection_property->getValue($config));
 	}
 
 	/**
