@@ -246,7 +246,7 @@ class Kohana_EncryptTest extends Unittest_TestCase
 
 		$config_group = $instance_name ? : Encrypt::$default;
 
-		if ( ! array_key_exists($config_group, $config))
+		if ( ! isset($config[$config_group]))
 		{
 			$config[$config_group] = array();
 		}
