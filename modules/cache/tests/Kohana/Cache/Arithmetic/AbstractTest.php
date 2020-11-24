@@ -11,7 +11,7 @@
  */
 abstract class Kohana_Cache_Arithmetic_AbstractTest extends Kohana_Cache_AbstractTest {
 
-	public function tearDown()
+	public function tearDown() : void
 	{
 		parent::tearDown();
 

@@ -69,7 +69,7 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 
 		foreach ($out as $key => $value)
 		{
-			$this->assertInternalType('float', $value);
+			$this->assertIsFloat($value);
 		}
 
 		$this->assertSame($expected, $out);
@@ -408,7 +408,7 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 	{
 		$parsed = HTTP_Header::parse_cache_control($input);
 
-		$this->assertInternalType('array', $parsed);
+		$this->assertIsArray($parsed);
 
 		foreach ($expected as $key => $value)
 		{

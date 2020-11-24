@@ -5,7 +5,7 @@
  */
 class Kohana_EncryptTest extends Unittest_TestCase
 {
-	public function setUp()
+	public function setUp() : void
 	{
 		parent::setUp();
 
@@ -49,7 +49,7 @@ class Kohana_EncryptTest extends Unittest_TestCase
 		$encrypted_data = $encrypt->encode($data);
 
 		$this->assertNotEquals($data, $encrypted_data);
-		$this->assertNotContains(' ', $encrypted_data);
+		$this->assertStringNotContainsString(' ', $encrypted_data);
 	}
 
 	/**
@@ -83,7 +83,7 @@ class Kohana_EncryptTest extends Unittest_TestCase
 		$encrypt = new Encrypt($key, $cipher);
 
 		$this->assertNotEquals($data, $encrypted_data);
-		$this->assertNotContains(' ', $encrypted_data);
+		$this->assertStringNotContainsString(' ', $encrypted_data);
 
 		$decrypted_data = $encrypt->decode($encrypted_data);
 
@@ -155,7 +155,7 @@ class Kohana_EncryptTest extends Unittest_TestCase
 		$encrypted_data = $encrypt->encode($data);
 
 		$this->assertNotEquals($data, $encrypted_data);
-		$this->assertNotContains(' ', $encrypted_data);
+		$this->assertStringNotContainsString(' ', $encrypted_data);
 
 		$decrypted_data = $encrypt->decode($encrypted_data);
 
@@ -246,7 +246,7 @@ class Kohana_EncryptTest extends Unittest_TestCase
 
 		$config_group = $instance_name ? : Encrypt::$default;
 
-		if ( ! array_key_exists($config_group, $config))
+		if ( ! isset($config[$config_group]))
 		{
 			$config[$config_group] = array();
 		}

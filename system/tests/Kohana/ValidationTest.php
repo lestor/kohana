@@ -49,6 +49,7 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Validation::copy
+	 * @throws ReflectionException
 	 */
 	public function test_copy_copies_all_attributes_except_data()
 	{
@@ -66,11 +67,10 @@ class Kohana_ValidationTest extends Unittest_TestCase
 		{
 			// This is just an easy way to check that the attributes are identical
 			// Without hardcoding the expected values
-			$this->assertAttributeSame(
-				self::readAttribute($validation, $attribute),
-				$attribute,
-				$copy
-			);
+			$validation_reflection_property = new ReflectionProperty($validation, $attribute);
+			$validation_reflection_property->setAccessible(TRUE);
+
+			$this->assertSame($validation_reflection_property->getValue($validation), $validation_reflection_property->getValue($copy));
 		}
 
 		$this->assertSame($copy_data, $copy->data());
@@ -81,12 +81,16 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	 * specified
 	 *
 	 * @test
+	 * @throws ReflectionException
 	 */
 	public function test_initially_there_are_no_labels()
 	{
 		$validation = new Validation(array());
 
-		$this->assertAttributeSame(array(), '_labels', $validation);
+		$validation_reflection_property = new ReflectionProperty($validation, '_labels');
+		$validation_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array(), $validation_reflection_property->getValue($validation));
 	}
 
 	/**
@@ -97,6 +101,7 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Validation::label
+	 * @throws ReflectionException
 	 */
 	public function test_label_adds_and_overwrites_label_and_returns_this()
 	{
@@ -104,17 +109,20 @@ class Kohana_ValidationTest extends Unittest_TestCase
 
 		$this->assertSame($validation, $validation->label('email', 'Email Address'));
 
-		$this->assertAttributeSame(array('email' => 'Email Address'), '_labels', $validation);
+		$validation_reflection_property = new ReflectionProperty($validation, '_labels');
+		$validation_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array('email' => 'Email Address'), $validation_reflection_property->getValue($validation));
 
 		$this->assertSame($validation, $validation->label('email', 'Your Email'));
 
 		$validation->label('name', 'Your Name');
 
-		$this->assertAttributeSame(
-			array('email' => 'Your Email', 'name' => 'Your Name'),
-			'_labels',
-			$validation
-		);
+		$validation_reflection_property = new ReflectionProperty($validation, '_labels');
+		$validation_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array('email' => 'Your Email', 'name' => 'Your Name'),
+			$validation_reflection_property->getValue($validation));
 	}
 
 	/**
@@ -124,6 +132,7 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Validation::labels
+	 * @throws ReflectionException
 	 */
 	public function test_labels_adds_and_overwrites_multiple_labels_and_returns_this()
 	{
@@ -132,14 +141,18 @@ class Kohana_ValidationTest extends Unittest_TestCase
 
 		$this->assertSame($validation, $validation->labels($initial_data));
 
-		$this->assertAttributeSame($initial_data, '_labels', $validation);
+		$validation_reflection_property = new ReflectionProperty($validation, '_labels');
+		$validation_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame($initial_data, $validation_reflection_property->getValue($validation));
 
 		$this->assertSame($validation, $validation->labels(array('fast' => 'lightning')));
 
-		$this->assertAttributeSame(
-			array('fast' => 'lightning', 'kung fu' => 'fighting'),
-			'_labels',
-			$validation
+		$validation_reflection_property = new ReflectionProperty($validation, '_labels');
+		$validation_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array('fast' => 'lightning', 'kung fu' => 'fighting'),
+			$validation_reflection_property->getValue($validation)
 		);
 	}
 
@@ -150,6 +163,7 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Validation::bind
+	 * @throws ReflectionException
 	 */
 	public function test_bind_adds_and_overwrites_multiple_variables_and_returns_this()
 	{
@@ -159,11 +173,19 @@ class Kohana_ValidationTest extends Unittest_TestCase
 
 		// Test binding an array of values
 		$this->assertSame($validation, $validation->bind($bound));
-		$this->assertAttributeSame($bound, '_bound', $validation);
+
+		$validation_reflection_property = new ReflectionProperty($validation, '_bound');
+		$validation_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame($bound, $validation_reflection_property->getValue($validation));
 
 		// Test binding one value
 		$this->assertSame($validation, $validation->bind(':foo', 'some other value'));
-		$this->assertAttributeSame(array(':foo' => 'some other value'), '_bound', $validation);
+
+		$validation_reflection_property = new ReflectionProperty($validation, '_bound');
+		$validation_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame(array(':foo' => 'some other value'), $validation_reflection_property->getValue($validation));
 	}
 
 	/**
@@ -389,6 +411,7 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	 * @param array $array     The array of data
 	 * @param array $rules     The array of rules
 	 * @param array $expected  Array of expected errors
+	 * @throws ReflectionException
 	 */
 	public function test_errors($array, $rules, $expected)
 	{
@@ -403,7 +426,10 @@ class Kohana_ValidationTest extends Unittest_TestCase
 
 		$this->assertSame($expected, $validation->errors('Validation', FALSE));
 		// Should be able to get raw errors array
-		$this->assertAttributeSame($validation->errors(NULL), '_errors', $validation);
+		$validation_reflection_property = new ReflectionProperty($validation, '_errors');
+		$validation_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame($validation->errors(NULL), $validation_reflection_property->getValue($validation));
 	}
 
 	/**

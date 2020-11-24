@@ -17,7 +17,7 @@ class Kohana_TextTest extends Unittest_TestCase
 	 * Sets up the test enviroment
 	 */
 	// @codingStandardsIgnoreStart
-	function setUp()
+	public function setUp() : void
 	// @codingStandardsIgnoreEnd
 	{
 		parent::setUp();
@@ -718,20 +718,20 @@ class Kohana_TextTest extends Unittest_TestCase
 
 		if ($urls === FALSE)
 		{
-			$this->assertNotContains('http://', $linked_text);
+			$this->assertStringNotContainsString('http://', $linked_text);
 		}
 		elseif (count($urls))
 		{
 			foreach ($urls as $url)
 			{
 				// Assert that all the urls have been caught by text auto_link_urls()
-				$this->assertContains(Text::auto_link_urls($url), $linked_text);
+				$this->assertStringContainsString(Text::auto_link_urls($url), $linked_text);
 			}
 		}
 
 		foreach ($emails as $email)
 		{
-			$this->assertContains('&#109;&#097;&#105;&#108;&#116;&#111;&#058;'.$email, $linked_text);
+			$this->assertStringContainsString('&#109;&#097;&#105;&#108;&#116;&#111;&#058;'.$email, $linked_text);
 		}
 
 	}

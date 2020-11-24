@@ -1,16 +1,17 @@
-<!--
-	This is an example phpunit.xml file to get you started
-	Copy it to a directory, update the relative paths and rename to phpunit.xml
-	Then to run tests cd into it's directory and just run
-		phpunit
-	(it'll automatically use any phpunit.xml file in the current directory)
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.5/phpunit.xsd"
+		 bootstrap="rel/path/to/unittest/bootstrap.php"
+		 colors="true"
+		 verbose="true">
 
-	Any options you specify when calling phpunit will override the ones in here
--->
-<phpunit colors="true" bootstrap="rel/path/to/index.php">
 	<testsuites>
 		<testsuite name="Kohana Tests">
 			<file>rel/path/to/unittest/tests.php</file>
 		</testsuite>
 	</testsuites>
+
+	<php>
+		<const name="PHPUNIT_TESTSUITE" value="true"/>
+	</php>
 </phpunit>

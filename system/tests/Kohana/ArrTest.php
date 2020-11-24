@@ -416,6 +416,31 @@ class Kohana_ArrTest extends Unittest_TestCase
 			'object' => new ArrayObject(array('iterator' => TRUE)), // Iterable object should work exactly the same
 		);
 
+		$array_object = new ArrayObject(
+			array(
+				'foobar' => new ArrayObject(array('definition' => 'lost')),
+				'kohana' => 'awesome',
+				'users'  => new ArrayObject(
+					array(
+						1 => new ArrayObject(array('name' => 'matt')),
+						2 => new ArrayObject(
+							array(
+								'name'      => 'john',
+								'interests' => new ArrayObject(
+									array(
+										'hocky'    => new ArrayObject(array('length' => 2)),
+										'football' => new ArrayObject(array())
+									)
+								),
+							)
+						),
+						3 => 'frank',
+					)
+				),
+				'object' => new ArrayObject(array('iterator' => TRUE)),
+			)
+		);
+
 		return array(
 			// Tests returns normal values
 			array($array['foobar'], $array, 'foobar'),
@@ -443,6 +468,32 @@ class Kohana_ArrTest extends Unittest_TestCase
 			// Path as array, issue #3260
 			array($array['users'][2]['name'], $array, array('users', 2, 'name')),
 			array($array['object']['iterator'], $array, 'object.iterator'),
+
+			array($array_object['foobar'], $array_object, 'foobar'),
+			array($array_object['kohana'], $array_object, 'kohana'),
+			array($array_object['foobar']['definition'], $array_object, 'foobar.definition'),
+			// Custom delimiters
+			array($array_object['foobar']['definition'], $array_object, 'foobar/definition', NULL, '/'),
+			// We should be able to use NULL as a default, returned if the key DNX
+			array(NULL, $array_object, 'foobar.alternatives',  NULL),
+			array(NULL, $array_object, 'kohana.alternatives',  NULL),
+			// Try using a string as a default
+			array('nothing', $array_object, 'kohana.alternatives',  'nothing'),
+			// Make sure you can use arrays as defaults
+			array(array('far', 'wide'), $array_object, 'cheese.origins',  array('far', 'wide')),
+			// Ensures path() casts ints to actual integers for keys
+			array($array_object['users'][1]['name'], $array_object, 'users.1.name'),
+			// Test that a wildcard returns the entire array at that "level"
+			array($array_object['users'], $array_object, 'users.*'),
+			// Now we check that keys after a wilcard will be processed
+			array(array(0 => array(0 => 2)), $array_object, 'users.*.interests.*.length'),
+			// See what happens when it can't dig any deeper from a wildcard
+			array(NULL, $array_object, 'users.*.fans'),
+			// Starting wildcards, issue #3269
+			array(array('matt', 'john'), $array_object['users'], '*.name'),
+			// Path as array, issue #3260
+			array($array_object['users'][2]['name'], $array_object, array('users', 2, 'name')),
+			array($array_object['object']['iterator'], $array_object, 'object.iterator'),
 		);
 	}
 

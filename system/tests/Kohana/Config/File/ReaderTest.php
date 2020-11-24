@@ -21,12 +21,16 @@ class Kohana_Config_File_ReaderTest extends Kohana_Unittest_TestCase {
 	 *
 	 * @test
 	 * @covers Kohana_Config_File_Reader
+	 * @throws ReflectionException
 	 */
 	public function test_default_search_dir_is_config()
 	{
 		$reader = new Kohana_Config_File_Reader;
 
-		$this->assertAttributeSame('config', '_directory', $reader);
+		$reader_reflection_property = new ReflectionProperty($reader, '_directory');
+		$reader_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame('config', $reader_reflection_property->getValue($reader));
 	}
 
 	/**
@@ -35,12 +39,16 @@ class Kohana_Config_File_ReaderTest extends Kohana_Unittest_TestCase {
 	 *
 	 * @test
 	 * @covers Kohana_Config_File_Reader
+	 * @throws ReflectionException
 	 */
 	public function test_constructor_sets_search_dir_from_param()
 	{
 		$reader = new Kohana_Config_File_Reader('gafloog');
 
-		$this->assertAttributeSame('gafloog', '_directory', $reader);
+		$reader_reflection_property = new ReflectionProperty($reader, '_directory');
+		$reader_reflection_property->setAccessible(TRUE);
+
+		$this->assertSame('gafloog', $reader_reflection_property->getValue($reader));
 	}
 
 	/**
@@ -89,6 +97,6 @@ class Kohana_Config_File_ReaderTest extends Kohana_Unittest_TestCase {
 		// actual output.  Therefore to increase compatability we just 
 		// check that we've got an array and that it's not empty
 		$this->assertNotSame(array(), $values);
-		$this->assertInternalType('array',    $values);
+		$this->assertIsArray($values);
 	}
 }
