@@ -105,14 +105,13 @@ class Kohana_Cache_Request_Client_CacheTest extends Unittest_TestCase {
 
 		$key = $request->client()->cache()->create_cache_key($request);
 
-		$cache_mock->expects($this->at(0))
+		$cache_mock->expects($this->exactly(2))
 			->method('set')
-			->with($this->stringEndsWith($key), $this->identicalTo(0));
-
-		$cache_mock->expects($this->at(1))
-			->method('set')
-			->with($this->identicalTo($key), $this->anything(), $this->identicalTo($lifetime))
-			->will($this->returnValue(TRUE));
+			->withConsecutive(
+				array($this->stringEndsWith($key), $this->identicalTo(0)),
+				array($this->identicalTo($key), $this->anything(), $this->identicalTo($lifetime))
+			)
+			->willReturnOnConsecutiveCalls(NULL, TRUE);
 
 		$this->assertTrue(
 			$request->client()->cache()
