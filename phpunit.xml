@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.5/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.4/phpunit.xsd"
          bootstrap="modules/unittest/bootstrap.php"
          colors="true"
-         verbose="true">
+         verbose="true"
+         cacheResultFile=".phpunit.cache/test-results"
+         failOnRisky="true"
+         failOnWarning="true">
 
-    <testsuite name="default">
-        <directory suffix="tests.php">modules/unittest/</directory>
-    </testsuite>
+    <testsuites>
+        <testsuite name="default">
+            <file>./modules/unittest/tests.php</file>
+        </testsuite>
+    </testsuites>
 
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+    <coverage cacheDirectory=".phpunit.cache/code-coverage"
+              processUncoveredFiles="true"
+              ignoreDeprecatedCodeUnits="true">
+        <include>
             <directory suffix=".php">./application/classes</directory>
             <directory suffix=".php">./modules/*/classes</directory>
             <directory suffix=".php">./system/classes</directory>
-        </whitelist>
-    </filter>
+        </include>
 
-    <logging>
-        <log type="coverage-clover" target="build/logs/clover.xml"/>
-    </logging>
+        <report>
+            <clover outputFile="build/logs/clover.xml"/>
+        </report>
+    </coverage>
 
     <php>
         <const name="PHPUNIT_TESTSUITE" value="true"/>

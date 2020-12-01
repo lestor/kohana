@@ -13,7 +13,7 @@ abstract class Kohana_Unittest_TestSuite extends \PHPUnit\Framework\TestSuite
 	 * @var array
 	 */
 	protected $_filter_calls = array(
-		'addFileToWhitelist' => array()
+		'includeFile' => array()
     );
 	
 	/**
@@ -52,6 +52,6 @@ abstract class Kohana_Unittest_TestSuite extends \PHPUnit\Framework\TestSuite
 	 */
 	public function addFileToWhitelist($file)
 	{
-		$this->_filter_calls['addFileToWhitelist'][] = $file;
+		$this->_filter_calls['includeFile'][] = $file;
 	}
 }
