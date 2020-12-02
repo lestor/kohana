@@ -131,7 +131,7 @@ clearstatcache(TRUE);
 		<?php if (extension_loaded('mbstring')): ?>
 		<tr>
 			<th>Mbstring Not Overloaded</th>
-			<?php if (ini_get('mbstring.func_overload') & MB_OVERLOAD_STRING): $failed = TRUE ?>
+			<?php if (defined('MB_OVERLOAD_STRING') AND ini_get('mbstring.func_overload') & MB_OVERLOAD_STRING): $failed = TRUE ?>
 				<td class="fail">The <a href="http://php.net/mbstring">mbstring</a> extension is overloading PHP's native string functions.</td>
 			<?php else: ?>
 				<td class="pass">Pass</td>
