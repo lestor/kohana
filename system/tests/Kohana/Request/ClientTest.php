@@ -29,20 +29,20 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 		// @codingStandardsIgnoreEnd
 		parent::setUpBeforeClass();
 
+		$route = new Route;
+
 		// Set a new Route to the ClientTest controller as the first route
 		// This requires reflection as the API for editing defined routes is limited
-		$route_class = new ReflectionClass('Route');
-		$routes_prop = $route_class->getProperty('_routes');
-		$routes_prop->setAccessible(TRUE);
+		$route_reflection_property = new ReflectionProperty($route, '_routes');
+		$route_reflection_property->setAccessible(TRUE);
 
-		self::$_original_routes = $routes_prop->getValue('Route');
+		self::$_original_routes = $route_reflection_property->getValue($route);
 
 		$routes = array(
-			'ko_request_clienttest' => new Route('<controller>/<action>/<data>',array('data'=>'.+'))
-		) + self::$_original_routes;
+				'ko_request_clienttest' => new Route('<controller>/<action>/<data>',array('data'=>'.+'))
+			) + self::$_original_routes;
 
-		$routes_prop->setValue('Route',$routes);
-
+		$route_reflection_property->setValue($route, $routes);
 	}
 
 	// @codingStandardsIgnoreStart - PHPUnit does not follow standards
@@ -52,11 +52,12 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	public static function tearDownAfterClass() : void
 	{
 		// @codingStandardsIgnoreEnd
+		$route = new Route;
+
 		// Reset routes
-		$route_class = new ReflectionClass('Route');
-		$routes_prop = $route_class->getProperty('_routes');
-		$routes_prop->setAccessible(TRUE);
-		$routes_prop->setValue('Route',self::$_original_routes);
+		$route_reflection_property = new ReflectionProperty($route, '_routes');
+		$route_reflection_property->setAccessible(TRUE);
+		$route_reflection_property->setValue($route, self::$_original_routes);
 
 		parent::tearDownAfterClass();
 	}
