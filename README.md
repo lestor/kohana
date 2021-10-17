@@ -1,7 +1,6 @@
 # Kohana PHP Framework
 
 [![Unit Tests](https://github.com/lestor/kohana/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/lestor/kohana/actions)
-[![Build Status](https://travis-ci.org/lestor/kohana.svg?branch=3.3/develop)](https://travis-ci.org/lestor/kohana)
 [![PHP Version](https://img.shields.io/badge/php-^7.3|^8.0-8892BF.svg)](http://www.php.net/)
 [![Coverage Status](https://coveralls.io/repos/github/lestor/kohana/badge.svg?branch=3.3/develop)](https://coveralls.io/github/lestor/kohana?branch=3.3/develop)
 
