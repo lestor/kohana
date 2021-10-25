@@ -4,7 +4,6 @@
 		"michelf/php-markdown": "^1.9"
 	},
 	"require-dev": {
-		"php-coveralls/php-coveralls": "^2.4",
 		"phpunit/phpunit": "^9.4"
 	}
 }
