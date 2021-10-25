@@ -22,9 +22,15 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           tools: composer, phpunit
+          coverage: xdebug
 
       - name: Install dependencies
         run: composer install
 
       - name: Run tests
         run: phpunit
+
+      - name: Send code coverage report to Codecov.io
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
