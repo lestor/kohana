@@ -2,6 +2,7 @@
 
 [![Unit Tests](https://github.com/lestor/kohana/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/lestor/kohana/actions)
 [![PHP Version](https://img.shields.io/badge/php-^7.3|^8.0-8892BF.svg)](http://www.php.net/)
+[![Coverage Status](https://codecov.io/gh/lestor/kohana/graph/badge.svg)](https://codecov.io/gh/lestor/kohana)
 
 Kohana is an elegant, open source, and object oriented HMVC framework built using PHP5, by a team of volunteers. It aims to be swift, secure, and small. The Kohana has been deprecated and is no longer supported by the core development team, but some projects still use it.
 
