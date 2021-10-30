@@ -1,9 +1,9 @@
 {
 	"require": {
-		"php": "^7.3|^8.0",
-		"michelf/php-markdown": "^1.9"
+		"php": "^7.3|^8.0"
 	},
 	"require-dev": {
+		"michelf/php-markdown": "^1.9",
 		"phpunit/phpunit": "^9.4"
 	}
 }
