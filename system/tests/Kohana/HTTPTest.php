@@ -40,7 +40,6 @@ class Kohana_HTTPTest extends Unittest_TestCase {
 		Request::$initial = $this->_initial_request;
 		parent::tearDown();
 	}
-	// @codingStandardsIgnoreStart
 
 	/**
 	 * Defaults for this test

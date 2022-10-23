@@ -12,7 +12,9 @@
 
 class Kohana_ImageTest extends Unittest_TestCase {
 
+	// @codingStandardsIgnoreStart
 	public function setUp() : void
+	// @codingStandardsIgnoreEnd
 	{
 		parent::setUp();
 

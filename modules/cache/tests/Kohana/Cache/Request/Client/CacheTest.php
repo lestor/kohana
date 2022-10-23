@@ -20,7 +20,9 @@ class Kohana_Cache_Request_Client_CacheTest extends Unittest_TestCase {
 	 *
 	 * @return void
 	 */
+	// @codingStandardsIgnoreStart
 	public function setUp() : void
+	// @codingStandardsIgnoreEnd
 	{
 		Route::set('welcome', 'welcome/index')
 			->defaults(array(

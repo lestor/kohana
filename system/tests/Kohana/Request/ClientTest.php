@@ -19,14 +19,14 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	protected $_inital_request;
 	protected static $_original_routes;
 
-	// @codingStandardsIgnoreStart - PHPUnit does not follow standards
 	/**
 	 * Sets up a new route to ensure that we have a matching route for our
 	 * Controller_RequestClientDummy class.
 	 */
+	// @codingStandardsIgnoreStart
 	public static function setUpBeforeClass() : void
+	// @codingStandardsIgnoreEnd
 	{
-		// @codingStandardsIgnoreEnd
 		parent::setUpBeforeClass();
 
 		$route = new Route;
@@ -45,13 +45,13 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 		$route_reflection_property->setValue($route, $routes);
 	}
 
-	// @codingStandardsIgnoreStart - PHPUnit does not follow standards
 	/**
 	 * Resets the application's routes to their state prior to this test case
 	 */
+	// @codingStandardsIgnoreStart
 	public static function tearDownAfterClass() : void
+	// @codingStandardsIgnoreEnd
 	{
-		// @codingStandardsIgnoreEnd
 		$route = new Route;
 
 		// Reset routes
@@ -62,19 +62,19 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 		parent::tearDownAfterClass();
 	}
 
-	// @codingStandardsIgnoreStart - PHPUnit does not follow standards
+	// @codingStandardsIgnoreStart
 	public function setUp() : void
+	// @codingStandardsIgnoreEnd
 	{
-		// @codingStandardsIgnoreEnd
 		parent::setUp();
 		$this->_initial_request = Request::$initial;
 		Request::$initial = new Request('/');
 	}
 
-	// @codingStandardsIgnoreStart - PHPUnit does not follow standards
+	// @codingStandardsIgnoreStart
 	public function tearDown() : void
+	// @codingStandardsIgnoreEnd
 	{
-		// @codingStandardsIgnoreEnd
 		Request::$initial = $this->_initial_request;
 		parent::tearDown();
 	}

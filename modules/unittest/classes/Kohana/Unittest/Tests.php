@@ -88,7 +88,9 @@ class Kohana_Unittest_Tests {
 	 * @param Unittest_TestSuite  $suite   The test suite to add to
 	 * @param array                        $files   Array of files to test
 	 */
+	// @codingStandardsIgnoreStart
 	static function addTests(Unittest_TestSuite $suite, array $files)
+	// @codingStandardsIgnoreEnd
 	{
 
 		foreach ($files as $path => $file)

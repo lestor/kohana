@@ -39,7 +39,7 @@ class Kohana_HTMLTest extends Unittest_TestCase
 		'HTML::$strict' => TRUE,
 		'HTTP_HOST'	=> 'www.kohanaframework.org',
 	);
-	// @codingStandardsIgnoreStart
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Provides test data for test_attributes()

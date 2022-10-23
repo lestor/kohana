@@ -152,7 +152,9 @@ if ( ! function_exists('__'))
 	 * @param   string  $lang   source language
 	 * @return  string
 	 */
+	// @codingStandardsIgnoreStart
 	function __($string, array $values = NULL, $lang = 'en-us')
+	// @codingStandardsIgnoreEnd
 	{
 		if ($lang !== I18n::$lang)
 		{

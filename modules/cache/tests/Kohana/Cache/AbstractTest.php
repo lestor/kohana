@@ -28,7 +28,9 @@ abstract class Kohana_Cache_AbstractTest extends Unittest_TestCase {
 	 *
 	 * @return  void
 	 */
+	// @codingStandardsIgnoreStart
 	public function setUp() : void
+	// @codingStandardsIgnoreEnd
 	{
 		parent::setUp();
 	}

@@ -50,7 +50,9 @@ abstract class Kohana_Unittest_TestSuite extends \PHPUnit\Framework\TestSuite
 	 * Queues a file to be added to the code coverage whitelist when the suite runs
 	 * @param string $file 
 	 */
+	// @codingStandardsIgnoreStart
 	public function addFileToWhitelist($file)
+	// @codingStandardsIgnoreEnd
 	{
 		$this->_filter_calls['includeFile'][] = $file;
 	}

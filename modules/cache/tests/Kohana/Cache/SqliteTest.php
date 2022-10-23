@@ -23,7 +23,9 @@ class Kohana_Cache_SqliteTest extends Kohana_Cache_AbstractTest {
 	 *
 	 * @return  void
 	 */
+	// @codingStandardsIgnoreStart
 	public function setUp() : void
+	// @codingStandardsIgnoreEnd
 	{
 		parent::setUp();
 

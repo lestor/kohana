@@ -342,7 +342,9 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 * @return  void
 	 * @since   3.2.0
 	 */
+	// @codingStandardsIgnoreStart
 	public function offsetSet($index, $newval, $replace = TRUE)
+	// @codingStandardsIgnoreEnd
 	{
 		// Ensure the index is lowercase
 		$index = strtolower($index);
@@ -374,7 +376,9 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 * @return  boolean
 	 * @since   3.2.0
 	 */
+	// @codingStandardsIgnoreStart
 	public function offsetExists($index)
+	// @codingStandardsIgnoreEnd
 	{
 		return parent::offsetExists(strtolower($index));
 	}
@@ -387,7 +391,9 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 * @return  void
 	 * @since   3.2.0
 	 */
+	// @codingStandardsIgnoreStart
 	public function offsetUnset($index)
+	// @codingStandardsIgnoreEnd
 	{
 		return parent::offsetUnset(strtolower($index));
 	}
@@ -400,7 +406,9 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 * @return  mixed
 	 * @since   3.2.0
 	 */
+	// @codingStandardsIgnoreStart
 	public function offsetGet($index)
+	// @codingStandardsIgnoreEnd
 	{
 		return parent::offsetGet(strtolower($index));
 	}
@@ -413,7 +421,9 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 * @return  array
 	 * @since   3.2.0
 	 */
+	// @codingStandardsIgnoreStart
 	public function exchangeArray($input)
+	// @codingStandardsIgnoreEnd
 	{
 		/**
 		 * @link http://www.w3.org/Protocols/rfc2616/rfc2616.html

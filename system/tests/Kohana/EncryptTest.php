@@ -5,7 +5,9 @@
  */
 class Kohana_EncryptTest extends Unittest_TestCase
 {
+	// @codingStandardsIgnoreStart
 	public function setUp() : void
+	// @codingStandardsIgnoreEnd
 	{
 		parent::setUp();
 

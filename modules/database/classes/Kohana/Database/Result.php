@@ -222,7 +222,9 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 * @param   int     $offset
 	 * @return  boolean
 	 */
+	// @codingStandardsIgnoreStart
 	public function offsetExists($offset)
+	// @codingStandardsIgnoreEnd
 	{
 		return ($offset >= 0 AND $offset < $this->_total_rows);
 	}
@@ -235,7 +237,9 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 * @param   int     $offset
 	 * @return  mixed
 	 */
+	// @codingStandardsIgnoreStart
 	public function offsetGet($offset)
+	// @codingStandardsIgnoreEnd
 	{
 		if ( ! $this->seek($offset))
 			return NULL;
@@ -253,7 +257,9 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 * @return  void
 	 * @throws  Kohana_Exception
 	 */
+	// @codingStandardsIgnoreStart
 	final public function offsetSet($offset, $value)
+	// @codingStandardsIgnoreEnd
 	{
 		throw new Kohana_Exception('Database results are read-only');
 	}
@@ -267,7 +273,9 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 * @return  void
 	 * @throws  Kohana_Exception
 	 */
+	// @codingStandardsIgnoreStart
 	final public function offsetUnset($offset)
+	// @codingStandardsIgnoreEnd
 	{
 		throw new Kohana_Exception('Database results are read-only');
 	}

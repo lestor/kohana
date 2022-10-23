@@ -23,7 +23,9 @@ class Kohana_Cache_Arithmetic_ApcuTest extends Kohana_Cache_Arithmetic_AbstractT
      *
      * @return  void
      */
+	// @codingStandardsIgnoreStart
     public function setUp() : void
+	// @codingStandardsIgnoreEnd
     {
         parent::setUp();
 
