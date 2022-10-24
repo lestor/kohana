@@ -194,7 +194,7 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 		$data = serialize($data);
 
 		// Normalise tags
-		$tags = (NULL === $tags) ? NULL : ('<'.implode('>,<', $tags).'>');
+		$tags = ($tags === NULL) ? NULL : ('<'.implode('>,<', $tags).'>');
 
 		// Setup lifetime
 		if ($lifetime === NULL)
