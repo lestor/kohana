@@ -39,7 +39,7 @@ class Kohana_FileTest extends Unittest_TestCase
 	 */
 	public function test_mime($input, $expected)
 	{
-		//@todo: File::mime coverage needs significant improvement or to be dropped for a composer package - it's a "horribly unreliable" method with very little testing
+		// @todo: File::mime coverage needs significant improvement or to be dropped for a composer package - it's a "horribly unreliable" method with very little testing
 		$this->assertSame($expected, File::mime($input));
 	}
 

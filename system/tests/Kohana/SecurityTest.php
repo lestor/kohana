@@ -85,7 +85,7 @@ class Kohana_SecurityTest extends Unittest_TestCase
 	 */
 	public function test_csrf_token($expected, $input, $iteration)
 	{
-		//@todo: the Security::token tests need to be reviewed to check how much of the logic they're actually covering
+		// @todo: the Security::token tests need to be reviewed to check how much of the logic they're actually covering
 		Security::$token_name = 'token_'.$iteration;
 		$this->assertSame(TRUE, $input);
 		$this->assertSame($expected, Security::token(FALSE));

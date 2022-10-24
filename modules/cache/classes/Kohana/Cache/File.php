@@ -476,7 +476,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 			throw new Cache_Exception(__METHOD__ . ' corrupted cache file!');
 		}
 
-		//close file
+		// close file
 		$data = null;
 
 		// test for expiry and return

@@ -158,7 +158,7 @@ class Kohana_Cache_FileTest extends Kohana_Cache_AbstractTest {
 
 		$file = new SplFileInfo($directory.$filename);
 
-		//var_dump($cache->_is_expired($file));
+		// var_dump($cache->_is_expired($file));
 		return $file->isFile();
 	}
 } // End Kohana_SqliteTest
