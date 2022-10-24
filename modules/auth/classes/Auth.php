@@ -1,3 +1,3 @@
 <?php
 
-abstract class Auth extends Kohana_Auth { }
+abstract class Auth extends Kohana_Auth {}

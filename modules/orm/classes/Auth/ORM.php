@@ -1,3 +1,3 @@
 <?php
 
-class Auth_ORM extends Kohana_Auth_ORM { }
+class Auth_ORM extends Kohana_Auth_ORM {}
