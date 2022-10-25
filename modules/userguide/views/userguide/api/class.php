@@ -11,7 +11,7 @@ Implements:
 <?php
 for ($i = 0, $split = FALSE, $count = count($interfaces); $i < $count; $i++, $split = " | ")
 {
-    echo $split . HTML::anchor($route->uri(array('class' => $interfaces[$i])), $interfaces[$i], NULL, NULL, TRUE);
+    echo $split.HTML::anchor($route->uri(array('class' => $interfaces[$i])), $interfaces[$i], NULL, NULL, TRUE);
 }
 ?></small>
 </p>

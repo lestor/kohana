@@ -12,7 +12,7 @@ class Kohana_Minion_Exception_InvalidTask extends Minion_Exception {
 
 	public function format_for_cli()
 	{
-		return 'ERROR: '. $this->getMessage().PHP_EOL;
+		return 'ERROR: '.$this->getMessage().PHP_EOL;
 	}
 
 }

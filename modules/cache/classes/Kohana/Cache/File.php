@@ -473,7 +473,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 		// If we're at the EOF at this point, corrupted!
 		if ($data->eof())
 		{
-			throw new Cache_Exception(__METHOD__ . ' corrupted cache file!');
+			throw new Cache_Exception(__METHOD__.' corrupted cache file!');
 		}
 
 		// close file
