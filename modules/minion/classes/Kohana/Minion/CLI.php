@@ -100,7 +100,7 @@ class Kohana_Minion_CLI {
 			}
 		}
 
-		return count($options) == 1 ? array_pop($values) : $values;
+		return (count($options) == 1) ? array_pop($values) : $values;
 	}
 
 	/**
@@ -225,7 +225,7 @@ class Kohana_Minion_CLI {
 	public static function write_replace($text = '', $end_line = FALSE)
 	{
 		// Append a newline if $end_line is TRUE
-		$text = $end_line ? $text.PHP_EOL : $text;
+		$text = $end_line ? ($text.PHP_EOL) : $text;
 		fwrite(STDOUT, "\r\033[K".$text);
 	}
 
