@@ -24,13 +24,13 @@
 </ul>
 <?php endif ?>
 
-<?php if ($doc->tags) echo View::factory('userguide/api/tags')->set('tags', $doc->tags) ?>
+<?php if ($doc->tags): echo View::factory('userguide/api/tags')->set('tags', $doc->tags); endif ?>
 
 <?php if ($doc->return): ?>
 <h4><?php echo 'Return Values'; ?></h4>
 <ul class="return">
 <?php foreach ($doc->return as $set): list($type, $text) = $set; ?>
-<li><code><?php echo HTML::chars($type) ?></code><?php if ($text) echo ' - '.HTML::chars(ucfirst($text)) ?></li>
+<li><code><?php echo HTML::chars($type) ?></code><?php if ($text): echo ' - '.HTML::chars(ucfirst($text)); endif ?></li>
 <?php endforeach ?>
 </ul>
 <?php endif ?>

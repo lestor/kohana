@@ -397,7 +397,9 @@ class Kohana_Kodoc {
 		{
 			// If this package is in the allowed packages, set show this to true
 			if (in_array($package, explode(',', $api_packages)))
+			{
 				$show_this = TRUE;
+			}
 		}
 
 		return $show_this;
