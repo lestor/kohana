@@ -290,12 +290,12 @@ class Kohana_Minion_CLI {
 			return $text;
 		}
 
-		if (!array_key_exists($foreground, Minion_CLI::$foreground_colors))
+		if ( ! array_key_exists($foreground, Minion_CLI::$foreground_colors))
 		{
 			throw new Kohana_Exception('Invalid CLI foreground color: '.$foreground);
 		}
 
-		if ($background !== null and !array_key_exists($background, Minion_CLI::$background_colors))
+		if ($background !== null and ! array_key_exists($background, Minion_CLI::$background_colors))
 		{
 			throw new Kohana_Exception('Invalid CLI background color: '.$background);
 		}
