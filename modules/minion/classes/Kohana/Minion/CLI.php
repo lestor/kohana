@@ -240,9 +240,9 @@ class Kohana_Minion_CLI {
 	 * @param int $seconds number of seconds
 	 * @param bool $countdown show a countdown or not
 	 */
-	public static function wait($seconds = 0, $countdown = false)
+	public static function wait($seconds = 0, $countdown = FALSE)
 	{
-		if ($countdown === true)
+		if ($countdown === TRUE)
 		{
 			$time = $seconds;
 
@@ -282,7 +282,7 @@ class Kohana_Minion_CLI {
 	 * @param string $background the background color
 	 * @return string the color coded string
 	 */
-	public static function color($text, $foreground, $background = null)
+	public static function color($text, $foreground, $background = NULL)
 	{
 
 		if (Kohana::$is_windows)
@@ -295,14 +295,14 @@ class Kohana_Minion_CLI {
 			throw new Kohana_Exception('Invalid CLI foreground color: '.$foreground);
 		}
 
-		if ($background !== null and ! array_key_exists($background, Minion_CLI::$background_colors))
+		if ($background !== NULL and ! array_key_exists($background, Minion_CLI::$background_colors))
 		{
 			throw new Kohana_Exception('Invalid CLI background color: '.$background);
 		}
 
 		$string = "\033[".Minion_CLI::$foreground_colors[$foreground]."m";
 
-		if ($background !== null)
+		if ($background !== NULL)
 		{
 			$string .= "\033[".Minion_CLI::$background_colors[$background]."m";
 		}

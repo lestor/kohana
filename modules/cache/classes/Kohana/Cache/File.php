@@ -477,7 +477,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 		}
 
 		// close file
-		$data = null;
+		$data = NULL;
 
 		// test for expiry and return
 		return (($lifetime !== 0) AND (($created + $lifetime) < time()));

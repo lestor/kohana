@@ -769,7 +769,7 @@ class Kohana_TextTest extends Unittest_TestCase
 				array(
 					'browser' => 'Lynx',
 					'version' => '2.8.8dev.3',
-					'platform' => false
+					'platform' => FALSE
 				)
 			)
 		);
