@@ -14,8 +14,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_ModelTest extends Unittest_TestCase
-{
+class Kohana_ModelTest extends Unittest_TestCase {
+
 	/**
 	 * Test the model's factory.
 	 *
@@ -30,7 +30,4 @@ class Kohana_ModelTest extends Unittest_TestCase
 	}
 }
 
-class Model_Foobar extends Model
-{
-
-}
+class Model_Foobar extends Model {}

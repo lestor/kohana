@@ -10,8 +10,7 @@
  * @package    Kohana
  * @category   Tests
  */
-class Kohana_TextTest extends Unittest_TestCase
-{
+class Kohana_TextTest extends Unittest_TestCase {
 
 	/**
 	 * Sets up the test enviroment

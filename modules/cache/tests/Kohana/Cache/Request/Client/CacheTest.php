@@ -260,8 +260,8 @@ class Kohana_Cache_Request_Client_CacheTest extends Unittest_TestCase {
 	}
 } // End Kohana_Request_Client_CacheTest
 
-class Controller_Kohana_Request_CacheTest_Dummy extends Controller 
-{
+class Controller_Kohana_Request_CacheTest_Dummy extends Controller {
+
 	public function action_index()
 	{
 	

@@ -14,8 +14,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_RequestTest extends Unittest_TestCase
-{
+class Kohana_RequestTest extends Unittest_TestCase {
+
 	protected $_inital_request;
 
 	// @codingStandardsIgnoreStart
@@ -811,8 +811,8 @@ class Kohana_RequestTest extends Unittest_TestCase
  * A dummy Request_Client_External implementation, that spies on the headers
  * of the request
  */
-class Kohana_RequestTest_Header_Spying_Request_Client_External extends Request_Client_External
-{
+class Kohana_RequestTest_Header_Spying_Request_Client_External extends Request_Client_External {
+
 	private $headers;
 
 	protected function _send_message(\Request $request, \Response $response)
@@ -828,8 +828,8 @@ class Kohana_RequestTest_Header_Spying_Request_Client_External extends Request_C
 	}
 }
 
-class Controller_Kohana_RequestTest_Dummy extends Controller
-{
+class Controller_Kohana_RequestTest_Dummy extends Controller {
+
 	// hard coded dummy response
 	protected $dummy_response = "this is a dummy response";
 

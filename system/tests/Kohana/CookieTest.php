@@ -15,8 +15,8 @@
  * @copyright  (c) 2008-2014 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_CookieTest extends Unittest_TestCase
-{
+class Kohana_CookieTest extends Unittest_TestCase {
+
 	const UNIX_TIMESTAMP      = 1411040141;
 	const COOKIE_EXPIRATION   = 60;
 

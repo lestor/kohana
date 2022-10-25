@@ -12,8 +12,8 @@
  * @license    http://kohanaframework.org/license
  */
 
-class Kohana_Minion_TaskTest extends Unittest_TestCase
-{
+class Kohana_Minion_TaskTest extends Unittest_TestCase {
+
 	/**
 	 * Provides test data for test_convert_task_to_class_name()
 	 *

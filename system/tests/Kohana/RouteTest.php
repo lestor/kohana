@@ -17,8 +17,8 @@
 
 include Kohana::find_file('tests', 'test_data/callback_routes');
 
-class Kohana_RouteTest extends Unittest_TestCase
-{
+class Kohana_RouteTest extends Unittest_TestCase {
+
 	/**
 	 * Remove all caches
 	 */

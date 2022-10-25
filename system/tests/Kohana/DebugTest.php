@@ -16,8 +16,7 @@
  * @copyright  (c) 2008-2014 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_DebugTest extends Unittest_TestCase
-{
+class Kohana_DebugTest extends Unittest_TestCase {
 
 	/**
 	 * Provides test data for test_debug()

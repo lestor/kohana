@@ -13,8 +13,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_ResponseTest extends Unittest_TestCase
-{
+class Kohana_ResponseTest extends Unittest_TestCase {
+
 	/**
 	 * Provider for test_body
 	 *

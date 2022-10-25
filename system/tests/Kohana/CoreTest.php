@@ -16,8 +16,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_CoreTest extends Unittest_TestCase
-{
+class Kohana_CoreTest extends Unittest_TestCase {
+
 	protected $old_modules = array();
 
 	/**

@@ -9,8 +9,8 @@
  * @copyright  (c) 2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_Config_Database_Reader implements Kohana_Config_Reader
-{
+class Kohana_Config_Database_Reader implements Kohana_Config_Reader {
+
 	protected $_db_instance;
 
 	protected $_table_name  = 'config';

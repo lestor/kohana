@@ -14,8 +14,7 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_FeedTest extends Unittest_TestCase
-{
+class Kohana_FeedTest extends Unittest_TestCase {
 
 	/**
 	 * Sets up the environment

@@ -3,8 +3,8 @@
 /**
  * Tests the Encrypt class
  */
-class Kohana_EncryptTest extends Unittest_TestCase
-{
+class Kohana_EncryptTest extends Unittest_TestCase {
+
 	// @codingStandardsIgnoreStart
 	public function setUp() : void
 	// @codingStandardsIgnoreEnd

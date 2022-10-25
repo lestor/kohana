@@ -14,8 +14,7 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_SessionTest extends Unittest_TestCase
-{
+class Kohana_SessionTest extends Unittest_TestCase {
 
 	/**
 	 * Gets a mock of the session class

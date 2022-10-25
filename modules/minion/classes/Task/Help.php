@@ -8,8 +8,8 @@
  * @copyright  (c) 2009-2011 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Task_Help extends Minion_Task
-{
+class Task_Help extends Minion_Task {
+
 	/**
 	 * Generates a help list for all tasks
 	 *

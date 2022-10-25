@@ -10,8 +10,8 @@
  * @copyright  (c) 2008-2014 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-interface Kohana_Config_Writer extends Kohana_Config_Source
-{
+interface Kohana_Config_Writer extends Kohana_Config_Source {
+
 	/**
 	 * Writes the passed config for $group
 	 *

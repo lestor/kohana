@@ -14,8 +14,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_DateTest extends Unittest_TestCase
-{
+class Kohana_DateTest extends Unittest_TestCase {
+
 	protected $_original_timezone = NULL;
 	protected $default_locale;
 
