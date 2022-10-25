@@ -136,7 +136,7 @@ class Kohana_Minion_CLI {
 		$input = trim(fgets(STDIN));
 
 		// If options are provided and the choice is not in the array, tell them to try again
-		if ( ! empty($options) && ! in_array($input, $options))
+		if ( ! empty($options) AND ! in_array($input, $options))
 		{
 			Minion_CLI::write('This is not a valid option. Please try again.');
 

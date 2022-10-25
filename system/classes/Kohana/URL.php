@@ -94,7 +94,7 @@ class Kohana_URL {
 
 				// check that host does not contain forbidden characters (see RFC 952 and RFC 2181)
 				// use preg_replace() instead of preg_match() to prevent DoS attacks with long host names
-				if ($host && '' !== preg_replace('/(?:^\[)?[a-zA-Z0-9-:\]_]+\.?/', '', $host)) {
+				if ($host AND '' !== preg_replace('/(?:^\[)?[a-zA-Z0-9-:\]_]+\.?/', '', $host)) {
 					throw new Kohana_Exception(
 						'Invalid host :host',
 						array(':host' => $host)
