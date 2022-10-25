@@ -50,7 +50,7 @@ class Kohana_Database_MySQLi extends Database {
 
 		try
 		{
-			if(is_array($ssl))
+			if (is_array($ssl))
 			{
 				$this->_connection = mysqli_init();
 				$this->_connection->ssl_set(

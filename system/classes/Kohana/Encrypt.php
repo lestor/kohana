@@ -116,7 +116,7 @@ class Kohana_Encrypt {
 			throw new Kohana_Exception('PHP sodium extension is not available.');
 		}
 
-		if($cipher === Encrypt::CIPHER_AES256_GCM)
+		if ($cipher === Encrypt::CIPHER_AES256_GCM)
 		{
 			if ( ! sodium_crypto_aead_aes256gcm_is_available())
 			{
