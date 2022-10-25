@@ -479,7 +479,7 @@ class Kohana_UTF8Test extends Unittest_TestCase {
 		$this->assertSame($expected, UTF8::str_pad($input, $length, $pad, $type));
 	}
 
-        /**
+	/**
 	 * Tests UTF8::str_pad error
 	 *
 	 * @test

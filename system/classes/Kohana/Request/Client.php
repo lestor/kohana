@@ -411,8 +411,8 @@ abstract class Kohana_Request_Client {
 			$follow_headers = \Arr::extract($orig_headers, $follow_header_keys);
 
 			$follow_request = Request::factory($response->headers('Location'))
-			                         ->method($follow_method)
-			                         ->headers($follow_headers);
+									->method($follow_method)
+									->headers($follow_headers);
 
 			if ($follow_method !== Request::GET)
 			{

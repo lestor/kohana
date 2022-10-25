@@ -45,7 +45,7 @@ class Kohana_Cache_FileTest extends Kohana_Cache_AbstractTest {
 							'.svn'
 						)
 					)
-			    );
+				);
 		}
 
 		$this->cache(Cache::instance('file'));

@@ -832,9 +832,9 @@ class Kohana_TextTest extends Unittest_TestCase {
 	public function test_user_agent_accepts_array()
 	{
 		$agent_info = Text::user_agent(
-		    'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 '.
-		    '(KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36',
-		    array('browser', 'version', 'platform'));
+			'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 '.
+			'(KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36',
+			array('browser', 'version', 'platform'));
 
 		$this->assertArrayHasKey('browser', $agent_info);
 		$this->assertArrayHasKey('version', $agent_info);

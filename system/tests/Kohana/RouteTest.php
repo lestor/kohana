@@ -976,15 +976,15 @@ class Kohana_RouteTest extends Unittest_TestCase {
 	{
 		// Mock a request class with the $uri uri
 		$request = $this
-        	->getMockBuilder('Request')
-        	->setMethods(array('uri', 'method'))
-        	->setConstructorArgs(array($uri))
-        	->getMock();
+			->getMockBuilder('Request')
+			->setMethods(array('uri', 'method'))
+			->setConstructorArgs(array($uri))
+			->getMock();
 
 		// mock `uri` method
 		$request->expects($this->any())
 			->method('uri')
-		  	// Request::uri() called by Route::matches() in the tests will return $uri
+			// Request::uri() called by Route::matches() in the tests will return $uri
 			->will($this->returnValue($uri));
 
 		// also mock `method` method

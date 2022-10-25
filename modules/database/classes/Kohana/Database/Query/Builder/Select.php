@@ -31,8 +31,8 @@ class Kohana_Database_Query_Builder_Select extends Database_Query_Builder_Where 
 	// OFFSET ...
 	protected $_offset = NULL;
 
-    // UNION ...
-    protected $_union = array();
+	// UNION ...
+	protected $_union = array();
 
 	// The last JOIN statement created
 	protected $_last_join;

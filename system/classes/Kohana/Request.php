@@ -73,9 +73,9 @@ class Kohana_Request implements HTTP_Request {
 			}
 
 			if (( ! empty($_SERVER['HTTPS']) AND filter_var($_SERVER['HTTPS'], FILTER_VALIDATE_BOOLEAN))
-			   OR (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])
-			   	   AND $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
-			       AND in_array($_SERVER['REMOTE_ADDR'], Request::$trusted_proxies))
+				OR (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])
+					AND $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+				AND in_array($_SERVER['REMOTE_ADDR'], Request::$trusted_proxies))
 			{
 				// This request is secure
 				$secure = TRUE;
@@ -100,8 +100,8 @@ class Kohana_Request implements HTTP_Request {
 			}
 
 			if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])
-			    AND isset($_SERVER['REMOTE_ADDR'])
-			    AND in_array($_SERVER['REMOTE_ADDR'], Request::$trusted_proxies))
+				AND isset($_SERVER['REMOTE_ADDR'])
+				AND in_array($_SERVER['REMOTE_ADDR'], Request::$trusted_proxies))
 			{
 				// Use the forwarded IP address, typically set when the
 				// client is using a proxy server.
@@ -113,8 +113,8 @@ class Kohana_Request implements HTTP_Request {
 				unset($client_ips);
 			}
 			elseif (isset($_SERVER['HTTP_CLIENT_IP'])
-			        AND isset($_SERVER['REMOTE_ADDR'])
-			        AND in_array($_SERVER['REMOTE_ADDR'], Request::$trusted_proxies))
+					AND isset($_SERVER['REMOTE_ADDR'])
+					AND in_array($_SERVER['REMOTE_ADDR'], Request::$trusted_proxies))
 			{
 				// Use the forwarded IP address, typically set when the
 				// client is using a proxy server.

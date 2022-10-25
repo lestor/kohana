@@ -207,7 +207,7 @@ class Kohana_Core {
 		 */
 		if (Kohana::$environment == Kohana::DEVELOPMENT AND extension_loaded('xdebug'))
 		{
-		    ini_set('xdebug.collect_params', 3);
+			ini_set('xdebug.collect_params', 3);
 		}
 
 		// Enable the Kohana shutdown handler, which catches E_FATAL errors.

@@ -128,10 +128,10 @@ $modules = array();
 
 foreach ($modules_iterator as $module)
 {
-    if ($module->isDir() AND ! $module->isDot())
-    {
-        $modules[$module->getFilename()] = MODPATH.$module->getFilename();
-    }
+	if ($module->isDir() AND ! $module->isDot())
+	{
+		$modules[$module->getFilename()] = MODPATH.$module->getFilename();
+	}
 }
 
 Kohana::modules($modules);

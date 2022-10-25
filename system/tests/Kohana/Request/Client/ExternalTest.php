@@ -175,9 +175,9 @@ class Kohana_Request_Client_ExternalTest extends Unittest_TestCase {
 			->post($post);
 
 		$client = $this
-        	->getMockBuilder('Request_Client_External')
-        	->setMethods(array('_send_message'))
-        	->getMock();
+			->getMockBuilder('Request_Client_External')
+			->setMethods(array('_send_message'))
+			->getMock();
 
 		$client->expects($this->once())
 			->method('_send_message')

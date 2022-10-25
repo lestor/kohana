@@ -112,7 +112,7 @@ abstract class Kohana_Database_Query_Builder extends Database_Query {
 					}
 					elseif (in_array($op, array('IN', 'NOT IN')) AND is_array($value) AND empty($value))
 					{
-					    $value = '(NULL)';
+						$value = '(NULL)';
 					}
 					elseif ((is_string($value) AND array_key_exists($value, $this->_parameters)) === FALSE)
 					{

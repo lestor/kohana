@@ -519,7 +519,7 @@ class Kohana_SessionTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @covers Session::get_once
-     * @throws ReflectionException
+	 * @throws ReflectionException
 	 */
 	public function test_get_once_gets_once_or_returns_default()
 	{

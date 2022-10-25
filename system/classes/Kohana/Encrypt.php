@@ -152,7 +152,7 @@ class Kohana_Encrypt {
 
 		// Encrypt the data using the configured options and generated IV
 		$ciphertext = call_user_func(
-		 	'sodium_crypto_aead_'.$this->_cipher.'_encrypt', $data, '', $iv, $this->_key
+			'sodium_crypto_aead_'.$this->_cipher.'_encrypt', $data, '', $iv, $this->_key
 		);
 
 		$encrypted = $iv.$ciphertext;

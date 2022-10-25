@@ -254,9 +254,9 @@ class Kohana_Cache_Request_Client_CacheTest extends Unittest_TestCase {
 	protected function _get_cache_mock()
 	{
 		return $this
-            ->getMockBuilder('Cache_File')
-            ->disableOriginalConstructor()
-            ->getMock();
+			->getMockBuilder('Cache_File')
+			->disableOriginalConstructor()
+			->getMock();
 	}
 } // End Kohana_Request_Client_CacheTest
 

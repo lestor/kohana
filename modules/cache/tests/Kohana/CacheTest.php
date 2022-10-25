@@ -230,16 +230,16 @@ class Kohana_CacheTest extends Unittest_TestCase {
 	public function test_sanitize_id($id, $expected)
 	{
 		$cache = $this
-            ->getMockBuilder('Cache')
-            ->setMethods(array(
+			->getMockBuilder('Cache')
+			->setMethods(array(
 				'get',
 				'set',
 				'delete',
 				'delete_all'
-            ))
-            ->setConstructorArgs(array(array()))
-            ->disableOriginalConstructor()
-            ->getMock();
+			))
+			->setConstructorArgs(array(array()))
+			->disableOriginalConstructor()
+			->getMock();
 
 		$cache_reflection = new ReflectionClass($cache);
 		$sanitize_id = $cache_reflection->getMethod('_sanitize_id');

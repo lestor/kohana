@@ -184,13 +184,13 @@ class Kohana_Request_ClientTest extends Unittest_TestCase {
 	public function test_follow_does_not_add_extra_headers()
 	{
 		$response = Request::factory(
-			            $this->_dummy_redirect_uri(301),
-			            array(
-			                 'follow' => TRUE,
-			                 'follow_headers' => array('Authorization')
-			            ))
-		            ->headers(array())
-		            ->execute();
+						$this->_dummy_redirect_uri(301),
+						array(
+							'follow' => TRUE,
+							'follow_headers' => array('Authorization')
+						))
+					->headers(array())
+					->execute();
 
 		$data = json_decode($response->body(),TRUE);
 		$headers = $data['rq_headers'];

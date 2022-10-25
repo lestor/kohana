@@ -300,7 +300,7 @@ class Kohana_Response implements HTTP_Response {
 			reset($key);
 			foreach ($key as $_key => $_value)
 			{
-			    $this->cookie($_key, $_value);
+				$this->cookie($_key, $_value);
 			}
 		}
 		else
@@ -638,7 +638,7 @@ class Kohana_Response implements HTTP_Response {
 	 */
 	public function generate_etag()
 	{
-	    if ($this->_body === '')
+		if ($this->_body === '')
 		{
 			throw new Request_Exception('No response yet associated with request - cannot auto generate resource ETag');
 		}

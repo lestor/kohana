@@ -2,10 +2,10 @@
 
 return array
 (
- 	'default' => array
- 	(
- 		'type'       => 'MySQLi',
- 		'connection' => array(
+	'default' => array
+	(
+		'type'       => 'MySQLi',
+		'connection' => array(
 			/**
 			 * The following options are available for MySQLi:
 			 *
@@ -20,17 +20,17 @@ return array
 			 *
 			 * Ports and sockets may be appended to the hostname.
 			 */
- 			'hostname'   => 'localhost',
- 			'database'   => 'kohana',
- 			'username'   => FALSE,
- 			'password'   => FALSE,
- 			'persistent' => FALSE,
- 			'ssl'        => NULL,
- 		),
- 		'table_prefix' => '',
- 		'charset'      => 'utf8',
- 		'caching'      => FALSE,
- 	),
+			'hostname'   => 'localhost',
+			'database'   => 'kohana',
+			'username'   => FALSE,
+			'password'   => FALSE,
+			'persistent' => FALSE,
+			'ssl'        => NULL,
+		),
+		'table_prefix' => '',
+		'charset'      => 'utf8',
+		'caching'      => FALSE,
+	),
 	'alternate' => array(
 		'type'       => 'PDO',
 		'connection' => array(

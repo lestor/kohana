@@ -600,7 +600,7 @@ class Kohana_Text {
 	public static function widont($str)
 	{
 		// use '%' as delimiter and 'x' as modifier 
- 		$widont_regex = "%
+		$widont_regex = "%
 			((?:</?(?:a|em|span|strong|i|b)[^>]*>)|[^<>\s]) # must be proceeded by an approved inline opening or closing tag or a nontag/nonspace
 			\s+                                             # the space to replace
 			([^<>\s]+                                       # must be flollowed by non-tag non-space characters

@@ -63,7 +63,7 @@ ini_set('unserialize_callback_func', 'spl_autoload_call');
  */
 if (is_file(DOCROOT.'/vendor/autoload.php'))
 {
-    require DOCROOT.'/vendor/autoload.php';
+	require DOCROOT.'/vendor/autoload.php';
 }
 
 /**

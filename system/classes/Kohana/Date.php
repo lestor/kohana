@@ -547,8 +547,8 @@ class Kohana_Date {
 		// What voodoo is this? I have no idea... Geert can explain it though,
 		// and that's good enough for me.
 		return ($timestamp['year']    << 25 | $timestamp['mon']     << 21 |
-		        $timestamp['mday']    << 16 | $timestamp['hours']   << 11 |
-		        $timestamp['minutes'] << 5  | $timestamp['seconds'] >> 1);
+				$timestamp['mday']    << 16 | $timestamp['hours']   << 11 |
+				$timestamp['minutes'] << 5  | $timestamp['seconds'] >> 1);
 	}
 
 	/**
