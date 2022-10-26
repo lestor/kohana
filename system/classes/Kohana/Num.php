@@ -12,8 +12,8 @@
 class Kohana_Num {
 
 	const ROUND_HALF_UP   = 1;
-	const ROUND_HALF_DOWN	= 2;
-	const ROUND_HALF_EVEN	= 3;
+	const ROUND_HALF_DOWN = 2;
+	const ROUND_HALF_EVEN = 3;
 	const ROUND_HALF_ODD  = 4;
 
 	/**
