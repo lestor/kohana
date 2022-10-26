@@ -291,8 +291,7 @@ class Kohana_Kodoc_Markdown extends \Michelf\MarkdownExtra {
 		{
 			$toc = View::factory('userguide/page-toc')
 				->set('array', self::$_toc)
-				->render()
-				;
+				->render();
 
 			if (($offset = strpos($text, '<p>')) !== FALSE)
 			{
