@@ -265,28 +265,29 @@ TESTTEXT;
 		$result = $cache->get($id, $default);
 		$this->assertEquals($expected, $result);
 
-		switch ($type){
+		switch ($type)
+		{
 			case 'array':
 				$this->assertIsArray($result);
-				break;
+			break;
 			case 'boolean':
 				$this->assertIsBool($result);
-				break;
+			break;
 			case 'float':
 				$this->assertIsFloat($result);
-				break;
+			break;
 			case 'integer':
 				$this->assertIsInt($result);
-				break;
+			break;
 			case 'object':
 				$this->assertIsObject($result);
-				break;
+			break;
 			case 'string':
 				$this->assertIsString($result);
-				break;
+			break;
 			case 'null':
 				$this->assertNull($result);
-				break;
+			break;
 			default:
 				$this->fail('Unknown type');
 		}

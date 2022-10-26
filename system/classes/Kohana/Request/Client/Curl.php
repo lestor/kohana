@@ -125,10 +125,10 @@ class Kohana_Request_Client_Curl extends Request_Client_External {
 		switch ($request->method()) {
 			case Request::POST:
 				$options[CURLOPT_POST] = TRUE;
-				break;
+			break;
 			default:
 				$options[CURLOPT_CUSTOMREQUEST] = $request->method();
-				break;
+			break;
 		}
 		return $options;
 	}

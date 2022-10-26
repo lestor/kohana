@@ -402,7 +402,7 @@ abstract class Kohana_Request_Client {
 					{
 						$follow_method = Request::GET;
 					}
-					break;
+				break;
 			}
 
 			// Prepare the additional request, copying any follow_headers that were present on the original request
