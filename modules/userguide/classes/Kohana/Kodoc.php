@@ -23,8 +23,8 @@ class Kohana_Kodoc {
 	 */
 	public static function link_class_member($matches)
 	{
-		$link = $matches[1];
-		$class = $matches[2];
+		$link   = $matches[1];
+		$class  = $matches[2];
 		$member = NULL;
 
 		if (isset($matches[3]))
@@ -295,7 +295,7 @@ class Kohana_Kodoc {
 		};
 
 		$comment = $tag = NULL;
-		$end = count($lines[1]) - 1;
+		$end     = count($lines[1]) - 1;
 
 		foreach ($lines[1] as $i => $line)
 		{
@@ -308,7 +308,7 @@ class Kohana_Kodoc {
 					$add_tag($tag, $text);
 				}
 
-				$tag = $matches[1];
+				$tag  = $matches[1];
 				$text = isset($matches[2]) ? $matches[2] : '';
 
 				if ($i === $end)

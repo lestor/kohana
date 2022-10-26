@@ -36,7 +36,7 @@ class Kohana_Database_Expression {
 	public function __construct($value, $parameters = array())
 	{
 		// Set the expression string
-		$this->_value = $value;
+		$this->_value      = $value;
 		$this->_parameters = $parameters;
 	}
 

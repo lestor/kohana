@@ -429,7 +429,7 @@ class Kohana_Database_Query_Builder_Select extends Database_Query_Builder_Where 
 		$this->_group_by =
 		$this->_having   =
 		$this->_order_by =
-		$this->_union = array();
+		$this->_union    = array();
 
 		$this->_distinct = FALSE;
 

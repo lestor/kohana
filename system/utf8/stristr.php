@@ -16,7 +16,7 @@ function _stristr($str, $search)
 	if ($search == '')
 		return $str;
 
-	$str_lower = UTF8::strtolower($str);
+	$str_lower    = UTF8::strtolower($str);
 	$search_lower = UTF8::strtolower($search);
 
 	preg_match('/^(.*?)'.preg_quote($search_lower, '/').'/s', $str_lower, $matches);

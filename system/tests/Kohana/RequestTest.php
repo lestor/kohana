@@ -25,7 +25,7 @@ class Kohana_RequestTest extends Unittest_TestCase {
 		parent::setUp();
 		Kohana::$config->load('url')->set('trusted_hosts', array('localhost'));
 		$this->_initial_request = Request::$initial;
-		Request::$initial = new Request('/');
+		Request::$initial       = new Request('/');
 	}
 
 	// @codingStandardsIgnoreStart
@@ -126,11 +126,11 @@ class Kohana_RequestTest extends Unittest_TestCase {
 	{
 		$route = new Route('(<controller>(/<action>(/<id>)))');
 
-		$uri = 'kohana_requesttest_dummy/foobar/some_id';
+		$uri     = 'kohana_requesttest_dummy/foobar/some_id';
 		$request = Request::factory($uri, NULL, TRUE, array($route));
 
 		// We need to execute the request before it has matched a route
-		$response = $request->execute();
+		$response   = $request->execute();
 		$controller = new Controller_Kohana_RequestTest_Dummy($request, $response);
 
 		$this->assertSame(200, $response->status());
@@ -154,7 +154,7 @@ class Kohana_RequestTest extends Unittest_TestCase {
 		$request = Request::factory('kohana_requesttest_dummy', NULL, TRUE, array($route));
 
 		// We need to execute the request before it has matched a route
-		$response = $request->execute();
+		$response   = $request->execute();
 		$controller = new Controller_Kohana_RequestTest_Dummy($request, $response);
 
 		$this->assertSame(200, $response->status());
@@ -420,7 +420,7 @@ class Kohana_RequestTest extends Unittest_TestCase {
 			'action'     => 'index',
 		));
 
-		$old_request = Request::$initial;
+		$old_request      = Request::$initial;
 		Request::$initial = new Request(TRUE, array(), TRUE, array($route));
 
 		$result = array(
@@ -536,7 +536,7 @@ class Kohana_RequestTest extends Unittest_TestCase {
 	{
 		$x_powered_by = 'Kohana Unit Test';
 		$content_type = 'application/x-www-form-urlencoded';
-		$request = new Request('foo/bar', array(), TRUE, array());
+		$request      = new Request('foo/bar', array(), TRUE, array());
 
 		return array(
 			array(

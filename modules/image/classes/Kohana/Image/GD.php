@@ -11,10 +11,10 @@
 class Kohana_Image_GD extends Image {
 
 	// Which GD functions are available?
-	const IMAGEROTATE = 'imagerotate';
-	const IMAGECONVOLUTION = 'imageconvolution';
-	const IMAGEFILTER = 'imagefilter';
-	const IMAGELAYEREFFECT = 'imagelayereffect';
+	const IMAGEROTATE                      = 'imagerotate';
+	const IMAGECONVOLUTION                 = 'imageconvolution';
+	const IMAGEFILTER                      = 'imagefilter';
+	const IMAGELAYEREFFECT                 = 'imagelayereffect';
 	protected static $_available_functions = array();
 
 	/**
@@ -161,7 +161,7 @@ class Kohana_Image_GD extends Image {
 	protected function _do_resize($width, $height)
 	{
 		// Presize width and height
-		$pre_width = $this->width;
+		$pre_width  = $this->width;
 		$pre_height = $this->height;
 
 		// Loads image if not yet loaded
@@ -177,7 +177,7 @@ class Kohana_Image_GD extends Image {
 			while ($pre_width / 2 > $reduction_width AND $pre_height / 2 > $reduction_height)
 			{
 				// Reduce the size using an O(2n) algorithm, until it reaches the maximum reduction
-				$pre_width /= 2;
+				$pre_width  /= 2;
 				$pre_height /= 2;
 			}
 

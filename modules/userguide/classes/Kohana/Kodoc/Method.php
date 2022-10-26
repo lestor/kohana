@@ -103,25 +103,25 @@ class Kohana_Kodoc_Method extends Kodoc {
 
 	public function params_short()
 	{
-		$out = '';
+		$out      = '';
 		$required = TRUE;
-		$first = TRUE;
+		$first    = TRUE;
 		foreach ($this->params as $param)
 		{
 			if ($required AND $param->default AND $first)
 			{
-				$out .= '[ '.$param;
+				$out     .= '[ '.$param;
 				$required = FALSE;
-				$first = FALSE;
+				$first    = FALSE;
 			}
 			elseif ($required AND $param->default)
 			{
-				$out .= '[, '.$param;
+				$out     .= '[, '.$param;
 				$required = FALSE;
 			}
 			elseif ($first)
 			{
-				$out .= $param;
+				$out  .= $param;
 				$first = FALSE;
 			}
 			else

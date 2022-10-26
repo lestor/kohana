@@ -128,7 +128,7 @@ class Kohana_Valid {
 			$domain         = "$sub_domain(\\x2e$sub_domain)*";
 			$local_part     = "$word(\\x2e$word)*";
 
-			$expression     = "/^$local_part\\x40$domain$/D";
+			$expression = "/^$local_part\\x40$domain$/D";
 		}
 		else
 		{

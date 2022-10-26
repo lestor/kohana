@@ -665,7 +665,7 @@ class Kohana_Request implements HTTP_Request {
 
 		// Cleanse query parameters from URI (faster that parse_url())
 		$split_uri = explode('?', $uri);
-		$uri = array_shift($split_uri);
+		$uri       = array_shift($split_uri);
 
 		if ($split_uri)
 		{
@@ -948,7 +948,7 @@ class Kohana_Request implements HTTP_Request {
 			{
 				// Store the matching route
 				$this->_route = $processed['route'];
-				$params = $processed['params'];
+				$params       = $processed['params'];
 
 				// Is this route external?
 				$this->_external = $this->_route->is_external();
@@ -1255,7 +1255,7 @@ class Kohana_Request implements HTTP_Request {
 			$this->_header['cookie'] = implode('; ', $cookie_string);
 		}
 
-		$output = $this->method().' '.$this->uri().' '.$this->protocol()."\r\n";
+		$output  = $this->method().' '.$this->uri().' '.$this->protocol()."\r\n";
 		$output .= (string) $this->_header;
 		$output .= $body;
 

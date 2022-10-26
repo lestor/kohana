@@ -27,7 +27,7 @@ class Kohana_HTTPTest extends Unittest_TestCase {
 		parent::setUp();
 		Kohana::$config->load('url')->set('trusted_hosts', array('www\.example\.com'));
 		$this->_initial_request = Request::$initial;
-		Request::$initial = new Request('/');
+		Request::$initial       = new Request('/');
 	}
 
 	/**

@@ -57,7 +57,7 @@ abstract class Kohana_Cache_AbstractTest extends Unittest_TestCase {
 	 */
 	public function provider_set_get()
 	{
-		$object = new StdClass;
+		$object      = new StdClass;
 		$object->foo = 'foo';
 		$object->bar = 'bar';
 
@@ -333,7 +333,7 @@ TESTTEXT;
 	{
 		// Init
 		$cache = $this->cache();
-		$data = $this->provider_set_get();
+		$data  = $this->provider_set_get();
 
 		foreach ($data as $key => $values)
 		{

@@ -678,7 +678,7 @@ class Kohana_ValidTest extends Unittest_TestCase {
 		$ao = new ArrayObject;
 
 		// arrayObject with value
-		$ao1 = new ArrayObject;
+		$ao1         = new ArrayObject;
 		$ao1['test'] = 'value';
 
 		return array(

@@ -511,7 +511,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 			foreach ($mime as $_type)
 			{
 				$quality_check = $this->accepts_at_quality($_type, $explicit);
-				$quality = ($quality_check > $quality) ? $quality_check : $quality;
+				$quality       = ($quality_check > $quality) ? $quality_check : $quality;
 			}
 
 			return $quality;
@@ -571,7 +571,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 	public function preferred_accept(array $types, $explicit = FALSE)
 	{
 		$preferred = FALSE;
-		$ceiling = 0;
+		$ceiling   = 0;
 
 		foreach ($types as $type)
 		{
@@ -580,7 +580,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 			if ($quality > $ceiling)
 			{
 				$preferred = $type;
-				$ceiling = $quality;
+				$ceiling   = $quality;
 			}
 		}
 
@@ -606,7 +606,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 		{
 			if ($this->offsetExists('Accept-Charset'))
 			{
-				$charset_header = strtolower($this->offsetGet('Accept-Charset'));
+				$charset_header        = strtolower($this->offsetGet('Accept-Charset'));
 				$this->_accept_charset = HTTP_Header::parse_charset_header($charset_header);
 			}
 			else
@@ -649,7 +649,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 	public function preferred_charset(array $charsets)
 	{
 		$preferred = FALSE;
-		$ceiling = 0;
+		$ceiling   = 0;
 
 		foreach ($charsets as $charset)
 		{
@@ -658,7 +658,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 			if ($quality > $ceiling)
 			{
 				$preferred = $charset;
-				$ceiling = $quality;
+				$ceiling   = $quality;
 			}
 		}
 
@@ -737,7 +737,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 */
 	public function preferred_encoding(array $encodings, $explicit = FALSE)
 	{
-		$ceiling = 0;
+		$ceiling   = 0;
 		$preferred = FALSE;
 
 		foreach ($encodings as $encoding)
@@ -746,7 +746,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 
 			if ($quality > $ceiling)
 			{
-				$ceiling = $quality;
+				$ceiling   = $quality;
 				$preferred = $encoding;
 			}
 		}
@@ -836,7 +836,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 */
 	public function preferred_language(array $languages, $explicit = FALSE)
 	{
-		$ceiling = 0;
+		$ceiling   = 0;
 		$preferred = FALSE;
 
 		foreach ($languages as $language)
@@ -845,7 +845,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 
 			if ($quality > $ceiling)
 			{
-				$ceiling = $quality;
+				$ceiling   = $quality;
 				$preferred = $language;
 			}
 		}
@@ -870,7 +870,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 	public function send_headers(HTTP_Response $response = NULL, $replace = FALSE, $callback = NULL)
 	{
 		$protocol = $response->protocol();
-		$status = $response->status();
+		$status   = $response->status();
 
 		// Create the response header
 		$processed_headers = array($protocol.' '.$status.' '.Response::$messages[$status]);

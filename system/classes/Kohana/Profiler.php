@@ -206,7 +206,7 @@ class Kohana_Profiler {
 			{
 				// Store the stats for each subgroup.
 				// We only need the values for "total".
-				$_stats = Profiler::stats($tokens);
+				$_stats               = Profiler::stats($tokens);
 				$stats[$group][$name] = $_stats['total'];
 			}
 		}

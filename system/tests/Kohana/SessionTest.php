@@ -98,7 +98,7 @@ class Kohana_SessionTest extends Unittest_TestCase {
 	 */
 	public function test_constructor_loads_session_with_session_id()
 	{
-		$config = array();
+		$config     = array();
 		$session_id = 'lolums';
 
 		// Don't auto-call constructor, we need to setup the mock first

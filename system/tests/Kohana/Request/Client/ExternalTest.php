@@ -164,7 +164,7 @@ class Kohana_Request_Client_ExternalTest extends Unittest_TestCase {
 	 */
 	public function test_execute($content_type, $body, $post, $expected)
 	{
-		$old_request = Request::$initial;
+		$old_request      = Request::$initial;
 		Request::$initial = TRUE;
 
 		// Create a mock Request

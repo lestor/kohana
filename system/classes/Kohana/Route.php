@@ -36,16 +36,16 @@
 class Kohana_Route {
 
 	// Matches a URI group and captures the contents
-	const REGEX_GROUP   = '\(((?:(?>[^()]+)|(?R))*)\)';
+	const REGEX_GROUP = '\(((?:(?>[^()]+)|(?R))*)\)';
 
 	// Defines the pattern of a <segment>
-	const REGEX_KEY     = '<([a-zA-Z0-9_]++)>';
+	const REGEX_KEY = '<([a-zA-Z0-9_]++)>';
 
 	// What can be part of a <segment> value
 	const REGEX_SEGMENT = '[^/.,;?\n]++';
 
 	// What must be escaped in the route regex
-	const REGEX_ESCAPE  = '[.\\+*?[^\\]${}=!|]';
+	const REGEX_ESCAPE = '[.\\+*?[^\\]${}=!|]';
 
 	/**
 	 * @var  string  default protocol for all routes
@@ -532,7 +532,7 @@ class Kohana_Route {
 			$missing = array();
 
 			$pattern = '#(?:'.Route::REGEX_KEY.'|'.Route::REGEX_GROUP.')#';
-			$result = preg_replace_callback($pattern, function ($matches) use (&$compile, $defaults, &$missing, $params, &$required)
+			$result  = preg_replace_callback($pattern, function ($matches) use (&$compile, $defaults, &$missing, $params, &$required)
 			{
 				if ($matches[0][0] === '<')
 				{

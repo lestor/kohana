@@ -136,8 +136,8 @@ class Kohana_Date {
 	public static function hours($step = 1, $long = FALSE, $start = NULL)
 	{
 		// Default values
-		$step = (int) $step;
-		$long = (bool) $long;
+		$step  = (int) $step;
+		$long  = (bool) $long;
 		$hours = array();
 
 		// Set the default start if none was specified.

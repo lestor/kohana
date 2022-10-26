@@ -13,11 +13,11 @@
  */
 class Kohana_HTTP_Cache {
 
-	const CACHE_STATUS_KEY    = 'x-cache-status';
-	const CACHE_STATUS_SAVED  = 'SAVED';
-	const CACHE_STATUS_HIT    = 'HIT';
-	const CACHE_STATUS_MISS   = 'MISS';
-	const CACHE_HIT_KEY       = 'x-cache-hits';
+	const CACHE_STATUS_KEY   = 'x-cache-status';
+	const CACHE_STATUS_SAVED = 'SAVED';
+	const CACHE_STATUS_HIT   = 'HIT';
+	const CACHE_STATUS_MISS  = 'MISS';
+	const CACHE_HIT_KEY      = 'x-cache-hits';
 
 	/**
 	 * Factory method for HTTP_Cache that provides a convenient dependency

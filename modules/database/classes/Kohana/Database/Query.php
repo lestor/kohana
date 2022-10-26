@@ -41,7 +41,7 @@ class Kohana_Database_Query {
 	public function __construct($type, $sql)
 	{
 		$this->_type = $type;
-		$this->_sql = $sql;
+		$this->_sql  = $sql;
 	}
 
 	/**
@@ -89,7 +89,7 @@ class Kohana_Database_Query {
 		}
 
 		$this->_force_execute = $force;
-		$this->_lifetime = $lifetime;
+		$this->_lifetime      = $lifetime;
 
 		return $this;
 	}

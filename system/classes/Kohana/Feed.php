@@ -57,7 +57,7 @@ class Kohana_Feed {
 		// Detect the feed type. RSS 1.0/2.0 and Atom 1.0 are supported.
 		$feed = isset($feed->channel) ? $feed->xpath('//item') : $feed->entry;
 
-		$i = 0;
+		$i     = 0;
 		$items = array();
 
 		foreach ($feed as $item)

@@ -300,7 +300,7 @@ abstract class Kohana_Minion_Task {
 		$comment = array_slice(explode("\n", $comment), 1, -1);
 
 		// Tag content
-		$tags        = array();
+		$tags = array();
 
 		foreach ($comment as $i => $line)
 		{

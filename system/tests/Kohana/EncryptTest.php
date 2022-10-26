@@ -194,7 +194,7 @@ class Kohana_EncryptTest extends Unittest_TestCase {
 	{
 		$encrypt = new Encrypt($key, $cipher);
 
-		$data_encrypted_first = $encrypt->encode($data);
+		$data_encrypted_first  = $encrypt->encode($data);
 		$data_encrypted_second = $encrypt->encode($data);
 
 		$this->assertNotEquals($data_encrypted_first, $data_encrypted_second);
@@ -255,7 +255,7 @@ class Kohana_EncryptTest extends Unittest_TestCase {
 
 		$config[$config_group] = array_merge($config[$config_group], $config_array);
 
-		$encrypt_first = Encrypt::instance($instance_name);
+		$encrypt_first  = Encrypt::instance($instance_name);
 		$encrypt_second = Encrypt::instance($instance_name);
 
 		$this->assertInstanceOf('Encrypt', $encrypt_first);

@@ -535,7 +535,7 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 		$http_header = new HTTP_Header($constructor);
 
 		$reflection = new ReflectionClass($http_header);
-		$method = $reflection->getMethod('offsetSet');
+		$method     = $reflection->getMethod('offsetSet');
 
 		foreach ($to_set as $args)
 		{

@@ -68,7 +68,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase {
 	{
 		parent::setUp();
 		$this->_initial_request = Request::$initial;
-		Request::$initial = new Request('/');
+		Request::$initial       = new Request('/');
 	}
 
 	// @codingStandardsIgnoreStart
@@ -167,7 +167,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase {
 			))
 			->execute();
 
-		$data = json_decode($response->body(),TRUE);
+		$data    = json_decode($response->body(),TRUE);
 		$headers = $data['rq_headers'];
 
 		$this->assertEquals('followed', $data['body']);
@@ -192,7 +192,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase {
 					->headers(array())
 					->execute();
 
-		$data = json_decode($response->body(),TRUE);
+		$data    = json_decode($response->body(),TRUE);
 		$headers = $data['rq_headers'];
 
 		$this->assertArrayNotHasKey('authorization', $headers, 'Empty headers should not be added when following redirects');

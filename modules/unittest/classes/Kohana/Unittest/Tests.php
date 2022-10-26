@@ -157,7 +157,7 @@ class Kohana_Unittest_Tests {
 	 */
 	static protected function get_config_whitelist()
 	{
-		$config = Kohana::$config->load('unittest');
+		$config      = Kohana::$config->load('unittest');
 		$directories = array();
 
 		if ($config->whitelist['app'])
@@ -216,7 +216,7 @@ class Kohana_Unittest_Tests {
 			{
 				if ( ! isset(Unittest_tests::$cache[$file]))
 				{
-					$relative_path = substr($file, strrpos($file, 'classes'.DIRECTORY_SEPARATOR) + 8, -strlen(EXT));
+					$relative_path  = substr($file, strrpos($file, 'classes'.DIRECTORY_SEPARATOR) + 8, -strlen(EXT));
 					$cascading_file = Kohana::find_file('classes', $relative_path);
 
 					// The theory is that if this file is the highest one in the cascading filesystem

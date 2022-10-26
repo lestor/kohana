@@ -74,7 +74,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 
 		try
 		{
-			$directory = Arr::get($this->_config, 'cache_dir', Kohana::$cache_dir);
+			$directory        = Arr::get($this->_config, 'cache_dir', Kohana::$cache_dir);
 			$this->_cache_dir = new SplFileInfo($directory);
 		}
 		// PHP < 5.3 exception handle
@@ -123,7 +123,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 */
 	public function get($id, $default = NULL)
 	{
-		$filename = Cache_File::filename($this->_sanitize_id($id));
+		$filename  = Cache_File::filename($this->_sanitize_id($id));
 		$directory = $this->_resolve_directory($filename);
 
 		// Wrap operations in try/catch to handle notices
@@ -197,7 +197,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 */
 	public function set($id, $data, $lifetime = NULL)
 	{
-		$filename = Cache_File::filename($this->_sanitize_id($id));
+		$filename  = Cache_File::filename($this->_sanitize_id($id));
 		$directory = $this->_resolve_directory($filename);
 
 		// If lifetime is NULL
@@ -218,7 +218,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 
 		// Open file to inspect
 		$resouce = new SplFileInfo($directory.$filename);
-		$file = $resouce->openFile('w');
+		$file    = $resouce->openFile('w');
 
 		try
 		{
@@ -251,7 +251,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 */
 	public function delete($id)
 	{
-		$filename = Cache_File::filename($this->_sanitize_id($id));
+		$filename  = Cache_File::filename($this->_sanitize_id($id));
 		$directory = $this->_resolve_directory($filename);
 
 		return $this->_delete_file(new SplFileInfo($directory.$filename), FALSE, TRUE);
@@ -466,8 +466,8 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	protected function _is_expired(SplFileInfo $file)
 	{
 		// Open the file and parse data
-		$created = $file->getMTime();
-		$data = $file->openFile("r");
+		$created  = $file->getMTime();
+		$data     = $file->openFile("r");
 		$lifetime = (int) $data->fgets();
 
 		// If we're at the EOF at this point, corrupted!

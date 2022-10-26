@@ -140,7 +140,7 @@ class Kohana_Database_Query_Builder_Join extends Database_Query_Builder {
 
 	public function reset()
 	{
-		$this->_type =
+		$this->_type  =
 		$this->_table = NULL;
 
 		$this->_on = array();

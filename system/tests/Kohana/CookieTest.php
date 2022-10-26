@@ -17,8 +17,8 @@
  */
 class Kohana_CookieTest extends Unittest_TestCase {
 
-	const UNIX_TIMESTAMP      = 1411040141;
-	const COOKIE_EXPIRATION   = 60;
+	const UNIX_TIMESTAMP    = 1411040141;
+	const COOKIE_EXPIRATION = 60;
 
 	/**
 	 * Sets up the environment
@@ -103,7 +103,7 @@ class Kohana_CookieTest extends Unittest_TestCase {
 	public function test_get_returns_value_if_cookie_present_and_signed()
 	{
 		Kohana_CookieTest_TestableCookie::set('cookie', 'value');
-		$cookie = Kohana_CookieTest_TestableCookie::$_mock_cookies_set[0];
+		$cookie                   = Kohana_CookieTest_TestableCookie::$_mock_cookies_set[0];
 		$_COOKIE[$cookie['name']] = $cookie['value'];
 		$this->assertEquals('value', Cookie::get('cookie', 'default'));
 	}
@@ -220,7 +220,7 @@ class Kohana_CookieTest extends Unittest_TestCase {
 	public function test_salt_creates_different_hash_for_different_data($first_args, $changed_args)
 	{
 		$second_args = array_merge($first_args, $changed_args);
-		$hashes = array();
+		$hashes      = array();
 		foreach (array($first_args, $second_args) as $args)
 		{
 			Cookie::$salt = $args['salt'];

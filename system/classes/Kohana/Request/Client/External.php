@@ -117,7 +117,7 @@ abstract class Kohana_Request_Client_External extends Request_Client {
 		}
 
 		// Store the current active request and replace current with new request
-		$previous = Request::$current;
+		$previous         = Request::$current;
 		Request::$current = $request;
 
 		// Resolve the POST fields

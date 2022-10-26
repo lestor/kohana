@@ -136,7 +136,7 @@ class Kohana_ValidationTest extends Unittest_TestCase {
 	 */
 	public function test_labels_adds_and_overwrites_multiple_labels_and_returns_this()
 	{
-		$validation = new Validation(array());
+		$validation   = new Validation(array());
 		$initial_data = array('kung fu' => 'fighting', 'fast' => 'cheetah');
 
 		$this->assertSame($validation, $validation->labels($initial_data));
@@ -168,8 +168,8 @@ class Kohana_ValidationTest extends Unittest_TestCase {
 	public function test_bind_adds_and_overwrites_multiple_variables_and_returns_this()
 	{
 		$validation = new Validation(array());
-		$data = array('kung fu' => 'fighting', 'fast' => 'cheetah');
-		$bound = array(':foo' => 'some value');
+		$data       = array('kung fu' => 'fighting', 'fast' => 'cheetah');
+		$bound      = array(':foo' => 'some value');
 
 		// Test binding an array of values
 		$this->assertSame($validation, $validation->bind($bound));
@@ -196,7 +196,7 @@ class Kohana_ValidationTest extends Unittest_TestCase {
 	 */
 	public function test_bound_callback()
 	{
-		$data = array(
+		$data       = array(
 			'kung fu' => 'fighting',
 			'fast'    => 'cheetah',
 		);
@@ -505,7 +505,7 @@ class Kohana_ValidationTest extends Unittest_TestCase {
 
 		$validation->check();
 
-		$translated_expected = array('foo' => 'foo must equal Español');
+		$translated_expected   = array('foo' => 'foo must equal Español');
 		$untranslated_expected = array('foo' => 'foo must equal Spanish');
 
 		$result_1 = $validation->errors('Validation', TRUE);
@@ -571,7 +571,7 @@ class Kohana_ValidationTest extends Unittest_TestCase {
 			->rule('bar', 'matches', array(':validation', ':field', 'foo'));
 
 		$validation->check();
-		$errors = $validation->errors('validation');
+		$errors   = $validation->errors('validation');
 		$expected = array('bar' => 'bar must be the same as foo');
 
 		$this->assertSame($expected, $errors);

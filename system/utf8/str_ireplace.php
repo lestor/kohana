@@ -47,19 +47,19 @@ function _str_ireplace($search, $replace, $str, & $count = NULL)
 		return $str;
 	}
 
-	$search = UTF8::strtolower($search);
+	$search    = UTF8::strtolower($search);
 	$str_lower = UTF8::strtolower($str);
 
 	$total_matched_strlen = 0;
-	$i = 0;
+	$i                    = 0;
 
 	while (preg_match('/(.*?)'.preg_quote($search, '/').'/s', $str_lower, $matches))
 	{
 		$matched_strlen = strlen($matches[0]);
-		$str_lower = substr($str_lower, $matched_strlen);
+		$str_lower      = substr($str_lower, $matched_strlen);
 
 		$offset = $total_matched_strlen + strlen($matches[1]) + ($i * (strlen($replace) - 1));
-		$str = substr_replace($str, $replace, $offset, strlen($search));
+		$str    = substr_replace($str, $replace, $offset, strlen($search));
 
 		$total_matched_strlen += $matched_strlen;
 		$i++;

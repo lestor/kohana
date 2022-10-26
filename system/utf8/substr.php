@@ -34,8 +34,8 @@ function _substr($str, $offset, $length = NULL)
 	if ($offset > 0)
 	{
 		// PCRE repeating quantifiers must be less than 65536, so repeat when necessary
-		$x = (int) ($offset / 65535);
-		$y = (int) ($offset % 65535);
+		$x      = (int) ($offset / 65535);
+		$y      = (int) ($offset % 65535);
 		$regex .= ($x == 0) ? '' : ('(?:.{65535}){'.$x.'}');
 		$regex .= ($y == 0) ? '' : ('.{'.$y.'}');
 	}
@@ -51,8 +51,8 @@ function _substr($str, $offset, $length = NULL)
 		// Reduce length so that it can't go beyond the end of the string
 		$length = min($strlen - $offset, $length);
 
-		$x = (int) ($length / 65535);
-		$y = (int) ($length % 65535);
+		$x      = (int) ($length / 65535);
+		$y      = (int) ($length % 65535);
 		$regex .= '(';
 		$regex .= ($x == 0) ? '' : ('(?:.{65535}){'.$x.'}');
 		$regex .= '.{'.$y.'})';
@@ -60,8 +60,8 @@ function _substr($str, $offset, $length = NULL)
 	// Find length from the right (negative length)
 	else
 	{
-		$x = (int) (-$length / 65535);
-		$y = (int) (-$length % 65535);
+		$x      = (int) (-$length / 65535);
+		$y      = (int) (-$length % 65535);
 		$regex .= '(.*)';
 		$regex .= ($x == 0) ? '' : ('(?:.{65535}){'.$x.'}');
 		$regex .= '.{'.$y.'}';

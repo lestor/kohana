@@ -337,7 +337,7 @@ class Kohana_Database_MySQLi extends Database {
 			$result = $this->query(Database::SELECT, 'SHOW FULL COLUMNS FROM '.$table, FALSE);
 		}
 
-		$count = 0;
+		$count   = 0;
 		$columns = array();
 		foreach ($result as $row)
 		{
@@ -385,17 +385,17 @@ class Kohana_Database_MySQLi extends Database {
 						case 'enum':
 						case 'set':
 							$column['collation_name'] = $row['Collation'];
-							$column['options'] = explode('\',\'', substr($length, 1, -1));
+							$column['options']        = explode('\',\'', substr($length, 1, -1));
 						break;
 					}
 				break;
 			}
 
 			// MySQL attributes
-			$column['comment']      = $row['Comment'];
-			$column['extra']        = $row['Extra'];
-			$column['key']          = $row['Key'];
-			$column['privileges']   = $row['Privileges'];
+			$column['comment']    = $row['Comment'];
+			$column['extra']      = $row['Extra'];
+			$column['key']        = $row['Key'];
+			$column['privileges'] = $row['Privileges'];
 
 			$columns[$row['Field']] = $column;
 		}

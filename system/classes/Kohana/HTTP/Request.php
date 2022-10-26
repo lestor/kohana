@@ -14,14 +14,14 @@
 interface Kohana_HTTP_Request extends HTTP_Message {
 
 	// HTTP Methods
-	const GET       = 'GET';
-	const POST      = 'POST';
-	const PUT       = 'PUT';
-	const DELETE    = 'DELETE';
-	const HEAD      = 'HEAD';
-	const OPTIONS   = 'OPTIONS';
-	const TRACE     = 'TRACE';
-	const CONNECT   = 'CONNECT';
+	const GET     = 'GET';
+	const POST    = 'POST';
+	const PUT     = 'PUT';
+	const DELETE  = 'DELETE';
+	const HEAD    = 'HEAD';
+	const OPTIONS = 'OPTIONS';
+	const TRACE   = 'TRACE';
+	const CONNECT = 'CONNECT';
 
 	/**
 	 * Gets or sets the HTTP method. Usually GET, POST, PUT or DELETE in

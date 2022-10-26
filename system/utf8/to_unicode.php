@@ -13,7 +13,7 @@ function _to_unicode($str)
 	// Cached expected number of octets after the current octet until the beginning of the next UTF8 character sequence
 	$m_state = 0;
 	// Cached Unicode character
-	$m_ucs4  = 0;
+	$m_ucs4 = 0;
 	// Cached expected number of octets in the current sequence
 	$m_bytes = 1;
 
@@ -31,30 +31,30 @@ function _to_unicode($str)
 			if (0 == (0x80 & $in))
 			{
 				// US-ASCII, pass straight through.
-				$out[] = $in;
+				$out[]   = $in;
 				$m_bytes = 1;
 			}
 			elseif (0xC0 == (0xE0 & $in))
 			{
 				// First octet of 2 octet sequence
-				$m_ucs4 = $in;
-				$m_ucs4 = ($m_ucs4 & 0x1F) << 6;
+				$m_ucs4  = $in;
+				$m_ucs4  = ($m_ucs4 & 0x1F) << 6;
 				$m_state = 1;
 				$m_bytes = 2;
 			}
 			elseif (0xE0 == (0xF0 & $in))
 			{
 				// First octet of 3 octet sequence
-				$m_ucs4 = $in;
-				$m_ucs4 = ($m_ucs4 & 0x0F) << 12;
+				$m_ucs4  = $in;
+				$m_ucs4  = ($m_ucs4 & 0x0F) << 12;
 				$m_state = 2;
 				$m_bytes = 3;
 			}
 			elseif (0xF0 == (0xF8 & $in))
 			{
 				// First octet of 4 octet sequence
-				$m_ucs4 = $in;
-				$m_ucs4 = ($m_ucs4 & 0x07) << 18;
+				$m_ucs4  = $in;
+				$m_ucs4  = ($m_ucs4 & 0x07) << 18;
 				$m_state = 3;
 				$m_bytes = 4;
 			}
@@ -68,16 +68,16 @@ function _to_unicode($str)
 				 * Rather than trying to resynchronize, we will carry on until the end
 				 * of the sequence and let the later error handling code catch it.
 				 **/
-				$m_ucs4 = $in;
-				$m_ucs4 = ($m_ucs4 & 0x03) << 24;
+				$m_ucs4  = $in;
+				$m_ucs4  = ($m_ucs4 & 0x03) << 24;
 				$m_state = 4;
 				$m_bytes = 5;
 			}
 			elseif (0xFC == (0xFE & $in))
 			{
 				// First octet of 6 octet sequence, see comments for 5 octet sequence.
-				$m_ucs4 = $in;
-				$m_ucs4 = ($m_ucs4 & 1) << 30;
+				$m_ucs4  = $in;
+				$m_ucs4  = ($m_ucs4 & 1) << 30;
 				$m_state = 5;
 				$m_bytes = 6;
 			}
@@ -94,9 +94,9 @@ function _to_unicode($str)
 			if (0x80 == (0xC0 & $in))
 			{
 				// Legal continuation
-				$shift = ($m_state - 1) * 6;
-				$tmp = $in;
-				$tmp = ($tmp & 0x0000003F) << $shift;
+				$shift   = ($m_state - 1) * 6;
+				$tmp     = $in;
+				$tmp     = ($tmp & 0x0000003F) << $shift;
 				$m_ucs4 |= $tmp;
 
 				// End of the multi-octet sequence. mUcs4 now contains the final Unicode codepoint to be output

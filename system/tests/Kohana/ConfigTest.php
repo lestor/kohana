@@ -66,7 +66,7 @@ class Kohana_ConfigTest extends Unittest_TestCase {
 	 */
 	public function test_attach_adds_reader_to_front_of_queue()
 	{
-		$config  = new Config;
+		$config = new Config;
 
 		$reader1 = $this->createMock('Kohana_Config_Reader');
 		$reader2 = $this->createMock('Kohana_Config_Reader');
@@ -125,7 +125,7 @@ class Kohana_ConfigTest extends Unittest_TestCase {
 	 */
 	public function test_detach_removes_reader_and_returns_this()
 	{
-		$config  = new Config;
+		$config = new Config;
 
 		// Due to the way phpunit mock generator works if you try and mock a class
 		// that has already been used then it just re-uses the first's name

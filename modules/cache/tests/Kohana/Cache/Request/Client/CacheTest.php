@@ -41,10 +41,10 @@ class Kohana_Cache_Request_Client_CacheTest extends Unittest_TestCase {
 	 */
 	public function test_cache_not_called_with_no_cache()
 	{
-		$request       = new Request('welcome/index');
-		$response      = new Response;
+		$request  = new Request('welcome/index');
+		$response = new Response;
 
-		$client_mock   = $this->createMock('Request_Client_Internal');
+		$client_mock = $this->createMock('Request_Client_Internal');
 
 		$request->client($client_mock);
 		$client_mock->expects($this->exactly(0))
@@ -70,8 +70,8 @@ class Kohana_Cache_Request_Client_CacheTest extends Unittest_TestCase {
 			'action'     => 'index',
 		));
 
-		$request       = new Request('welcome/index', NULL, array($route));
-		$cache_mock    = $this->_get_cache_mock();
+		$request    = new Request('welcome/index', NULL, array($route));
+		$cache_mock = $this->_get_cache_mock();
 
 		$request->client()->cache(HTTP_Cache::factory($cache_mock));
 
@@ -93,10 +93,10 @@ class Kohana_Cache_Request_Client_CacheTest extends Unittest_TestCase {
 	 */
 	public function test_cache_save()
 	{
-		$lifetime      = 800;
-		$request       = new Request('welcome/index');
-		$cache_mock    = $this->_get_cache_mock();
-		$response      = Response::factory();
+		$lifetime   = 800;
+		$request    = new Request('welcome/index');
+		$cache_mock = $this->_get_cache_mock();
+		$response   = Response::factory();
 
 		$request->client()->cache(new HTTP_Cache(array(
 			'cache' => $cache_mock
@@ -131,9 +131,9 @@ class Kohana_Cache_Request_Client_CacheTest extends Unittest_TestCase {
 	 */
 	public function test_cache_hit()
 	{
-		$lifetime      = 800;
-		$request       = new Request('welcome/index');
-		$cache_mock    = $this->_get_cache_mock();
+		$lifetime   = 800;
+		$request    = new Request('welcome/index');
+		$cache_mock = $this->_get_cache_mock();
 
 		$request->client()->cache(new HTTP_Cache(array(
 			'cache' => $cache_mock

@@ -27,7 +27,7 @@ class Kohana_Request_Client_InternalTest extends Unittest_TestCase {
 
 		// temporarily save $log object
 		$this->_log_object = Kohana::$log;
-		Kohana::$log = NULL;
+		Kohana::$log       = NULL;
 	}
 
 	// @codingStandardsIgnoreStart

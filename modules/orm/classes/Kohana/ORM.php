@@ -366,7 +366,7 @@ class Kohana_ORM extends Model implements serializable {
 				}
 				
 				$defaults['foreign_key'] = $this->_object_name.$this->_foreign_key_suffix;
-				$defaults['through'] = NULL;
+				$defaults['through']     = NULL;
 				
 				if ( ! isset($details['far_key']))
 				{
@@ -850,7 +850,7 @@ class Kohana_ORM extends Model implements serializable {
 
 		// Split object parts
 		$aliases = explode(':', $target_path);
-		$target = $this;
+		$target  = $this;
 		foreach ($aliases as $alias)
 		{
 			// Go down the line of objects to find the given target
@@ -891,7 +891,7 @@ class Kohana_ORM extends Model implements serializable {
 		// Use the keys of the empty object to determine the columns
 		foreach (array_keys($target->_object) as $column)
 		{
-			$name = $target_path.'.'.$column;
+			$name  = $target_path.'.'.$column;
 			$alias = $target_path.':'.$column;
 
 			// Add the prefix so that load_result can determine the relationship
@@ -1337,7 +1337,7 @@ class Kohana_ORM extends Model implements serializable {
 		$this->_loaded = $this->_saved = TRUE;
 
 		// All changes have been saved
-		$this->_changed = array();
+		$this->_changed         = array();
 		$this->_original_values = $this->_object;
 
 		return $this;
@@ -1403,7 +1403,7 @@ class Kohana_ORM extends Model implements serializable {
 		$this->_saved = TRUE;
 
 		// All changes have been saved
-		$this->_changed = array();
+		$this->_changed         = array();
 		$this->_original_values = $this->_object;
 
 		return $this;
@@ -1571,7 +1571,7 @@ class Kohana_ORM extends Model implements serializable {
 	{
 		$far_keys = ($far_keys instanceof ORM) ? $far_keys->pk() : $far_keys;
 
-		$columns = array($this->_has_many[$alias]['foreign_key'], $this->_has_many[$alias]['far_key']);
+		$columns     = array($this->_has_many[$alias]['foreign_key'], $this->_has_many[$alias]['far_key']);
 		$foreign_key = $this->pk();
 
 		$query = DB::insert($this->_has_many[$alias]['through'], $columns);

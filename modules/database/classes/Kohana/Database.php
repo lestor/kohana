@@ -505,7 +505,7 @@ abstract class Kohana_Database {
 		if (is_array($column))
 		{
 			list($column, $alias) = $column;
-			$alias = str_replace($this->_identifier, $escaped_identifier, $alias);
+			$alias                = str_replace($this->_identifier, $escaped_identifier, $alias);
 		}
 
 		if ($column instanceof Database_Query)
@@ -590,7 +590,7 @@ abstract class Kohana_Database {
 		if (is_array($table))
 		{
 			list($table, $alias) = $table;
-			$alias = str_replace($this->_identifier, $escaped_identifier, $alias);
+			$alias               = str_replace($this->_identifier, $escaped_identifier, $alias);
 		}
 
 		if ($table instanceof Database_Query)
@@ -666,7 +666,7 @@ abstract class Kohana_Database {
 		if (is_array($value))
 		{
 			list($value, $alias) = $value;
-			$alias = str_replace($this->_identifier, $escaped_identifier, $alias);
+			$alias               = str_replace($this->_identifier, $escaped_identifier, $alias);
 		}
 
 		if ($value instanceof Database_Query)

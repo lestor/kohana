@@ -71,7 +71,7 @@ class Kohana_SecurityTest extends Unittest_TestCase {
 		for ($i = 0; $i <= 4; $i++)
 		{
 			Security::$token_name = 'token_'.$i;
-			$array[] = array(Security::token(TRUE), Security::check(Security::token(FALSE)), $i);
+			$array[]              = array(Security::token(TRUE), Security::check(Security::token(FALSE)), $i);
 		}
 		return $array;
 	}

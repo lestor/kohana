@@ -128,7 +128,7 @@ abstract class Kohana_Cache {
 		$config = $config->get($group);
 
 		// Create a new cache type instance
-		$cache_class = 'Cache_'.ucfirst($config['driver']);
+		$cache_class              = 'Cache_'.ucfirst($config['driver']);
 		Cache::$instances[$group] = new $cache_class($config);
 
 		// Return the instance

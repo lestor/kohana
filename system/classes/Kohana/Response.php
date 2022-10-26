@@ -601,7 +601,7 @@ class Kohana_Response implements HTTP_Response {
 		{
 			if (extension_loaded('http'))
 			{
-				$cookies = version_compare(phpversion('http'), '2.0.0', '>=') ?
+				$cookies                     = version_compare(phpversion('http'), '2.0.0', '>=') ?
 					( (string) new \http\Cookie($this->_cookies)) :
 					http_build_cookie($this->_cookies);
 				$this->_header['set-cookie'] = $cookies;
@@ -613,7 +613,7 @@ class Kohana_Response implements HTTP_Response {
 				// Parse each
 				foreach ($this->_cookies as $key => $value)
 				{
-					$string = $key.'='.$value['value'].'; expires='.date('l, d M Y H:i:s T', $value['expiration']);
+					$string    = $key.'='.$value['value'].'; expires='.date('l, d M Y H:i:s T', $value['expiration']);
 					$cookies[] = $string;
 				}
 
@@ -622,7 +622,7 @@ class Kohana_Response implements HTTP_Response {
 			}
 		}
 
-		$output = $this->_protocol.' '.$this->_status.' '.Response::$messages[$this->_status]."\r\n";
+		$output  = $this->_protocol.' '.$this->_status.' '.Response::$messages[$this->_status]."\r\n";
 		$output .= (string) $this->_header;
 		$output .= $this->_body;
 
@@ -678,7 +678,7 @@ class Kohana_Response implements HTTP_Response {
 	{
 		// Defaults to start with when the HTTP_RANGE header doesn't exist.
 		$start = 0;
-		$end = $size - 1;
+		$end   = $size - 1;
 
 		if ($range = $this->_parse_byte_range())
 		{

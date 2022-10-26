@@ -47,7 +47,7 @@ abstract class Kohana_Image {
 		{
 			// Use the driver from configuration file or default one
 			$configured_driver = Kohana::$config->load('image.default_driver');
-			$driver = $configured_driver ? $configured_driver : Image::$default_driver;
+			$driver            = $configured_driver ? $configured_driver : Image::$default_driver;
 		}
 
 		// Set the class name

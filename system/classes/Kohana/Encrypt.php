@@ -125,7 +125,7 @@ class Kohana_Encrypt {
 		}
 
 		// Store the key and cipher
-		$this->_key = $key;
+		$this->_key    = $key;
 		$this->_cipher = $cipher;
 
 		// Store the IV size
