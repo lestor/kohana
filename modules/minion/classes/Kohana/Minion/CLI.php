@@ -42,7 +42,7 @@ class Kohana_Minion_CLI {
 	 *     // Get the values of "username" and "password"
 	 *     $auth = Minion_CLI::options('username', 'password');
 	 *
-	 * @param   string  $options,...    option name
+	 * @param   string $options,... option name
 	 * @return  array
 	 */
 	public static function options($options = NULL)
@@ -117,8 +117,8 @@ class Kohana_Minion_CLI {
 	 * // Will only accept the options in the array
 	 * $ready = Minion_CLI::read('Are you ready?', array('y','n'));
 	 *
-	 * @param  string  $text    text to show user before waiting for input
-	 * @param  array   $options array of options the user is shown
+	 * @param  string $text    text to show user before waiting for input
+	 * @param  array  $options array of options the user is shown
 	 * @return string  the user input
 	 */
 	public static function read($text = '', array $options = NULL)
@@ -219,8 +219,8 @@ class Kohana_Minion_CLI {
 	 *     // Done writing this line
 	 *     Minion_CLI::write_replace('100%', TRUE);
 	 *
-	 * @param string  $text      the text to output
-	 * @param boolean $end_line  whether the line is done being replaced
+	 * @param string  $text     the text to output
+	 * @param boolean $end_line whether the line is done being replaced
 	 */
 	public static function write_replace($text = '', $end_line = FALSE)
 	{
@@ -237,8 +237,8 @@ class Kohana_Minion_CLI {
 	 * @license    MIT License
 	 * @copyright  2010 - 2011 Fuel Development Team
 	 * @link       http://fuelphp.com
-	 * @param int $seconds number of seconds
-	 * @param bool $countdown show a countdown or not
+	 * @param integer $seconds   number of seconds
+	 * @param boolean $countdown show a countdown or not
 	 */
 	public static function wait($seconds = 0, $countdown = FALSE)
 	{
@@ -277,7 +277,7 @@ class Kohana_Minion_CLI {
 	 * @license    MIT License
 	 * @copyright  2010 - 2011 Fuel Development Team
 	 * @link       http://fuelphp.com
-	 * @param string $text the text to color
+	 * @param string $text       the text to color
 	 * @param string $foreground the foreground color
 	 * @param string $background the background color
 	 * @return string the color coded string

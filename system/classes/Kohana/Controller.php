@@ -36,8 +36,8 @@ abstract class Kohana_Controller {
 	 * Creates a new controller instance. Each controller must be constructed
 	 * with the request object that created it.
 	 *
-	 * @param   Request   $request  Request that created the controller
-	 * @param   Response  $response The request's response
+	 * @param   Request  $request  Request that created the controller
+	 * @param   Response $response The request's response
 	 * @return  void
 	 */
 	public function __construct(Request $request, Response $response)
@@ -118,8 +118,8 @@ abstract class Kohana_Controller {
 	 *
 	 * Proxies to the [HTTP::redirect] method.
 	 *
-	 * @param  string  $uri   URI to redirect to
-	 * @param  int     $code  HTTP Status code to use for the redirect
+	 * @param  string  $uri  URI to redirect to
+	 * @param  integer $code HTTP Status code to use for the redirect
 	 * @throws HTTP_Exception
 	 */
 	public static function redirect($uri = '', $code = 302)
@@ -134,7 +134,7 @@ abstract class Kohana_Controller {
 	 *
 	 *     $this->check_cache(sha1($content));
 	 *
-	 * @param  string  $etag  Resource Etag
+	 * @param  string $etag Resource Etag
 	 * @return Response
 	 */
 	protected function check_cache($etag = NULL)

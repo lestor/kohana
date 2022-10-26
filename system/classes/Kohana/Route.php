@@ -83,9 +83,9 @@ class Kohana_Route {
 	 *             'controller' => 'welcome',
 	 *         ));
 	 *
-	 * @param   string  $name           route name
-	 * @param   string  $uri            URI pattern
-	 * @param   array   $regex          regex patterns for route keys
+	 * @param   string $name  route name
+	 * @param   string $uri   URI pattern
+	 * @param   array  $regex regex patterns for route keys
 	 * @return  Route
 	 */
 	public static function set($name, $uri = NULL, $regex = NULL)
@@ -98,7 +98,7 @@ class Kohana_Route {
 	 *
 	 *     $route = Route::get('default');
 	 *
-	 * @param   string  $name   route name
+	 * @param   string $name route name
 	 * @return  Route
 	 * @throws  Kohana_Exception
 	 */
@@ -130,7 +130,7 @@ class Kohana_Route {
 	 *
 	 *     $name = Route::name($route)
 	 *
-	 * @param   Route   $route  instance
+	 * @param   Route $route instance
 	 * @return  string
 	 */
 	public static function name(Route $route)
@@ -203,9 +203,9 @@ class Kohana_Route {
 	 *
 	 *     echo URL::site(Route::get($name)->uri($params), $protocol);
 	 *
-	 * @param   string  $name       route name
-	 * @param   array   $params     URI parameters
-	 * @param   mixed   $protocol   protocol string or boolean, adds protocol and domain
+	 * @param   string $name     route name
+	 * @param   array  $params   URI parameters
+	 * @param   mixed  $protocol protocol string or boolean, adds protocol and domain
 	 * @return  string
 	 * @since   3.0.7
 	 * @uses    URL::site
@@ -303,8 +303,8 @@ class Kohana_Route {
 	 * The $uri parameter should be a string for basic regex matching.
 	 *
 	 *
-	 * @param   string  $uri    route URI pattern
-	 * @param   array   $regex  key patterns
+	 * @param   string $uri   route URI pattern
+	 * @param   array  $regex key patterns
 	 * @return  void
 	 * @uses    Route::_compile
 	 */
@@ -341,7 +341,7 @@ class Kohana_Route {
 	 *
 	 * If no parameter is passed, this method will act as a getter.
 	 *
-	 * @param   array   $defaults   key values
+	 * @param   array $defaults key values
 	 * @return  $this or array
 	 */
 	public function defaults(array $defaults = NULL)
@@ -381,7 +381,7 @@ class Kohana_Route {
 	 * [!!] Default parameters are added before filters are called!
 	 *
 	 * @throws  Kohana_Exception
-	 * @param   array   $callback   callback string, array, or closure
+	 * @param   array $callback callback string, array, or closure
 	 * @return  $this
 	 */
 	public function filter($callback)
@@ -411,7 +411,7 @@ class Kohana_Route {
 	 *         // Parse the parameters
 	 *     }
 	 *
-	 * @param   Request $request  Request object to match
+	 * @param   Request $request Request object to match
 	 * @return  array             on success
 	 * @return  FALSE             on failure
 	 */
@@ -501,7 +501,7 @@ class Kohana_Route {
 	 *         'id'         => '10'
 	 *     ));
 	 *
-	 * @param   array   $params URI parameters
+	 * @param   array $params URI parameters
 	 * @return  string
 	 * @throws  Kohana_Exception
 	 * @uses    Route::REGEX_GROUP

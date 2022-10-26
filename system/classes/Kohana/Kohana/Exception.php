@@ -41,10 +41,10 @@ class Kohana_Kohana_Exception extends Exception {
 	 *     throw new Kohana_Exception('Something went terrible wrong, :user',
 	 *         array(':user' => $user));
 	 *
-	 * @param   string          $message    error message
-	 * @param   array           $variables  translation variables
-	 * @param   integer|string  $code       the exception code
-	 * @param   Throwable       $previous   Previous throwable
+	 * @param   string         $message   error message
+	 * @param   array          $variables translation variables
+	 * @param   integer|string $code      the exception code
+	 * @param   Throwable      $previous  Previous throwable
 	 * @return  void
 	 */
 	public function __construct($message = "", array $variables = NULL, $code = 0, Throwable $previous = NULL)
@@ -78,7 +78,7 @@ class Kohana_Kohana_Exception extends Exception {
 	 * exception, and the stack trace of the error.
 	 *
 	 * @uses    Kohana_Exception::response
-	 * @param   Throwable  $t
+	 * @param   Throwable $t
 	 * @return  void
 	 */
 	public static function handler(Throwable $t)
@@ -96,7 +96,7 @@ class Kohana_Kohana_Exception extends Exception {
 	 * for display.
 	 *
 	 * @uses    Kohana_Exception::response
-	 * @param   Throwable  $t
+	 * @param   Throwable $t
 	 * @return  Response
 	 */
 	public static function _handler(Throwable $t)
@@ -133,8 +133,8 @@ class Kohana_Kohana_Exception extends Exception {
 	 * Logs an exception.
 	 *
 	 * @uses    Kohana_Exception::text
-	 * @param   Throwable  $t
-	 * @param   int        $level
+	 * @param   Throwable $t
+	 * @param   integer   $level
 	 * @return  void
 	 */
 	public static function log(Throwable $t, $level = Log::EMERGENCY)
@@ -157,7 +157,7 @@ class Kohana_Kohana_Exception extends Exception {
 	 *
 	 * Error [ Code ]: Message ~ File [ Line ]
 	 *
-	 * @param   Throwable  $t
+	 * @param   Throwable $t
 	 * @return  string
 	 */
 	public static function text(Throwable $t)
@@ -170,7 +170,7 @@ class Kohana_Kohana_Exception extends Exception {
 	 * Get a Response object representing the exception
 	 *
 	 * @uses    Kohana_Exception::text
-	 * @param   Throwable  $t
+	 * @param   Throwable $t
 	 * @return  Response
 	 */
 	public static function response(Throwable $t)

@@ -238,9 +238,9 @@ class Kohana_RequestTest extends Unittest_TestCase {
 	 * @test
 	 * @covers Request::accept_lang
 	 * @dataProvider provider_accept_lang
-	 * @param array $params Query string
-	 * @param string $expected Expected result
-	 * @param array $enviroment Set environment
+	 * @param array  $params     Query string
+	 * @param string $expected   Expected result
+	 * @param array  $enviroment Set environment
 	 */
 	public function test_accept_lang($params, $expected, $enviroment)
 	{
@@ -288,9 +288,9 @@ class Kohana_RequestTest extends Unittest_TestCase {
 	 * @test
 	 * @dataProvider provider_url
 	 * @covers Request::url
-	 * @param string $uri the uri to use
+	 * @param string $uri      the uri to use
 	 * @param string $protocol the protocol to use
-	 * @param array $expected The string we expect
+	 * @param array  $expected The string we expect
 	 */
 	public function test_url($uri, $protocol, $expected)
 	{
@@ -736,7 +736,7 @@ class Kohana_RequestTest extends Unittest_TestCase {
 	 * 
 	 * @dataProvider provider_client
 	 *
-	 * @param   Request $request 
+	 * @param   Request        $request 
 	 * @param   Request_Client $client 
 	 * @param   Request_Client $expected 
 	 * @return  void

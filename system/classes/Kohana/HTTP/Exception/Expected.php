@@ -24,8 +24,8 @@ abstract class Kohana_HTTP_Exception_Expected extends HTTP_Exception {
 	 *     throw new Kohana_Exception('Something went terrible wrong, :user',
 	 *         array(':user' => $user));
 	 *
-	 * @param   string  $message    status message, custom content to display with error
-	 * @param   array   $variables  translation variables
+	 * @param   string $message   status message, custom content to display with error
+	 * @param   array  $variables translation variables
 	 * @return  void
 	 */
 	public function __construct($message = NULL, array $variables = NULL, Exception $previous = NULL)
@@ -41,8 +41,8 @@ abstract class Kohana_HTTP_Exception_Expected extends HTTP_Exception {
 	 * Gets and sets headers to the [Response].
 	 *
 	 * @see     [Response::headers]
-	 * @param   mixed   $key
-	 * @param   string  $value
+	 * @param   mixed  $key
+	 * @param   string $value
 	 * @return  mixed
 	 */
 	public function headers($key = NULL, $value = NULL)
@@ -59,7 +59,7 @@ abstract class Kohana_HTTP_Exception_Expected extends HTTP_Exception {
 	 * Validate this exception contains everything needed to continue.
 	 *
 	 * @throws Kohana_Exception
-	 * @return bool
+	 * @return boolean
 	 */
 	public function check()
 	{

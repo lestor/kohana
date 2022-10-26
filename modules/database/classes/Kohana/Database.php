@@ -45,8 +45,8 @@ abstract class Kohana_Database {
 	 *     // Create a custom configured instance
 	 *     $db = Database::instance('custom', $config);
 	 *
-	 * @param   string   $name    instance name
-	 * @param   array    $config  configuration parameters
+	 * @param   string $name   instance name
+	 * @param   array  $config configuration parameters
 	 * @return  Database
 	 */
 	public static function instance($name = NULL, array $config = NULL)
@@ -182,7 +182,7 @@ abstract class Kohana_Database {
 	 *     $db->set_charset('utf8');
 	 *
 	 * @throws  Database_Exception
-	 * @param   string   $charset  character set name
+	 * @param   string $charset character set name
 	 * @return  void
 	 */
 	abstract public function set_charset($charset);
@@ -196,10 +196,10 @@ abstract class Kohana_Database {
 	 *     // Make a SELECT query and use "Model_User" for the results
 	 *     $db->query(Database::SELECT, 'SELECT * FROM users LIMIT 1', 'Model_User');
 	 *
-	 * @param   integer  $type       Database::SELECT, Database::INSERT, etc
-	 * @param   string   $sql        SQL query
-	 * @param   mixed    $as_object  result object class string, TRUE for stdClass, FALSE for assoc array
-	 * @param   array    $params     object construct parameters for result class
+	 * @param   integer $type      Database::SELECT, Database::INSERT, etc
+	 * @param   string  $sql       SQL query
+	 * @param   mixed   $as_object result object class string, TRUE for stdClass, FALSE for assoc array
+	 * @param   array   $params    object construct parameters for result class
 	 * @return  object   Database_Result for SELECT queries
 	 * @return  array    list (insert id, row count) for INSERT queries
 	 * @return  integer  number of affected rows for all other queries
@@ -224,7 +224,7 @@ abstract class Kohana_Database {
 	 *          $db->rollback();
 	 *      }
 	 *
-	 * @param string $mode  transaction mode
+	 * @param string $mode transaction mode
 	 * @return  boolean
 	 */
 	abstract public function begin($mode = NULL);
@@ -255,7 +255,7 @@ abstract class Kohana_Database {
 	 *     // Get the total number of records in the "users" table
 	 *     $count = $db->count_records('users');
 	 *
-	 * @param   mixed    $table  table name string or array(query, alias)
+	 * @param   mixed $table table name string or array(query, alias)
 	 * @return  integer
 	 */
 	public function count_records($table)
@@ -272,7 +272,7 @@ abstract class Kohana_Database {
 	 *
 	 *     $db->datatype('char');
 	 *
-	 * @param   string  $type  SQL data type
+	 * @param   string $type SQL data type
 	 * @return  array
 	 */
 	public function datatype($type)
@@ -347,7 +347,7 @@ abstract class Kohana_Database {
 	 *     // Get all user-related tables
 	 *     $tables = $db->list_tables('user%');
 	 *
-	 * @param   string   $like  table to search for
+	 * @param   string $like table to search for
 	 * @return  array
 	 */
 	abstract public function list_tables($like = NULL);
@@ -365,9 +365,9 @@ abstract class Kohana_Database {
 	 *     // Get the columns from a table that doesn't use the table prefix
 	 *     $columns = $db->list_columns('users', NULL, FALSE);
 	 *
-	 * @param   string  $table       table to get columns from
-	 * @param   string  $like        column to search for
-	 * @param   boolean $add_prefix  whether to add the table prefix automatically or not
+	 * @param   string  $table      table to get columns from
+	 * @param   string  $like       column to search for
+	 * @param   boolean $add_prefix whether to add the table prefix automatically or not
 	 * @return  array
 	 */
 	abstract public function list_columns($table, $like = NULL, $add_prefix = TRUE);
@@ -378,7 +378,7 @@ abstract class Kohana_Database {
 	 *     // Returns: array('CHAR', '6')
 	 *     list($type, $length) = $db->_parse_type('CHAR(6)');
 	 *
-	 * @param   string  $type
+	 * @param   string $type
 	 * @return  array   list containing the type and length, if any
 	 */
 	protected function _parse_type($type)
@@ -425,7 +425,7 @@ abstract class Kohana_Database {
 	 * [Database_Query] objects will be compiled and converted to a sub-query.
 	 * All other objects will be converted using the `__toString` method.
 	 *
-	 * @param   mixed   $value  any value to quote
+	 * @param   mixed $value any value to quote
 	 * @return  string
 	 * @uses    Database::escape
 	 */
@@ -492,7 +492,7 @@ abstract class Kohana_Database {
 	 * [Database_Query] objects will be compiled and converted to a sub-query.
 	 * All other objects will be converted using the `__toString` method.
 	 *
-	 * @param   mixed   $column  column name or array(column, alias)
+	 * @param   mixed $column column name or array(column, alias)
 	 * @return  string
 	 * @uses    Database::quote_identifier
 	 * @uses    Database::table_prefix
@@ -577,7 +577,7 @@ abstract class Kohana_Database {
 	 * [Database_Query] objects will be compiled and converted to a sub-query.
 	 * All other objects will be converted using the `__toString` method.
 	 *
-	 * @param   mixed   $table  table name or array(table, alias)
+	 * @param   mixed $table table name or array(table, alias)
 	 * @return  string
 	 * @uses    Database::quote_identifier
 	 * @uses    Database::table_prefix
@@ -655,7 +655,7 @@ abstract class Kohana_Database {
 	 * [Database_Query] objects will be compiled and converted to a sub-query.
 	 * All other objects will be converted using the `__toString` method.
 	 *
-	 * @param   mixed   $value  any identifier
+	 * @param   mixed $value any identifier
 	 * @return  string
 	 */
 	public function quote_identifier($value)
@@ -718,7 +718,7 @@ abstract class Kohana_Database {
 	 *
 	 *     $value = $db->escape('any string');
 	 *
-	 * @param   string   $value  value to quote
+	 * @param   string $value value to quote
 	 * @return  string
 	 */
 	abstract public function escape($value);

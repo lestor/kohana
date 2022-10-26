@@ -71,10 +71,10 @@ class Kohana_EncryptTest extends Unittest_TestCase {
 	}
 
 	/**
-	 * @param string $key
+	 * @param string  $key
 	 * @param integer $cipher
-	 * @param string $data
-	 * @param string $encrypted_data
+	 * @param string  $data
+	 * @param string  $encrypted_data
 	 *
 	 * @dataProvider provider_decode
 	 * @covers Encrypt::decode
@@ -111,9 +111,9 @@ class Kohana_EncryptTest extends Unittest_TestCase {
 	/**
 	 * Tests for decode when the data is not valid data
 	 *
-	 * @param string $key
+	 * @param string  $key
 	 * @param integer $cipher
-	 * @param string $invalid_encrypted_data
+	 * @param string  $invalid_encrypted_data
 	 *
 	 * @dataProvider provider_decode_invalid_data
 	 * @throws Kohana_Exception
@@ -142,9 +142,9 @@ class Kohana_EncryptTest extends Unittest_TestCase {
 	}
 
 	/**
-	 * @param string $key
+	 * @param string  $key
 	 * @param integer $cipher
-	 * @param string $data
+	 * @param string  $data
 	 *
 	 * @dataProvider provider_decode
 	 * @covers Encrypt::decode
@@ -181,9 +181,9 @@ class Kohana_EncryptTest extends Unittest_TestCase {
 	}
 
 	/**
-	 * @param string $key
+	 * @param string  $key
 	 * @param integer $cipher
-	 * @param string $data
+	 * @param string  $data
 	 *
 	 * @dataProvider provider_consecutive_encode_produce_different_results
 	 * @covers Encrypt::encode
@@ -237,7 +237,7 @@ class Kohana_EncryptTest extends Unittest_TestCase {
 	 * also test if the instances are appropriately configured.
 	 *
 	 * @param string $instance_name instance name
-	 * @param array $config_array array of config variables missing from config
+	 * @param array  $config_array  array of config variables missing from config
 	 *
 	 * @dataProvider provider_instance_returns_singleton
 	 * @throws Kohana_Exception

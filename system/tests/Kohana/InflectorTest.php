@@ -38,7 +38,7 @@ class Kohana_InflectorTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_uncountable
-	 * @param boolean $input  Input for File::mime
+	 * @param boolean $input    Input for File::mime
 	 * @param boolean $expected Output for File::mime
 	 */
 	public function test_uncountable($input, $expected)
@@ -74,7 +74,7 @@ class Kohana_InflectorTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_singular
-	 * @param boolean $input  Input for File::mime
+	 * @param boolean $input    Input for File::mime
 	 * @param boolean $expected Output for File::mime
 	 */
 	public function test_singular($input, $count, $expected)
@@ -110,7 +110,7 @@ class Kohana_InflectorTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_plural
-	 * @param boolean $input  Input for File::mime
+	 * @param boolean $input    Input for File::mime
 	 * @param boolean $expected Output for File::mime
 	 */
 	public function test_plural($input, $count, $expected)
@@ -141,7 +141,7 @@ class Kohana_InflectorTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_camelize
-	 * @param boolean $input  Input for File::mime
+	 * @param boolean $input    Input for File::mime
 	 * @param boolean $expected Output for File::mime
 	 */
 	public function test_camelize($input, $method, $expected)
@@ -175,8 +175,8 @@ class Kohana_InflectorTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_decamelize
-	 * @param string $input Camelized string
-	 * @param string $glue Glue
+	 * @param string $input    Camelized string
+	 * @param string $glue     Glue
 	 * @param string $expected Expected string
 	 */
 	public function test_decamelize($input, $glue, $expected)

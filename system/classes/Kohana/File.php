@@ -17,7 +17,7 @@ class Kohana_File {
 	 *
 	 *     $mime = File::mime($file);
 	 *
-	 * @param   string  $filename   file name or path
+	 * @param   string $filename file name or path
 	 * @return  string  mime type on success
 	 * @return  FALSE   on failure
 	 */
@@ -66,7 +66,7 @@ class Kohana_File {
 	 *
 	 *     $mime = File::mime_by_ext('png'); // "image/png"
 	 *
-	 * @param   string  $extension  php, pdf, txt, etc
+	 * @param   string $extension php, pdf, txt, etc
 	 * @return  string  mime type on success
 	 * @return  FALSE   on failure
 	 */
@@ -96,7 +96,7 @@ class Kohana_File {
 	/**
 	 * Lookup file extensions by MIME type
 	 *
-	 * @param   string  $type File MIME type
+	 * @param   string $type File MIME type
 	 * @return  array   File extensions matching MIME type
 	 */
 	public static function exts_by_mime($type)
@@ -134,7 +134,7 @@ class Kohana_File {
 	/**
 	 * Lookup a single file extension by MIME type.
 	 *
-	 * @param   string  $type  MIME type to lookup
+	 * @param   string $type MIME type to lookup
 	 * @return  mixed          First file extension matching or false
 	 */
 	public static function ext_by_mime($type)
@@ -203,7 +203,7 @@ class Kohana_File {
 	 *
 	 *     $count = File::join($file);
 	 *
-	 * @param   string  $filename   split filename, without .000 extension
+	 * @param   string $filename split filename, without .000 extension
 	 * @return  integer The number of pieces that were joined.
 	 */
 	public static function join($filename)

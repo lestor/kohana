@@ -19,7 +19,7 @@ class Kohana_Database_Query_Builder_Update extends Database_Query_Builder_Where 
 	/**
 	 * Set the table for a update.
 	 *
-	 * @param   mixed  $table  table name or array($table, $alias) or object
+	 * @param   mixed $table table name or array($table, $alias) or object
 	 * @return  void
 	 */
 	public function __construct($table = NULL)
@@ -37,7 +37,7 @@ class Kohana_Database_Query_Builder_Update extends Database_Query_Builder_Where 
 	/**
 	 * Sets the table to update.
 	 *
-	 * @param   mixed  $table  table name or array($table, $alias) or object
+	 * @param   mixed $table table name or array($table, $alias) or object
 	 * @return  $this
 	 */
 	public function table($table)
@@ -50,7 +50,7 @@ class Kohana_Database_Query_Builder_Update extends Database_Query_Builder_Where 
 	/**
 	 * Set the values to update with an associative array.
 	 *
-	 * @param   array   $pairs  associative (column => value) list
+	 * @param   array $pairs associative (column => value) list
 	 * @return  $this
 	 */
 	public function set(array $pairs)
@@ -66,8 +66,8 @@ class Kohana_Database_Query_Builder_Update extends Database_Query_Builder_Where 
 	/**
 	 * Set the value of a single column.
 	 *
-	 * @param   mixed  $column  table name or array($table, $alias) or object
-	 * @param   mixed  $value   column value
+	 * @param   mixed $column table name or array($table, $alias) or object
+	 * @param   mixed $value  column value
 	 * @return  $this
 	 */
 	public function value($column, $value)
@@ -80,7 +80,7 @@ class Kohana_Database_Query_Builder_Update extends Database_Query_Builder_Where 
 	/**
 	 * Compile the SQL query and return it.
 	 *
-	 * @param   mixed  $db  Database instance or name of instance
+	 * @param   mixed $db Database instance or name of instance
 	 * @return  string
 	 */
 	public function compile($db = NULL)

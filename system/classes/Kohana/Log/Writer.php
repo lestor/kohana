@@ -49,7 +49,7 @@ abstract class Kohana_Log_Writer {
 	 *
 	 *     $writer->write($messages);
 	 *
-	 * @param   array   $messages
+	 * @param   array $messages
 	 * @return  void
 	 */
 	abstract public function write(array $messages);
@@ -69,8 +69,8 @@ abstract class Kohana_Log_Writer {
 	/**
 	 * Formats a log entry.
 	 *
-	 * @param   array   $message
-	 * @param   string  $format
+	 * @param   array  $message
+	 * @param   string $format
 	 * @return  string
 	 */
 	public function format_message(array $message, $format = "time --- level: body in file:line")

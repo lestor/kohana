@@ -750,8 +750,8 @@ class Kohana_RouteTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_composing_url_from_route
-	 * @param string $expected
-	 * @param array $params
+	 * @param string  $expected
+	 * @param array   $params
 	 * @param boolean $protocol
 	 */
 	public function test_composing_url_from_route($expected, $params = NULL, $protocol = NULL)

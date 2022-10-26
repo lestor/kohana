@@ -92,7 +92,7 @@ class Kohana_NumTest extends Unittest_TestCase {
 	 * @test
 	 * @dataProvider provider_ordinal
 	 * @param integer $number
-	 * @param <type> $expected
+	 * @param <type>  $expected
 	 */
 	public function test_ordinal($number, $expected)
 	{
@@ -123,7 +123,7 @@ class Kohana_NumTest extends Unittest_TestCase {
 	 * @param integer $number
 	 * @param integer $places
 	 * @param boolean $monetary
-	 * @param string $expected
+	 * @param string  $expected
 	 */
 	public function test_format($number, $places, $monetary, $expected)
 	{
@@ -191,10 +191,10 @@ class Kohana_NumTest extends Unittest_TestCase {
 	/**
 	 * @test
 	 * @dataProvider provider_round
-	 * @param number $input
+	 * @param number  $input
 	 * @param integer $precision
 	 * @param integer $mode
-	 * @param number $expected
+	 * @param number  $expected
 	 */
 	function test_round($input, $precision, $expected)
 	{

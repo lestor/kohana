@@ -31,8 +31,8 @@ class Kohana_Config {
 	 *     $config->attach($reader);        // Try first
 	 *     $config->attach($reader, FALSE); // Try last
 	 *
-	 * @param   Kohana_Config_Source    $source instance
-	 * @param   boolean                 $first  add the reader as the first used object
+	 * @param   Kohana_Config_Source $source instance
+	 * @param   boolean              $first  add the reader as the first used object
 	 * @return  $this
 	 */
 	public function attach(Kohana_Config_Source $source, $first = TRUE)
@@ -59,7 +59,7 @@ class Kohana_Config {
 	 *
 	 *     $config->detach($reader);
 	 *
-	 * @param   Kohana_Config_Source    $source instance
+	 * @param   Kohana_Config_Source $source instance
 	 * @return  $this
 	 */
 	public function detach(Kohana_Config_Source $source)
@@ -82,7 +82,7 @@ class Kohana_Config {
 	 *
 	 * See [Kohana_Config_Group] for more info
 	 *
-	 * @param   string  $group  configuration group name
+	 * @param   string $group configuration group name
 	 * @return  Kohana_Config_Group
 	 * @throws  Kohana_Exception
 	 */
@@ -149,7 +149,7 @@ class Kohana_Config {
 	 *
 	 *     $config->copy($name);
 	 *
-	 * @param   string  $group  configuration group name
+	 * @param   string $group configuration group name
 	 * @return  $this
 	 */
 	public function copy($group)
@@ -168,9 +168,9 @@ class Kohana_Config {
 	/**
 	 * Callback used by the config group to store changes made to configuration
 	 *
-	 * @param string    $group  Group name
-	 * @param string    $key    Variable name
-	 * @param mixed     $value  The new value
+	 * @param string $group Group name
+	 * @param string $key   Variable name
+	 * @param mixed  $value The new value
 	 * @return Kohana_Config Chainable instance
 	 */
 	public function _write_config($group, $key, $value)

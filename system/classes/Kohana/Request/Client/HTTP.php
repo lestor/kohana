@@ -22,7 +22,7 @@ class Kohana_Request_Client_HTTP extends Request_Client_External {
 	 * Creates a new `Request_Client` object,
 	 * allows for dependency injection.
 	 *
-	 * @param   array    $params Params
+	 * @param   array $params Params
 	 * @throws  Request_Exception
 	 */
 	public function __construct(array $params = array())
@@ -47,8 +47,8 @@ class Kohana_Request_Client_HTTP extends Request_Client_External {
 	 * Sends the HTTP message [Request] to a remote server and processes
 	 * the response.
 	 *
-	 * @param   Request   $request  request to send
-	 * @param   Response  $request  response to send
+	 * @param   Request  $request request to send
+	 * @param   Response $request response to send
 	 * @return  Response
 	 */
 	public function _send_message(Request $request, Response $response)

@@ -75,8 +75,8 @@ class Kohana_CookieTest extends Unittest_TestCase {
 	}
 
 	/**
-	 * @param int $expiration
-	 * @param int $expect_expiry
+	 * @param integer $expiration
+	 * @param integer $expect_expiry
 	 *
 	 * @dataProvider provider_set_calculates_expiry_from_lifetime
 	 * @covers Cookie::set
@@ -317,7 +317,7 @@ class Kohana_CookieTest_TestableCookie extends Cookie {
 	}
 
 	/**
-	 * @return int
+	 * @return integer
 	 */
 	protected static function _time()
 	{

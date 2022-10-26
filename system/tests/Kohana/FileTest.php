@@ -34,7 +34,7 @@ class Kohana_FileTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_mime
-	 * @param boolean $input  Input for File::mime
+	 * @param boolean $input    Input for File::mime
 	 * @param boolean $expected Output for File::mime
 	 */
 	public function test_mime($input, $expected)

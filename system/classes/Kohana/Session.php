@@ -29,8 +29,8 @@ abstract class Kohana_Session {
 	 *
 	 * [!!] [Session::write] will automatically be called when the request ends.
 	 *
-	 * @param   string  $type   type of session (native, cookie, etc)
-	 * @param   string  $id     session identifier
+	 * @param   string $type type of session (native, cookie, etc)
+	 * @param   string $id   session identifier
 	 * @return  Session
 	 * @uses    Kohana::$config
 	 */
@@ -90,8 +90,8 @@ abstract class Kohana_Session {
 	 *
 	 * [!!] Sessions can only be created using the [Session::instance] method.
 	 *
-	 * @param   array   $config configuration
-	 * @param   string  $id     session id
+	 * @param   array  $config configuration
+	 * @param   string $id     session id
 	 * @return  void
 	 * @uses    Session::read
 	 */
@@ -204,8 +204,8 @@ abstract class Kohana_Session {
 	 *
 	 *     $foo = $session->get('foo');
 	 *
-	 * @param   string  $key        variable name
-	 * @param   mixed   $default    default value to return
+	 * @param   string $key     variable name
+	 * @param   mixed  $default default value to return
 	 * @return  mixed
 	 */
 	public function get($key, $default = NULL)
@@ -218,8 +218,8 @@ abstract class Kohana_Session {
 	 *
 	 *     $bar = $session->get_once('bar');
 	 *
-	 * @param   string  $key        variable name
-	 * @param   mixed   $default    default value to return
+	 * @param   string $key     variable name
+	 * @param   mixed  $default default value to return
 	 * @return  mixed
 	 */
 	public function get_once($key, $default = NULL)
@@ -236,8 +236,8 @@ abstract class Kohana_Session {
 	 *
 	 *     $session->set('foo', 'bar');
 	 *
-	 * @param   string  $key    variable name
-	 * @param   mixed   $value  value
+	 * @param   string $key   variable name
+	 * @param   mixed  $value value
 	 * @return  $this
 	 */
 	public function set($key, $value)
@@ -252,8 +252,8 @@ abstract class Kohana_Session {
 	 *
 	 *     $session->bind('foo', $foo);
 	 *
-	 * @param   string  $key    variable name
-	 * @param   mixed   $value  referenced value
+	 * @param   string $key   variable name
+	 * @param   mixed  $value referenced value
 	 * @return  $this
 	 */
 	public function bind($key, & $value)
@@ -268,7 +268,7 @@ abstract class Kohana_Session {
 	 *
 	 *     $session->delete('foo');
 	 *
-	 * @param   string  $key,...    variable name
+	 * @param   string $key,... variable name
 	 * @return  $this
 	 */
 	public function delete($key)
@@ -288,7 +288,7 @@ abstract class Kohana_Session {
 	 *
 	 *     $session->read();
 	 *
-	 * @param   string  $id session id
+	 * @param   string $id session id
 	 * @return  void
 	 */
 	public function read($id = NULL)
@@ -425,7 +425,7 @@ abstract class Kohana_Session {
 	/**
 	 * Serializes the session data.
 	 *
-	 * @param   array  $data  data
+	 * @param   array $data data
 	 * @return  string
 	 */
 	protected function _serialize($data)
@@ -436,7 +436,7 @@ abstract class Kohana_Session {
 	/**
 	 * Unserializes the session data.
 	 *
-	 * @param   string  $data  data
+	 * @param   string $data data
 	 * @return  array
 	 */
 	protected function _unserialize($data)
@@ -447,7 +447,7 @@ abstract class Kohana_Session {
 	/**
 	 * Encodes the session data using [base64_encode].
 	 *
-	 * @param   string  $data  data
+	 * @param   string $data data
 	 * @return  string
 	 */
 	protected function _encode($data)
@@ -458,7 +458,7 @@ abstract class Kohana_Session {
 	/**
 	 * Decodes the session data using [base64_decode].
 	 *
-	 * @param   string  $data  data
+	 * @param   string $data data
 	 * @return  string
 	 */
 	protected function _decode($data)
@@ -469,7 +469,7 @@ abstract class Kohana_Session {
 	/**
 	 * Loads the raw session data string and returns it.
 	 *
-	 * @param   string  $id session id
+	 * @param   string $id session id
 	 * @return  string
 	 */
 	abstract protected function _read($id = NULL);

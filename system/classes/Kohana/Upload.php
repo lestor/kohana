@@ -42,10 +42,10 @@ class Kohana_Upload {
 	 *         Upload::save($array['file']);
 	 *     }
 	 *
-	 * @param   array   $file       uploaded file data
-	 * @param   string  $filename   new filename
-	 * @param   string  $directory  new directory
-	 * @param   integer $chmod      chmod mask
+	 * @param   array   $file      uploaded file data
+	 * @param   string  $filename  new filename
+	 * @param   string  $directory new directory
+	 * @param   integer $chmod     chmod mask
 	 * @return  string  on success, full path to new file
 	 * @return  FALSE   on failure
 	 */
@@ -106,8 +106,8 @@ class Kohana_Upload {
 	 *
 	 *     $array->rule('file', 'Upload::valid')
 	 *
-	 * @param   array   $file   $_FILES item
-	 * @return  bool
+	 * @param   array $file $_FILES item
+	 * @return  boolean
 	 */
 	public static function valid($file)
 	{
@@ -123,8 +123,8 @@ class Kohana_Upload {
 	 *
 	 *     $array->rule('file', 'Upload::not_empty');
 	 *
-	 * @param   array   $file   $_FILES item
-	 * @return  bool
+	 * @param   array $file $_FILES item
+	 * @return  boolean
 	 */
 	public static function not_empty(array $file)
 	{
@@ -139,9 +139,9 @@ class Kohana_Upload {
 	 *
 	 *     $array->rule('file', 'Upload::type', array(':value', array('jpg', 'png', 'gif')));
 	 *
-	 * @param   array   $file       $_FILES item
-	 * @param   array   $allowed    allowed file extensions
-	 * @return  bool
+	 * @param   array $file    $_FILES item
+	 * @param   array $allowed allowed file extensions
+	 * @return  boolean
 	 */
 	public static function type(array $file, array $allowed)
 	{
@@ -162,9 +162,9 @@ class Kohana_Upload {
 	 *     $array->rule('file', 'Upload::size', array(':value', '1M'))
 	 *     $array->rule('file', 'Upload::size', array(':value', '2.5KiB'))
 	 *
-	 * @param   array   $file   $_FILES item
-	 * @param   string  $size   maximum file size allowed
-	 * @return  bool
+	 * @param   array  $file $_FILES item
+	 * @param   string $size maximum file size allowed
+	 * @return  boolean
 	 */
 	public static function size(array $file, $size)
 	{

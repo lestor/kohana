@@ -215,9 +215,9 @@ class Kohana_CoreTest extends Unittest_TestCase {
 	 * @dataProvider provider_error_handler
 	 * @covers Kohana::error_handler
 	 * @param boolean $code  Input for Kohana::sanitize
-	 * @param boolean $error  Input for Kohana::sanitize
+	 * @param boolean $error Input for Kohana::sanitize
 	 * @param boolean $file  Input for Kohana::sanitize
-	 * @param boolean $line Output for Kohana::sanitize
+	 * @param boolean $line  Output for Kohana::sanitize
 	 */
 	public function test_error_handler($code, $error, $file, $line)
 	{
@@ -253,7 +253,7 @@ class Kohana_CoreTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_modules_detects_invalid_modules
-	 * @param boolean $source   Input for Kohana::modules
+	 * @param boolean $source Input for Kohana::modules
 	 *
 	 */
 	public function test_modules_detects_invalid_modules($source)

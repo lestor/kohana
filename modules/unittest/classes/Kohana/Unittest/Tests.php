@@ -127,8 +127,8 @@ class Kohana_Unittest_Tests {
 	 * If no directories are provided then the function'll load the whitelist
 	 * set in the config file
 	 *
-	 * @param array $directories Optional directories to whitelist
-	 * @param Unittest_Testsuite $suite Suite to load the whitelist into
+	 * @param array              $directories Optional directories to whitelist
+	 * @param Unittest_Testsuite $suite       Suite to load the whitelist into
 	 */
 	static public function whitelist(array $directories = NULL, Unittest_TestSuite $suite = NULL)
 	{
@@ -200,7 +200,7 @@ class Kohana_Unittest_Tests {
 	/**
 	 * Recursively whitelists an array of files
 	 *
-	 * @param array $files Array of files to whitelist
+	 * @param array              $files Array of files to whitelist
 	 * @param Unittest_TestSuite $suite Suite to load the whitelist into
 	 */
 	static protected function set_whitelist($files, Unittest_TestSuite $suite = NULL)

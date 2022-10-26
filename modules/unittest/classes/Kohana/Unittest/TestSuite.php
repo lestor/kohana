@@ -19,7 +19,7 @@ abstract class Kohana_Unittest_TestSuite extends \PHPUnit\Framework\TestSuite {
 	/**
 	 * Runs the tests and collects their result in a TestResult.
 	 *
-	 * @param  \PHPUnit\Framework\TestResult    $result
+	 * @param  \PHPUnit\Framework\TestResult $result
 	 * @return \PHPUnit\Framework\TestResult
 	 * @throws InvalidArgumentException
 	 */

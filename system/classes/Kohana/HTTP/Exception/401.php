@@ -10,7 +10,7 @@ class Kohana_HTTP_Exception_401 extends HTTP_Exception_Expected {
 	/**
 	 * Specifies the WWW-Authenticate challenge.
 	 *
-	 * @param  string  $challenge  WWW-Authenticate challenge (eg `Basic realm="Control Panel"`)
+	 * @param  string $challenge WWW-Authenticate challenge (eg `Basic realm="Control Panel"`)
 	 */
 	public function authenticate($challenge = NULL)
 	{
@@ -26,7 +26,7 @@ class Kohana_HTTP_Exception_401 extends HTTP_Exception_Expected {
 	 * Validate this exception contains everything needed to continue.
 	 *
 	 * @throws Kohana_Exception
-	 * @return bool
+	 * @return boolean
 	 */
 	public function check()
 	{

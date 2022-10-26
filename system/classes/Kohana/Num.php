@@ -99,9 +99,9 @@ class Kohana_Num {
 	 *     // In Portuguese, "1.200.05"
 	 *     echo Num::format(1200.05, 2, TRUE);
 	 *
-	 * @param   float   $number     number to format
-	 * @param   integer $places     decimal places
-	 * @param   boolean $monetary   monetary formatting?
+	 * @param   float   $number   number to format
+	 * @param   integer $places   decimal places
+	 * @param   boolean $monetary monetary formatting?
 	 * @return  string
 	 * @since   3.0.2
 	 */
@@ -126,10 +126,10 @@ class Kohana_Num {
 	/**
 	 * Round a number to a specified precision, using a specified tie breaking technique
 	 *
-	 * @param float $value Number to round
+	 * @param float   $value     Number to round
 	 * @param integer $precision Desired precision
-	 * @param integer $mode Tie breaking mode, accepts the PHP_ROUND_HALF_* constants
-	 * @param boolean $native Set to false to force use of the userland implementation
+	 * @param integer $mode      Tie breaking mode, accepts the PHP_ROUND_HALF_* constants
+	 * @param boolean $native    Set to false to force use of the userland implementation
 	 * @return float Rounded number
 	 */
 	public static function round($value, $precision = 0, $mode = self::ROUND_HALF_UP, $native = TRUE)
@@ -199,7 +199,7 @@ class Kohana_Num {
 	 *     echo Num::bytes('1000');  // 1000
 	 *     echo Num::bytes('2.5GB'); // 2684354560
 	 *
-	 * @param   string  $bytes  file size in SB format
+	 * @param   string $bytes file size in SB format
 	 * @return  float
 	 */
 	public static function bytes($size)

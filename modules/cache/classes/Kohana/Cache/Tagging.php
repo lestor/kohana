@@ -16,10 +16,10 @@ interface Kohana_Cache_Tagging {
 	 * Note : Some caching engines do not support
 	 * tagging
 	 *
-	 * @param   string   $id        id
-	 * @param   mixed    $data      data
-	 * @param   integer  $lifetime  lifetime [Optional]
-	 * @param   array    $tags      tags [Optional]
+	 * @param   string  $id       id
+	 * @param   mixed   $data     data
+	 * @param   integer $lifetime lifetime [Optional]
+	 * @param   array   $tags     tags [Optional]
 	 * @return  boolean
 	 */
 	public function set_with_tags($id, $data, $lifetime = NULL, array $tags = NULL);
@@ -27,14 +27,14 @@ interface Kohana_Cache_Tagging {
 	/**
 	 * Delete cache entries based on a tag
 	 *
-	 * @param   string  $tag  tag
+	 * @param   string $tag tag
 	 */
 	public function delete_tag($tag);
 
 	/**
 	 * Find cache entries based on a tag
 	 *
-	 * @param   string  $tag  tag
+	 * @param   string $tag tag
 	 * @return  array
 	 */
 	public function find($tag);

@@ -48,8 +48,8 @@ class Kohana_Cookie {
 	 *     // Get the "theme" cookie, or use "blue" if the cookie does not exist
 	 *     $theme = Cookie::get('theme', 'blue');
 	 *
-	 * @param   string  $key        cookie name
-	 * @param   mixed   $default    default value to return
+	 * @param   string $key     cookie name
+	 * @param   mixed  $default default value to return
 	 * @return  string
 	 */
 	public static function get($key, $default = NULL)
@@ -96,9 +96,9 @@ class Kohana_Cookie {
 	 *     // Set the "theme" cookie
 	 *     Cookie::set('theme', 'red');
 	 *
-	 * @param   string  $name       name of cookie
-	 * @param   string  $value      value of cookie
-	 * @param   integer $lifetime   lifetime in seconds
+	 * @param   string  $name     name of cookie
+	 * @param   string  $value    value of cookie
+	 * @param   integer $lifetime lifetime in seconds
 	 * @return  boolean
 	 * @uses    Cookie::salt
 	 */
@@ -127,7 +127,7 @@ class Kohana_Cookie {
 	 *
 	 *     Cookie::delete('theme');
 	 *
-	 * @param   string  $name   cookie name
+	 * @param   string $name cookie name
 	 * @return  boolean
 	 */
 	public static function delete($name)
@@ -144,7 +144,7 @@ class Kohana_Cookie {
 	 *
 	 *     $salt = Cookie::salt('theme', 'red');
 	 *
-	 * @param   string $name name of cookie
+	 * @param   string $name  name of cookie
 	 * @param   string $value value of cookie
 	 *
 	 * @throws Kohana_Exception if Cookie::$salt is not configured
@@ -176,7 +176,7 @@ class Kohana_Cookie {
 	 * @param boolean $secure
 	 * @param boolean $httponly
 	 *
-	 * @return bool
+	 * @return boolean
 	 * @see setcookie
 	 */
 	protected static function _setcookie($name, $value, $expire, $path, $domain, $secure, $httponly)
@@ -187,7 +187,7 @@ class Kohana_Cookie {
 	/**
 	 * Proxy for the native time function - to allow mocking of time-related logic in unit tests
 	 *
-	 * @return int
+	 * @return integer
 	 * @see    time
 	 */
 	protected static function _time()

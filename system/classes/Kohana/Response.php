@@ -23,7 +23,7 @@ class Kohana_Response implements HTTP_Response {
 	 *      // Create a new response with headers
 	 *      $response = Response::factory(array('status' => 200));
 	 *
-	 * @param   array    $config Setup the response object
+	 * @param   array $config Setup the response object
 	 * @return  Response
 	 */
 	public static function factory(array $config = array())
@@ -165,7 +165,7 @@ class Kohana_Response implements HTTP_Response {
 	 * Gets or sets the HTTP protocol. The standard protocol to use
 	 * is `HTTP/1.1`.
 	 *
-	 * @param   string   $protocol Protocol to set to the request/response
+	 * @param   string $protocol Protocol to set to the request/response
 	 * @return  mixed
 	 */
 	public function protocol($protocol = NULL)
@@ -194,7 +194,7 @@ class Kohana_Response implements HTTP_Response {
 	 *      // Get the current status
 	 *      $status = $response->status();
 	 *
-	 * @param   integer  $status Status to set to this response
+	 * @param   integer $status Status to set to this response
 	 * @return  mixed
 	 */
 	public function status($status = NULL)
@@ -231,7 +231,7 @@ class Kohana_Response implements HTTP_Response {
 	 *       // Set multiple headers
 	 *       $response->headers(array('Content-Type' => 'text/html', 'Cache-Control' => 'no-cache'));
 	 *
-	 * @param mixed $key
+	 * @param mixed  $key
 	 * @param string $value
 	 * @return mixed
 	 */
@@ -280,8 +280,8 @@ class Kohana_Response implements HTTP_Response {
 	 *          'expiration' => 12352234
 	 *     ));
 	 *
-	 * @param   mixed   $key    cookie name, or array of cookie values
-	 * @param   string  $value  value to set to cookie
+	 * @param   mixed  $key   cookie name, or array of cookie values
+	 * @param   string $value value to set to cookie
 	 * @return  string
 	 * @return  void
 	 * @return  [Response]
@@ -326,7 +326,7 @@ class Kohana_Response implements HTTP_Response {
 	/**
 	 * Deletes a cookie set to the response
 	 *
-	 * @param   string  $name
+	 * @param   string $name
 	 * @return  Response
 	 */
 	public function delete_cookie($name)
@@ -349,8 +349,8 @@ class Kohana_Response implements HTTP_Response {
 	/**
 	 * Sends the response status and all set headers.
 	 *
-	 * @param   boolean     $replace    replace existing headers
-	 * @param   callback    $callback   function to handle header output
+	 * @param   boolean  $replace  replace existing headers
+	 * @param   callback $callback function to handle header output
 	 * @return  mixed
 	 */
 	public function send_headers($replace = FALSE, $callback = NULL)
@@ -381,9 +381,9 @@ class Kohana_Response implements HTTP_Response {
 	 *
 	 * [!!] No further processing can be done after this method is called!
 	 *
-	 * @param   string  $filename   filename with path, or TRUE for the current response
-	 * @param   string  $download   downloaded file name
-	 * @param   array   $options    additional options
+	 * @param   string $filename filename with path, or TRUE for the current response
+	 * @param   string $download downloaded file name
+	 * @param   array  $options  additional options
 	 * @return  void
 	 * @throws  Kohana_Exception
 	 * @uses    File::mime_by_ext
@@ -634,7 +634,7 @@ class Kohana_Response implements HTTP_Response {
 	 * Generates an ETag from the response ready to be returned
 	 *
 	 * @throws Request_Exception
-	 * @return String Generated ETag
+	 * @return string Generated ETag
 	 */
 	public function generate_etag()
 	{

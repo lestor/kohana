@@ -177,7 +177,7 @@ class Kohana_Session_Database extends Session {
 	}
 
 	/**
-	 * @return  bool
+	 * @return  boolean
 	 */
 	protected function _restart()
 	{

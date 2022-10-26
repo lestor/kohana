@@ -128,8 +128,8 @@ COMMENT
 	 *
 	 * @dataProvider    provider_parse_basic
 	 *
-	 * @param   string  $comment    Argument to the method
-	 * @param   array   $expected   Expected result
+	 * @param   string $comment  Argument to the method
+	 * @param   array  $expected Expected result
 	 */
 	public function test_parse_basic($comment, $expected)
 	{
@@ -321,8 +321,8 @@ COMMENT
 	 *
 	 * @dataProvider    provider_parse_tags
 	 *
-	 * @param   string  $comment    Argument to the method
-	 * @param   array   $expected   Expected result
+	 * @param   string $comment  Argument to the method
+	 * @param   array  $expected Expected result
 	 */
 	public function test_parse_tags($comment, $expected)
 	{
@@ -356,9 +356,9 @@ COMMENT
 	 *
 	 * @group kohana.userguide.3529-configurable-transparent-classes
 	 * @dataProvider provider_transparent_classes
-	 * @param mixed $expected
+	 * @param mixed  $expected
 	 * @param string $class
-	 * @param array $classes
+	 * @param array  $classes
 	 */
 	public function test_transparent_classes($expected, $class, $classes)
 	{

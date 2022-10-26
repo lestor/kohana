@@ -178,9 +178,9 @@ class Kohana_DateTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_adjust
-	 * @param integer $hour       Hour in 12 hour format
-	 * @param string  $ampm       Either am or pm
-	 * @param string  $expected   Expected result
+	 * @param integer $hour     Hour in 12 hour format
+	 * @param string  $ampm     Either am or pm
+	 * @param string  $expected Expected result
 	 */
 	public function test_adjust($hour, $ampm, $expected)
 	{
@@ -437,10 +437,10 @@ class Kohana_DateTest extends Unittest_TestCase {
 	 * @test
 	 * @covers Date::span
 	 * @dataProvider provider_span
-	 * @param integer $time1     Time in the past
-	 * @param integer $time2     Time to compare against
-	 * @param string  $output    Units to output
-	 * @param array   $expected  Array of $outputs => values
+	 * @param integer $time1    Time in the past
+	 * @param integer $time2    Time to compare against
+	 * @param string  $output   Units to output
+	 * @param array   $expected Array of $outputs => values
 	 */
 	public function test_span($time1, $time2, $output, $expected)
 	{

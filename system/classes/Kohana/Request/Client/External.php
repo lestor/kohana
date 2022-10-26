@@ -48,8 +48,8 @@ abstract class Kohana_Request_Client_External extends Request_Client {
 	 *
 	 * Request_Client_External::$client can be set in the application bootstrap.
 	 *
-	 * @param   array   $params parameters to pass to the client
-	 * @param   string  $client external client to use
+	 * @param   array  $params parameters to pass to the client
+	 * @param   string $client external client to use
 	 * @return  Request_Client_External
 	 * @throws  Request_Exception
 	 */
@@ -92,8 +92,8 @@ abstract class Kohana_Request_Client_External extends Request_Client {
 	 *
 	 *     $request->execute();
 	 *
-	 * @param   Request   $request   A request object
-	 * @param   Response  $response  A response object
+	 * @param   Request  $request  A request object
+	 * @param   Response $response A response object
 	 * @return  Response
 	 * @throws  Kohana_Exception
 	 * @uses    [Kohana::$profiling]
@@ -170,8 +170,8 @@ abstract class Kohana_Request_Client_External extends Request_Client {
 	/**
 	 * Set and get options for this request.
 	 *
-	 * @param   mixed    $key    Option name, or array of options
-	 * @param   mixed    $value  Option value
+	 * @param   mixed $key   Option name, or array of options
+	 * @param   mixed $value Option value
 	 * @return  mixed
 	 * @return  Request_Client_External
 	 */
@@ -200,8 +200,8 @@ abstract class Kohana_Request_Client_External extends Request_Client {
 	 * Sends the HTTP message [Request] to a remote server and processes
 	 * the response.
 	 *
-	 * @param   Request   $request    Request to send
-	 * @param   Response  $response   Response to send
+	 * @param   Request  $request  Request to send
+	 * @param   Response $response Response to send
 	 * @return  Response
 	 */
 	abstract protected function _send_message(Request $request, Response $response);

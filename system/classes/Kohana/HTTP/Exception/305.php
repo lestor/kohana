@@ -10,7 +10,7 @@ class Kohana_HTTP_Exception_305 extends HTTP_Exception_Expected {
 	/**
 	 * Specifies the proxy to replay this request via
 	 *
-	 * @param  string  $location  URI of the proxy
+	 * @param  string $location URI of the proxy
 	 */
 	public function location($uri = NULL)
 	{
@@ -26,7 +26,7 @@ class Kohana_HTTP_Exception_305 extends HTTP_Exception_Expected {
 	 * Validate this exception contains everything needed to continue.
 	 *
 	 * @throws Kohana_Exception
-	 * @return bool
+	 * @return boolean
 	 */
 	public function check()
 	{

@@ -83,8 +83,8 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provide_alpha_numeric
-	 * @param string  $input     The string to test
-	 * @param boolean $expected  Is $input valid
+	 * @param string  $input    The string to test
+	 * @param boolean $expected Is $input valid
 	 */
 	public function test_alpha_numeric($input, $expected, $utf8 = FALSE)
 	{
@@ -119,9 +119,9 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_alpha_dash
-	 * @param string  $input          The string to test
-	 * @param boolean $contains_utf8  Does the string contain utf8 specific characters
-	 * @param boolean $expected       Is $input valid?
+	 * @param string  $input         The string to test
+	 * @param boolean $contains_utf8 Does the string contain utf8 specific characters
+	 * @param boolean $expected      Is $input valid?
 	 */
 	public function test_alpha_dash($input, $expected, $contains_utf8 = FALSE)
 	{
@@ -168,7 +168,7 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_date
-	 * @param string  $date  The date to validate
+	 * @param string  $date     The date to validate
 	 * @param integer $expected
 	 */
 	public function test_date($date, $expected)
@@ -242,8 +242,8 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_digit
-	 * @param mixed   $input     Input to validate
-	 * @param boolean $expected  Is $input valid
+	 * @param mixed   $input    Input to validate
+	 * @param boolean $expected Is $input valid
 	 */
 	public function test_digit($input, $expected, $contains_utf8 = FALSE)
 	{
@@ -291,8 +291,8 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_color
-	 * @param string  $color     The color to test
-	 * @param boolean $expected  Is $color valid
+	 * @param string  $color    The color to test
+	 * @param boolean $expected Is $color valid
 	 */
 	public function test_color($color, $expected)
 	{
@@ -504,7 +504,7 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 * @param string  $string  The string to length check
 	 * @param integer $length  The length of the string
 	 * @param boolean $correct Is $length the actual length of the string?
-	 * @return bool
+	 * @return boolean
 	 */
 	public function test_exact_length($string, $length, $correct)
 	{
@@ -539,9 +539,9 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_equals
-	 * @param   string   $string    value to check
-	 * @param   integer  $required  required value
-	 * @param   boolean  $correct   is $string the same as $required?
+	 * @param   string  $string   value to check
+	 * @param   integer $required required value
+	 * @param   boolean $correct  is $string the same as $required?
 	 * @return  boolean
 	 */
 	public function test_equals($string, $required, $correct)
@@ -655,9 +655,9 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_min_length
-	 * @param string  $string     String to compare
-	 * @param integer $minlength  The minimum allowed length
-	 * @param boolean $correct    Is $string 's length >= $minlength
+	 * @param string  $string    String to compare
+	 * @param integer $minlength The minimum allowed length
+	 * @param boolean $correct   Is $string 's length >= $minlength
 	 */
 	public function test_min_length($string, $minlength, $correct)
 	{
@@ -701,8 +701,8 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_not_empty
-	 * @param mixed   $value  Value to check
-	 * @param boolean $empty  Is the value really empty?
+	 * @param mixed   $value Value to check
+	 * @param boolean $empty Is the value really empty?
 	 */
 	public function test_not_empty($value, $empty)
 	{
@@ -747,8 +747,8 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_numeric
-	 * @param string  $input     Input to test
-	 * @param boolean $expected  Whether or not $input is numeric
+	 * @param string  $input    Input to test
+	 * @param boolean $expected Whether or not $input is numeric
 	 */
 	public function test_numeric($input, $expected)
 	{
@@ -787,8 +787,8 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider  provider_phone
-	 * @param string  $phone     Phone number to test
-	 * @param boolean $expected  Is $phone valid
+	 * @param string  $phone    Phone number to test
+	 * @param boolean $expected Is $phone valid
 	 */
 	public function test_phone($phone, $lengths, $expected)
 	{
@@ -822,9 +822,9 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_regex
-	 * @param string $value Value to test against
-	 * @param string $regex Valid pcre regular expression
-	 * @param bool $expected Does the value match the expression?
+	 * @param string  $value    Value to test against
+	 * @param string  $regex    Valid pcre regular expression
+	 * @param boolean $expected Does the value match the expression?
 	 */
 	public function test_regex($value, $regex, $expected)
 	{
@@ -872,10 +872,10 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_range
-	 * @param integer $number    Number to test
-	 * @param integer $min       Lower bound
-	 * @param integer $max       Upper bound
-	 * @param boolean $expected  Is Number within the bounds of $min && $max
+	 * @param integer $number   Number to test
+	 * @param integer $min      Lower bound
+	 * @param integer $max      Upper bound
+	 * @param boolean $expected Is Number within the bounds of $min && $max
 	 */
 	public function test_range($number, $min, $max, $step, $expected)
 	{
@@ -936,8 +936,8 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_url
-	 * @param string  $url       The url to test
-	 * @param boolean $expected  Is it valid?
+	 * @param string  $url      The url to test
+	 * @param boolean $expected Is it valid?
 	 */
 	public function test_url($url, $expected)
 	{
@@ -970,10 +970,10 @@ class Kohana_ValidTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_matches
-	 * @param array   $data      Array of fields
-	 * @param integer $field     First field name
-	 * @param integer $match     Field name that must match $field in $data
-	 * @param boolean $expected  Do the two fields match?
+	 * @param array   $data     Array of fields
+	 * @param integer $field    First field name
+	 * @param integer $match    Field name that must match $field in $data
+	 * @param boolean $expected Do the two fields match?
 	 */
 	public function test_matches($data, $field, $match, $expected)
 	{

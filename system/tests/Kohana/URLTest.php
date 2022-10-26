@@ -84,10 +84,10 @@ class Kohana_URLTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_base
-	 * @param boolean $protocol    Parameter for Url::base()
-	 * @param boolean $index       Parameter for Url::base()
-	 * @param string  $expected    Expected url
-	 * @param array   $enviroment  Array of enviroment vars to change @see Kohana_URLTest::setEnvironment()
+	 * @param boolean $protocol   Parameter for Url::base()
+	 * @param boolean $index      Parameter for Url::base()
+	 * @param string  $expected   Expected url
+	 * @param array   $enviroment Array of enviroment vars to change @see Kohana_URLTest::setEnvironment()
 	 */
 	public function test_base($protocol, $index, $expected, array $enviroment = array())
 	{
@@ -139,10 +139,10 @@ class Kohana_URLTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_site
-	 * @param string          $uri         URI to use
-	 * @param boolean|string  $protocol    Protocol to use
-	 * @param string          $expected    Expected result
-	 * @param array           $enviroment  Array of enviroment vars to set
+	 * @param string         $uri        URI to use
+	 * @param boolean|string $protocol   Protocol to use
+	 * @param string         $expected   Expected result
+	 * @param array          $enviroment Array of enviroment vars to set
 	 */
 	public function test_site($uri, $protocol, $expected, array $enviroment = array())
 	{
@@ -230,9 +230,9 @@ class Kohana_URLTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_title
-	 * @param string $title        Input to convert
-	 * @param string $separator    Seperate to replace invalid characters with
-	 * @param string $expected     Expected result
+	 * @param string $title     Input to convert
+	 * @param string $separator Seperate to replace invalid characters with
+	 * @param string $expected  Expected result
 	 */
 	public function test_title($expected, $title, $separator, $ascii_only = FALSE)
 	{
@@ -273,10 +273,10 @@ class Kohana_URLTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_query
-	 * @param array $enviroment Set environment
-	 * @param string $expected Expected result
-	 * @param array $params Query string
-	 * @param boolean $use_get Combine with GET parameters
+	 * @param array   $enviroment Set environment
+	 * @param string  $expected   Expected result
+	 * @param array   $params     Query string
+	 * @param boolean $use_get    Combine with GET parameters
 	 */
 	public function test_query($enviroment, $expected, $params, $use_get = TRUE)
 	{
@@ -336,9 +336,9 @@ class Kohana_URLTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_is_trusted_host
-	 * @param string $host the given host
-	 * @param array $trusted_hosts list of trusted hosts
-	 * @param boolean $expected TRUE if host is trusted, FALSE otherwise
+	 * @param string  $host          the given host
+	 * @param array   $trusted_hosts list of trusted hosts
+	 * @param boolean $expected      TRUE if host is trusted, FALSE otherwise
 	 */
 	public function test_is_trusted_host($host, $trusted_hosts, $expected)
 	{
