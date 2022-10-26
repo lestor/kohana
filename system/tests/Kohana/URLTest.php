@@ -49,7 +49,6 @@ class Kohana_URLTest extends Unittest_TestCase {
 	{
 		return array(
 			// $protocol, $index, $expected, $enviroment
-
 			// Test with different combinations of parameters for max code coverage
 			array(NULL,    FALSE, '/kohana/'),
 			array('http',  FALSE, 'http://example.com/kohana/'),

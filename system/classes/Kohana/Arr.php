@@ -157,7 +157,6 @@ class Kohana_Arr {
 			elseif ($key === '*')
 			{
 				// Handle wildcards
-
 				$values = array();
 				foreach ($array as $arr)
 				{

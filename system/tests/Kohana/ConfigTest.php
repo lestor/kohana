@@ -129,7 +129,6 @@ class Kohana_ConfigTest extends Unittest_TestCase {
 
 		// Due to the way phpunit mock generator works if you try and mock a class
 		// that has already been used then it just re-uses the first's name
-
 		// To get around this we have to specify a totally random name for the second mock object
 		$reader1 = $this->createMock('Kohana_Config_Reader');
 

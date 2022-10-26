@@ -223,7 +223,6 @@ class Kohana_Request implements HTTP_Request {
 		else
 		{
 			// REQUEST_URI and PHP_SELF include the docroot and index
-
 			if (isset($_SERVER['REQUEST_URI']))
 			{
 				/**

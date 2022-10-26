@@ -102,7 +102,6 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 		if ($key === NULL AND $value === NULL)
 		{
 			// Indexed rows
-
 			foreach ($this as $row)
 			{
 				$results[] = $row;
@@ -111,7 +110,6 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 		elseif ($key === NULL)
 		{
 			// Indexed columns
-
 			if ($this->_as_object)
 			{
 				foreach ($this as $row)
@@ -130,7 +128,6 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 		elseif ($value === NULL)
 		{
 			// Associative rows
-
 			if ($this->_as_object)
 			{
 				foreach ($this as $row)
@@ -149,7 +146,6 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 		else
 		{
 			// Associative columns
-
 			if ($this->_as_object)
 			{
 				foreach ($this as $row)

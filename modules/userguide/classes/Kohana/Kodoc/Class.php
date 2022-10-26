@@ -216,8 +216,6 @@ class Kohana_Kodoc_Class extends Kodoc {
 			return 1;
 
 		// The methods have the same visibility, so check the declaring class depth:
-
-
 		/*
 		echo Debug::vars('a is '.$a->class.'::'.$a->name,'b is '.$b->class.'::'.$b->name,
 						   'are the classes the same?', $a->class == $b->class,'if they are, the result is:',strcmp($a->name, $b->name),
