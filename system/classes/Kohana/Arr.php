@@ -191,14 +191,14 @@ class Kohana_Arr {
 	}
 
 	/**
-	* Set a value on an array by path.
-	*
-	* @see Arr::path()
-	* @param array   $array     Array to update
-	* @param string  $path      Path
-	* @param mixed   $value     Value to set
-	* @param string  $delimiter Path delimiter
-	*/
+	 * Set a value on an array by path.
+	 *
+	 * @see Arr::path()
+	 * @param array   $array     Array to update
+	 * @param string  $path      Path
+	 * @param mixed   $value     Value to set
+	 * @param string  $delimiter Path delimiter
+	 */
 	public static function set_path( & $array, $path, $value, $delimiter = NULL)
 	{
 		if ( ! $delimiter)

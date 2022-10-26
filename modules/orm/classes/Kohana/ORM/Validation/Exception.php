@@ -10,15 +10,15 @@
 class Kohana_ORM_Validation_Exception extends Kohana_Exception {
 
 	/**
-   * Array of validation objects
-   * @var array
-   */
+	 * Array of validation objects
+	 * @var array
+	 */
 	protected $_objects = array();
 
 	/**
-   * The alias of the main ORM model this exception was created for
-   * @var string
-   */
+	 * The alias of the main ORM model this exception was created for
+	 * @var string
+	 */
 	protected $_alias = NULL;
 
 	/**
