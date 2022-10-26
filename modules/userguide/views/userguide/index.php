@@ -11,10 +11,10 @@
 			<?php echo $options['description'] ?>
 		</p>
 	
-	<?php endforeach; ?>
+	<?php endforeach ?>
 	
 <?php else: ?>
 
 	<p class="error">I couldn't find any modules with userguide pages.</p>
 
-<?php endif; ?>
+<?php endif ?>

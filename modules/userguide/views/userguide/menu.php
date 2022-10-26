@@ -7,11 +7,11 @@
 	
 		<li><?php echo html::anchor(Route::get('docs/guide')->uri(array('module' => $url)), $options['name'], NULL, NULL, TRUE) ?></li>
 	
-	<?php endforeach; ?>
+	<?php endforeach ?>
 	</ul>
 
 <?php else: ?>
 
 	<p class="error">No modules.</p>
 
-<?php endif; ?>
+<?php endif ?>

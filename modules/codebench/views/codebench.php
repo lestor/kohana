@@ -16,7 +16,7 @@
 	<meta charset="utf-8" />
 	<title><?php if ($class !== ''): ?>
 			<?php echo $class, ' · ' ?>
-		<?php endif; ?>Codebench</title>
+		<?php endif ?>Codebench</title>
 
 	<style>
 		/* General styles*/
@@ -111,10 +111,10 @@
 				}
 			});
 
-			<?php if (Kohana::$config->load('codebench')->expand_all) { ?>
+			<?php if (Kohana::$config->load('codebench')->expand_all): ?>
 				// Expand all benchmark details by default
 				$toggle_all.click();
-			<?php } ?>
+			<?php endif ?>
 
 			// Toggle details for a single benchmark
 			$bench_titles.click(function() {
@@ -159,19 +159,19 @@
 		<h1>
 			<input name="class" type="text" value="<?php echo ($class !== '') ? $class : 'Bench_' ?>" size="25" title="Name of the Codebench library to run" />
 			<input type="submit" value="Run" />
-			<?php if ( ! empty($class)) { ?>
-				<?php if (empty($codebench)) { ?>
+			<?php if ( ! empty($class)): ?>
+				<?php if (empty($codebench)): ?>
 					<strong class="alert">Library not found</strong>
-				<?php } elseif (empty($codebench['benchmarks'])) { ?>
+				<?php elseif (empty($codebench['benchmarks'])): ?>
 					<strong class="alert">No methods found to benchmark</strong>
-				<?php } ?>
-			<?php } ?>
+				<?php endif ?>
+			<?php endif ?>
 		</h1>
 	</form>
 
-	<?php if ( ! empty($codebench)) { ?>
+	<?php if ( ! empty($codebench)): ?>
 
-		<?php if (empty($codebench['benchmarks'])) { ?>
+		<?php if (empty($codebench['benchmarks'])): ?>
 
 			<p>
 				<strong>
@@ -180,10 +180,10 @@
 				</strong>
 			</p>
 
-		<?php } else { ?>
+		<?php else: ?>
 
 			<ul id="bench">
-			<?php foreach ($codebench['benchmarks'] as $method => $benchmark) { ?>
+			<?php foreach ($codebench['benchmarks'] as $method => $benchmark): ?>
 				<li>
 
 					<h2 title="<?php printf('%01.6f', $benchmark['time']) ?>s">
@@ -205,7 +205,7 @@
 							</thead>
 							<tbody>
 
-							<?php foreach ($benchmark['subjects'] as $subject_key => $subject) { ?>
+							<?php foreach ($benchmark['subjects'] as $subject_key => $subject): ?>
 								<tr>
 									<td>
 										<strong class="help" title="(<?php echo gettype($codebench['subjects'][$subject_key]) ?>) <?php echo HTML::chars(var_export($codebench['subjects'][$subject_key], TRUE)) ?>">
@@ -229,25 +229,25 @@
 										</span>
 									</td>
 								</tr>
-							<?php } ?>
+							<?php endforeach ?>
 
 							</tbody>
 						</table>
 					</div>
 
 				</li>
-			<?php } ?>
+			<?php endforeach ?>
 			</ul>
 
-		<?php } ?>
+		<?php endif ?>
 
-		<?php if ( ! empty($codebench['description'])) { ?>
+		<?php if ( ! empty($codebench['description'])): ?>
 			<?php echo Text::auto_p(Text::auto_link($codebench['description']), FALSE) ?>
-		<?php } ?>
+		<?php endif ?>
 
 		<?php // echo '<h2>Raw output:</h2>', Debug::vars($codebench) ?>
 
-	<?php } ?>
+	<?php endif ?>
 
 	<p id="footer">
 		Page executed in <strong><?php echo round(microtime(TRUE) - KOHANA_START_TIME, 2) ?>&nbsp;s</strong>

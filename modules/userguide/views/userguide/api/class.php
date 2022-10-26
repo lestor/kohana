@@ -2,7 +2,7 @@
 	<?php echo $doc->modifiers, $doc->class->name ?>
 	<?php foreach ($doc->parents as $parent): ?>
 	<br/><small>extends <?php echo HTML::anchor($route->uri(array('class' => $parent->name)), $parent->name, NULL, NULL, TRUE) ?></small>
-	<?php endforeach; ?>
+	<?php endforeach ?>
 </h1>
 
 <?php if ($interfaces = $doc->class->getInterfaceNames()): ?>
@@ -15,14 +15,14 @@ for ($i = 0, $split = FALSE, $count = count($interfaces); $i < $count; $i++, $sp
 }
 ?></small>
 </p>
-<?php endif; ?>
+<?php endif ?>
 
-<?php if ($child = $doc->is_transparent($doc->class->name)):?>
+<?php if ($child = $doc->is_transparent($doc->class->name)): ?>
 <p class="note">
 This class is a transparent base class for <?php echo HTML::anchor($route->uri(array('class'=>$child)),$child) ?> and
 should not be accessed directly.
 </p>
-<?php endif;?>
+<?php endif ?>
 
 <?php echo $doc->description() ?>
 
@@ -35,7 +35,7 @@ should not be accessed directly.
 <?php endforeach ?>
 <?php endforeach ?>
 </dl>
-<?php endif; ?>
+<?php endif ?>
 
 <p class="note">
 <?php if ($path = $doc->class->getFilename()): ?>
@@ -93,13 +93,13 @@ Class is not declared in a file, it is probably an internal <?php echo html::anc
 <?php foreach ($doc->constants() as $name => $value): ?>
 <dt><h4 id="constant:<?php echo $name ?>"><?php echo $name ?></h4></dt>
 <dd><?php echo $value ?></dd>
-<?php endforeach; ?>
+<?php endforeach ?>
 </dl>
 </div>
 <?php endif ?>
 
 <?php if ($properties = $doc->properties()): ?>
-<h1 id="properties"><?php echo 'Properties'; ?></h1>
+<h1 id="properties"><?php echo 'Properties' ?></h1>
 <div class="properties">
 <dl>
 <?php foreach ($properties as $prop): ?>
@@ -115,7 +115,7 @@ Class is not declared in a file, it is probably an internal <?php echo html::anc
 <?php endif ?>
 
 <?php if ($methods = $doc->methods()): ?>
-<h1 id="methods"><?php echo 'Methods'; ?></h1>
+<h1 id="methods"><?php echo 'Methods' ?></h1>
 <div class="methods">
 <?php foreach ($methods as $method): ?>
 <?php echo View::factory('userguide/api/method')->set('doc', $method)->set('route', $route) ?>
