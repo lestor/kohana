@@ -297,7 +297,7 @@ class Kohana_Database_Query_Builder_Select extends Database_Query_Builder_Where 
 		}
 		if ( ! $select instanceof Database_Query_Builder_Select)
 			throw new Kohana_Exception('first parameter must be a string or an instance of Database_Query_Builder_Select');
-		$this->_union []= array('select' => $select, 'all' => $all);
+		$this->_union[] = array('select' => $select, 'all' => $all);
 		return $this;
 	}
 
