@@ -97,7 +97,7 @@ class Kohana_DebugTest extends Unittest_TestCase {
 			array(new StdClass, 128, 10, "<small>object</small> <span>stdClass(0)</span> <code>{\n}</code>"),
 			array("fo\x6F\xFF\x00bar\x8F\xC2\xB110", 128, 10, '<small>string</small><span>(10)</span> "foobar±10"'),
 			array(array('level1' => array('level2' => array('level3' => array('level4' => array('value' => 'something'))))), 128, 4,
-'<small>array</small><span>(1)</span> <span>(
+		'<small>array</small><span>(1)</span> <span>(
     "level1" => <small>array</small><span>(1)</span> <span>(
         "level2" => <small>array</small><span>(1)</span> <span>(
             "level3" => <small>array</small><span>(1)</span> <span>(

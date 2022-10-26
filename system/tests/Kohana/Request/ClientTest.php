@@ -298,7 +298,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase {
 					{
 						$response->body(json_encode(array('body'=>'test1-body-changed')));
 						return $response;
-				}),
+					}),
 				$this->_dummy_uri(200, array('X-test-1' => 'foo'), 'test1-body'),
 				'test1-body-changed'
 			),
@@ -308,7 +308,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase {
 					function($request, $response, $client)
 					{
 						return Request::factory($response->headers('X-test-2'));
-				}),
+					}),
 				$this->_dummy_uri(200,
 					array('X-test-2' => $this->_dummy_uri(200, NULL, 'test2-subsequent-body')),
 					'test2-orig-body'),
@@ -320,7 +320,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase {
 					function ($request, $response, $client)
 					{
 						throw new Exception("Unexpected execution of X-test-3 callback");
-				}),
+					}),
 				$this->_dummy_uri(200, array('X-test-1' => 'foo'), 'test3-body'),
 				'test3-body'
 			),

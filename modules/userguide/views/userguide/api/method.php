@@ -13,12 +13,12 @@
 <?php if ($doc->params): ?>
 <h4>Parameters</h4>
 <ul>
-<?php foreach ($doc->params as $param): ?>
+	<?php foreach ($doc->params as $param): ?>
 <li>
 <code><?php echo ($param->reference?'byref ':'').($param->type?$param->type:'unknown') ?></code>
 <strong><?php echo '$'.$param->name ?></strong>
-<?php echo $param->default?('<small> = '.$param->default.'</small>'):'<small>required</small>' ?>
-<?php echo $param->description?(' - '.$param->description):'' ?>
+		<?php echo $param->default?('<small> = '.$param->default.'</small>'):'<small>required</small>' ?>
+		<?php echo $param->description?(' - '.$param->description):'' ?>
 </li>
 <?php endforeach ?>
 </ul>
@@ -29,7 +29,7 @@
 <?php if ($doc->return): ?>
 <h4><?php echo 'Return Values'; ?></h4>
 <ul class="return">
-<?php foreach ($doc->return as $set): list($type, $text) = $set ?>
+	<?php foreach ($doc->return as $set): list($type, $text) = $set ?>
 <li><code><?php echo HTML::chars($type) ?></code><?php if ($text): echo ' - '.HTML::chars(ucfirst($text)); endif ?></li>
 <?php endforeach ?>
 </ul>
