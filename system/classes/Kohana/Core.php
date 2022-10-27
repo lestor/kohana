@@ -161,7 +161,7 @@ class Kohana_Core {
 	 * `boolean` | expose     | Set the X-Powered-By header
 	 *
 	 * @throws  Kohana_Exception
-	 * @param   array   $settings   Array of settings.  See above.
+	 * @param   array $settings Array of settings.  See above.
 	 * @return  void
 	 * @uses    Kohana::sanitize
 	 * @uses    Kohana::cache
@@ -207,7 +207,7 @@ class Kohana_Core {
 		 */
 		if (Kohana::$environment == Kohana::DEVELOPMENT AND extension_loaded('xdebug'))
 		{
-		    ini_set('xdebug.collect_params', 3);
+			ini_set('xdebug.collect_params', 3);
 		}
 
 		// Enable the Kohana shutdown handler, which catches E_FATAL errors.
@@ -360,7 +360,7 @@ class Kohana_Core {
 	 * - Strips slashes if magic quotes are enabled
 	 * - Normalizes all newlines to LF
 	 *
-	 * @param   mixed   $value  any variable
+	 * @param   mixed $value any variable
 	 * @return  mixed   sanitized variable
 	 */
 	public static function sanitize($value)
@@ -405,8 +405,8 @@ class Kohana_Core {
 	 *
 	 *     spl_autoload_register(array('Kohana', 'auto_load'));
 	 *
-	 * @param   string  $class      Class name
-	 * @param   string  $directory  Directory to load from
+	 * @param   string $class     Class name
+	 * @param   string $directory Directory to load from
 	 * @return  boolean
 	 */
 	public static function auto_load($class, $directory = 'classes')
@@ -444,8 +444,8 @@ class Kohana_Core {
 	 *
 	 * This is included for compatibility purposes with older modules.
 	 *
-	 * @param   string  $class      Class name
-	 * @param   string  $directory  Directory to load from
+	 * @param   string $class     Class name
+	 * @param   string $directory Directory to load from
 	 * @return  boolean
 	 */
 	public static function auto_load_lowercase($class, $directory = 'classes')
@@ -472,7 +472,7 @@ class Kohana_Core {
 	 *
 	 *     Kohana::modules(array('modules/foo', MODPATH.'bar'));
 	 *
-	 * @param   array   $modules    list of module paths
+	 * @param   array $modules list of module paths
 	 * @return  array   enabled modules
 	 */
 	public static function modules(array $modules = NULL)
@@ -559,10 +559,10 @@ class Kohana_Core {
 	 *     // Returns an array of all the "mimes" configuration files
 	 *     Kohana::find_file('config', 'mimes');
 	 *
-	 * @param   string  $dir    directory name (views, i18n, classes, extensions, etc.)
-	 * @param   string  $file   filename with subdirectory
-	 * @param   string  $ext    extension to search for
-	 * @param   boolean $array  return an array of files?
+	 * @param   string  $dir   directory name (views, i18n, classes, extensions, etc.)
+	 * @param   string  $file  filename with subdirectory
+	 * @param   string  $ext   extension to search for
+	 * @param   boolean $array return an array of files?
 	 * @return  array   a list of files when $array is TRUE
 	 * @return  string  single file path
 	 */
@@ -660,8 +660,8 @@ class Kohana_Core {
 	 *     // Find all view files.
 	 *     $views = Kohana::list_files('views');
 	 *
-	 * @param   string  $directory  directory name
-	 * @param   array   $paths      list of paths to search
+	 * @param   string $directory directory name
+	 * @param   array  $paths     list of paths to search
 	 * @return  array
 	 */
 	public static function list_files($directory = NULL, array $paths = NULL)
@@ -741,7 +741,7 @@ class Kohana_Core {
 	 *
 	 *     $foo = Kohana::load('foo.php');
 	 *
-	 * @param   string  $file
+	 * @param   string $file
 	 * @return  mixed
 	 */
 	public static function load($file)
@@ -767,9 +767,9 @@ class Kohana_Core {
 	 * [ref-var]: http://php.net/var_export
 	 *
 	 * @throws  Kohana_Exception
-	 * @param   string  $name       name of the cache
-	 * @param   mixed   $data       data to cache
-	 * @param   integer $lifetime   number of seconds the cache is valid for
+	 * @param   string  $name     name of the cache
+	 * @param   mixed   $data     data to cache
+	 * @param   integer $lifetime number of seconds the cache is valid for
 	 * @return  mixed    for getting
 	 * @return  boolean  for setting
 	 */
@@ -855,9 +855,9 @@ class Kohana_Core {
 	 *     // Get "username" from messages/text.php
 	 *     $username = Kohana::message('text', 'username');
 	 *
-	 * @param   string  $file       file name
-	 * @param   string  $path       key path to get
-	 * @param   mixed   $default    default value if the path does not exist
+	 * @param   string $file    file name
+	 * @param   string $path    key path to get
+	 * @param   mixed  $default default value if the path does not exist
 	 * @return  string  message string for the given path
 	 * @return  array   complete message list, when no path is specified
 	 * @uses    Arr::merge

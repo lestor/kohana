@@ -34,14 +34,14 @@ class Kohana_Database_Query {
 	/**
 	 * Creates a new SQL query of the specified type.
 	 *
-	 * @param   integer  $type  query type: Database::SELECT, Database::INSERT, etc
-	 * @param   string   $sql   query string
+	 * @param   integer $type query type: Database::SELECT, Database::INSERT, etc
+	 * @param   string  $sql  query string
 	 * @return  void
 	 */
 	public function __construct($type, $sql)
 	{
 		$this->_type = $type;
-		$this->_sql = $sql;
+		$this->_sql  = $sql;
 	}
 
 	/**
@@ -75,8 +75,8 @@ class Kohana_Database_Query {
 	/**
 	 * Enables the query to be cached for a specified amount of time.
 	 *
-	 * @param   integer  $lifetime  number of seconds to cache, 0 deletes it from the cache
-	 * @param   boolean  whether or not to execute the query during a cache hit
+	 * @param   integer $lifetime number of seconds to cache, 0 deletes it from the cache
+	 * @param   boolean $force    whether or not to execute the query during a cache hit
 	 * @return  $this
 	 * @uses    Kohana::$cache_life
 	 */
@@ -89,7 +89,7 @@ class Kohana_Database_Query {
 		}
 
 		$this->_force_execute = $force;
-		$this->_lifetime = $lifetime;
+		$this->_lifetime      = $lifetime;
 
 		return $this;
 	}
@@ -111,8 +111,8 @@ class Kohana_Database_Query {
 	/**
 	 * Returns results as objects
 	 *
-	 * @param   string  $class  classname or TRUE for stdClass
-	 * @param   array   $params
+	 * @param   string $class  classname or TRUE for stdClass
+	 * @param   array  $params
 	 * @return  $this
 	 */
 	public function as_object($class = TRUE, array $params = NULL)
@@ -131,8 +131,8 @@ class Kohana_Database_Query {
 	/**
 	 * Set the value of a parameter in the query.
 	 *
-	 * @param   string   $param  parameter key to replace
-	 * @param   mixed    $value  value to use
+	 * @param   string $param parameter key to replace
+	 * @param   mixed  $value value to use
 	 * @return  $this
 	 */
 	public function param($param, $value)
@@ -146,8 +146,8 @@ class Kohana_Database_Query {
 	/**
 	 * Bind a variable to a parameter in the query.
 	 *
-	 * @param   string  $param  parameter key to replace
-	 * @param   mixed   $var    variable to use
+	 * @param   string $param parameter key to replace
+	 * @param   mixed  $var   variable to use
 	 * @return  $this
 	 */
 	public function bind($param, & $var)
@@ -161,7 +161,7 @@ class Kohana_Database_Query {
 	/**
 	 * Add multiple parameters to the query.
 	 *
-	 * @param   array  $params  list of parameters
+	 * @param   array $params list of parameters
 	 * @return  $this
 	 */
 	public function parameters(array $params)
@@ -176,7 +176,7 @@ class Kohana_Database_Query {
 	 * Compile the SQL query and return it. Replaces any parameters with their
 	 * given values.
 	 *
-	 * @param   mixed  $db  Database instance or name of instance
+	 * @param   mixed $db Database instance or name of instance
 	 * @return  string
 	 */
 	public function compile($db = NULL)
@@ -205,9 +205,9 @@ class Kohana_Database_Query {
 	/**
 	 * Execute the current query on the given database.
 	 *
-	 * @param   mixed    $db  Database instance or name of instance
-	 * @param   string   result object classname, TRUE for stdClass or FALSE for array
-	 * @param   array    result object constructor arguments
+	 * @param   mixed  $db            Database instance or name of instance
+	 * @param   string $as_object     result object classname, TRUE for stdClass or FALSE for array
+	 * @param   array  $object_params result object constructor arguments
 	 * @return  object   Database_Result for SELECT queries
 	 * @return  mixed    the insert id for INSERT queries
 	 * @return  integer  number of affected rows for all other queries

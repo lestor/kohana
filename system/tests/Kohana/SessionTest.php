@@ -14,8 +14,7 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_SessionTest extends Unittest_TestCase
-{
+class Kohana_SessionTest extends Unittest_TestCase {
 
 	/**
 	 * Gets a mock of the session class
@@ -99,7 +98,7 @@ class Kohana_SessionTest extends Unittest_TestCase
 	 */
 	public function test_constructor_loads_session_with_session_id()
 	{
-		$config = array();
+		$config     = array();
 		$session_id = 'lolums';
 
 		// Don't auto-call constructor, we need to setup the mock first
@@ -520,7 +519,7 @@ class Kohana_SessionTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Session::get_once
-     * @throws ReflectionException
+	 * @throws ReflectionException
 	 */
 	public function test_get_once_gets_once_or_returns_default()
 	{

@@ -14,8 +14,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_FileTest extends Unittest_TestCase
-{
+class Kohana_FileTest extends Unittest_TestCase {
+
 	/**
 	 * Provides test data for test_sanitize()
 	 *
@@ -34,12 +34,12 @@ class Kohana_FileTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_mime
-	 * @param boolean $input  Input for File::mime
+	 * @param boolean $input    Input for File::mime
 	 * @param boolean $expected Output for File::mime
 	 */
 	public function test_mime($input, $expected)
 	{
-		//@todo: File::mime coverage needs significant improvement or to be dropped for a composer package - it's a "horribly unreliable" method with very little testing
+		// @todo: File::mime coverage needs significant improvement or to be dropped for a composer package - it's a "horribly unreliable" method with very little testing
 		$this->assertSame($expected, File::mime($input));
 	}
 

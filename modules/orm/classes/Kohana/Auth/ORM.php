@@ -12,7 +12,7 @@ class Kohana_Auth_ORM extends Auth {
 	/**
 	 * Checks if a session is active.
 	 *
-	 * @param   mixed    $role Role name string, role ORM object, or array with role names
+	 * @param   mixed $role Role name string, role ORM object, or array with role names
 	 * @return  boolean
 	 */
 	public function logged_in($role = NULL)
@@ -64,9 +64,9 @@ class Kohana_Auth_ORM extends Auth {
 	/**
 	 * Logs a user in.
 	 *
-	 * @param   string   $username
-	 * @param   string   $password
-	 * @param   boolean  $remember  enable autologin
+	 * @param   string  $username
+	 * @param   string  $password
+	 * @param   boolean $remember enable autologin
 	 * @return  boolean
 	 */
 	protected function _login($user, $password, $remember)
@@ -120,8 +120,8 @@ class Kohana_Auth_ORM extends Auth {
 	/**
 	 * Forces a user to be logged in, without specifying a password.
 	 *
-	 * @param   mixed    $user                    username string, or user ORM object
-	 * @param   boolean  $mark_session_as_forced  mark the session as forced
+	 * @param   mixed   $user                   username string, or user ORM object
+	 * @param   boolean $mark_session_as_forced mark the session as forced
 	 * @return  boolean
 	 */
 	public function force_login($user, $mark_session_as_forced = FALSE)
@@ -186,7 +186,7 @@ class Kohana_Auth_ORM extends Auth {
 	 * Gets the currently logged in user from the session (with auto_login check).
 	 * Returns $default if no user is currently logged in.
 	 *
-	 * @param   mixed    $default to return in case user isn't logged in
+	 * @param   mixed $default to return in case user isn't logged in
 	 * @return  mixed
 	 */
 	public function get_user($default = NULL)
@@ -206,8 +206,8 @@ class Kohana_Auth_ORM extends Auth {
 	/**
 	 * Log a user out and remove any autologin cookies.
 	 *
-	 * @param   boolean  $destroy     completely destroy the session
-	 * @param	boolean  $logout_all  remove all tokens for user
+	 * @param   boolean $destroy    completely destroy the session
+	 * @param	boolean $logout_all remove all tokens for user
 	 * @return  boolean
 	 */
 	public function logout($destroy = FALSE, $logout_all = FALSE)
@@ -245,7 +245,7 @@ class Kohana_Auth_ORM extends Auth {
 	/**
 	 * Get the stored password for a username.
 	 *
-	 * @param   mixed   $user  username string, or user ORM object
+	 * @param   mixed $user username string, or user ORM object
 	 * @return  string
 	 */
 	public function password($user)
@@ -266,7 +266,7 @@ class Kohana_Auth_ORM extends Auth {
 	 * Complete the login for a user by incrementing the logins and setting
 	 * session data: user_id, username, roles.
 	 *
-	 * @param   object  $user  user ORM object
+	 * @param   object $user user ORM object
 	 * @return  void
 	 */
 	protected function complete_login($user)
@@ -279,7 +279,7 @@ class Kohana_Auth_ORM extends Auth {
 	/**
 	 * Compare password with original (hashed). Works for current (logged in) user
 	 *
-	 * @param   string  $password
+	 * @param   string $password
 	 * @return  boolean
 	 */
 	public function check_password($password)

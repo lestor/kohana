@@ -61,7 +61,7 @@ abstract class Kohana_Minion_Task {
 		{
 			unset($options['task']);
 		}
-		else if (($task = Arr::get($options, 0)) !== NULL)
+		elseif (($task = Arr::get($options, 0)) !== NULL)
 		{
 			// The first positional argument (aka 0) may be the task name
 			unset($options[0]);
@@ -237,7 +237,7 @@ abstract class Kohana_Minion_Task {
 		$validation = Validation::factory($options);
 		$validation = $this->build_validation($validation);
 
-		if ( $this->_method != '_help' AND ! $validation->check())
+		if ($this->_method != '_help' AND ! $validation->check())
 		{
 			echo View::factory('minion/error/validation')
 				->set('task', Minion_Task::convert_class_to_task($this))
@@ -300,7 +300,7 @@ abstract class Kohana_Minion_Task {
 		$comment = array_slice(explode("\n", $comment), 1, -1);
 
 		// Tag content
-		$tags        = array();
+		$tags = array();
 
 		foreach ($comment as $i => $line)
 		{

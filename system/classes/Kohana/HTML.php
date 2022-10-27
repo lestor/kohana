@@ -62,8 +62,8 @@ class Kohana_HTML {
 	 *
 	 *     echo HTML::chars($username);
 	 *
-	 * @param   string  $value          string to convert
-	 * @param   boolean $double_encode  encode existing entities
+	 * @param   string  $value         string to convert
+	 * @param   boolean $double_encode encode existing entities
 	 * @return  string
 	 */
 	public static function chars($value, $double_encode = TRUE)
@@ -78,8 +78,8 @@ class Kohana_HTML {
 	 *
 	 *     echo HTML::entities($username);
 	 *
-	 * @param   string  $value          string to convert
-	 * @param   boolean $double_encode  encode existing entities
+	 * @param   string  $value         string to convert
+	 * @param   boolean $double_encode encode existing entities
 	 * @return  string
 	 */
 	public static function entities($value, $double_encode = TRUE)
@@ -174,9 +174,9 @@ class Kohana_HTML {
 	 *
 	 *     echo HTML::mailto($address);
 	 *
-	 * @param   string  $email      email address to send to
-	 * @param   string  $title      link text
-	 * @param   array   $attributes HTML anchor attributes
+	 * @param   string $email      email address to send to
+	 * @param   string $title      link text
+	 * @param   array  $attributes HTML anchor attributes
 	 * @return  string
 	 * @uses    HTML::attributes
 	 */
@@ -287,7 +287,7 @@ class Kohana_HTML {
 	 *
 	 *     echo '<div'.HTML::attributes($attrs).'>'.$content.'</div>';
 	 *
-	 * @param   array   $attributes attribute list
+	 * @param   array $attributes attribute list
 	 * @return  string
 	 */
 	public static function attributes(array $attributes = NULL)

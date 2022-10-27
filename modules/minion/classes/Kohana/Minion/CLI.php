@@ -42,7 +42,7 @@ class Kohana_Minion_CLI {
 	 *     // Get the values of "username" and "password"
 	 *     $auth = Minion_CLI::options('username', 'password');
 	 *
-	 * @param   string  $options,...    option name
+	 * @param   string $options,... option name
 	 * @return  array
 	 */
 	public static function options($options = NULL)
@@ -100,7 +100,7 @@ class Kohana_Minion_CLI {
 			}
 		}
 
-		return count($options) == 1 ? array_pop($values) : $values;
+		return (count($options) == 1) ? array_pop($values) : $values;
 	}
 
 	/**
@@ -117,8 +117,8 @@ class Kohana_Minion_CLI {
 	 * // Will only accept the options in the array
 	 * $ready = Minion_CLI::read('Are you ready?', array('y','n'));
 	 *
-	 * @param  string  $text    text to show user before waiting for input
-	 * @param  array   $options array of options the user is shown
+	 * @param  string $text    text to show user before waiting for input
+	 * @param  array  $options array of options the user is shown
 	 * @return string  the user input
 	 */
 	public static function read($text = '', array $options = NULL)
@@ -136,7 +136,7 @@ class Kohana_Minion_CLI {
 		$input = trim(fgets(STDIN));
 
 		// If options are provided and the choice is not in the array, tell them to try again
-		if ( ! empty($options) && ! in_array($input, $options))
+		if ( ! empty($options) AND ! in_array($input, $options))
 		{
 			Minion_CLI::write('This is not a valid option. Please try again.');
 
@@ -219,13 +219,13 @@ class Kohana_Minion_CLI {
 	 *     // Done writing this line
 	 *     Minion_CLI::write_replace('100%', TRUE);
 	 *
-	 * @param string  $text      the text to output
-	 * @param boolean $end_line  whether the line is done being replaced
+	 * @param string  $text     the text to output
+	 * @param boolean $end_line whether the line is done being replaced
 	 */
 	public static function write_replace($text = '', $end_line = FALSE)
 	{
 		// Append a newline if $end_line is TRUE
-		$text = $end_line ? $text.PHP_EOL : $text;
+		$text = $end_line ? ($text.PHP_EOL) : $text;
 		fwrite(STDOUT, "\r\033[K".$text);
 	}
 
@@ -237,12 +237,12 @@ class Kohana_Minion_CLI {
 	 * @license    MIT License
 	 * @copyright  2010 - 2011 Fuel Development Team
 	 * @link       http://fuelphp.com
-	 * @param int $seconds number of seconds
-	 * @param bool $countdown show a countdown or not
+	 * @param integer $seconds   number of seconds
+	 * @param boolean $countdown show a countdown or not
 	 */
-	public static function wait($seconds = 0, $countdown = false)
+	public static function wait($seconds = 0, $countdown = FALSE)
 	{
-		if ($countdown === true)
+		if ($countdown === TRUE)
 		{
 			$time = $seconds;
 
@@ -277,12 +277,12 @@ class Kohana_Minion_CLI {
 	 * @license    MIT License
 	 * @copyright  2010 - 2011 Fuel Development Team
 	 * @link       http://fuelphp.com
-	 * @param string $text the text to color
+	 * @param string $text       the text to color
 	 * @param string $foreground the foreground color
 	 * @param string $background the background color
 	 * @return string the color coded string
 	 */
-	public static function color($text, $foreground, $background = null)
+	public static function color($text, $foreground, $background = NULL)
 	{
 
 		if (Kohana::$is_windows)
@@ -290,19 +290,19 @@ class Kohana_Minion_CLI {
 			return $text;
 		}
 
-		if (!array_key_exists($foreground, Minion_CLI::$foreground_colors))
+		if ( ! array_key_exists($foreground, Minion_CLI::$foreground_colors))
 		{
 			throw new Kohana_Exception('Invalid CLI foreground color: '.$foreground);
 		}
 
-		if ($background !== null and !array_key_exists($background, Minion_CLI::$background_colors))
+		if ($background !== NULL and ! array_key_exists($background, Minion_CLI::$background_colors))
 		{
 			throw new Kohana_Exception('Invalid CLI background color: '.$background);
 		}
 
 		$string = "\033[".Minion_CLI::$foreground_colors[$foreground]."m";
 
-		if ($background !== null)
+		if ($background !== NULL)
 		{
 			$string .= "\033[".Minion_CLI::$background_colors[$background]."m";
 		}

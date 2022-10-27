@@ -13,8 +13,8 @@ class Kohana_Feed {
 	/**
 	 * Parses a remote feed into an array.
 	 *
-	 * @param   string  $feed   remote feed URL
-	 * @param   integer $limit  item limit to fetch
+	 * @param   string  $feed  remote feed URL
+	 * @param   integer $limit item limit to fetch
 	 * @return  array
 	 */
 	public static function parse($feed, $limit = 0)
@@ -57,7 +57,7 @@ class Kohana_Feed {
 		// Detect the feed type. RSS 1.0/2.0 and Atom 1.0 are supported.
 		$feed = isset($feed->channel) ? $feed->xpath('//item') : $feed->entry;
 
-		$i = 0;
+		$i     = 0;
 		$items = array();
 
 		foreach ($feed as $item)
@@ -80,9 +80,9 @@ class Kohana_Feed {
 	/**
 	 * Creates a feed from the given parameters.
 	 *
-	 * @param   array   $info       feed information
-	 * @param   array   $items      items to add to the feed
-	 * @param   string  $encoding   define which encoding to use
+	 * @param   array  $info     feed information
+	 * @param   array  $items    items to add to the feed
+	 * @param   string $encoding define which encoding to use
 	 * @return  string
 	 */
 	public static function create($info, $items, $encoding = 'UTF-8')

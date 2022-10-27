@@ -27,7 +27,7 @@ class Kohana_HTTPTest extends Unittest_TestCase {
 		parent::setUp();
 		Kohana::$config->load('url')->set('trusted_hosts', array('www\.example\.com'));
 		$this->_initial_request = Request::$initial;
-		Request::$initial = new Request('/');
+		Request::$initial       = new Request('/');
 	}
 
 	/**
@@ -40,7 +40,6 @@ class Kohana_HTTPTest extends Unittest_TestCase {
 		Request::$initial = $this->_initial_request;
 		parent::tearDown();
 	}
-	// @codingStandardsIgnoreStart
 
 	/**
 	 * Defaults for this test
@@ -88,10 +87,10 @@ class Kohana_HTTPTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_redirect
-	 * @param array  $location            Location to redirect to
-	 * @param array  $code                HTTP Code to use for the redirect
-	 * @param string $expected_exception  Expected exception
-	 * @param string $expected_location   Expected exception
+	 * @param array  $location           Location to redirect to
+	 * @param array  $code               HTTP Code to use for the redirect
+	 * @param string $expected_exception Expected exception
+	 * @param string $expected_location  Expected exception
 	 */
 	public function test_redirect($location, $code, $expected_exception, $expected_location)
 	{
@@ -159,8 +158,8 @@ class Kohana_HTTPTest extends Unittest_TestCase {
 	 *
 	 * @test
 	 * @dataProvider provider_request_headers
-	 * @param array  $server_globals      globals to feed $_SERVER
-	 * @param array  $expected_headers    Expected, cleaned HTTP headers
+	 * @param array $server_globals   globals to feed $_SERVER
+	 * @param array $expected_headers Expected, cleaned HTTP headers
 	 */
 	public function test_request_headers(array $server_globals, array $expected_headers)
 	{

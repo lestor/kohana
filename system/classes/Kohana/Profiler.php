@@ -29,8 +29,8 @@ class Kohana_Profiler {
 	 *
 	 *     $token = Profiler::start('test', 'profiler');
 	 *
-	 * @param   string  $group  group name
-	 * @param   string  $name   benchmark name
+	 * @param   string $group group name
+	 * @param   string $name  benchmark name
 	 * @return  string
 	 */
 	public static function start($group, $name)
@@ -62,7 +62,7 @@ class Kohana_Profiler {
 	 *
 	 *     Profiler::stop($token);
 	 *
-	 * @param   string  $token
+	 * @param   string $token
 	 * @return  void
 	 */
 	public static function stop($token)
@@ -79,7 +79,7 @@ class Kohana_Profiler {
 	 *
 	 *     Profiler::delete($token);
 	 *
-	 * @param   string  $token
+	 * @param   string $token
 	 * @return  void
 	 */
 	public static function delete($token)
@@ -113,7 +113,7 @@ class Kohana_Profiler {
 	 *
 	 *     $stats = Profiler::stats($tokens);
 	 *
-	 * @param   array   $tokens profiler tokens
+	 * @param   array $tokens profiler tokens
 	 * @return  array   min, max, average, total
 	 * @uses    Profiler::total
 	 */
@@ -185,7 +185,7 @@ class Kohana_Profiler {
 	 *
 	 *     $stats = Profiler::group_stats('test');
 	 *
-	 * @param   mixed   $groups single group name string, or array with group names; all groups by default
+	 * @param   mixed $groups single group name string, or array with group names; all groups by default
 	 * @return  array   min, max, average, total
 	 * @uses    Profiler::groups
 	 * @uses    Profiler::stats
@@ -206,7 +206,7 @@ class Kohana_Profiler {
 			{
 				// Store the stats for each subgroup.
 				// We only need the values for "total".
-				$_stats = Profiler::stats($tokens);
+				$_stats               = Profiler::stats($tokens);
 				$stats[$group][$name] = $_stats['total'];
 			}
 		}
@@ -271,7 +271,7 @@ class Kohana_Profiler {
 	 *
 	 *     list($time, $memory) = Profiler::total($token);
 	 *
-	 * @param   string  $token
+	 * @param   string $token
 	 * @return  array   execution time, memory
 	 */
 	public static function total($token)

@@ -13,7 +13,7 @@ class Kohana_Validation implements ArrayAccess {
 	/**
 	 * Creates a new Validation instance.
 	 *
-	 * @param   array   $array  array to use for validation
+	 * @param   array $array array to use for validation
 	 * @return  Validation
 	 */
 	public static function factory(array $array)
@@ -43,7 +43,7 @@ class Kohana_Validation implements ArrayAccess {
 	 * Sets the unique "any field" key and creates an ArrayObject from the
 	 * passed array.
 	 *
-	 * @param   array   $array  array to validate
+	 * @param   array $array array to validate
 	 * @return  void
 	 */
 	public function __construct(array $array)
@@ -60,7 +60,9 @@ class Kohana_Validation implements ArrayAccess {
 	 * @param   mixed    $value     value to set
 	 * @return  void
 	 */
+	// @codingStandardsIgnoreStart
 	public function offsetSet($offset, $value)
+	// @codingStandardsIgnoreEnd
 	{
 		throw new Kohana_Exception('Validation objects are read-only.');
 	}
@@ -72,7 +74,9 @@ class Kohana_Validation implements ArrayAccess {
 	 * @param   string  $offset key to check
 	 * @return  bool    whether the key is set
 	 */
+	// @codingStandardsIgnoreStart
 	public function offsetExists($offset)
+	// @codingStandardsIgnoreEnd
 	{
 		return isset($this->_data[$offset]);
 	}
@@ -82,7 +86,7 @@ class Kohana_Validation implements ArrayAccess {
 	 * Implements ArrayAccess method.
 	 *
 	 * @throws  Kohana_Exception
-	 * @param   string  $offset key to unset
+	 * @param   string $offset key to unset
 	 * @return  void
 	 */
 	public function offsetUnset($offset)
@@ -97,7 +101,9 @@ class Kohana_Validation implements ArrayAccess {
 	 * @param   string  $offset key to return
 	 * @return  mixed   value from array
 	 */
+	// @codingStandardsIgnoreStart
 	public function offsetGet($offset)
+	// @codingStandardsIgnoreEnd
 	{
 		return $this->_data[$offset];
 	}
@@ -107,7 +113,7 @@ class Kohana_Validation implements ArrayAccess {
 	 *
 	 *     $copy = $array->copy($new_data);
 	 *
-	 * @param   array   $array  new data set
+	 * @param   array $array new data set
 	 * @return  Validation
 	 * @since   3.0.5
 	 */
@@ -147,8 +153,8 @@ class Kohana_Validation implements ArrayAccess {
 	/**
 	 * Sets or overwrites the label name for a field.
 	 *
-	 * @param   string  $field  field name
-	 * @param   string  $label  label
+	 * @param   string $field field name
+	 * @param   string $label label
 	 * @return  $this
 	 */
 	public function label($field, $label)
@@ -162,7 +168,7 @@ class Kohana_Validation implements ArrayAccess {
 	/**
 	 * Sets labels using an array.
 	 *
-	 * @param   array   $labels list of field => label names
+	 * @param   array $labels list of field => label names
 	 * @return  $this
 	 */
 	public function labels(array $labels)
@@ -203,9 +209,9 @@ class Kohana_Validation implements ArrayAccess {
 	 *
 	 * [!!] Errors must be added manually when using closures!
 	 *
-	 * @param   string      $field  field name
-	 * @param   callback    $rule   valid PHP callback or closure
-	 * @param   array       $params extra parameters for the rule
+	 * @param   string   $field  field name
+	 * @param   callback $rule   valid PHP callback or closure
+	 * @param   array    $params extra parameters for the rule
 	 * @return  $this
 	 */
 	public function rule($field, $rule, array $params = NULL)
@@ -231,8 +237,8 @@ class Kohana_Validation implements ArrayAccess {
 	/**
 	 * Add rules using an array.
 	 *
-	 * @param   string  $field  field name
-	 * @param   array   $rules  list of callbacks
+	 * @param   string $field field name
+	 * @param   array  $rules list of callbacks
 	 * @return  $this
 	 */
 	public function rules($field, array $rules)
@@ -252,8 +258,8 @@ class Kohana_Validation implements ArrayAccess {
 	 *     $validation->bind(':model', $model)
 	 *         ->rule('status', 'valid_status', array(':model'));
 	 *
-	 * @param   string  $key    variable name or an array of variables
-	 * @param   mixed   $value  value
+	 * @param   string $key   variable name or an array of variables
+	 * @param   mixed  $value value
 	 * @return  $this
 	 */
 	public function bind($key, $value = NULL)
@@ -374,13 +380,13 @@ class Kohana_Validation implements ArrayAccess {
 
 					// This is an array callback, the method name is the error name
 					$error_name = $rule[1];
-					$passed = call_user_func_array($rule, $params);
+					$passed     = call_user_func_array($rule, $params);
 				}
 				elseif ( ! is_string($rule))
 				{
 					// This is a lambda function, there is no error name (errors must be added manually)
 					$error_name = FALSE;
-					$passed = call_user_func_array($rule, $params);
+					$passed     = call_user_func_array($rule, $params);
 				}
 				elseif (method_exists('Valid', $rule))
 				{
@@ -452,9 +458,9 @@ class Kohana_Validation implements ArrayAccess {
 	/**
 	 * Add an error to a field.
 	 *
-	 * @param   string  $field  field name
-	 * @param   string  $error  error message
-	 * @param   array   $params
+	 * @param   string $field  field name
+	 * @param   string $error  error message
+	 * @param   array  $params
 	 * @return  $this
 	 */
 	public function error($field, $error, array $params = NULL)
@@ -479,8 +485,8 @@ class Kohana_Validation implements ArrayAccess {
 	 *     $errors = $Validation->errors('forms/login');
 	 *
 	 * @uses    Kohana::message
-	 * @param   string  $file       file to load error messages from
-	 * @param   mixed   $translate  translate the message
+	 * @param   string $file      file to load error messages from
+	 * @param   mixed  $translate translate the message
 	 * @return  array
 	 */
 	public function errors($file = NULL, $translate = TRUE)

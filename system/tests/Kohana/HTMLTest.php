@@ -14,8 +14,7 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_HTMLTest extends Unittest_TestCase
-{
+class Kohana_HTMLTest extends Unittest_TestCase {
 
 	/**
 	 * Sets up the environment
@@ -39,7 +38,7 @@ class Kohana_HTMLTest extends Unittest_TestCase
 		'HTML::$strict' => TRUE,
 		'HTTP_HOST'	=> 'www.kohanaframework.org',
 	);
-	// @codingStandardsIgnoreStart
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Provides test data for test_attributes()
@@ -82,9 +81,9 @@ class Kohana_HTMLTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_attributes
-	 * @param array  $attributes  Attributes to use
-	 * @param array  $options     Environment options to use
-	 * @param string $expected    Expected output
+	 * @param array  $attributes Attributes to use
+	 * @param array  $options    Environment options to use
+	 * @param string $expected   Expected output
 	 */
 	public function test_attributes(array $attributes, array $options, $expected)
 	{
@@ -142,11 +141,11 @@ class Kohana_HTMLTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider  provider_script
-	 * @param string  $expected       Expected output
-	 * @param string  $file           URL to script
-	 * @param array   $attributes     HTML attributes for the anchor
-	 * @param string  $protocol       Protocol to use
-	 * @param bool    $index          Should the index file be included in url?
+	 * @param string  $expected   Expected output
+	 * @param string  $file       URL to script
+	 * @param array   $attributes HTML attributes for the anchor
+	 * @param string  $protocol   Protocol to use
+	 * @param boolean $index      Should the index file be included in url?
 	 */
 	public function test_script($expected, $file, array $attributes = NULL, $protocol = NULL, $index = FALSE)
 	{
@@ -224,11 +223,11 @@ class Kohana_HTMLTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider  provider_style
-	 * @param string  $expected     The expected output
-	 * @param string  $file         The file to link to
-	 * @param array   $attributes   Any extra attributes for the link
-	 * @param string  $protocol     Protocol to use
-	 * @param bool    $index        Whether the index file should be added to the link
+	 * @param string  $expected   The expected output
+	 * @param string  $file       The file to link to
+	 * @param array   $attributes Any extra attributes for the link
+	 * @param string  $protocol   Protocol to use
+	 * @param boolean $index      Whether the index file should be added to the link
 	 */
 	public function test_style($expected, $file, array $attributes = NULL, $protocol = NULL, $index = FALSE)
 	{

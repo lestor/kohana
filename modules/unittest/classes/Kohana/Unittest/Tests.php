@@ -88,7 +88,9 @@ class Kohana_Unittest_Tests {
 	 * @param Unittest_TestSuite  $suite   The test suite to add to
 	 * @param array                        $files   Array of files to test
 	 */
+	// @codingStandardsIgnoreStart
 	static function addTests(Unittest_TestSuite $suite, array $files)
+	// @codingStandardsIgnoreEnd
 	{
 
 		foreach ($files as $path => $file)
@@ -125,8 +127,8 @@ class Kohana_Unittest_Tests {
 	 * If no directories are provided then the function'll load the whitelist
 	 * set in the config file
 	 *
-	 * @param array $directories Optional directories to whitelist
-	 * @param Unittest_Testsuite $suite Suite to load the whitelist into
+	 * @param array              $directories Optional directories to whitelist
+	 * @param Unittest_Testsuite $suite       Suite to load the whitelist into
 	 */
 	static public function whitelist(array $directories = NULL, Unittest_TestSuite $suite = NULL)
 	{
@@ -155,7 +157,7 @@ class Kohana_Unittest_Tests {
 	 */
 	static protected function get_config_whitelist()
 	{
-		$config = Kohana::$config->load('unittest');
+		$config      = Kohana::$config->load('unittest');
 		$directories = array();
 
 		if ($config->whitelist['app'])
@@ -198,7 +200,7 @@ class Kohana_Unittest_Tests {
 	/**
 	 * Recursively whitelists an array of files
 	 *
-	 * @param array $files Array of files to whitelist
+	 * @param array              $files Array of files to whitelist
 	 * @param Unittest_TestSuite $suite Suite to load the whitelist into
 	 */
 	static protected function set_whitelist($files, Unittest_TestSuite $suite = NULL)
@@ -214,7 +216,7 @@ class Kohana_Unittest_Tests {
 			{
 				if ( ! isset(Unittest_tests::$cache[$file]))
 				{
-					$relative_path = substr($file, strrpos($file, 'classes'.DIRECTORY_SEPARATOR) + 8, -strlen(EXT));
+					$relative_path  = substr($file, strrpos($file, 'classes'.DIRECTORY_SEPARATOR) + 8, -strlen(EXT));
 					$cascading_file = Kohana::find_file('classes', $relative_path);
 
 					// The theory is that if this file is the highest one in the cascading filesystem

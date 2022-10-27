@@ -52,14 +52,14 @@ class Kohana_Text {
 	 *
 	 *     $text = Text::limit_words($text);
 	 *
-	 * @param   string  $str        phrase to limit words of
-	 * @param   integer $limit      number of words to limit to
-	 * @param   string  $end_char   end character or entity
+	 * @param   string  $str      phrase to limit words of
+	 * @param   integer $limit    number of words to limit to
+	 * @param   string  $end_char end character or entity
 	 * @return  string
 	 */
 	public static function limit_words($str, $limit = 100, $end_char = NULL)
 	{
-		$limit = (int) $limit;
+		$limit    = (int) $limit;
 		$end_char = ($end_char === NULL) ? '…' : $end_char;
 
 		if (trim($str) === '')
@@ -120,7 +120,7 @@ class Kohana_Text {
 	 * Note that using multiple iterations of different strings may produce
 	 * unexpected results.
 	 *
-	 * @param   string  $str,...    strings to alternate between
+	 * @param   string $str,... strings to alternate between
 	 * @return  string
 	 */
 	public static function alternate()
@@ -238,8 +238,8 @@ class Kohana_Text {
 	 *
 	 *      $str = Text::ucfirst('content-type'); // returns "Content-Type"
 	 *
-	 * @param   string  $string     string to transform
-	 * @param   string  $delimiter  delimiter to use
+	 * @param   string $string    string to transform
+	 * @param   string $delimiter delimiter to use
 	 * @uses    UTF8::ucfirst
 	 * @return  string
 	 */
@@ -254,7 +254,7 @@ class Kohana_Text {
 	 *
 	 *     $str = Text::reduce_slashes('foo//bar/baz'); // "foo/bar/baz"
 	 *
-	 * @param   string  $str    string to reduce slashes of
+	 * @param   string $str string to reduce slashes of
 	 * @return  string
 	 */
 	public static function reduce_slashes($str)
@@ -270,10 +270,10 @@ class Kohana_Text {
 	 *         'frick' => '#####',
 	 *     ));
 	 *
-	 * @param   string  $str                    phrase to replace words in
-	 * @param   array   $badwords               words to replace
-	 * @param   string  $replacement            replacement string
-	 * @param   boolean $replace_partial_words  replace words across word boundaries (space, period, etc)
+	 * @param   string  $str                   phrase to replace words in
+	 * @param   array   $badwords              words to replace
+	 * @param   string  $replacement           replacement string
+	 * @param   boolean $replace_partial_words replace words across word boundaries (space, period, etc)
 	 * @return  string
 	 * @uses    UTF8::strlen
 	 */
@@ -311,7 +311,7 @@ class Kohana_Text {
 	 *
 	 *     $match = Text::similar(array('fred', 'fran', 'free'); // "fr"
 	 *
-	 * @param   array   $words  words to find similar text of
+	 * @param   array $words words to find similar text of
 	 * @return  string
 	 */
 	public static function similar(array $words)
@@ -341,7 +341,7 @@ class Kohana_Text {
 	 *
 	 * [!!] This method is not foolproof since it uses regex to parse HTML.
 	 *
-	 * @param   string  $text   text to auto link
+	 * @param   string $text text to auto link
 	 * @return  string
 	 * @uses    Text::auto_link_urls
 	 * @uses    Text::auto_link_emails
@@ -359,7 +359,7 @@ class Kohana_Text {
 	 *
 	 * [!!] This method is not foolproof since it uses regex to parse HTML.
 	 *
-	 * @param   string  $text   text to auto link
+	 * @param   string $text text to auto link
 	 * @return  string
 	 * @uses    HTML::anchor
 	 */
@@ -390,7 +390,7 @@ class Kohana_Text {
 	 *
 	 * [!!] This method is not foolproof since it uses regex to parse HTML.
 	 *
-	 * @param   string  $text   text to auto link
+	 * @param   string $text text to auto link
 	 * @return  string
 	 * @uses    HTML::mailto
 	 */
@@ -398,7 +398,7 @@ class Kohana_Text {
 	{
 		// Find and replace all email addresses that are not part of an existing html mailto anchor
 		// Note: The "58;" negative lookbehind prevents matching of existing encoded html mailto anchors
-		//       The html entity for a colon (:) is &#58; or &#058; or &#0058; etc.
+		// The html entity for a colon (:) is &#58; or &#058; or &#0058; etc.
 		return preg_replace_callback('~\b(?<!href="mailto:|58;)(?!\.)[-+_a-z0-9.]++(?<!\.)@(?![-.])[-a-z0-9.]+(?<!\.)\.[a-z]{2,6}\b(?!</a>)~i', 'Text::_auto_link_emails_callback', $text);
 	}
 
@@ -415,8 +415,8 @@ class Kohana_Text {
 	 *
 	 * [!!] This method is not foolproof since it uses regex to parse HTML.
 	 *
-	 * @param   string  $str    subject
-	 * @param   boolean $br     convert single linebreaks to <br />
+	 * @param   string  $str subject
+	 * @param   boolean $br  convert single linebreaks to <br />
 	 * @return  string
 	 */
 	public static function auto_p($str, $br = TRUE)
@@ -594,13 +594,13 @@ class Kohana_Text {
 	 * regex courtesy of the Typogrify project
 	 * @link http://code.google.com/p/typogrify/
 	 *
-	 * @param   string  $str    text to remove widows from
+	 * @param   string $str text to remove widows from
 	 * @return  string
 	 */
 	public static function widont($str)
 	{
 		// use '%' as delimiter and 'x' as modifier 
- 		$widont_regex = "%
+		$widont_regex = "%
 			((?:</?(?:a|em|span|strong|i|b)[^>]*>)|[^<>\s]) # must be proceeded by an approved inline opening or closing tag or a nontag/nonspace
 			\s+                                             # the space to replace
 			([^<>\s]+                                       # must be flollowed by non-tag non-space characters
@@ -624,8 +624,8 @@ class Kohana_Text {
 	 *
 	 * When using an array for the value, an associative array will be returned.
 	 *
-	 * @param   string  $agent  user_agent
-	 * @param   mixed   $value  array or string to return: browser, version, robot, mobile, platform
+	 * @param   string $agent user_agent
+	 * @param   mixed  $value array or string to return: browser, version, robot, mobile, platform
 	 * @return  mixed   requested information, FALSE if nothing is found
 	 * @uses    Kohana::$config
 	 */

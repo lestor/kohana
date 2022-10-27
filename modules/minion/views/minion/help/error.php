@@ -1,7 +1,7 @@
-<?php echo $error; ?>
+<?php echo $error ?>
 
 Run 
 
-    index.php --uri=minion
+	index.php --uri=minion
 
 for more help

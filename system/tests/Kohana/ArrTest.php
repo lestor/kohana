@@ -14,8 +14,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_ArrTest extends Unittest_TestCase
-{
+class Kohana_ArrTest extends Unittest_TestCase {
+
 	/**
 	 * Provides test data for test_callback()
 	 *
@@ -44,8 +44,8 @@ class Kohana_ArrTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_callback
-	 * @param string $str       String to parse
-	 * @param array  $expected  Callback and its parameters
+	 * @param string $str      String to parse
+	 * @param array  $expected Callback and its parameters
 	 */
 	public function test_callback($str, $expected)
 	{
@@ -153,9 +153,9 @@ class Kohana_ArrTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_pluck
-	 * @param array $array
+	 * @param array  $array
 	 * @param string $key
-	 * @param array $expected
+	 * @param array  $expected
 	 */
 	public function test_pluck(array $array, $key, $expected)
 	{
@@ -188,10 +188,10 @@ class Kohana_ArrTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_get()
-	 * @param array          $array      Array to look in
-	 * @param string|integer $key        Key to look for
-	 * @param mixed          $default    What to return if $key isn't set
-	 * @param mixed          $expected   The expected value returned
+	 * @param array          $array    Array to look in
+	 * @param string|integer $key      Key to look for
+	 * @param mixed          $default  What to return if $key isn't set
+	 * @param mixed          $expected The expected value returned
 	 */
 	public function test_get(array $array, $key, $default, $expected)
 	{
@@ -219,8 +219,8 @@ class Kohana_ArrTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_is_assoc
-	 * @param array   $array     Array to check
-	 * @param boolean $expected  Is $array assoc
+	 * @param array   $array    Array to check
+	 * @param boolean $expected Is $array assoc
 	 */
 	public function test_is_assoc(array $array, $expected)
 	{
@@ -251,8 +251,8 @@ class Kohana_ArrTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_is_array
-	 * @param mixed   $value     Value to check
-	 * @param boolean $expected  Is $value an array?
+	 * @param mixed   $value    Value to check
+	 * @param boolean $expected Is $value an array?
 	 */
 	public function test_is_array($array, $expected)
 	{
@@ -502,10 +502,10 @@ class Kohana_ArrTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_path
-	 * @param string  $path       The path to follow
-	 * @param mixed   $default    The value to return if dnx
-	 * @param boolean $expected   The expected value
-	 * @param string  $delimiter  The path delimiter
+	 * @param string  $path      The path to follow
+	 * @param mixed   $default   The value to return if dnx
+	 * @param boolean $expected  The expected value
+	 * @param string  $delimiter The path delimiter
 	 */
 	public function test_path($expected, $array, $path, $default = NULL, $delimiter = NULL)
 	{
@@ -542,9 +542,9 @@ class Kohana_ArrTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_set_path
-	 * @param string  $path       The path to follow
-	 * @param boolean $expected   The expected value
-	 * @param string  $delimiter  The path delimiter
+	 * @param string  $path      The path to follow
+	 * @param boolean $expected  The expected value
+	 * @param string  $delimiter The path delimiter
 	 */
 	public function test_set_path($expected, $array, $path, $value, $delimiter = NULL)
 	{
@@ -571,8 +571,8 @@ class Kohana_ArrTest extends Unittest_TestCase
 	 * Tests Arr::range()
 	 *
 	 * @dataProvider provider_range
-	 * @param integer $step  The step between each value in the array
-	 * @param integer $max   The max value of the range (inclusive)
+	 * @param integer $step The step between each value in the array
+	 * @param integer $max  The max value of the range (inclusive)
 	 */
 	public function test_range($step, $max)
 	{
@@ -609,9 +609,9 @@ class Kohana_ArrTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_unshift
-	 * @param array $array
+	 * @param array  $array
 	 * @param string $key
-	 * @param mixed $value
+	 * @param mixed  $value
 	 */
 	public function test_unshift(array $array, $key, $value)
 	{

@@ -24,8 +24,8 @@ abstract class Kohana_HTTP {
 	/**
 	 * Issues a HTTP redirect.
 	 *
-	 * @param  string    $uri       URI to redirect to
-	 * @param  int       $code      HTTP Status code to use for the redirect
+	 * @param  string  $uri  URI to redirect to
+	 * @param  integer $code HTTP Status code to use for the redirect
 	 * @throws HTTP_Exception
 	 */
 	public static function redirect($uri = '', $code = 302)
@@ -45,9 +45,9 @@ abstract class Kohana_HTTP {
 	 * execution will halt and a 304 Not Modified will be sent if the
 	 * browser cache is up to date.
 	 *
-	 * @param  Request   $request   Request
-	 * @param  Response  $response  Response
-	 * @param  string    $etag      Resource ETag
+	 * @param  Request  $request  Request
+	 * @param  Response $response Response
+	 * @param  string   $etag     Resource ETag
 	 * @throws HTTP_Exception_304
 	 * @return Response
 	 */
@@ -86,7 +86,7 @@ abstract class Kohana_HTTP {
 	/**
 	 * Parses a HTTP header string into an associative array
 	 *
-	 * @param   string   $header_string  Header string to parse
+	 * @param   string $header_string Header string to parse
 	 * @return  HTTP_Header
 	 */
 	public static function parse_header_string($header_string)
@@ -203,7 +203,7 @@ abstract class Kohana_HTTP {
 	 * Processes an array of key value pairs and encodes
 	 * the values to meet RFC 3986
 	 *
-	 * @param   array   $params  Params
+	 * @param   array $params Params
 	 * @return  string
 	 */
 	public static function www_form_urlencode(array $params = array())

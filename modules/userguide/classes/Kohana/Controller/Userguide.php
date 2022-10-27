@@ -44,10 +44,10 @@ abstract class Kohana_Controller_Userguide extends Controller_Template {
 	// List all modules that have userguides
 	public function index()
 	{
-		$this->template->title = "Userguide";
+		$this->template->title      = "Userguide";
 		$this->template->breadcrumb = array('User Guide');
-		$this->template->content = View::factory('userguide/index', array('modules' => $this->_modules()));
-		$this->template->menu = View::factory('userguide/menu', array('modules' => $this->_modules()));
+		$this->template->content    = View::factory('userguide/index', array('modules' => $this->_modules()));
+		$this->template->menu       = View::factory('userguide/menu', array('modules' => $this->_modules()));
 		
 		// Don't show disqus on the index page
 		$this->template->show_comments = FALSE;
@@ -57,7 +57,7 @@ abstract class Kohana_Controller_Userguide extends Controller_Template {
 	public function error($message)
 	{
 		$this->response->status(404);
-		$this->template->title = "Userguide - Error";
+		$this->template->title   = "Userguide - Error";
 		$this->template->content = View::factory('userguide/error',array('message' => $message));
 		
 		// Don't show disqus on error pages
@@ -70,7 +70,7 @@ abstract class Kohana_Controller_Userguide extends Controller_Template {
 			Kodoc_Markdown::$base_url  = URL::site($this->guide->uri()).'/'.$module.'/';
 			Kodoc_Markdown::$image_url = URL::site($this->media->uri()).'/'.$module.'/';
 
-			$this->template->menu = Kodoc_Markdown::markdown($this->_get_all_menu_markdown());
+			$this->template->menu       = Kodoc_Markdown::markdown($this->_get_all_menu_markdown());
 			$this->template->breadcrumb = array(
 				$this->guide->uri() => 'User Guide',
 				$this->guide->uri(array('module' => $module)) => Kohana::$config->load('userguide.modules.'.$module.'.name'),
@@ -92,7 +92,7 @@ abstract class Kohana_Controller_Userguide extends Controller_Template {
 		// Otherwise, show the userguide module menu on the side
 		else
 		{
-			$this->template->menu = View::factory('userguide/menu',array('modules' => $this->_modules()));
+			$this->template->menu       = View::factory('userguide/menu',array('modules' => $this->_modules()));
 			$this->template->breadcrumb = array($this->request->route()->uri() => 'User Guide','Error');
 		}
 	}
@@ -100,7 +100,7 @@ abstract class Kohana_Controller_Userguide extends Controller_Template {
 	public function action_docs()
 	{
 		$module = $this->request->param('module');
-		$page = $this->request->param('page');
+		$page   = $this->request->param('page');
 
 		// Trim trailing slash
 		$page = rtrim($page, '/');
@@ -149,7 +149,7 @@ abstract class Kohana_Controller_Userguide extends Controller_Template {
 
 		// Parse the page contents into the template
 		Kodoc_Markdown::$show_toc = TRUE;
-		$this->template->content = Kodoc_Markdown::markdown(file_get_contents($file));
+		$this->template->content  = Kodoc_Markdown::markdown(file_get_contents($file));
 		Kodoc_Markdown::$show_toc = FALSE;
 
 		// Attach this module's menu to the template
@@ -162,8 +162,8 @@ abstract class Kohana_Controller_Userguide extends Controller_Template {
 		$this->template->copyright = Kohana::$config->load('userguide.modules.'.$module.'.copyright');
 
 		// Add the breadcrumb trail
-		$breadcrumb = array();
-		$breadcrumb[$this->guide->uri()] = 'User Guide';
+		$breadcrumb                                                = array();
+		$breadcrumb[$this->guide->uri()]                           = 'User Guide';
 		$breadcrumb[$this->guide->uri(array('module' => $module))] = Kohana::$config->load('userguide.modules.'.$module.'.name');
 		
 		// TODO try and get parent category names (from menu).  Regex magic or javascript dom stuff perhaps?
@@ -228,10 +228,10 @@ abstract class Kohana_Controller_Userguide extends Controller_Template {
 		$this->template->bind('breadcrumb', $breadcrumb);
 
 		// Add the breadcrumb
-		$breadcrumb = array();
+		$breadcrumb                                           = array();
 		$breadcrumb[$this->guide->uri(array('page' => NULL))] = 'User Guide';
-		$breadcrumb[$this->request->route()->uri()] = 'API Browser';
-		$breadcrumb[] = $this->template->title;
+		$breadcrumb[$this->request->route()->uri()]           = 'API Browser';
+		$breadcrumb[]                                         = $this->template->title;
 	}
 
 	public function action_media()
@@ -362,7 +362,7 @@ abstract class Kohana_Controller_Userguide extends Controller_Template {
 			if ($file AND $text = file_get_contents($file))
 			{
 				// Add spans around non-link categories. This is a terrible hack.
-				$text = preg_replace('/^(\s*[\-\*\+]\s*)([^\[\]]+)$/m','$1<span>$2</span>',$text);
+				$text      = preg_replace('/^(\s*[\-\*\+]\s*)([^\[\]]+)$/m','$1<span>$2</span>',$text);
 				$markdown .= $text;
 			}
 			

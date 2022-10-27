@@ -19,7 +19,7 @@ function _str_pad($str, $final_str_length, $pad_str = ' ', $pad_type = STR_PAD_R
 		return $str;
 
 	$pad_str_length = UTF8::strlen($pad_str);
-	$pad_length = $final_str_length - $str_length;
+	$pad_length     = $final_str_length - $str_length;
 
 	if ($pad_type == STR_PAD_RIGHT)
 	{
@@ -35,13 +35,13 @@ function _str_pad($str, $final_str_length, $pad_str = ' ', $pad_type = STR_PAD_R
 
 	if ($pad_type == STR_PAD_BOTH)
 	{
-		$pad_length /= 2;
-		$pad_length_left = floor($pad_length);
+		$pad_length      /= 2;
+		$pad_length_left  = floor($pad_length);
 		$pad_length_right = ceil($pad_length);
-		$repeat_left = ceil($pad_length_left / $pad_str_length);
-		$repeat_right = ceil($pad_length_right / $pad_str_length);
+		$repeat_left      = ceil($pad_length_left / $pad_str_length);
+		$repeat_right     = ceil($pad_length_right / $pad_str_length);
 
-		$pad_left = UTF8::substr(str_repeat($pad_str, $repeat_left), 0, $pad_length_left);
+		$pad_left  = UTF8::substr(str_repeat($pad_str, $repeat_left), 0, $pad_length_left);
 		$pad_right = UTF8::substr(str_repeat($pad_str, $repeat_right), 0, $pad_length_right);
 		return $pad_left.$str.$pad_right;
 	}

@@ -14,8 +14,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_ValidationTest extends Unittest_TestCase
-{
+class Kohana_ValidationTest extends Unittest_TestCase {
+
 	/**
 	 * Tests Validation::factory()
 	 *
@@ -136,7 +136,7 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	 */
 	public function test_labels_adds_and_overwrites_multiple_labels_and_returns_this()
 	{
-		$validation = new Validation(array());
+		$validation   = new Validation(array());
 		$initial_data = array('kung fu' => 'fighting', 'fast' => 'cheetah');
 
 		$this->assertSame($validation, $validation->labels($initial_data));
@@ -168,8 +168,8 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	public function test_bind_adds_and_overwrites_multiple_variables_and_returns_this()
 	{
 		$validation = new Validation(array());
-		$data = array('kung fu' => 'fighting', 'fast' => 'cheetah');
-		$bound = array(':foo' => 'some value');
+		$data       = array('kung fu' => 'fighting', 'fast' => 'cheetah');
+		$bound      = array(':foo' => 'some value');
 
 		// Test binding an array of values
 		$this->assertSame($validation, $validation->bind($bound));
@@ -196,7 +196,7 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	 */
 	public function test_bound_callback()
 	{
-		$data = array(
+		$data       = array(
 			'kung fu' => 'fighting',
 			'fast'    => 'cheetah',
 		);
@@ -300,11 +300,11 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	 * @covers Validation::errors
 	 * @covers Validation::error
 	 * @dataProvider provider_check
-	 * @param array   $array            The array of data
-	 * @param array   $rules            The array of rules
-	 * @param array   $labels           The array of labels
-	 * @param boolean $expected         Is it valid?
-	 * @param boolean $expected_errors  Array of expected errors
+	 * @param array   $array           The array of data
+	 * @param array   $rules           The array of rules
+	 * @param array   $labels          The array of labels
+	 * @param boolean $expected        Is it valid?
+	 * @param boolean $expected_errors Array of expected errors
 	 */
 	public function test_check($array, $rules, $labels, $expected, $expected_errors)
 	{
@@ -408,9 +408,9 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	 * @test
 	 * @covers Validation::errors
 	 * @dataProvider provider_errors
-	 * @param array $array     The array of data
-	 * @param array $rules     The array of rules
-	 * @param array $expected  Array of expected errors
+	 * @param array $array    The array of data
+	 * @param array $rules    The array of rules
+	 * @param array $expected Array of expected errors
 	 * @throws ReflectionException
 	 */
 	public function test_errors($array, $rules, $expected)
@@ -457,10 +457,10 @@ class Kohana_ValidationTest extends Unittest_TestCase
 	 * @test
 	 * @covers Validation::errors
 	 * @dataProvider provider_translated_errors
-	 * @param array   $data                   The array of data to test
-	 * @param array   $rules                  The array of rules to add
-	 * @param array   $translated_expected    The array of expected errors when translated
-	 * @param array   $untranslated_expected  The array of expected errors when not translated
+	 * @param array $data                  The array of data to test
+	 * @param array $rules                 The array of rules to add
+	 * @param array $translated_expected   The array of expected errors when translated
+	 * @param array $untranslated_expected The array of expected errors when not translated
 	 */
 	public function test_translated_errors($data, $rules, $translated_expected, $untranslated_expected)
 	{
@@ -505,7 +505,7 @@ class Kohana_ValidationTest extends Unittest_TestCase
 
 		$validation->check();
 
-		$translated_expected = array('foo' => 'foo must equal Español');
+		$translated_expected   = array('foo' => 'foo must equal Español');
 		$untranslated_expected = array('foo' => 'foo must equal Spanish');
 
 		$result_1 = $validation->errors('Validation', TRUE);
@@ -571,7 +571,7 @@ class Kohana_ValidationTest extends Unittest_TestCase
 			->rule('bar', 'matches', array(':validation', ':field', 'foo'));
 
 		$validation->check();
-		$errors = $validation->errors('validation');
+		$errors   = $validation->errors('validation');
 		$expected = array('bar' => 'bar must be the same as foo');
 
 		$this->assertSame($expected, $errors);
@@ -689,8 +689,7 @@ class Kohana_ValidationTest extends Unittest_TestCase
 
 		$validation = Validation::factory($array)
 			->rule('email', 'not_empty')
-			->rule('email', 'email')
-			;
+			->rule('email', 'email');
 
 		$validation->check();
 

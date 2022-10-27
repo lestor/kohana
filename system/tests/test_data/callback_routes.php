@@ -9,8 +9,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Route_Holder
-{
+class Route_Holder {
+
 	/**
 	 * Just an empty callback that doesn't match anything
 	 */

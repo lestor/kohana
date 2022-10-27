@@ -10,31 +10,31 @@
 class Kohana_ORM_Validation_Exception extends Kohana_Exception {
 
 	/**
-   * Array of validation objects
-   * @var array
-   */
+	 * Array of validation objects
+	 * @var array
+	 */
 	protected $_objects = array();
 
 	/**
-   * The alias of the main ORM model this exception was created for
-   * @var string
-   */
+	 * The alias of the main ORM model this exception was created for
+	 * @var string
+	 */
 	protected $_alias = NULL;
 
 	/**
 	 * Constructs a new exception for the specified model
 	 *
-	 * @param  string     $alias       The alias to use when looking for error messages
-	 * @param  Validation $object      The Validation object of the model
-	 * @param  string     $message     The error message
-	 * @param  array      $values      The array of values for the error message
-	 * @param  integer    $code        The error code for the exception
+	 * @param  string     $alias   The alias to use when looking for error messages
+	 * @param  Validation $object  The Validation object of the model
+	 * @param  string     $message The error message
+	 * @param  array      $values  The array of values for the error message
+	 * @param  integer    $code    The error code for the exception
 	 * @return void
 	 */
 	public function __construct($alias, Validation $object, $message = 'Failed to validate array', array $values = NULL, $code = 0, Exception $previous = NULL)
 	{
-		$this->_alias = $alias;
-		$this->_objects['_object'] = $object;
+		$this->_alias                = $alias;
+		$this->_objects['_object']   = $object;
 		$this->_objects['_has_many'] = FALSE;
 
 		parent::__construct($message, $values, $code, $previous);
@@ -123,8 +123,8 @@ class Kohana_ORM_Validation_Exception extends Kohana_Exception {
 	 *     // Will load Model_User errors from messages/orm-validation/user.php
 	 *     $e->errors('orm-validation');
 	 *
-	 * @param   string  $directory Directory to load error messages from
-	 * @param   mixed   $translate Translate the message
+	 * @param   string $directory Directory to load error messages from
+	 * @param   mixed  $translate Translate the message
 	 * @return  array
 	 * @see generate_errors()
 	 */

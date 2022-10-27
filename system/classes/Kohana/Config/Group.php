@@ -34,9 +34,9 @@ class Kohana_Config_Group extends ArrayObject {
 	 * Constructs the group object.  Kohana_Config passes the config group
 	 * and its config items to the object here.
 	 *
-	 * @param Kohana_Config  $instance "Owning" instance of Kohana_Config
-	 * @param string         $group    The group name
-	 * @param array          $config   Group's config
+	 * @param Kohana_Config $instance "Owning" instance of Kohana_Config
+	 * @param string        $group    The group name
+	 * @param array         $config   Group's config
 	 */
 	public function __construct(Kohana_Config $instance, $group, array $config = array())
 	{
@@ -83,8 +83,8 @@ class Kohana_Config_Group extends ArrayObject {
 	 *
 	 *     $value = $config->get($key);
 	 *
-	 * @param   string  $key        array key
-	 * @param   mixed   $default    default value
+	 * @param   string $key     array key
+	 * @param   mixed  $default default value
 	 * @return  mixed
 	 */
 	public function get($key, $default = NULL)
@@ -97,8 +97,8 @@ class Kohana_Config_Group extends ArrayObject {
 	 *
 	 *     $config->set($key, $new_value);
 	 *
-	 * @param   string  $key    array key
-	 * @param   mixed   $value  array value
+	 * @param   string $key   array key
+	 * @param   mixed  $value array value
 	 * @return  $this
 	 */
 	public function set($key, $value)
@@ -121,7 +121,9 @@ class Kohana_Config_Group extends ArrayObject {
 	 * @param string $key   The key of the config item we're changing
 	 * @param mixed  $value The new array value
 	 */
+	// @codingStandardsIgnoreStart
 	public function offsetSet($key, $value)
+	// @codingStandardsIgnoreEnd
 	{
 		$this->_parent_instance->_write_config($this->_group_name, $key, $value);
 

@@ -1,7 +1,7 @@
 $(document).ready(function()
 {
 
-// Syntax highlighter
+	// Syntax highlighter
 
 	$('pre:not(.debug) code').each(function()
 	{
@@ -32,7 +32,7 @@ $(document).ready(function()
 		});
 	});
 
-// Show source links
+	// Show source links
 
 	$('#kodoc-main .method-source').each(function()
 	{

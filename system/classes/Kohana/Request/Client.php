@@ -59,7 +59,7 @@ abstract class Kohana_Request_Client {
 	 * Creates a new `Request_Client` object,
 	 * allows for dependency injection.
 	 *
-	 * @param   array    $params Params
+	 * @param   array $params Params
 	 */
 	public function __construct(array $params = array())
 	{
@@ -87,8 +87,8 @@ abstract class Kohana_Request_Client {
 	 *
 	 *     $request->execute();
 	 *
-	 * @param   Request   $request
-	 * @param   Response  $response
+	 * @param   Request  $request
+	 * @param   Response $response
 	 * @return  Response
 	 * @throws  Kohana_Exception
 	 * @uses    [Kohana::$profiling]
@@ -150,8 +150,8 @@ abstract class Kohana_Request_Client {
 	 *
 	 * This method must be implemented by all clients.
 	 *
-	 * @param   Request   $request   request to execute by client
-	 * @param   Response  $response
+	 * @param   Request  $request  request to execute by client
+	 * @param   Response $response
 	 * @return  Response
 	 * @since   3.2.0
 	 */
@@ -161,7 +161,7 @@ abstract class Kohana_Request_Client {
 	 * Getter and setter for the internal caching engine,
 	 * used to cache responses if available and valid.
 	 *
-	 * @param   HTTP_Cache  $cache  engine to use for caching
+	 * @param   HTTP_Cache $cache engine to use for caching
 	 * @return  HTTP_Cache
 	 * @return  Request_Client
 	 */
@@ -178,7 +178,7 @@ abstract class Kohana_Request_Client {
 	 * Getter and setter for the follow redirects
 	 * setting.
 	 *
-	 * @param   bool  $follow  Boolean indicating if redirects should be followed
+	 * @param   boolean $follow Boolean indicating if redirects should be followed
 	 * @return  bool
 	 * @return  Request_Client
 	 */
@@ -196,7 +196,7 @@ abstract class Kohana_Request_Client {
 	 * Getter and setter for the follow redirects
 	 * headers array.
 	 *
-	 * @param   array  $follow_headers  Array of headers to be re-used when following a Location header
+	 * @param   array $follow_headers Array of headers to be re-used when following a Location header
 	 * @return  array
 	 * @return  Request_Client
 	 */
@@ -220,7 +220,7 @@ abstract class Kohana_Request_Client {
 	 * non-compliant third party sites may require that strict_redirect is set
 	 * FALSE to force the client to switch to GET following a 302 response.
 	 *
-	 * @param  bool  $strict_redirect  Boolean indicating if 302 redirects should be followed with the original method
+	 * @param  boolean $strict_redirect Boolean indicating if 302 redirects should be followed with the original method
 	 * @return Request_Client
 	 */
 	public function strict_redirect($strict_redirect = NULL)
@@ -249,7 +249,7 @@ abstract class Kohana_Request_Client {
 	 *         'WWW-Authenticate' => function($request, $response, $client) {return $new_response;},
 	 *     );
 	 *
-	 * @param array $header_callbacks	Array of callbacks to trigger on presence of given headers
+	 * @param array $header_callbacks Array of callbacks to trigger on presence of given headers
 	 * @return Request_Client
 	 */
 	public function header_callbacks($header_callbacks = NULL)
@@ -270,7 +270,7 @@ abstract class Kohana_Request_Client {
 	 * etc). Requests will only be allowed to nest to the level set by this
 	 * param before execution is aborted with a Request_Client_Recursion_Exception.
 	 *
-	 * @param int $depth  Maximum number of callback requests to execute before aborting
+	 * @param integer $depth Maximum number of callback requests to execute before aborting
 	 * @return Request_Client|int
 	 */
 	public function max_callback_depth($depth = NULL)
@@ -287,7 +287,7 @@ abstract class Kohana_Request_Client {
 	 * Getter/Setter for the callback depth property, which is used to track
 	 * how many recursions have been executed within the current request execution.
 	 *
-	 * @param int $depth  Current recursion depth
+	 * @param integer $depth Current recursion depth
 	 * @return Request_Client|int
 	 */
 	public function callback_depth($depth = NULL)
@@ -319,7 +319,7 @@ abstract class Kohana_Request_Client {
 	 *     $foo = $client->callback_params('foo');
 	 *
 	 * @param string|array $param
-	 * @param mixed $value
+	 * @param mixed        $value
 	 * @return Request_Client|mixed
 	 */
 	public function callback_params($param = NULL, $value = NULL)
@@ -371,8 +371,8 @@ abstract class Kohana_Request_Client {
 	 * The client's follow property must be set TRUE and the HTTP response status
 	 * one of 201, 301, 302, 303 or 307 for the redirect to be followed.
 	 *
-	 * @param Request $request
-	 * @param Response $response
+	 * @param Request        $request
+	 * @param Response       $response
 	 * @param Request_Client $client
 	 */
 	public static function on_header_location(Request $request, Response $response, Request_Client $client)
@@ -402,17 +402,17 @@ abstract class Kohana_Request_Client {
 					{
 						$follow_method = Request::GET;
 					}
-					break;
+				break;
 			}
 
 			// Prepare the additional request, copying any follow_headers that were present on the original request
-			$orig_headers = $request->headers()->getArrayCopy();
+			$orig_headers       = $request->headers()->getArrayCopy();
 			$follow_header_keys = array_intersect(array_keys($orig_headers), $client->follow_headers());
-			$follow_headers = \Arr::extract($orig_headers, $follow_header_keys);
+			$follow_headers     = \Arr::extract($orig_headers, $follow_header_keys);
 
 			$follow_request = Request::factory($response->headers('Location'))
-			                         ->method($follow_method)
-			                         ->headers($follow_headers);
+									->method($follow_method)
+									->headers($follow_headers);
 
 			if ($follow_method !== Request::GET)
 			{

@@ -10,7 +10,9 @@ abstract class Kohana_Unittest_TestCase extends \PHPUnit\Framework\TestCase {
 	 * Make sure PHPUnit backs up globals
 	 * @var boolean
 	 */
+	// @codingStandardsIgnoreStart
 	protected $backupGlobals = FALSE;
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * A set of unittest helpers that are shared between normal / database
@@ -23,7 +25,9 @@ abstract class Kohana_Unittest_TestCase extends \PHPUnit\Framework\TestCase {
 	 * A default set of environment to be applied before each test
 	 * @var array
 	 */
+	// @codingStandardsIgnoreStart
 	protected $environmentDefault = array();
+	// @codingStandardsIgnoreEnd
 
 	/**
 	 * Creates a predefined environment using the default environment
@@ -31,7 +35,9 @@ abstract class Kohana_Unittest_TestCase extends \PHPUnit\Framework\TestCase {
 	 * Extending classes that have their own setUp() should call
 	 * parent::setUp()
 	 */
+	// @codingStandardsIgnoreStart
 	public function setUp() : void
+	// @codingStandardsIgnoreEnd
 	{
 		$this->_helpers = new Unittest_Helpers;
 
@@ -44,7 +50,9 @@ abstract class Kohana_Unittest_TestCase extends \PHPUnit\Framework\TestCase {
 	 * Extending classes that have their own tearDown()
 	 * should call parent::tearDown()
 	 */
+	// @codingStandardsIgnoreStart
 	public function tearDown() : void
+	// @codingStandardsIgnoreEnd
 	{
 		$this->_helpers->restore_environment();
 	}
@@ -52,7 +60,9 @@ abstract class Kohana_Unittest_TestCase extends \PHPUnit\Framework\TestCase {
 	/**
 	 * Removes all kohana related cache files in the cache directory
 	 */
+	// @codingStandardsIgnoreStart
 	public function cleanCacheDir()
+	// @codingStandardsIgnoreEnd
 	{
 		return Unittest_Helpers::clean_cache_dir();
 	}
@@ -64,7 +74,9 @@ abstract class Kohana_Unittest_TestCase extends \PHPUnit\Framework\TestCase {
 	 * @param string $path The path to act on
 	 * @return string
 	 */
+	// @codingStandardsIgnoreStart
 	public function dirSeparator($path)
+	// @codingStandardsIgnoreEnd
 	{
 		return Unittest_Helpers::dir_separator($path);
 	}
@@ -80,7 +92,9 @@ abstract class Kohana_Unittest_TestCase extends \PHPUnit\Framework\TestCase {
 	 *
 	 * @param array $environment List of environment to set
 	 */
+	// @codingStandardsIgnoreStart
 	public function setEnvironment(array $environment)
+	// @codingStandardsIgnoreEnd
 	{
 		return $this->_helpers->set_environment($environment);
 	}
@@ -90,7 +104,9 @@ abstract class Kohana_Unittest_TestCase extends \PHPUnit\Framework\TestCase {
 	 *
 	 * @return boolean Whether an internet connection is available
 	 */
+	// @codingStandardsIgnoreStart
 	public function hasInternet()
+	// @codingStandardsIgnoreEnd
 	{
 		return Unittest_Helpers::has_internet();
 	}

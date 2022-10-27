@@ -61,18 +61,18 @@ class Bench_URLSite extends Codebench {
 		$path = preg_replace('~^[-a-z0-9+.]++://[^/]++/?~', '', trim($uri, '/'));
 
 		$fragment = '';
-		$explode = explode('#', $path, 2);
+		$explode  = explode('#', $path, 2);
 		if (isset($explode[1]))
 		{
-			$path = $explode[0];
+			$path     = $explode[0];
 			$fragment = '#'.$explode[1];
 		}
 
-		$query = '';
+		$query   = '';
 		$explode = explode('?', $path, 2);
 		if (isset($explode[1]))
 		{
-			$path = $explode[0];
+			$path  = $explode[0];
 			$query = '?'.$explode[1];
 		}
 
@@ -82,8 +82,8 @@ class Bench_URLSite extends Codebench {
 	public function bench_regex($uri)
 	{
 		preg_match('~^(?:[-a-z0-9+.]++://[^/]++/?)?([^?#]++)?(\?[^#]*+)?(#.*)?~', trim($uri, '/'), $matches);
-		$path = Arr::get($matches, 1, '');
-		$query = Arr::get($matches, 2, '');
+		$path     = Arr::get($matches, 1, '');
+		$query    = Arr::get($matches, 2, '');
 		$fragment = Arr::get($matches, 3, '');
 
 		return $path.$query.$fragment;
@@ -92,8 +92,8 @@ class Bench_URLSite extends Codebench {
 	public function bench_regex_without_arrget($uri)
 	{
 		preg_match('~^(?:[-a-z0-9+.]++://[^/]++/?)?([^?#]++)?(\?[^#]*+)?(#.*)?~', trim($uri, '/'), $matches);
-		$path = isset($matches[1]) ? $matches[1] : '';
-		$query = isset($matches[2]) ? $matches[2] : '';
+		$path     = isset($matches[1]) ? $matches[1] : '';
+		$query    = isset($matches[2]) ? $matches[2] : '';
 		$fragment = isset($matches[3]) ? $matches[3] : '';
 
 		return $path.$query.$fragment;

@@ -14,8 +14,7 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_FeedTest extends Unittest_TestCase
-{
+class Kohana_FeedTest extends Unittest_TestCase {
 
 	/**
 	 * Sets up the environment
@@ -86,10 +85,10 @@ class Kohana_FeedTest extends Unittest_TestCase
 	 *
 	 * @covers feed::create
 	 *
-	 * @param array $info  Info to pass
-	 * @param array $items  Items to add
-	 * @param array $environment  Server environment
-	 * @param text $expected  Output for Feed::create
+	 * @param array $info        Info to pass
+	 * @param array $items       Items to add
+	 * @param array $environment Server environment
+	 * @param text  $expected    Output for Feed::create
 	 * @throws Kohana_Exception
 	 */
 	public function test_create($info, $items, $environment, $expected)

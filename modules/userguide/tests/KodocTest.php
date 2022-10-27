@@ -9,13 +9,13 @@
  * @copyright  (c) 2008-2013 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_KodocTest extends Unittest_TestCase
-{
+class Kohana_KodocTest extends Unittest_TestCase {
+
 	public function provider_parse_basic()
 	{
 		return array(
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * Description
  */
@@ -24,7 +24,7 @@ COMMENT
 				array("<p>Description</p>\n", array()),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * Description spanning
  * multiple lines
@@ -34,7 +34,7 @@ COMMENT
 				array("<p>Description spanning\nmultiple lines</p>\n", array()),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * Description including
  *
@@ -45,7 +45,7 @@ COMMENT
 				array("<p>Description including</p>\n\n<pre><code>a code block\n</code></pre>\n", array()),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 	/**
 	 * Indented
 	 */
@@ -54,7 +54,7 @@ COMMENT
 				array("<p>Indented</p>\n", array()),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @tag Content
  */
@@ -63,7 +63,7 @@ COMMENT
 				array('', array('tag' => array('Content'))),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @tag Multiple
  * @tag Tags
@@ -73,7 +73,7 @@ COMMENT
 				array('', array('tag' => array('Multiple', 'Tags'))),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * Description with tag
  * @tag Content
@@ -86,7 +86,7 @@ COMMENT
 				),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @trailingspace
  */
@@ -95,7 +95,7 @@ COMMENT
 				array('', array('trailingspace' => array(''))),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @tag Content that spans
  * multiple lines
@@ -108,7 +108,7 @@ COMMENT
 				),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @tag Content that spans
  *    multiple lines indented
@@ -128,8 +128,8 @@ COMMENT
 	 *
 	 * @dataProvider    provider_parse_basic
 	 *
-	 * @param   string  $comment    Argument to the method
-	 * @param   array   $expected   Expected result
+	 * @param   string $comment  Argument to the method
+	 * @param   array  $expected Expected result
 	 */
 	public function test_parse_basic($comment, $expected)
 	{
@@ -142,7 +142,7 @@ COMMENT
 
 		return array(
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @access public
  */
@@ -151,7 +151,7 @@ COMMENT
 				array('', array()),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @copyright Some plain text
  */
@@ -160,7 +160,7 @@ COMMENT
 				array('', array('copyright' => array('Some plain text'))),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @copyright (c) 2008-2013 Kohana Team
  */
@@ -169,7 +169,7 @@ COMMENT
 				array('', array('copyright' => array('&copy; 2008-2013 Kohana Team'))),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @license Kohana
  */
@@ -178,7 +178,7 @@ COMMENT
 				array('', array('license' => array('Kohana'))),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @license http://kohanaframework.org/license
  */
@@ -187,7 +187,7 @@ COMMENT
 				array('', array('license' => array('<a href="http://kohanaframework.org/license">http://kohanaframework.org/license</a>'))),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @link http://kohanaframework.org
  */
@@ -196,7 +196,7 @@ COMMENT
 				array('', array('link' => array('<a href="http://kohanaframework.org">http://kohanaframework.org</a>'))),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @link http://kohanaframework.org Description
  */
@@ -205,7 +205,7 @@ COMMENT
 				array('', array('link' => array('<a href="http://kohanaframework.org">Description</a>'))),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @see MyClass
  */
@@ -223,7 +223,7 @@ COMMENT
 				),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @see MyClass::method()
  */
@@ -241,7 +241,7 @@ COMMENT
 				),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @throws Exception
  */
@@ -259,7 +259,7 @@ COMMENT
 				),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @throws Exception During failure
  */
@@ -277,7 +277,7 @@ COMMENT
 				),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @uses MyClass
  */
@@ -295,7 +295,7 @@ COMMENT
 				),
 			),
 			array(
-<<<'COMMENT'
+		<<<'COMMENT'
 /**
  * @uses MyClass::method()
  */
@@ -321,8 +321,8 @@ COMMENT
 	 *
 	 * @dataProvider    provider_parse_tags
 	 *
-	 * @param   string  $comment    Argument to the method
-	 * @param   array   $expected   Expected result
+	 * @param   string $comment  Argument to the method
+	 * @param   array  $expected Expected result
 	 */
 	public function test_parse_tags($comment, $expected)
 	{
@@ -356,9 +356,9 @@ COMMENT
 	 *
 	 * @group kohana.userguide.3529-configurable-transparent-classes
 	 * @dataProvider provider_transparent_classes
-	 * @param mixed $expected
+	 * @param mixed  $expected
 	 * @param string $class
-	 * @param array $classes
+	 * @param array  $classes
 	 */
 	public function test_transparent_classes($expected, $class, $classes)
 	{

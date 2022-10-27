@@ -13,8 +13,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_ResponseTest extends Unittest_TestCase
-{
+class Kohana_ResponseTest extends Unittest_TestCase {
+
 	/**
 	 * Provider for test_body
 	 *
@@ -180,9 +180,9 @@ class Kohana_ResponseTest extends Unittest_TestCase
 	public function test_content_type_when_set()
 	{
 		$content_type = 'application/json';
-		$response = new Response;
+		$response     = new Response;
 		$response->headers('content-type', $content_type);
-		$headers  = $response->send_headers()->headers();
+		$headers = $response->send_headers()->headers();
 		$this->assertSame($content_type, (string) $headers['content-type']);
 	}
 }

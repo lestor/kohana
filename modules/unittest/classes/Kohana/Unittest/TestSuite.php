@@ -4,8 +4,8 @@
  * A version of the stock PHPUnit testsuite that supports whitelisting and 
  * blacklisting for code coverage filter
  */
-abstract class Kohana_Unittest_TestSuite extends \PHPUnit\Framework\TestSuite
-{
+abstract class Kohana_Unittest_TestSuite extends \PHPUnit\Framework\TestSuite {
+
 	/**
 	 * Holds the details of files that should be white and blacklisted for
 	 * code coverage
@@ -14,17 +14,17 @@ abstract class Kohana_Unittest_TestSuite extends \PHPUnit\Framework\TestSuite
 	 */
 	protected $_filter_calls = array(
 		'includeFile' => array()
-    );
+	);
 	
 	/**
-     * Runs the tests and collects their result in a TestResult.
-     *
-     * @param  \PHPUnit\Framework\TestResult    $result
-     * @return \PHPUnit\Framework\TestResult
-     * @throws InvalidArgumentException
-     */
-    public function run(\PHPUnit\Framework\TestResult $result = NULL): \PHPUnit\Framework\TestResult
-    {
+	 * Runs the tests and collects their result in a TestResult.
+	 *
+	 * @param  \PHPUnit\Framework\TestResult $result
+	 * @return \PHPUnit\Framework\TestResult
+	 * @throws InvalidArgumentException
+	 */
+	public function run(\PHPUnit\Framework\TestResult $result = NULL): \PHPUnit\Framework\TestResult
+	{
 		
 		// Get the code coverage filter from the suite's result object
 		$coverage = $result->getCodeCoverage();
@@ -50,7 +50,9 @@ abstract class Kohana_Unittest_TestSuite extends \PHPUnit\Framework\TestSuite
 	 * Queues a file to be added to the code coverage whitelist when the suite runs
 	 * @param string $file 
 	 */
+	// @codingStandardsIgnoreStart
 	public function addFileToWhitelist($file)
+	// @codingStandardsIgnoreEnd
 	{
 		$this->_filter_calls['includeFile'][] = $file;
 	}

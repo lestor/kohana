@@ -40,8 +40,8 @@ class Kohana_UTF8 {
 	 *
 	 *     UTF8::clean($_GET); // Clean GET data
 	 *
-	 * @param   mixed   $var        variable to clean
-	 * @param   string  $charset    character set, defaults to Kohana::$charset
+	 * @param   mixed  $var     variable to clean
+	 * @param   string $charset character set, defaults to Kohana::$charset
 	 * @return  mixed
 	 * @uses    UTF8::clean
 	 * @uses    UTF8::strip_ascii_ctrl
@@ -93,7 +93,7 @@ class Kohana_UTF8 {
 	 *
 	 *     $ascii = UTF8::is_ascii($str);
 	 *
-	 * @param   mixed   $str    string or array of strings to check
+	 * @param   mixed $str string or array of strings to check
 	 * @return  boolean
 	 */
 	public static function is_ascii($str)
@@ -111,7 +111,7 @@ class Kohana_UTF8 {
 	 *
 	 *     $str = UTF8::strip_ascii_ctrl($str);
 	 *
-	 * @param   string  $str    string to clean
+	 * @param   string $str string to clean
 	 * @return  string
 	 */
 	public static function strip_ascii_ctrl($str)
@@ -124,7 +124,7 @@ class Kohana_UTF8 {
 	 *
 	 *     $str = UTF8::strip_non_ascii($str);
 	 *
-	 * @param   string  $str    string to clean
+	 * @param   string $str string to clean
 	 * @return  string
 	 */
 	public static function strip_non_ascii($str)
@@ -138,8 +138,8 @@ class Kohana_UTF8 {
 	 *     $ascii = UTF8::transliterate_to_ascii($utf8);
 	 *
 	 * @author  Andreas Gohr <andi@splitbrain.org>
-	 * @param   string  $str    string to transliterate
-	 * @param   integer $case   -1 lowercase only, +1 uppercase only, 0 both cases
+	 * @param   string  $str  string to transliterate
+	 * @param   integer $case -1 lowercase only, +1 uppercase only, 0 both cases
 	 * @return  string
 	 */
 	public static function transliterate_to_ascii($str, $case = 0)
@@ -161,7 +161,7 @@ class Kohana_UTF8 {
 	 *
 	 *     $length = UTF8::strlen($str);
 	 *
-	 * @param   string  $str    string being measured for length
+	 * @param   string $str string being measured for length
 	 * @return  integer
 	 * @uses    UTF8::$server_utf8
 	 * @uses    Kohana::$charset
@@ -282,9 +282,9 @@ class Kohana_UTF8 {
 	 *     $str = UTF8::substr_replace($str, $replacement, $offset);
 	 *
 	 * @author  Harry Fuecks <hfuecks@gmail.com>
-	 * @param   string  $str            input string
-	 * @param   string  $replacement    replacement string
-	 * @param   integer $offset         offset
+	 * @param   string  $str         input string
+	 * @param   string  $replacement replacement string
+	 * @param   integer $offset      offset
 	 * @return  string
 	 */
 	public static function substr_replace($str, $replacement, $offset, $length = NULL)
@@ -307,7 +307,7 @@ class Kohana_UTF8 {
 	 *     $str = UTF8::strtolower($str);
 	 *
 	 * @author  Andreas Gohr <andi@splitbrain.org>
-	 * @param   string  $str mixed case string
+	 * @param   string $str mixed case string
 	 * @return  string
 	 * @uses    UTF8::$server_utf8
 	 * @uses    Kohana::$charset
@@ -333,7 +333,7 @@ class Kohana_UTF8 {
 	 * of [strtoupper](http://php.net/strtoupper).
 	 *
 	 * @author  Andreas Gohr <andi@splitbrain.org>
-	 * @param   string  $str mixed case string
+	 * @param   string $str mixed case string
 	 * @return  string
 	 * @uses    UTF8::$server_utf8
 	 * @uses    Kohana::$charset
@@ -361,7 +361,7 @@ class Kohana_UTF8 {
 	 *     $str = UTF8::ucfirst($str);
 	 *
 	 * @author  Harry Fuecks <hfuecks@gmail.com>
-	 * @param   string  $str mixed case string
+	 * @param   string $str mixed case string
 	 * @return  string
 	 */
 	public static function ucfirst($str)
@@ -384,7 +384,7 @@ class Kohana_UTF8 {
 	 *     $str = UTF8::ucwords($str);
 	 *
 	 * @author  Harry Fuecks <hfuecks@gmail.com>
-	 * @param   string  $str mixed case string
+	 * @param   string $str mixed case string
 	 * @return  string
 	 */
 	public static function ucwords($str)
@@ -407,8 +407,8 @@ class Kohana_UTF8 {
 	 *     $compare = UTF8::strcasecmp($str1, $str2);
 	 *
 	 * @author  Harry Fuecks <hfuecks@gmail.com>
-	 * @param   string  $str1   string to compare
-	 * @param   string  $str2   string to compare
+	 * @param   string $str1 string to compare
+	 * @param   string $str2 string to compare
 	 * @return  integer less than 0 if str1 is less than str2
 	 * @return  integer greater than 0 if str1 is greater than str2
 	 * @return  integer 0 if they are equal
@@ -435,10 +435,10 @@ class Kohana_UTF8 {
 	 * using it when possible.
 	 *
 	 * @author  Harry Fuecks <hfuecks@gmail.com
-	 * @param   string|array    $search     text to replace
-	 * @param   string|array    $replace    replacement text
-	 * @param   string|array    $str        subject text
-	 * @param   integer         $count      number of matched and replaced needles will be returned via this parameter which is passed by reference
+	 * @param   string|array $search  text to replace
+	 * @param   string|array $replace replacement text
+	 * @param   string|array $str     subject text
+	 * @param   integer      $count   number of matched and replaced needles will be returned via this parameter which is passed by reference
 	 * @return  string  if the input was a string
 	 * @return  array   if the input was an array
 	 */
@@ -463,8 +463,8 @@ class Kohana_UTF8 {
 	 *     $found = UTF8::stristr($str, $search);
 	 *
 	 * @author  Harry Fuecks <hfuecks@gmail.com>
-	 * @param   string  $str    input string
-	 * @param   string  $search needle
+	 * @param   string $str    input string
+	 * @param   string $search needle
 	 * @return  string  matched substring if found
 	 * @return  FALSE   if the substring was not found
 	 */
@@ -540,10 +540,10 @@ class Kohana_UTF8 {
 	 *     $str = UTF8::str_pad($str, $length);
 	 *
 	 * @author  Harry Fuecks <hfuecks@gmail.com>
-	 * @param   string  $str                input string
-	 * @param   integer $final_str_length   desired string length after padding
-	 * @param   string  $pad_str            string to use as padding
-	 * @param   string  $pad_type           padding type: STR_PAD_RIGHT, STR_PAD_LEFT, or STR_PAD_BOTH
+	 * @param   string  $str              input string
+	 * @param   integer $final_str_length desired string length after padding
+	 * @param   string  $pad_str          string to use as padding
+	 * @param   string  $pad_type         padding type: STR_PAD_RIGHT, STR_PAD_LEFT, or STR_PAD_BOTH
 	 * @return  string
 	 */
 	public static function str_pad($str, $final_str_length, $pad_str = ' ', $pad_type = STR_PAD_RIGHT)
@@ -566,8 +566,8 @@ class Kohana_UTF8 {
 	 *     $array = UTF8::str_split($str);
 	 *
 	 * @author  Harry Fuecks <hfuecks@gmail.com>
-	 * @param   string  $str            input string
-	 * @param   integer $split_length   maximum length of each chunk
+	 * @param   string  $str          input string
+	 * @param   integer $split_length maximum length of each chunk
 	 * @return  array
 	 */
 	public static function str_split($str, $split_length = 1)
@@ -589,7 +589,7 @@ class Kohana_UTF8 {
 	 *     $str = UTF8::strrev($str);
 	 *
 	 * @author  Harry Fuecks <hfuecks@gmail.com>
-	 * @param   string  $str string to be reversed
+	 * @param   string $str string to be reversed
 	 * @return  string
 	 */
 	public static function strrev($str)
@@ -612,8 +612,8 @@ class Kohana_UTF8 {
 	 *     $str = UTF8::trim($str);
 	 *
 	 * @author  Andreas Gohr <andi@splitbrain.org>
-	 * @param   string  $str        input string
-	 * @param   string  $charlist   string of characters to remove
+	 * @param   string $str      input string
+	 * @param   string $charlist string of characters to remove
 	 * @return  string
 	 */
 	public static function trim($str, $charlist = NULL)
@@ -636,8 +636,8 @@ class Kohana_UTF8 {
 	 *     $str = UTF8::ltrim($str);
 	 *
 	 * @author  Andreas Gohr <andi@splitbrain.org>
-	 * @param   string  $str        input string
-	 * @param   string  $charlist   string of characters to remove
+	 * @param   string $str      input string
+	 * @param   string $charlist string of characters to remove
 	 * @return  string
 	 */
 	public static function ltrim($str, $charlist = NULL)
@@ -660,8 +660,8 @@ class Kohana_UTF8 {
 	 *     $str = UTF8::rtrim($str);
 	 *
 	 * @author  Andreas Gohr <andi@splitbrain.org>
-	 * @param   string  $str        input string
-	 * @param   string  $charlist   string of characters to remove
+	 * @param   string $str      input string
+	 * @param   string $charlist string of characters to remove
 	 * @return  string
 	 */
 	public static function rtrim($str, $charlist = NULL)
@@ -684,7 +684,7 @@ class Kohana_UTF8 {
 	 *     $digit = UTF8::ord($character);
 	 *
 	 * @author  Harry Fuecks <hfuecks@gmail.com>
-	 * @param   string  $chr    UTF-8 encoded character
+	 * @param   string $chr UTF-8 encoded character
 	 * @return  integer
 	 */
 	public static function ord($chr)
@@ -713,7 +713,7 @@ class Kohana_UTF8 {
 	 * Ported to PHP by Henri Sivonen <hsivonen@iki.fi>, see <http://hsivonen.iki.fi/php-utf8/>
 	 * Slight modifications to fit with phputf8 library by Harry Fuecks <hfuecks@gmail.com>
 	 *
-	 * @param   string  $str    UTF-8 encoded string
+	 * @param   string $str UTF-8 encoded string
 	 * @return  array   unicode code points
 	 * @return  FALSE   if the string is invalid
 	 */
@@ -743,7 +743,7 @@ class Kohana_UTF8 {
 	 * Ported to PHP by Henri Sivonen <hsivonen@iki.fi>, see http://hsivonen.iki.fi/php-utf8/
 	 * Slight modifications to fit with phputf8 library by Harry Fuecks <hfuecks@gmail.com>.
 	 *
-	 * @param   array   $str    unicode code points representing a string
+	 * @param   array $str unicode code points representing a string
 	 * @return  string  utf8 string of characters
 	 * @return  boolean FALSE if a code point cannot be found
 	 */

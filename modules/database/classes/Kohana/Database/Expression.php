@@ -29,22 +29,22 @@ class Kohana_Database_Expression {
 	 *
 	 *     $expression = new Database_Expression('COUNT(users.id)');
 	 *
-	 * @param   string  $value      raw SQL expression string
-	 * @param   array   $parameters unquoted parameter values
+	 * @param   string $value      raw SQL expression string
+	 * @param   array  $parameters unquoted parameter values
 	 * @return  void
 	 */
 	public function __construct($value, $parameters = array())
 	{
 		// Set the expression string
-		$this->_value = $value;
+		$this->_value      = $value;
 		$this->_parameters = $parameters;
 	}
 
 	/**
 	 * Bind a variable to a parameter.
 	 *
-	 * @param   string  $param  parameter key to replace
-	 * @param   mixed   $var    variable to use
+	 * @param   string $param parameter key to replace
+	 * @param   mixed  $var   variable to use
 	 * @return  $this
 	 */
 	public function bind($param, & $var)
@@ -57,8 +57,8 @@ class Kohana_Database_Expression {
 	/**
 	 * Set the value of a parameter.
 	 *
-	 * @param   string  $param  parameter key to replace
-	 * @param   mixed   $value  value to use
+	 * @param   string $param parameter key to replace
+	 * @param   mixed  $value value to use
 	 * @return  $this
 	 */
 	public function param($param, $value)
@@ -71,7 +71,7 @@ class Kohana_Database_Expression {
 	/**
 	 * Add multiple parameter values.
 	 *
-	 * @param   array   $params list of parameter values
+	 * @param   array $params list of parameter values
 	 * @return  $this
 	 */
 	public function parameters(array $params)

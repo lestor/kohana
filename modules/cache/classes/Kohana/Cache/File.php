@@ -47,7 +47,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 *     // Create the cache filename
 	 *     $filename = Cache_File::filename($this->_sanitize_id($id));
 	 *
-	 * @param   string  $string  string to hash into filename
+	 * @param   string $string string to hash into filename
 	 * @return  string
 	 */
 	protected static function filename($string)
@@ -64,7 +64,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 * Constructs the file cache driver. This method cannot be invoked externally. The file cache driver must
 	 * be instantiated using the `Cache::instance()` method.
 	 *
-	 * @param   array  $config  config
+	 * @param   array $config config
 	 * @throws  Cache_Exception
 	 */
 	protected function __construct(array $config)
@@ -74,7 +74,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 
 		try
 		{
-			$directory = Arr::get($this->_config, 'cache_dir', Kohana::$cache_dir);
+			$directory        = Arr::get($this->_config, 'cache_dir', Kohana::$cache_dir);
 			$this->_cache_dir = new SplFileInfo($directory);
 		}
 		// PHP < 5.3 exception handle
@@ -116,14 +116,14 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 *     // Retrieve cache entry from file group and return 'bar' if miss
 	 *     $data = Cache::instance('file')->get('foo', 'bar');
 	 *
-	 * @param   string   $id       id of cache to entry
-	 * @param   string   $default  default value to return if cache miss
+	 * @param   string $id      id of cache to entry
+	 * @param   string $default default value to return if cache miss
 	 * @return  mixed
 	 * @throws  Cache_Exception
 	 */
 	public function get($id, $default = NULL)
 	{
-		$filename = Cache_File::filename($this->_sanitize_id($id));
+		$filename  = Cache_File::filename($this->_sanitize_id($id));
 		$directory = $this->_resolve_directory($filename);
 
 		// Wrap operations in try/catch to handle notices
@@ -190,14 +190,14 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 *     // Set 'bar' to 'foo' in file group for 30 seconds
 	 *     Cache::instance('file')->set('foo', $data, 30);
 	 *
-	 * @param   string   $id        id of cache entry
-	 * @param   string   $data      data to set to cache
-	 * @param   integer  $lifetime  lifetime in seconds
+	 * @param   string  $id       id of cache entry
+	 * @param   string  $data     data to set to cache
+	 * @param   integer $lifetime lifetime in seconds
 	 * @return  boolean
 	 */
 	public function set($id, $data, $lifetime = NULL)
 	{
-		$filename = Cache_File::filename($this->_sanitize_id($id));
+		$filename  = Cache_File::filename($this->_sanitize_id($id));
 		$directory = $this->_resolve_directory($filename);
 
 		// If lifetime is NULL
@@ -218,7 +218,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 
 		// Open file to inspect
 		$resouce = new SplFileInfo($directory.$filename);
-		$file = $resouce->openFile('w');
+		$file    = $resouce->openFile('w');
 
 		try
 		{
@@ -246,12 +246,12 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 *     // Delete 'foo' entry from the file group
 	 *     Cache::instance('file')->delete('foo');
 	 *
-	 * @param   string   $id  id to remove from cache
+	 * @param   string $id id to remove from cache
 	 * @return  boolean
 	 */
 	public function delete($id)
 	{
-		$filename = Cache_File::filename($this->_sanitize_id($id));
+		$filename  = Cache_File::filename($this->_sanitize_id($id));
 		$directory = $this->_resolve_directory($filename);
 
 		return $this->_delete_file(new SplFileInfo($directory.$filename), FALSE, TRUE);
@@ -292,10 +292,10 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 *     // Delete a file or folder whilst retaining parent directory and ignore all errors
 	 *     $this->_delete_file($folder, TRUE, TRUE);
 	 *
-	 * @param   SplFileInfo  $file                     file
-	 * @param   boolean      $retain_parent_directory  retain the parent directory
-	 * @param   boolean      $ignore_errors            ignore_errors to prevent all exceptions interrupting exec
-	 * @param   boolean      $only_expired             only expired files
+	 * @param   SplFileInfo $file                    file
+	 * @param   boolean     $retain_parent_directory retain the parent directory
+	 * @param   boolean     $ignore_errors           ignore_errors to prevent all exceptions interrupting exec
+	 * @param   boolean     $only_expired            only expired files
 	 * @return  boolean
 	 * @throws  Cache_Exception
 	 */
@@ -418,7 +418,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 *      // Get the realpath of the cache folder
 	 *      $realpath = $this->_resolve_directory($filename);
 	 *
-	 * @param   string  $filename  filename to resolve
+	 * @param   string $filename filename to resolve
 	 * @return  string
 	 */
 	protected function _resolve_directory($filename)
@@ -431,10 +431,10 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 * `mkdir` to ensure DRY principles
 	 *
 	 * @link    http://php.net/manual/en/function.mkdir.php
-	 * @param   string    $directory    directory path
-	 * @param   integer   $mode         chmod mode
-	 * @param   boolean   $recursive    allows nested directories creation
-	 * @param   resource  $context      a stream context
+	 * @param   string   $directory directory path
+	 * @param   integer  $mode      chmod mode
+	 * @param   boolean  $recursive allows nested directories creation
+	 * @param   resource $context   a stream context
 	 * @return  SplFileInfo
 	 * @throws  Cache_Exception
 	 */
@@ -466,20 +466,20 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	protected function _is_expired(SplFileInfo $file)
 	{
 		// Open the file and parse data
-		$created = $file->getMTime();
-		$data = $file->openFile("r");
+		$created  = $file->getMTime();
+		$data     = $file->openFile("r");
 		$lifetime = (int) $data->fgets();
 
 		// If we're at the EOF at this point, corrupted!
 		if ($data->eof())
 		{
-			throw new Cache_Exception(__METHOD__ . ' corrupted cache file!');
+			throw new Cache_Exception(__METHOD__.' corrupted cache file!');
 		}
 
-		//close file
-		$data = null;
+		// close file
+		$data = NULL;
 
 		// test for expiry and return
-		return (($lifetime !== 0) AND ( ($created + $lifetime) < time()));
+		return (($lifetime !== 0) AND (($created + $lifetime) < time()));
 	}
 }

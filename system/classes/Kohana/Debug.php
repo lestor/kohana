@@ -17,7 +17,7 @@ class Kohana_Debug {
 	 *     // Displays the type and value of each variable
 	 *     echo Debug::vars($foo, $bar, $baz);
 	 *
-	 * @param   mixed   $var,...    variable to debug
+	 * @param   mixed $var,... variable to debug
 	 * @return  string
 	 */
 	public static function vars()
@@ -42,9 +42,9 @@ class Kohana_Debug {
 	 *
 	 * Borrows heavily on concepts from the Debug class of [Nette](http://nettephp.com/).
 	 *
-	 * @param   mixed   $value              variable to dump
-	 * @param   integer $length             maximum length of strings
-	 * @param   integer $level_recursion    recursion limit
+	 * @param   mixed   $value           variable to dump
+	 * @param   integer $length          maximum length of strings
+	 * @param   integer $level_recursion recursion limit
 	 * @return  string
 	 */
 	public static function dump($value, $length = 128, $level_recursion = 10)
@@ -243,7 +243,7 @@ class Kohana_Debug {
 	 *     // Displays SYSPATH/classes/kohana.php
 	 *     echo Debug::path(Kohana::find_file('classes', 'kohana'));
 	 *
-	 * @param   string  $file   path to debug
+	 * @param   string $file path to debug
 	 * @return  string
 	 */
 	public static function path($file)
@@ -275,9 +275,9 @@ class Kohana_Debug {
 	 *     // Highlights the current line of the current file
 	 *     echo Debug::source(__FILE__, __LINE__);
 	 *
-	 * @param   string  $file           file to open
-	 * @param   integer $line_number    line number to highlight
-	 * @param   integer $padding        number of padding lines
+	 * @param   string  $file        file to open
+	 * @param   integer $line_number line number to highlight
+	 * @param   integer $padding     number of padding lines
 	 * @return  string   source of file
 	 * @return  FALSE    file is unreadable
 	 */
@@ -341,7 +341,7 @@ class Kohana_Debug {
 	 *     // Displays the entire current backtrace
 	 *     echo implode('<br/>', Debug::trace());
 	 *
-	 * @param   array   $trace
+	 * @param   array $trace
 	 * @return  string
 	 */
 	public static function trace(array $trace = NULL)

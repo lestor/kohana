@@ -92,7 +92,9 @@ class Kohana_Kodoc_Markdown extends \Michelf\MarkdownExtra {
 	 * @param   array   Matches from regex call
 	 * @return  string  Generated html
 	 */
+	// @codingStandardsIgnoreStart
 	function _doHeaders_callback_setext($matches)
+	// @codingStandardsIgnoreEnd
 	{
 		if ($matches[3] == '-' AND preg_match('{^- }', $matches[1]))
 			return $matches[0];
@@ -120,7 +122,9 @@ class Kohana_Kodoc_Markdown extends \Michelf\MarkdownExtra {
 	 * @param   array   Matches from regex call
 	 * @return  string  Generated html
 	 */
+	// @codingStandardsIgnoreStart
 	function _doHeaders_callback_atx($matches)
+	// @codingStandardsIgnoreEnd
 	{
 		$level = strlen($matches[1]);
 		$attr  = $this->doExtraAttributes(NULL, $id =& $matches[3]);
@@ -165,7 +169,9 @@ class Kohana_Kodoc_Markdown extends \Michelf\MarkdownExtra {
 		return $id;
 	}
 
+	// @codingStandardsIgnoreStart
 	public function doIncludeViews($text)
+	// @codingStandardsIgnoreEnd
 	{
 		if (preg_match_all('/{{([^\s{}]++)}}/', $text, $matches, PREG_SET_ORDER))
 		{
@@ -209,7 +215,9 @@ class Kohana_Kodoc_Markdown extends \Michelf\MarkdownExtra {
 	 * @param   string  Span text
 	 * @return  string
 	 */
+	// @codingStandardsIgnoreStart
 	public function doBaseURL($text)
+	// @codingStandardsIgnoreEnd
 	{
 		// URLs containing "://" are left untouched
 		return preg_replace('~(?<!!)(\[.+?\]\()(?!\w++://)(?!#)(\S*(?:\s*+".+?")?\))~', '$1'.Kodoc_Markdown::$base_url.'$2', $text);
@@ -223,7 +231,9 @@ class Kohana_Kodoc_Markdown extends \Michelf\MarkdownExtra {
 	 * @param   string  Span text
 	 * @return  string
 	 */
+	// @codingStandardsIgnoreStart
 	public function doImageURL($text)
+	// @codingStandardsIgnoreEnd
 	{
 		// URLs containing "://" are left untouched
 		return preg_replace('~(!\[.+?\]\()(?!\w++://)(\S*(?:\s*+".+?")?\))~', '$1'.Kodoc_Markdown::$image_url.'$2', $text);
@@ -237,7 +247,9 @@ class Kohana_Kodoc_Markdown extends \Michelf\MarkdownExtra {
 	 * @param   string  Span text
 	 * @return  string
 	 */
+	// @codingStandardsIgnoreStart
 	public function doAPI($text)
+	// @codingStandardsIgnoreEnd
 	{
 		return preg_replace_callback('/\['.Kodoc::$regex_class_member.'\]/i', 'Kodoc::link_class_member', $text);
 	}
@@ -250,7 +262,9 @@ class Kohana_Kodoc_Markdown extends \Michelf\MarkdownExtra {
 	 * @param   string  Span text
 	 * @return  string
 	 */
+	// @codingStandardsIgnoreStart
 	public function doNotes($text)
+	// @codingStandardsIgnoreEnd
 	{
 		if ( ! preg_match('/^\[!!\]\s*+(.+?)(?=\n{2,}|$)/s', $text, $match))
 		{
@@ -268,15 +282,16 @@ class Kohana_Kodoc_Markdown extends \Michelf\MarkdownExtra {
 			'id'    => $id);
 	}
 
+	// @codingStandardsIgnoreStart
 	public function doTOC($text)
+	// @codingStandardsIgnoreEnd
 	{
 		// Only add the toc do userguide pages, not api since they already have one
 		if (self::$show_toc AND Route::name(Request::current()->route()) == "docs/guide")
 		{
 			$toc = View::factory('userguide/page-toc')
 				->set('array', self::$_toc)
-				->render()
-				;
+				->render();
 
 			if (($offset = strpos($text, '<p>')) !== FALSE)
 			{

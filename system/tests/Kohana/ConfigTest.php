@@ -15,8 +15,7 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_ConfigTest extends Unittest_TestCase
-{
+class Kohana_ConfigTest extends Unittest_TestCase {
 
 	/**
 	 * When a config object is initially created there should be
@@ -67,7 +66,7 @@ class Kohana_ConfigTest extends Unittest_TestCase
 	 */
 	public function test_attach_adds_reader_to_front_of_queue()
 	{
-		$config  = new Config;
+		$config = new Config;
 
 		$reader1 = $this->createMock('Kohana_Config_Reader');
 		$reader2 = $this->createMock('Kohana_Config_Reader');
@@ -126,11 +125,10 @@ class Kohana_ConfigTest extends Unittest_TestCase
 	 */
 	public function test_detach_removes_reader_and_returns_this()
 	{
-		$config  = new Config;
+		$config = new Config;
 
 		// Due to the way phpunit mock generator works if you try and mock a class
 		// that has already been used then it just re-uses the first's name
-
 		// To get around this we have to specify a totally random name for the second mock object
 		$reader1 = $this->createMock('Kohana_Config_Reader');
 

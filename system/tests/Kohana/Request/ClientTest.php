@@ -14,19 +14,19 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_Request_ClientTest extends Unittest_TestCase
-{
+class Kohana_Request_ClientTest extends Unittest_TestCase {
+
 	protected $_inital_request;
 	protected static $_original_routes;
 
-	// @codingStandardsIgnoreStart - PHPUnit does not follow standards
 	/**
 	 * Sets up a new route to ensure that we have a matching route for our
 	 * Controller_RequestClientDummy class.
 	 */
+	// @codingStandardsIgnoreStart
 	public static function setUpBeforeClass() : void
+	// @codingStandardsIgnoreEnd
 	{
-		// @codingStandardsIgnoreEnd
 		parent::setUpBeforeClass();
 
 		$route = new Route;
@@ -45,13 +45,13 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 		$route_reflection_property->setValue($route, $routes);
 	}
 
-	// @codingStandardsIgnoreStart - PHPUnit does not follow standards
 	/**
 	 * Resets the application's routes to their state prior to this test case
 	 */
+	// @codingStandardsIgnoreStart
 	public static function tearDownAfterClass() : void
+	// @codingStandardsIgnoreEnd
 	{
-		// @codingStandardsIgnoreEnd
 		$route = new Route;
 
 		// Reset routes
@@ -62,19 +62,19 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 		parent::tearDownAfterClass();
 	}
 
-	// @codingStandardsIgnoreStart - PHPUnit does not follow standards
+	// @codingStandardsIgnoreStart
 	public function setUp() : void
+	// @codingStandardsIgnoreEnd
 	{
-		// @codingStandardsIgnoreEnd
 		parent::setUp();
 		$this->_initial_request = Request::$initial;
-		Request::$initial = new Request('/');
+		Request::$initial       = new Request('/');
 	}
 
-	// @codingStandardsIgnoreStart - PHPUnit does not follow standards
+	// @codingStandardsIgnoreStart
 	public function tearDown() : void
+	// @codingStandardsIgnoreEnd
 	{
-		// @codingStandardsIgnoreEnd
 		Request::$initial = $this->_initial_request;
 		parent::tearDown();
 	}
@@ -85,7 +85,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	 * response.
 	 *
 	 * @param string $status  HTTP response code to issue
-	 * @param array $headers  HTTP headers to send with the response
+	 * @param array  $headers HTTP headers to send with the response
 	 * @param string $body    A string to send back as response body (included in the JSON response)
 	 * @return string
 	 */
@@ -106,7 +106,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	 * be 'not-followed' and in the second response it will be 'followed'. This
 	 * allows easy assertion that a redirect has taken place.
 	 *
-	 * @param string $status  HTTP response code to issue
+	 * @param string $status HTTP response code to issue
 	 * @return string
 	 */
 	protected function _dummy_redirect_uri($status)
@@ -135,9 +135,9 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	 *
 	 * @dataProvider provider_follows_redirects
 	 *
-	 * @param  bool   $follow           Option value to set
-	 * @param  string $request_url      URL to request initially (contains data to set up redirect etc)
-	 * @param  string $expect_body      Body text expected in the eventual result
+	 * @param  boolean $follow      Option value to set
+	 * @param  string  $request_url URL to request initially (contains data to set up redirect etc)
+	 * @param  string  $expect_body Body text expected in the eventual result
 	 */
 	public function test_follows_redirects($follow, $request_url, $expect_body)
 	{
@@ -167,7 +167,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 			))
 			->execute();
 
-		$data = json_decode($response->body(),TRUE);
+		$data    = json_decode($response->body(),TRUE);
 		$headers = $data['rq_headers'];
 
 		$this->assertEquals('followed', $data['body']);
@@ -184,15 +184,15 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	public function test_follow_does_not_add_extra_headers()
 	{
 		$response = Request::factory(
-			            $this->_dummy_redirect_uri(301),
-			            array(
-			                 'follow' => TRUE,
-			                 'follow_headers' => array('Authorization')
-			            ))
-		            ->headers(array())
-		            ->execute();
+						$this->_dummy_redirect_uri(301),
+						array(
+							'follow' => TRUE,
+							'follow_headers' => array('Authorization')
+						))
+					->headers(array())
+					->execute();
 
-		$data = json_decode($response->body(),TRUE);
+		$data    = json_decode($response->body(),TRUE);
 		$headers = $data['rq_headers'];
 
 		$this->assertArrayNotHasKey('authorization', $headers, 'Empty headers should not be added when following redirects');
@@ -222,10 +222,10 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	 *
 	 * @dataProvider provider_follows_with_strict_method
 	 *
-	 * @param string $status_code   HTTP response code to fake
-	 * @param bool   $strict_redirect Option value to set
-	 * @param string $orig_method   Request method for the original request
-	 * @param string $expect_method Request method expected for the follow request
+	 * @param string  $status_code     HTTP response code to fake
+	 * @param boolean $strict_redirect Option value to set
+	 * @param string  $orig_method     Request method for the original request
+	 * @param string  $expect_method   Request method expected for the follow request
 	 */
 	public function test_follows_with_strict_method($status_code, $strict_redirect, $orig_method, $expect_method)
 	{
@@ -265,9 +265,9 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	 * @depends test_follows_with_strict_method
 	 * @depends test_follows_redirects
 	 *
-	 * @param string $original_method  Request method to use for the original request
-	 * @param string $status  Redirect status that will be issued
-	 * @param string $expect_body      Expected value of body() in the second request
+	 * @param string $original_method Request method to use for the original request
+	 * @param string $status          Redirect status that will be issued
+	 * @param string $expect_body     Expected value of body() in the second request
 	 */
 	public function test_follows_with_body_if_not_get($original_method, $status, $expect_body)
 	{
@@ -298,7 +298,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 					{
 						$response->body(json_encode(array('body'=>'test1-body-changed')));
 						return $response;
-				}),
+					}),
 				$this->_dummy_uri(200, array('X-test-1' => 'foo'), 'test1-body'),
 				'test1-body-changed'
 			),
@@ -308,7 +308,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 					function($request, $response, $client)
 					{
 						return Request::factory($response->headers('X-test-2'));
-				}),
+					}),
 				$this->_dummy_uri(200,
 					array('X-test-2' => $this->_dummy_uri(200, NULL, 'test2-subsequent-body')),
 					'test2-orig-body'),
@@ -320,7 +320,7 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 					function ($request, $response, $client)
 					{
 						throw new Exception("Unexpected execution of X-test-3 callback");
-				}),
+					}),
 				$this->_dummy_uri(200, array('X-test-1' => 'foo'), 'test3-body'),
 				'test3-body'
 			),
@@ -379,9 +379,9 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	 *
 	 * @dataProvider provider_triggers_header_callbacks
 	 *
-	 * @param array $callbacks     Array of header callbacks
-	 * @param array  $headers      Headers that will be received in the response
-	 * @param string $expect_body  Response body content to expect
+	 * @param array  $callbacks   Array of header callbacks
+	 * @param array  $headers     Headers that will be received in the response
+	 * @param string $expect_body Response body content to expect
 	 */
 	public function test_triggers_header_callbacks($callbacks, $uri, $expect_body)
 	{
@@ -440,8 +440,8 @@ class Kohana_Request_ClientTest extends Unittest_TestCase
 	 * Header callback for testing that arbitrary callback_params are available
 	 * to the callback.
 	 *
-	 * @param Request $request
-	 * @param Response $response
+	 * @param Request        $request
+	 * @param Response       $response
 	 * @param Request_Client $client
 	 */
 	public function callback_assert_params($request, $response, $client)

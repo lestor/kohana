@@ -12,8 +12,7 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_UTF8Test extends Unittest_TestCase
-{
+class Kohana_UTF8Test extends Unittest_TestCase {
 
 	/**
 	 * Provides test data for test_clean()
@@ -480,7 +479,7 @@ class Kohana_UTF8Test extends Unittest_TestCase
 		$this->assertSame($expected, UTF8::str_pad($input, $length, $pad, $type));
 	}
 
-        /**
+	/**
 	 * Tests UTF8::str_pad error
 	 *
 	 * @test

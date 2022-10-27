@@ -16,8 +16,7 @@
  * @copyright  (c) 2008-2014 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_DebugTest extends Unittest_TestCase
-{
+class Kohana_DebugTest extends Unittest_TestCase {
 
 	/**
 	 * Provides test data for test_debug()
@@ -76,7 +75,7 @@ class Kohana_DebugTest extends Unittest_TestCase
 	 */
 	public function test_debug_path($path, $expected)
 	{
-		$path = Unittest_Helpers::dir_separator($path);
+		$path     = Unittest_Helpers::dir_separator($path);
 		$expected = Unittest_Helpers::dir_separator($expected);
 
 		$this->assertEquals($expected, Debug::path($path));
@@ -98,7 +97,7 @@ class Kohana_DebugTest extends Unittest_TestCase
 			array(new StdClass, 128, 10, "<small>object</small> <span>stdClass(0)</span> <code>{\n}</code>"),
 			array("fo\x6F\xFF\x00bar\x8F\xC2\xB110", 128, 10, '<small>string</small><span>(10)</span> "foobar±10"'),
 			array(array('level1' => array('level2' => array('level3' => array('level4' => array('value' => 'something'))))), 128, 4,
-'<small>array</small><span>(1)</span> <span>(
+		'<small>array</small><span>(1)</span> <span>(
     "level1" => <small>array</small><span>(1)</span> <span>(
         "level2" => <small>array</small><span>(1)</span> <span>(
             "level3" => <small>array</small><span>(1)</span> <span>(

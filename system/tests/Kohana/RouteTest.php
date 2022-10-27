@@ -17,8 +17,8 @@
 
 include Kohana::find_file('tests', 'test_data/callback_routes');
 
-class Kohana_RouteTest extends Unittest_TestCase
-{
+class Kohana_RouteTest extends Unittest_TestCase {
+
 	/**
 	 * Remove all caches
 	 */
@@ -750,8 +750,8 @@ class Kohana_RouteTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_composing_url_from_route
-	 * @param string $expected
-	 * @param array $params
+	 * @param string  $expected
+	 * @param array   $params
 	 * @param boolean $protocol
 	 */
 	public function test_composing_url_from_route($expected, $params = NULL, $protocol = NULL)
@@ -976,15 +976,15 @@ class Kohana_RouteTest extends Unittest_TestCase
 	{
 		// Mock a request class with the $uri uri
 		$request = $this
-        	->getMockBuilder('Request')
-        	->setMethods(array('uri', 'method'))
-        	->setConstructorArgs(array($uri))
-        	->getMock();
+			->getMockBuilder('Request')
+			->setMethods(array('uri', 'method'))
+			->setConstructorArgs(array($uri))
+			->getMock();
 
 		// mock `uri` method
 		$request->expects($this->any())
 			->method('uri')
-		  	// Request::uri() called by Route::matches() in the tests will return $uri
+			// Request::uri() called by Route::matches() in the tests will return $uri
 			->will($this->returnValue($uri));
 
 		// also mock `method` method

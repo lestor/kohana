@@ -13,8 +13,8 @@
  * @copyright  (c) 2008-2014 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_Config_GroupTest extends Kohana_Unittest_TestCase
-{
+class Kohana_Config_GroupTest extends Kohana_Unittest_TestCase {
+
 	/**
 	 * Create a mock Kohana_Config instance
 	 *

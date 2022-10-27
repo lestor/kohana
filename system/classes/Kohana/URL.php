@@ -29,8 +29,8 @@ class Kohana_URL {
 	 *     // Absolute URL path with host and protocol from $request
 	 *     echo URL::base($request);
 	 *
-	 * @param   mixed    $protocol Protocol string, [Request], or boolean
-	 * @param   boolean  $index    Add index file to URL?
+	 * @param   mixed   $protocol Protocol string, [Request], or boolean
+	 * @param   boolean $index    Add index file to URL?
 	 * @return  string
 	 * @uses    Kohana::$index_file
 	 * @uses    Request::protocol()
@@ -94,7 +94,7 @@ class Kohana_URL {
 
 				// check that host does not contain forbidden characters (see RFC 952 and RFC 2181)
 				// use preg_replace() instead of preg_match() to prevent DoS attacks with long host names
-				if ($host && '' !== preg_replace('/(?:^\[)?[a-zA-Z0-9-:\]_]+\.?/', '', $host)) {
+				if ($host AND '' !== preg_replace('/(?:^\[)?[a-zA-Z0-9-:\]_]+\.?/', '', $host)) {
 					throw new Kohana_Exception(
 						'Invalid host :host',
 						array(':host' => $host)
@@ -123,9 +123,9 @@ class Kohana_URL {
 	 *
 	 *     echo URL::site('foo/bar');
 	 *
-	 * @param   string  $uri        Site URI to convert
-	 * @param   mixed   $protocol   Protocol string or [Request] class to use protocol from
-	 * @param   boolean $index		Include the index_page in the URL
+	 * @param   string  $uri      Site URI to convert
+	 * @param   mixed   $protocol Protocol string or [Request] class to use protocol from
+	 * @param   boolean $index    Include the index_page in the URL
 	 * @return  string
 	 * @uses    URL::base
 	 */
@@ -148,7 +148,7 @@ class Kohana_URL {
 	 * Callback used for encoding all non-ASCII characters, as per RFC 1738
 	 * Used by URL::site()
 	 *
-	 * @param  array $matches  Array of matches from preg_replace_callback()
+	 * @param  array $matches Array of matches from preg_replace_callback()
 	 * @return string          Encoded string
 	 */
 	protected static function _rawurlencode_callback($matches)
@@ -168,8 +168,8 @@ class Kohana_URL {
 	 *
 	 * [!!] Parameters with a NULL value are left out.
 	 *
-	 * @param   array    $params   Array of GET parameters
-	 * @param   boolean  $use_get  Include current request GET parameters
+	 * @param   array   $params  Array of GET parameters
+	 * @param   boolean $use_get Include current request GET parameters
 	 * @return  string
 	 */
 	public static function query(array $params = NULL, $use_get = TRUE)
@@ -206,9 +206,9 @@ class Kohana_URL {
 	 *
 	 *     echo URL::title('My Blog Post'); // "my-blog-post"
 	 *
-	 * @param   string   $title       Phrase to convert
-	 * @param   string   $separator   Word separator (any single character)
-	 * @param   boolean  $ascii_only  Transliterate to ASCII?
+	 * @param   string  $title      Phrase to convert
+	 * @param   string  $separator  Word separator (any single character)
+	 * @param   boolean $ascii_only Transliterate to ASCII?
 	 * @return  string
 	 * @uses    UTF8::transliterate_to_ascii
 	 */
@@ -242,7 +242,7 @@ class Kohana_URL {
 	 * or looks for key `trusted_hosts` in `url` config
 	 *
 	 * @param string $host
-	 * @param array $trusted_hosts
+	 * @param array  $trusted_hosts
 	 * @return boolean TRUE if $host is trustworthy
 	 */
 	public static function is_trusted_host($host, array $trusted_hosts = NULL)

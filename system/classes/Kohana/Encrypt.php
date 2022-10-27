@@ -65,7 +65,7 @@ class Kohana_Encrypt {
 	 *
 	 *     $encrypt = Encrypt::instance();
 	 *
-	 * @param   string  $name   Configuration group name
+	 * @param   string $name Configuration group name
 	 * @return  Encrypt
 	 * @throws  Kohana_Exception
 	 */
@@ -105,8 +105,8 @@ class Kohana_Encrypt {
 	/**
 	 * Creates a new sodium wrapper.
 	 *
-	 * @param   string  $key      Encryption key
-	 * @param   string  $cipher   Encryption cipher
+	 * @param   string $key    Encryption key
+	 * @param   string $cipher Encryption cipher
 	 * @throws Kohana_Exception
 	 */
 	public function __construct($key, $cipher)
@@ -116,7 +116,7 @@ class Kohana_Encrypt {
 			throw new Kohana_Exception('PHP sodium extension is not available.');
 		}
 
-		if($cipher === Encrypt::CIPHER_AES256_GCM)
+		if ($cipher === Encrypt::CIPHER_AES256_GCM)
 		{
 			if ( ! sodium_crypto_aead_aes256gcm_is_available())
 			{
@@ -125,7 +125,7 @@ class Kohana_Encrypt {
 		}
 
 		// Store the key and cipher
-		$this->_key = $key;
+		$this->_key    = $key;
 		$this->_cipher = $cipher;
 
 		// Store the IV size
@@ -141,7 +141,7 @@ class Kohana_Encrypt {
 	 * to convert it to a string. This string can be stored in a database,
 	 * displayed, and passed using most other means without corruption.
 	 *
-	 * @param   string  $data  Data to be encrypted
+	 * @param   string $data Data to be encrypted
 	 * @return  string
 	 * @throws  Exception
 	 */
@@ -152,7 +152,7 @@ class Kohana_Encrypt {
 
 		// Encrypt the data using the configured options and generated IV
 		$ciphertext = call_user_func(
-		 	'sodium_crypto_aead_'.$this->_cipher.'_encrypt', $data, '', $iv, $this->_key
+			'sodium_crypto_aead_'.$this->_cipher.'_encrypt', $data, '', $iv, $this->_key
 		);
 
 		$encrypted = $iv.$ciphertext;
@@ -166,7 +166,7 @@ class Kohana_Encrypt {
 	 *
 	 *     $data = $encrypt->decode($data);
 	 *
-	 * @param   string  $data  Encoded string to be decrypted
+	 * @param   string $data Encoded string to be decrypted
 	 * @return  string|boolean
 	 */
 	public function decode($data)

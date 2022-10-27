@@ -30,8 +30,8 @@ class Kohana_Valid {
 	/**
 	 * Checks a field against a regular expression.
 	 *
-	 * @param   string  $value      value
-	 * @param   string  $expression regular expression to match (including delimiters)
+	 * @param   string $value      value
+	 * @param   string $expression regular expression to match (including delimiters)
 	 * @return  boolean
 	 */
 	public static function regex($value, $expression)
@@ -66,8 +66,8 @@ class Kohana_Valid {
 	/**
 	 * Checks that a field is exactly the right length.
 	 *
-	 * @param   string          $value  value
-	 * @param   integer|array   $length exact length required, or array of valid lengths
+	 * @param   string        $value  value
+	 * @param   integer|array $length exact length required, or array of valid lengths
 	 * @return  boolean
 	 */
 	public static function exact_length($value, $length)
@@ -88,8 +88,8 @@ class Kohana_Valid {
 	/**
 	 * Checks that a field is exactly the value required.
 	 *
-	 * @param   string  $value      value
-	 * @param   string  $required   required value
+	 * @param   string $value    value
+	 * @param   string $required required value
 	 * @return  boolean
 	 */
 	public static function equals($value, $required)
@@ -128,7 +128,7 @@ class Kohana_Valid {
 			$domain         = "$sub_domain(\\x2e$sub_domain)*";
 			$local_part     = "$word(\\x2e$word)*";
 
-			$expression     = "/^$local_part\\x40$domain$/D";
+			$expression = "/^$local_part\\x40$domain$/D";
 		}
 		else
 		{
@@ -144,7 +144,7 @@ class Kohana_Valid {
 	 *
 	 * @link  http://php.net/checkdnsrr  not added to Windows until PHP 5.3.0
 	 *
-	 * @param   string  $email  email address
+	 * @param   string $email email address
 	 * @return  boolean
 	 */
 	public static function email_domain($email)
@@ -159,7 +159,7 @@ class Kohana_Valid {
 	/**
 	 * Validate a URL.
 	 *
-	 * @param   string  $url    URL
+	 * @param   string $url URL
 	 * @return  boolean
 	 */
 	public static function url($url)
@@ -218,8 +218,8 @@ class Kohana_Valid {
 	/**
 	 * Validate an IP.
 	 *
-	 * @param   string  $ip             IP address
-	 * @param   boolean $allow_private  allow private IP networks
+	 * @param   string  $ip            IP address
+	 * @param   boolean $allow_private allow private IP networks
 	 * @return  boolean
 	 */
 	public static function ip($ip, $allow_private = TRUE)
@@ -239,8 +239,8 @@ class Kohana_Valid {
 	/**
 	 * Validates a credit card number, with a Luhn check if possible.
 	 *
-	 * @param   integer         $number credit card number
-	 * @param   string|array    $type   card type, or an array of card types
+	 * @param   integer      $number credit card number
+	 * @param   string|array $type   card type, or an array of card types
 	 * @return  boolean
 	 * @uses    Valid::luhn
 	 */
@@ -297,7 +297,7 @@ class Kohana_Valid {
 	 * Validate a number against the [Luhn](http://en.wikipedia.org/wiki/Luhn_algorithm)
 	 * (mod10) formula.
 	 *
-	 * @param   string  $number number to check
+	 * @param   string $number number to check
 	 * @return  boolean
 	 */
 	public static function luhn($number)
@@ -340,8 +340,8 @@ class Kohana_Valid {
 	/**
 	 * Checks if a phone number is valid.
 	 *
-	 * @param   string  $number     phone number to check
-	 * @param   array   $lengths
+	 * @param   string $number  phone number to check
+	 * @param   array  $lengths
 	 * @return  boolean
 	 */
 	public static function phone($number, $lengths = NULL)
@@ -361,7 +361,7 @@ class Kohana_Valid {
 	/**
 	 * Tests if a string is a valid date string.
 	 *
-	 * @param   string  $str    date to check
+	 * @param   string $str date to check
 	 * @return  boolean
 	 */
 	public static function date($str)
@@ -372,8 +372,8 @@ class Kohana_Valid {
 	/**
 	 * Checks whether a string consists of alphabetical characters only.
 	 *
-	 * @param   string  $str    input string
-	 * @param   boolean $utf8   trigger UTF-8 compatibility
+	 * @param   string  $str  input string
+	 * @param   boolean $utf8 trigger UTF-8 compatibility
 	 * @return  boolean
 	 */
 	public static function alpha($str, $utf8 = FALSE)
@@ -393,8 +393,8 @@ class Kohana_Valid {
 	/**
 	 * Checks whether a string consists of alphabetical characters and numbers only.
 	 *
-	 * @param   string  $str    input string
-	 * @param   boolean $utf8   trigger UTF-8 compatibility
+	 * @param   string  $str  input string
+	 * @param   boolean $utf8 trigger UTF-8 compatibility
 	 * @return  boolean
 	 */
 	public static function alpha_numeric($str, $utf8 = FALSE)
@@ -412,8 +412,8 @@ class Kohana_Valid {
 	/**
 	 * Checks whether a string consists of alphabetical characters, numbers, underscores and dashes only.
 	 *
-	 * @param   string  $str    input string
-	 * @param   boolean $utf8   trigger UTF-8 compatibility
+	 * @param   string  $str  input string
+	 * @param   boolean $utf8 trigger UTF-8 compatibility
 	 * @return  boolean
 	 */
 	public static function alpha_dash($str, $utf8 = FALSE)
@@ -433,8 +433,8 @@ class Kohana_Valid {
 	/**
 	 * Checks whether a string consists of digits only (no dots or dashes).
 	 *
-	 * @param   string  $str    input string
-	 * @param   boolean $utf8   trigger UTF-8 compatibility
+	 * @param   string  $str  input string
+	 * @param   boolean $utf8 trigger UTF-8 compatibility
 	 * @return  boolean
 	 */
 	public static function digit($str, $utf8 = FALSE)
@@ -455,7 +455,7 @@ class Kohana_Valid {
 	 * Uses {@link http://www.php.net/manual/en/function.localeconv.php locale conversion}
 	 * to allow decimal point to be locale specific.
 	 *
-	 * @param   string  $str    input string
+	 * @param   string $str input string
 	 * @return  boolean
 	 */
 	public static function numeric($str)
@@ -527,7 +527,7 @@ class Kohana_Valid {
 	 * is quite flexible as it does not require an initial "#" and also allows for
 	 * the short notation using only three instead of six hexadecimal characters.
 	 *
-	 * @param   string  $str    input string
+	 * @param   string $str input string
 	 * @return  boolean
 	 */
 	public static function color($str)
@@ -538,9 +538,9 @@ class Kohana_Valid {
 	/**
 	 * Checks if a field matches the value of another field.
 	 *
-	 * @param   array   $array  array of values
-	 * @param   string  $field  field name
-	 * @param   string  $match  field name to match
+	 * @param   array  $array array of values
+	 * @param   string $field field name
+	 * @param   string $match field name to match
 	 * @return  boolean
 	 */
 	public static function matches($array, $field, $match)

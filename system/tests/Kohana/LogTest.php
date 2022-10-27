@@ -14,8 +14,7 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_LogTest extends Unittest_TestCase
-{
+class Kohana_LogTest extends Unittest_TestCase {
 
 	/**
 	 * Tests that when a new logger is created the list of messages is initially
@@ -85,7 +84,7 @@ class Kohana_LogTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Log::attach
-     * @throws ReflectionException
+	 * @throws ReflectionException
 	 */
 	public function test_attach_attaches_log_writer_min_max_and_returns_this()
 	{

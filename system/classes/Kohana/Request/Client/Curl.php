@@ -16,8 +16,8 @@ class Kohana_Request_Client_Curl extends Request_Client_External {
 	 * Sends the HTTP message [Request] to a remote server and processes
 	 * the response.
 	 *
-	 * @param   Request   $request  request to send
-	 * @param   Response  $request  response to send
+	 * @param   Request  $request request to send
+	 * @param   Response $request response to send
 	 * @return  Response
 	 */
 	public function _send_message(Request $request, Response $response)
@@ -117,7 +117,7 @@ class Kohana_Request_Client_Curl extends Request_Client_External {
 	 * for POST or CURLOPT_CUSTOMREQUEST otherwise
 	 *
 	 * @param Request $request
-	 * @param array $options
+	 * @param array   $options
 	 * @return array
 	 */
 	public function _set_curl_request_method(Request $request, array $options)
@@ -125,10 +125,10 @@ class Kohana_Request_Client_Curl extends Request_Client_External {
 		switch ($request->method()) {
 			case Request::POST:
 				$options[CURLOPT_POST] = TRUE;
-				break;
+			break;
 			default:
 				$options[CURLOPT_CUSTOMREQUEST] = $request->method();
-				break;
+			break;
 		}
 		return $options;
 	}

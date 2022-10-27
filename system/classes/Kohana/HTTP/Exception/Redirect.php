@@ -16,7 +16,7 @@ abstract class Kohana_HTTP_Exception_Redirect extends HTTP_Exception_Expected {
 	/**
 	 * Specifies the URI to redirect to.
 	 *
-	 * @param  string  $location  URI of the proxy
+	 * @param  string $location URI of the proxy
 	 */
 	public function location($uri = NULL)
 	{
@@ -38,7 +38,7 @@ abstract class Kohana_HTTP_Exception_Redirect extends HTTP_Exception_Expected {
 	 * Validate this exception contains everything needed to continue.
 	 *
 	 * @throws Kohana_Exception
-	 * @return bool
+	 * @return boolean
 	 */
 	public function check()
 	{

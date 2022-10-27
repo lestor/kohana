@@ -73,7 +73,7 @@ class Kohana_Image_Imagick extends Image {
 		if ($this->im->scaleImage($width, $height))
 		{
 			// Reset the width and height
-			$this->width = $this->im->getImageWidth();
+			$this->width  = $this->im->getImageWidth();
 			$this->height = $this->im->getImageHeight();
 
 			return TRUE;
@@ -87,7 +87,7 @@ class Kohana_Image_Imagick extends Image {
 		if ($this->im->cropImage($width, $height, $offset_x, $offset_y))
 		{
 			// Reset the width and height
-			$this->width = $this->im->getImageWidth();
+			$this->width  = $this->im->getImageWidth();
 			$this->height = $this->im->getImageHeight();
 
 			// Trim off hidden areas
@@ -104,7 +104,7 @@ class Kohana_Image_Imagick extends Image {
 		if ($this->im->rotateImage(new ImagickPixel('transparent'), $degrees))
 		{
 			// Reset the width and height
-			$this->width = $this->im->getImageWidth();
+			$this->width  = $this->im->getImageWidth();
 			$this->height = $this->im->getImageHeight();
 
 			// Trim off hidden areas
@@ -189,7 +189,7 @@ class Kohana_Image_Imagick extends Image {
 			$this->im = $image;
 
 			// Reset the width and height
-			$this->width = $this->im->getImageWidth();
+			$this->width  = $this->im->getImageWidth();
 			$this->height = $this->im->getImageHeight();
 
 			return TRUE;
@@ -302,7 +302,7 @@ class Kohana_Image_Imagick extends Image {
 	/**
 	 * Get the image type and format for an extension.
 	 *
-	 * @param   string  $extension  image extension: png, jpg, etc
+	 * @param   string $extension image extension: png, jpg, etc
 	 * @return  string  IMAGETYPE_* constant
 	 * @throws  Kohana_Exception
 	 */

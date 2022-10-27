@@ -23,7 +23,9 @@ class Kohana_Cache_FileTest extends Kohana_Cache_AbstractTest {
 	 *
 	 * @return  void
 	 */
+ 	// @codingStandardsIgnoreStart
 	public function setUp() : void
+	// @codingStandardsIgnoreEnd
 	{
 		parent::setUp();
 
@@ -43,7 +45,7 @@ class Kohana_Cache_FileTest extends Kohana_Cache_AbstractTest {
 							'.svn'
 						)
 					)
-			    );
+				);
 		}
 
 		$this->cache(Cache::instance('file'));
@@ -56,9 +58,9 @@ class Kohana_Cache_FileTest extends Kohana_Cache_AbstractTest {
 	 */
 	public function test_ignore_delete_file()
 	{
-		$cache = $this->cache();
+		$cache  = $this->cache();
 		$config = Kohana::$config->load('cache')->file;
-		$file = $config['cache_dir'].'/file_we_want_to_keep.cache';
+		$file   = $config['cache_dir'].'/file_we_want_to_keep.cache';
 
 		// Lets pollute the cache folder
 		file_put_contents($file, 'foobar');
@@ -151,12 +153,12 @@ class Kohana_Cache_FileTest extends Kohana_Cache_AbstractTest {
 		$method_resolve_directory->setAccessible(TRUE);
 
 		$sanitized_id = $method_sanitize_id->invoke($cache, $id);
-		$filename = $method_filename->invoke($cache, $sanitized_id);
-		$directory = $method_resolve_directory->invoke($cache, $filename);
+		$filename     = $method_filename->invoke($cache, $sanitized_id);
+		$directory    = $method_resolve_directory->invoke($cache, $filename);
 
 		$file = new SplFileInfo($directory.$filename);
 
-		//var_dump($cache->_is_expired($file));
+		// var_dump($cache->_is_expired($file));
 		return $file->isFile();
 	}
 } // End Kohana_SqliteTest

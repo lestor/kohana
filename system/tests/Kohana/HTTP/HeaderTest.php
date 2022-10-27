@@ -59,8 +59,8 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 	 * 
 	 * @dataProvider provider_accept_quality
 	 *
-	 * @param   array  $parts     input
-	 * @param   array  $expected  expected output
+	 * @param   array $parts    input
+	 * @param   array $expected expected output
 	 * @return  void
 	 */
 	public function test_accept_quality(array $parts, array $expected)
@@ -121,8 +121,8 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 	 * 
 	 * @dataProvider provider_parse_accept_header
 	 *
-	 * @param   string  $accept    accept in
-	 * @param   array   $expected  expected out
+	 * @param   string $accept   accept in
+	 * @param   array  $expected expected out
 	 * @return  void
 	 */
 	public function test_parse_accept_header($accept, array $expected)
@@ -171,8 +171,8 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 	 * 
 	 * @dataProvider provider_parse_charset_header
 	 *
-	 * @param   string  $accept    accept 
-	 * @param   array   $expected  expected 
+	 * @param   string $accept   accept 
+	 * @param   array  $expected expected 
 	 * @return  void
 	 */
 	public function test_parse_charset_header($accept, array $expected)
@@ -225,8 +225,8 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 	 * 
 	 * @dataProvider provider_parse_encoding_header
 	 *
-	 * @param   string  $accept    accept 
-	 * @param   array   $expected  expected 
+	 * @param   string $accept   accept 
+	 * @param   array  $expected expected 
 	 * @return  void
 	 */
 	public function test_parse_encoding_header($accept, array $expected)
@@ -294,8 +294,8 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 	 * 
 	 * @dataProvider provider_parse_language_header
 	 * 
-	 * @param   string  $accept    accept 
-	 * @param   array   $expected  expected 
+	 * @param   string $accept   accept 
+	 * @param   array  $expected expected 
 	 * @return  void
 	 */
 	public function test_parse_language_header($accept, array $expected)
@@ -347,8 +347,8 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 	 * 
 	 * @dataProvider provider_create_cache_control
 	 *
-	 * @param   array   $input     input 
-	 * @param   string  $expected  expected 
+	 * @param   array  $input    input 
+	 * @param   string $expected expected 
 	 * @return  void
 	 */
 	public function test_create_cache_control(array $input, $expected)
@@ -400,8 +400,8 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 	 *
 	 * @dataProvider provider_parse_cache_control
 	 * 
-	 * @param   string  $input     input 
-	 * @param   array   $expected  expected 
+	 * @param   string $input    input 
+	 * @param   array  $expected expected 
 	 * @return  void
 	 */
 	public function test_parse_cache_control($input, array $expected)
@@ -535,7 +535,7 @@ class Kohana_HTTP_HeaderTest extends Unittest_TestCase {
 		$http_header = new HTTP_Header($constructor);
 
 		$reflection = new ReflectionClass($http_header);
-		$method = $reflection->getMethod('offsetSet');
+		$method     = $reflection->getMethod('offsetSet');
 
 		foreach ($to_set as $args)
 		{

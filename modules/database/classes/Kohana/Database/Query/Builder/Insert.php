@@ -22,8 +22,8 @@ class Kohana_Database_Query_Builder_Insert extends Database_Query_Builder {
 	/**
 	 * Set the table and columns for an insert.
 	 *
-	 * @param   mixed  $table    table name or array($table, $alias) or object
-	 * @param   array  $columns  column names
+	 * @param   mixed $table   table name or array($table, $alias) or object
+	 * @param   array $columns column names
 	 * @return  void
 	 */
 	public function __construct($table = NULL, array $columns = NULL)
@@ -47,7 +47,7 @@ class Kohana_Database_Query_Builder_Insert extends Database_Query_Builder {
 	/**
 	 * Sets the table to insert into.
 	 *
-	 * @param   string  $table  table name
+	 * @param   string $table table name
 	 * @return  $this
 	 */
 	public function table($table)
@@ -63,7 +63,7 @@ class Kohana_Database_Query_Builder_Insert extends Database_Query_Builder {
 	/**
 	 * Set the columns that will be inserted.
 	 *
-	 * @param   array  $columns  column names
+	 * @param   array $columns column names
 	 * @return  $this
 	 */
 	public function columns(array $columns)
@@ -76,7 +76,7 @@ class Kohana_Database_Query_Builder_Insert extends Database_Query_Builder {
 	/**
 	 * Adds or overwrites values. Multiple value sets can be added.
 	 *
-	 * @param   array   $values  values list
+	 * @param   array $values values list
 	 * @param   ...
 	 * @return  $this
 	 */
@@ -101,7 +101,7 @@ class Kohana_Database_Query_Builder_Insert extends Database_Query_Builder {
 	/**
 	 * Use a sub-query to for the inserted values.
 	 *
-	 * @param   object  $query  Database_Query of SELECT type
+	 * @param   object $query Database_Query of SELECT type
 	 * @return  $this
 	 */
 	public function select(Database_Query $query)
@@ -119,7 +119,7 @@ class Kohana_Database_Query_Builder_Insert extends Database_Query_Builder {
 	/**
 	 * Compile the SQL query and return it.
 	 *
-	 * @param   mixed  $db  Database instance or name of instance
+	 * @param   mixed $db Database instance or name of instance
 	 * @return  string
 	 */
 	public function compile($db = NULL)

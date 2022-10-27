@@ -47,7 +47,7 @@ abstract class Kohana_Auth {
 	/**
 	 * Loads Session and configuration options.
 	 *
-	 * @param   array  $config  Config Options
+	 * @param   array $config Config Options
 	 * @return  void
 	 */
 	public function __construct($config = array())
@@ -68,7 +68,7 @@ abstract class Kohana_Auth {
 	 * Gets the currently logged in user from the session.
 	 * Returns NULL if no user is currently logged in.
 	 *
-	 * @param   mixed  $default  Default value to return if the user is currently not logged in.
+	 * @param   mixed $default Default value to return if the user is currently not logged in.
 	 * @return  mixed
 	 */
 	public function get_user($default = NULL)
@@ -79,9 +79,9 @@ abstract class Kohana_Auth {
 	/**
 	 * Attempt to log in a user by using an ORM object and plain-text password.
 	 *
-	 * @param   string   $username  Username to log in
-	 * @param   string   $password  Password to check against
-	 * @param   boolean  $remember  Enable autologin
+	 * @param   string  $username Username to log in
+	 * @param   string  $password Password to check against
+	 * @param   boolean $remember Enable autologin
 	 * @return  boolean
 	 */
 	public function login($username, $password, $remember = FALSE)
@@ -95,8 +95,8 @@ abstract class Kohana_Auth {
 	/**
 	 * Log out a user by removing the related session variables.
 	 *
-	 * @param   boolean  $destroy     Completely destroy the session
-	 * @param   boolean  $logout_all  Remove all tokens for user
+	 * @param   boolean $destroy    Completely destroy the session
+	 * @param   boolean $logout_all Remove all tokens for user
 	 * @return  boolean
 	 */
 	public function logout($destroy = FALSE, $logout_all = FALSE)
@@ -123,7 +123,7 @@ abstract class Kohana_Auth {
 	 * Check if there is an active session. Optionally allows checking for a
 	 * specific role.
 	 *
-	 * @param   string  $role  role name
+	 * @param   string $role role name
 	 * @return  mixed
 	 */
 	public function logged_in($role = NULL)
@@ -136,7 +136,7 @@ abstract class Kohana_Auth {
 	 * method is deprecated, [Auth::hash] should be used instead.
 	 *
 	 * @deprecated
-	 * @param  string  $password Plaintext password
+	 * @param  string $password Plaintext password
 	 */
 	public function hash_password($password)
 	{
@@ -146,7 +146,7 @@ abstract class Kohana_Auth {
 	/**
 	 * Perform a hmac hash, using the configured method.
 	 *
-	 * @param   string  $str  string to hash
+	 * @param   string $str string to hash
 	 * @return  string
 	 */
 	public function hash($str)

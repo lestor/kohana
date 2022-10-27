@@ -46,7 +46,7 @@ spl_autoload_register(array('Kohana', 'auto_load'));
  *
  * It is recommended to not enable this unless absolutely necessary.
  */
-//spl_autoload_register(array('Kohana', 'auto_load_lowercase'));
+// spl_autoload_register(array('Kohana', 'auto_load_lowercase'));
 
 /**
  * Enable the Kohana auto-loader for unserialization.
@@ -63,7 +63,7 @@ ini_set('unserialize_callback_func', 'spl_autoload_call');
  */
 if (is_file(DOCROOT.'/vendor/autoload.php'))
 {
-    require DOCROOT.'/vendor/autoload.php';
+	require DOCROOT.'/vendor/autoload.php';
 }
 
 /**

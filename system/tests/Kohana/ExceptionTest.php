@@ -13,8 +13,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_ExceptionTest extends Unittest_TestCase
-{
+class Kohana_ExceptionTest extends Unittest_TestCase {
+
 	/**
 	 * Provides test data for test_constructor()
 	 *
@@ -49,9 +49,9 @@ class Kohana_ExceptionTest extends Unittest_TestCase
 	 * @test
 	 * @dataProvider provider_constructor
 	 * @covers Kohana_Kohana_Exception::__construct
-	 * @param array             $arguments          Arguments
-	 * @param string            $expected_message   Value from getMessage()
-	 * @param integer|string    $expected_code      Value from getCode()
+	 * @param array          $arguments        Arguments
+	 * @param string         $expected_message Value from getMessage()
+	 * @param integer|string $expected_code    Value from getCode()
 	 */
 	public function test_constructor($arguments, $expected_message, $expected_code)
 	{

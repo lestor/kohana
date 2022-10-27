@@ -23,7 +23,7 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 	 * Sets up the PDO SQLite table and
 	 * initialises the PDO connection
 	 *
-	 * @param  array  $config  configuration
+	 * @param  array $config configuration
 	 * @throws  Cache_Exception
 	 */
 	protected function __construct(array $config)
@@ -68,8 +68,8 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 	/**
 	 * Retrieve a value based on an id
 	 *
-	 * @param   string  $id       id
-	 * @param   string  $default  default [Optional] Default value to return if id not found
+	 * @param   string $id      id
+	 * @param   string $default default [Optional] Default value to return if id not found
 	 * @return  mixed
 	 * @throws  Cache_Exception
 	 */
@@ -104,13 +104,13 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 		else
 		{
 			// Disable notices for unserializing
-			$ER = error_reporting(~E_NOTICE);
+			$er = error_reporting(~E_NOTICE);
 
 			// Return the valid cache data
 			$data = unserialize($result->cache);
 
 			// Turn notices back on
-			error_reporting($ER);
+			error_reporting($er);
 
 			// Return the resulting data
 			return $data;
@@ -120,9 +120,9 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 	/**
 	 * Set a value based on an id. Optionally add tags.
 	 *
-	 * @param   string   $id        id
-	 * @param   mixed    $data      data
-	 * @param   integer  $lifetime  lifetime [Optional]
+	 * @param   string  $id       id
+	 * @param   mixed   $data     data
+	 * @param   integer $lifetime lifetime [Optional]
 	 * @return  boolean
 	 */
 	public function set($id, $data, $lifetime = NULL)
@@ -133,7 +133,7 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 	/**
 	 * Delete a cache entry based on id
 	 *
-	 * @param   string  $id  id
+	 * @param   string $id id
 	 * @return  boolean
 	 * @throws  Cache_Exception
 	 */
@@ -181,10 +181,10 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 	/**
 	 * Set a value based on an id. Optionally add tags.
 	 *
-	 * @param   string   $id        id
-	 * @param   mixed    $data      data
-	 * @param   integer  $lifetime  lifetime [Optional]
-	 * @param   array    $tags      tags [Optional]
+	 * @param   string  $id       id
+	 * @param   mixed   $data     data
+	 * @param   integer $lifetime lifetime [Optional]
+	 * @param   array   $tags     tags [Optional]
 	 * @return  boolean
 	 * @throws  Cache_Exception
 	 */
@@ -194,7 +194,7 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 		$data = serialize($data);
 
 		// Normalise tags
-		$tags = (NULL === $tags) ? NULL : ('<'.implode('>,<', $tags).'>');
+		$tags = ($tags === NULL) ? NULL : ('<'.implode('>,<', $tags).'>');
 
 		// Setup lifetime
 		if ($lifetime === NULL)
@@ -226,7 +226,7 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 	/**
 	 * Delete cache entries based on a tag
 	 *
-	 * @param   string  $tag  tag
+	 * @param   string $tag tag
 	 * @return  boolean
 	 * @throws  Cache_Exception
 	 */
@@ -251,7 +251,7 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 	/**
 	 * Find cache entries based on a tag
 	 *
-	 * @param   string  $tag  tag
+	 * @param   string $tag tag
 	 * @return  array
 	 * @throws  Cache_Exception
 	 */
@@ -278,12 +278,12 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 		while ($row = $statement->fetchObject())
 		{
 			// Disable notices for unserializing
-			$ER = error_reporting(~E_NOTICE);
+			$er = error_reporting(~E_NOTICE);
 
 			$result[$row->id] = unserialize($row->cache);
 
 			// Turn notices back on
-			error_reporting($ER);
+			error_reporting($er);
 		}
 
 		return $result;
@@ -313,7 +313,7 @@ class Kohana_Cache_Sqlite extends Cache implements Cache_Tagging, Cache_GarbageC
 	/**
 	 * Tests whether an id exists or not
 	 *
-	 * @param   string  $id  id
+	 * @param   string $id id
 	 * @return  boolean
 	 * @throws  Cache_Exception
 	 */

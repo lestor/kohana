@@ -75,10 +75,10 @@ class Kohana_Database_PDO extends Database {
 	 *
 	 * @link http://php.net/manual/function.pdo-sqlitecreateaggregate
 	 *
-	 * @param   string      $name       Name of the SQL function to be created or redefined
-	 * @param   callback    $step       Called for each row of a result set
-	 * @param   callback    $final      Called after all rows of a result set have been processed
-	 * @param   integer     $arguments  Number of arguments that the SQL function takes
+	 * @param   string   $name      Name of the SQL function to be created or redefined
+	 * @param   callback $step      Called for each row of a result set
+	 * @param   callback $final     Called after all rows of a result set have been processed
+	 * @param   integer  $arguments Number of arguments that the SQL function takes
 	 *
 	 * @return  boolean
 	 */
@@ -98,9 +98,9 @@ class Kohana_Database_PDO extends Database {
 	 *
 	 * @link http://php.net/manual/function.pdo-sqlitecreatefunction
 	 *
-	 * @param   string      $name       Name of the SQL function to be created or redefined
-	 * @param   callback    $callback   Callback which implements the SQL function
-	 * @param   integer     $arguments  Number of arguments that the SQL function takes
+	 * @param   string   $name      Name of the SQL function to be created or redefined
+	 * @param   callback $callback  Callback which implements the SQL function
+	 * @param   integer  $arguments Number of arguments that the SQL function takes
 	 *
 	 * @return  boolean
 	 */

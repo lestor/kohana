@@ -28,7 +28,9 @@ abstract class Kohana_Cache_AbstractTest extends Unittest_TestCase {
 	 *
 	 * @return  void
 	 */
+	// @codingStandardsIgnoreStart
 	public function setUp() : void
+	// @codingStandardsIgnoreEnd
 	{
 		parent::setUp();
 	}
@@ -55,7 +57,7 @@ abstract class Kohana_Cache_AbstractTest extends Unittest_TestCase {
 	 */
 	public function provider_set_get()
 	{
-		$object = new StdClass;
+		$object      = new StdClass;
 		$object->foo = 'foo';
 		$object->bar = 'bar';
 
@@ -263,28 +265,29 @@ TESTTEXT;
 		$result = $cache->get($id, $default);
 		$this->assertEquals($expected, $result);
 
-		switch ($type){
+		switch ($type)
+		{
 			case 'array':
 				$this->assertIsArray($result);
-				break;
+			break;
 			case 'boolean':
 				$this->assertIsBool($result);
-				break;
+			break;
 			case 'float':
 				$this->assertIsFloat($result);
-				break;
+			break;
 			case 'integer':
 				$this->assertIsInt($result);
-				break;
+			break;
 			case 'object':
 				$this->assertIsObject($result);
-				break;
+			break;
 			case 'string':
 				$this->assertIsString($result);
-				break;
+			break;
 			case 'null':
 				$this->assertNull($result);
-				break;
+			break;
 			default:
 				$this->fail('Unknown type');
 		}
@@ -331,7 +334,7 @@ TESTTEXT;
 	{
 		// Init
 		$cache = $this->cache();
-		$data = $this->provider_set_get();
+		$data  = $this->provider_set_get();
 
 		foreach ($data as $key => $values)
 		{

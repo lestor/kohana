@@ -14,8 +14,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_DateTest extends Unittest_TestCase
-{
+class Kohana_DateTest extends Unittest_TestCase {
+
 	protected $_original_timezone = NULL;
 	protected $default_locale;
 
@@ -29,7 +29,7 @@ class Kohana_DateTest extends Unittest_TestCase
 		parent::setUp();
 
 		$this->_original_timezone = date_default_timezone_get();
-		$this->default_locale = setlocale(LC_ALL, 0);
+		$this->default_locale     = setlocale(LC_ALL, 0);
 
 		date_default_timezone_set('America/Chicago');
 		setlocale(LC_ALL, 'en_US.utf8');
@@ -178,9 +178,9 @@ class Kohana_DateTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_adjust
-	 * @param integer $hour       Hour in 12 hour format
-	 * @param string  $ampm       Either am or pm
-	 * @param string  $expected   Expected result
+	 * @param integer $hour     Hour in 12 hour format
+	 * @param string  $ampm     Either am or pm
+	 * @param string  $expected Expected result
 	 */
 	public function test_adjust($hour, $ampm, $expected)
 	{
@@ -437,10 +437,10 @@ class Kohana_DateTest extends Unittest_TestCase
 	 * @test
 	 * @covers Date::span
 	 * @dataProvider provider_span
-	 * @param integer $time1     Time in the past
-	 * @param integer $time2     Time to compare against
-	 * @param string  $output    Units to output
-	 * @param array   $expected  Array of $outputs => values
+	 * @param integer $time1    Time in the past
+	 * @param integer $time2    Time to compare against
+	 * @param string  $output   Units to output
+	 * @param array   $expected Array of $outputs => values
 	 */
 	public function test_span($time1, $time2, $output, $expected)
 	{
@@ -556,11 +556,11 @@ class Kohana_DateTest extends Unittest_TestCase
 					2005 => '2005',
 					2006 => '2006',
 					2007 => '2007',
-				    2008 => '2008',
-				    2009 => '2009',
-				    2010 => '2010',
-				    2011 => '2011',
-				    2012 => '2012',
+					2008 => '2008',
+					2009 => '2009',
+					2010 => '2010',
+					2011 => '2011',
+					2012 => '2012',
 					2013 => '2013',
 					2014 => '2014',
 					2015 => '2015',

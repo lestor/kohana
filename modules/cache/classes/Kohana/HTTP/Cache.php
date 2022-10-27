@@ -13,11 +13,11 @@
  */
 class Kohana_HTTP_Cache {
 
-	const CACHE_STATUS_KEY    = 'x-cache-status';
-	const CACHE_STATUS_SAVED  = 'SAVED';
-	const CACHE_STATUS_HIT    = 'HIT';
-	const CACHE_STATUS_MISS   = 'MISS';
-	const CACHE_HIT_KEY       = 'x-cache-hits';
+	const CACHE_STATUS_KEY   = 'x-cache-status';
+	const CACHE_STATUS_SAVED = 'SAVED';
+	const CACHE_STATUS_HIT   = 'HIT';
+	const CACHE_STATUS_MISS  = 'MISS';
+	const CACHE_HIT_KEY      = 'x-cache-hits';
 
 	/**
 	 * Factory method for HTTP_Cache that provides a convenient dependency
@@ -37,8 +37,8 @@ class Kohana_HTTP_Cache {
 	 *      );
 	 *
 	 * @uses    Cache
-	 * @param   mixed   $cache      cache engine to use
-	 * @param   array   $options    options to set to this class
+	 * @param   mixed $cache   cache engine to use
+	 * @param   array $options options to set to this class
 	 * @return  HTTP_Cache
 	 */
 	public static function factory($cache, array $options = array())
@@ -129,8 +129,8 @@ class Kohana_HTTP_Cache {
 	 * cache completely and ensure the response is not cached. All other
 	 * Request methods will allow caching, if the rules are met.
 	 *
-	 * @param   Request_Client  $client     client to execute with Cache-Control
-	 * @param   Request         $request    request to execute with client
+	 * @param   Request_Client $client  client to execute with Cache-Control
+	 * @param   Request        $request request to execute with client
 	 * @return  [Response]
 	 */
 	public function execute(Request_Client $client, Request $request, Response $response)
@@ -188,7 +188,7 @@ class Kohana_HTTP_Cache {
 	 * This has the effect of deleting the response from the
 	 * [Cache] entry.
 	 *
-	 * @param   Request  $request Response to remove from cache
+	 * @param   Request $request Response to remove from cache
 	 * @return  void
 	 */
 	public function invalidate_cache(Request $request)
@@ -205,7 +205,7 @@ class Kohana_HTTP_Cache {
 	 * Getter and setter for the internal caching engine,
 	 * used to cache responses if available and valid.
 	 *
-	 * @param   Kohana_Cache  $cache    engine to use for caching
+	 * @param   Kohana_Cache $cache engine to use for caching
 	 * @return  Kohana_Cache
 	 * @return  Kohana_Request_Client
 	 */
@@ -224,7 +224,7 @@ class Kohana_HTTP_Cache {
 	 * that have the `private` setting.
 	 *
 	 * @link    http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9
-	 * @param   boolean $setting    allow caching of privately marked responses
+	 * @param   boolean $setting allow caching of privately marked responses
 	 * @return  boolean
 	 * @return  [Request_Client]
 	 */
@@ -259,7 +259,7 @@ class Kohana_HTTP_Cache {
 	 *            return sha1($request->render());
 	 *      });
 	 *
-	 * @param   callback    $callback
+	 * @param   callback $callback
 	 * @return  mixed
 	 * @throws  HTTP_Exception
 	 */
@@ -282,8 +282,8 @@ class Kohana_HTTP_Cache {
 	 * This is the default cache key generating logic, but can be overridden
 	 * by setting [HTTP_Cache::cache_key_callback()].
 	 *
-	 * @param   Request     $request    request to create key for
-	 * @param   callback    $callback   optional callback to use instead of built-in method
+	 * @param   Request  $request  request to create key for
+	 * @param   callback $callback optional callback to use instead of built-in method
 	 * @return  string
 	 */
 	public function create_cache_key(Request $request, $callback = FALSE)
@@ -299,7 +299,7 @@ class Kohana_HTTP_Cache {
 	 * protocol to determine whether the response can be cached.
 	 *
 	 * @link    http://www.w3.org/Protocols/rfc2616/rfc2616.html RFC 2616
-	 * @param   Response  $response The Response
+	 * @param   Response $response The Response
 	 * @return  boolean
 	 */
 	public function set_cache(Response $response)
@@ -347,9 +347,9 @@ class Kohana_HTTP_Cache {
 	 * If not response is supplied, the cache will be checked for an existing
 	 * one that is available.
 	 *
-	 * @param   string      $key        the cache key to use
-	 * @param   Request     $request    the HTTP Request
-	 * @param   Response    $response   the HTTP Response
+	 * @param   string   $key      the cache key to use
+	 * @param   Request  $request  the HTTP Request
+	 * @param   Response $response the HTTP Response
 	 * @return  mixed
 	 */
 	public function cache_response($key, Request $request, Response $response = NULL)
@@ -411,7 +411,7 @@ class Kohana_HTTP_Cache {
 	 * Calculates the total Time To Live based on the specification
 	 * RFC 2616 cache lifetime rules.
 	 *
-	 * @param   Response  $response  Response to evaluate
+	 * @param   Response $response Response to evaluate
 	 * @return  mixed  TTL value or false if the response should not be cached
 	 */
 	public function cache_lifetime(Response $response)

@@ -10,8 +10,7 @@
  * @package    Kohana
  * @category   Tests
  */
-class Kohana_TextTest extends Unittest_TestCase
-{
+class Kohana_TextTest extends Unittest_TestCase {
 
 	/**
 	 * Sets up the test enviroment
@@ -769,7 +768,7 @@ class Kohana_TextTest extends Unittest_TestCase
 				array(
 					'browser' => 'Lynx',
 					'version' => '2.8.8dev.3',
-					'platform' => false
+					'platform' => FALSE
 				)
 			)
 		);
@@ -781,11 +780,11 @@ class Kohana_TextTest extends Unittest_TestCase
 	 * @dataProvider provider_user_agents
 	 * @group current
 	 */
-	public function test_user_agent_returns_correct_browser($userAgent, $expectedData)
+	public function test_user_agent_returns_correct_browser($user_agent, $expected_data)
 	{
-		$browser = Text::user_agent($userAgent, 'browser');
+		$browser = Text::user_agent($user_agent, 'browser');
 
-		$this->assertEquals($expectedData['browser'], $browser);
+		$this->assertEquals($expected_data['browser'], $browser);
 	}
 
 	/**
@@ -794,11 +793,11 @@ class Kohana_TextTest extends Unittest_TestCase
 	 * @dataProvider provider_user_agents
 	 * @test
 	 */
-	public function test_user_agent_returns_correct_version($userAgent, $expectedData)
+	public function test_user_agent_returns_correct_version($user_agent, $expected_data)
 	{
-		$version = Text::user_agent($userAgent, 'version');
+		$version = Text::user_agent($user_agent, 'version');
 
-		$this->assertEquals($expectedData['version'], $version);
+		$this->assertEquals($expected_data['version'], $version);
 	}
 
 	/**
@@ -818,11 +817,11 @@ class Kohana_TextTest extends Unittest_TestCase
 	 * @dataProvider provider_user_agents
 	 * @test
 	 */
-	public function test_user_agent_returns_correct_platform($userAgent, $expectedData)
+	public function test_user_agent_returns_correct_platform($user_agent, $expected_data)
 	{
-		$platform = Text::user_agent($userAgent, 'platform');
+		$platform = Text::user_agent($user_agent, 'platform');
 
-		$this->assertEquals($expectedData['platform'], $platform);
+		$this->assertEquals($expected_data['platform'], $platform);
 	}
 
 
@@ -833,9 +832,9 @@ class Kohana_TextTest extends Unittest_TestCase
 	public function test_user_agent_accepts_array()
 	{
 		$agent_info = Text::user_agent(
-		    'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 '.
-		    '(KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36',
-		    array('browser', 'version', 'platform'));
+			'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 '.
+			'(KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36',
+			array('browser', 'version', 'platform'));
 
 		$this->assertArrayHasKey('browser', $agent_info);
 		$this->assertArrayHasKey('version', $agent_info);

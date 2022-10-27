@@ -96,7 +96,7 @@ abstract class Kohana_Cache {
 	 *     // Access an instantiated group directly
 	 *     $foo_group = Cache::$instances['default'];
 	 *
-	 * @param   string  $group  the name of the cache group to use [Optional]
+	 * @param   string $group the name of the cache group to use [Optional]
 	 * @return  Cache
 	 * @throws  Cache_Exception
 	 */
@@ -128,7 +128,7 @@ abstract class Kohana_Cache {
 		$config = $config->get($group);
 
 		// Create a new cache type instance
-		$cache_class = 'Cache_'.ucfirst($config['driver']);
+		$cache_class              = 'Cache_'.ucfirst($config['driver']);
 		Cache::$instances[$group] = new $cache_class($config);
 
 		// Return the instance
@@ -143,7 +143,7 @@ abstract class Kohana_Cache {
 	/**
 	 * Ensures singleton pattern is observed, loads the default expiry
 	 *
-	 * @param  array  $config  configuration
+	 * @param  array $config configuration
 	 */
 	protected function __construct(array $config)
 	{
@@ -214,8 +214,8 @@ abstract class Kohana_Cache {
 	 *     // Retrieve cache entry from apcu group
 	 *     $data = Cache::instance('apcu')->get('foo');
 	 *
-	 * @param   string  $id       id of cache to entry
-	 * @param   string  $default  default value to return if cache miss
+	 * @param   string $id      id of cache to entry
+	 * @param   string $default default value to return if cache miss
 	 * @return  mixed
 	 * @throws  Cache_Exception
 	 */
@@ -239,9 +239,9 @@ abstract class Kohana_Cache {
 	 *          return
 	 *     }
 	 *
-	 * @param   string   $id        id of cache entry
-	 * @param   string   $data      data to set to cache
-	 * @param   integer  $lifetime  lifetime in seconds
+	 * @param   string  $id       id of cache entry
+	 * @param   string  $data     data to set to cache
+	 * @param   integer $lifetime lifetime in seconds
 	 * @return  boolean
 	 */
 	abstract public function set($id, $data, $lifetime = 3600);
@@ -255,7 +255,7 @@ abstract class Kohana_Cache {
 	 *     // Delete 'foo' entry from the apcu group
 	 *     Cache::instance('apcu')->delete('foo')
 	 *
-	 * @param   string  $id  id to remove from cache
+	 * @param   string $id id to remove from cache
 	 * @return  boolean
 	 */
 	abstract public function delete($id);
@@ -283,7 +283,7 @@ abstract class Kohana_Cache {
 	 *     // Sanitize a cache id
 	 *     $id = $this->_sanitize_id($id);
 	 *
-	 * @param   string  $id  id of cache to sanitize
+	 * @param   string $id id of cache to sanitize
 	 * @return  string
 	 */
 	protected function _sanitize_id($id)

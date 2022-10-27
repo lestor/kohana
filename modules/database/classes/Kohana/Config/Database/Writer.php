@@ -18,8 +18,8 @@
  * @copyright  (c) 2007-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_Config_Database_Writer extends Config_Database_Reader implements Kohana_Config_Writer
-{
+class Kohana_Config_Database_Writer extends Config_Database_Reader implements Kohana_Config_Writer {
+
 	protected $_loaded_keys = array();
 
 	/**
@@ -48,9 +48,9 @@ class Kohana_Config_Database_Writer extends Config_Database_Reader implements Ko
 	 * Returns chainable instance on success or throws 
 	 * Kohana_Config_Exception on failure
 	 *
-	 * @param string      $group  The config group
-	 * @param string      $key    The config key to write to
-	 * @param array       $config The configuration to write
+	 * @param string $group  The config group
+	 * @param string $key    The config key to write to
+	 * @param array  $config The configuration to write
 	 * @return boolean
 	 */
 	public function write($group, $key, $config)
@@ -84,9 +84,9 @@ class Kohana_Config_Database_Writer extends Config_Database_Reader implements Ko
 	/**
 	 * Insert the config values into the table
 	 *
-	 * @param string      $group  The config group
-	 * @param string      $key    The config key to write to
-	 * @param array       $config The serialized configuration to write
+	 * @param string $group  The config group
+	 * @param string $key    The config key to write to
+	 * @param array  $config The serialized configuration to write
 	 * @return boolean
 	 */
 	protected function _insert($group, $key, $config)
@@ -101,9 +101,9 @@ class Kohana_Config_Database_Writer extends Config_Database_Reader implements Ko
 	/**
 	 * Update the config values in the table
 	 *
-	 * @param string      $group  The config group
-	 * @param string      $key    The config key to write to
-	 * @param array       $config The serialized configuration to write
+	 * @param string $group  The config group
+	 * @param string $key    The config key to write to
+	 * @param array  $config The serialized configuration to write
 	 * @return boolean
 	 */
 	protected function _update($group, $key, $config)

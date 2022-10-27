@@ -14,8 +14,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_RequestTest extends Unittest_TestCase
-{
+class Kohana_RequestTest extends Unittest_TestCase {
+
 	protected $_inital_request;
 
 	// @codingStandardsIgnoreStart
@@ -25,7 +25,7 @@ class Kohana_RequestTest extends Unittest_TestCase
 		parent::setUp();
 		Kohana::$config->load('url')->set('trusted_hosts', array('localhost'));
 		$this->_initial_request = Request::$initial;
-		Request::$initial = new Request('/');
+		Request::$initial       = new Request('/');
 	}
 
 	// @codingStandardsIgnoreStart
@@ -126,11 +126,11 @@ class Kohana_RequestTest extends Unittest_TestCase
 	{
 		$route = new Route('(<controller>(/<action>(/<id>)))');
 
-		$uri = 'kohana_requesttest_dummy/foobar/some_id';
+		$uri     = 'kohana_requesttest_dummy/foobar/some_id';
 		$request = Request::factory($uri, NULL, TRUE, array($route));
 
 		// We need to execute the request before it has matched a route
-		$response = $request->execute();
+		$response   = $request->execute();
 		$controller = new Controller_Kohana_RequestTest_Dummy($request, $response);
 
 		$this->assertSame(200, $response->status());
@@ -154,7 +154,7 @@ class Kohana_RequestTest extends Unittest_TestCase
 		$request = Request::factory('kohana_requesttest_dummy', NULL, TRUE, array($route));
 
 		// We need to execute the request before it has matched a route
-		$response = $request->execute();
+		$response   = $request->execute();
 		$controller = new Controller_Kohana_RequestTest_Dummy($request, $response);
 
 		$this->assertSame(200, $response->status());
@@ -238,9 +238,9 @@ class Kohana_RequestTest extends Unittest_TestCase
 	 * @test
 	 * @covers Request::accept_lang
 	 * @dataProvider provider_accept_lang
-	 * @param array $params Query string
-	 * @param string $expected Expected result
-	 * @param array $enviroment Set environment
+	 * @param array  $params     Query string
+	 * @param string $expected   Expected result
+	 * @param array  $enviroment Set environment
 	 */
 	public function test_accept_lang($params, $expected, $enviroment)
 	{
@@ -288,9 +288,9 @@ class Kohana_RequestTest extends Unittest_TestCase
 	 * @test
 	 * @dataProvider provider_url
 	 * @covers Request::url
-	 * @param string $uri the uri to use
+	 * @param string $uri      the uri to use
 	 * @param string $protocol the protocol to use
-	 * @param array $expected The string we expect
+	 * @param array  $expected The string we expect
 	 */
 	public function test_url($uri, $protocol, $expected)
 	{
@@ -420,7 +420,7 @@ class Kohana_RequestTest extends Unittest_TestCase
 			'action'     => 'index',
 		));
 
-		$old_request = Request::$initial;
+		$old_request      = Request::$initial;
 		Request::$initial = new Request(TRUE, array(), TRUE, array($route));
 
 		$result = array(
@@ -536,7 +536,7 @@ class Kohana_RequestTest extends Unittest_TestCase
 	{
 		$x_powered_by = 'Kohana Unit Test';
 		$content_type = 'application/x-www-form-urlencoded';
-		$request = new Request('foo/bar', array(), TRUE, array());
+		$request      = new Request('foo/bar', array(), TRUE, array());
 
 		return array(
 			array(
@@ -736,7 +736,7 @@ class Kohana_RequestTest extends Unittest_TestCase
 	 * 
 	 * @dataProvider provider_client
 	 *
-	 * @param   Request $request 
+	 * @param   Request        $request 
 	 * @param   Request_Client $client 
 	 * @param   Request_Client $expected 
 	 * @return  void
@@ -811,8 +811,8 @@ class Kohana_RequestTest extends Unittest_TestCase
  * A dummy Request_Client_External implementation, that spies on the headers
  * of the request
  */
-class Kohana_RequestTest_Header_Spying_Request_Client_External extends Request_Client_External
-{
+class Kohana_RequestTest_Header_Spying_Request_Client_External extends Request_Client_External {
+
 	private $headers;
 
 	protected function _send_message(\Request $request, \Response $response)
@@ -828,8 +828,8 @@ class Kohana_RequestTest_Header_Spying_Request_Client_External extends Request_C
 	}
 }
 
-class Controller_Kohana_RequestTest_Dummy extends Controller
-{
+class Controller_Kohana_RequestTest_Dummy extends Controller {
+
 	// hard coded dummy response
 	protected $dummy_response = "this is a dummy response";
 

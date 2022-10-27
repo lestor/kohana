@@ -29,7 +29,7 @@ class Controller_Codebench extends Kohana_Controller_Template {
 		// Try to load the class, then run it
 		if (Kohana::auto_load($class) === TRUE)
 		{
-			$codebench = new $class;
+			$codebench                 = new $class;
 			$this->template->codebench = $codebench->run();
 		}
 	}

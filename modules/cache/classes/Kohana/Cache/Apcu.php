@@ -42,7 +42,7 @@ class Kohana_Cache_Apcu extends Cache implements Cache_Arithmetic {
 	 * Check for existence of the APCu extension This method cannot be invoked externally. The driver must
 	 * be instantiated using the `Cache::instance()` method.
 	 *
-	 * @param  array  $config  configuration
+	 * @param  array $config configuration
 	 * @throws Cache_Exception
 	 */
 	protected function __construct(array $config)
@@ -64,8 +64,8 @@ class Kohana_Cache_Apcu extends Cache implements Cache_Arithmetic {
 	 *     // Retrieve cache entry from apcu group and return 'bar' if miss
 	 *     $data = Cache::instance('apcu')->get('foo', 'bar');
 	 *
-	 * @param   string  $id       id of cache to entry
-	 * @param   string  $default  default value to return if cache miss
+	 * @param   string $id      id of cache to entry
+	 * @param   string $default default value to return if cache miss
 	 * @return  mixed
 	 * @throws  Cache_Exception
 	 */
@@ -87,9 +87,9 @@ class Kohana_Cache_Apcu extends Cache implements Cache_Arithmetic {
 	 *     // Set 'bar' to 'foo' in apcu group for 30 seconds
 	 *     Cache::instance('apcu')->set('foo', $data, 30);
 	 *
-	 * @param   string   $id        id of cache entry
-	 * @param   string   $data      data to set to cache
-	 * @param   integer  $lifetime  lifetime in seconds
+	 * @param   string  $id       id of cache entry
+	 * @param   string  $data     data to set to cache
+	 * @param   integer $lifetime lifetime in seconds
 	 * @return  boolean
 	 */
 	public function set($id, $data, $lifetime = NULL)
@@ -108,7 +108,7 @@ class Kohana_Cache_Apcu extends Cache implements Cache_Arithmetic {
 	 *     // Delete 'foo' entry from the apcu group
 	 *     Cache::instance('apcu')->delete('foo');
 	 *
-	 * @param   string  $id  id to remove from cache
+	 * @param   string $id id to remove from cache
 	 * @return  boolean
 	 */
 	public function delete($id)

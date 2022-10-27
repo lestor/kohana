@@ -19,7 +19,7 @@ class Kohana_Session_Native extends Session {
 	}
 
 	/**
-	 * @param   string  $id  session id
+	 * @param   string $id session id
 	 * @return  null
 	 */
 	protected function _read($id = NULL)
@@ -38,8 +38,8 @@ class Kohana_Session_Native extends Session {
 		 * set to Cookie::$domain if available, otherwise default to ini setting
 		 */
 		$session_cookie_domain = empty(Cookie::$domain)
-		    ? ini_get('session.cookie_domain')
-		    : Cookie::$domain;
+			? ini_get('session.cookie_domain')
+			: Cookie::$domain;
 
 		// Sync up the session cookie with Cookie parameters
 		session_set_cookie_params(
@@ -83,7 +83,7 @@ class Kohana_Session_Native extends Session {
 	}
 
 	/**
-	 * @return  bool
+	 * @return  boolean
 	 */
 	protected function _write()
 	{
@@ -94,7 +94,7 @@ class Kohana_Session_Native extends Session {
 	}
 
 	/**
-	 * @return  bool
+	 * @return  boolean
 	 */
 	protected function _restart()
 	{
@@ -108,7 +108,7 @@ class Kohana_Session_Native extends Session {
 	}
 
 	/**
-	 * @return  bool
+	 * @return  boolean
 	 */
 	protected function _destroy()
 	{

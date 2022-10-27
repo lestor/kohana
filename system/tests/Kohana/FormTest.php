@@ -14,8 +14,8 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
-class Kohana_FormTest extends Unittest_TestCase
-{
+class Kohana_FormTest extends Unittest_TestCase {
+
 	/**
 	 * Defaults for this test
 	 * @var array
@@ -60,8 +60,8 @@ class Kohana_FormTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_open
-	 * @param array $input  Input for Form::open
-	 * @param text $expected Output for Form::open
+	 * @param array $input    Input for Form::open
+	 * @param text  $expected Output for Form::open
 	 */
 	public function test_open($input, $expected)
 	{
@@ -101,11 +101,11 @@ class Kohana_FormTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_input
-	 * @param text $type  Input for Form::input
-	 * @param text $name  Input for Form::input
-	 * @param text $value  Input for Form::input
-	 * @param array $attributes  Input Form::input
-	 * @param text $expected Output for Form::input
+	 * @param text  $type       Input for Form::input
+	 * @param text  $name       Input for Form::input
+	 * @param text  $value      Input for Form::input
+	 * @param array $attributes Input Form::input
+	 * @param text  $expected   Output for Form::input
 	 */
 	public function test_input($type, $name, $value, $attributes, $expected)
 	{
@@ -130,7 +130,7 @@ class Kohana_FormTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_file
-	 * @param boolean $input  Input for Form::file
+	 * @param boolean $input    Input for Form::file
 	 * @param boolean $expected Output for Form::file
 	 */
 	public function test_file($name, $attributes, $expected)
@@ -162,12 +162,12 @@ class Kohana_FormTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_check
-	 * @param text $type  Input for Form::check
-	 * @param text $name  Input for Form::check
-	 * @param text $value  Input for Form::check
-	 * @param boolean $checked  Input for Form::check
-	 * @param array $attributes  Input for Form::check
-	 * @param text $expected Output for Form::check
+	 * @param text    $type       Input for Form::check
+	 * @param text    $name       Input for Form::check
+	 * @param text    $value      Input for Form::check
+	 * @param boolean $checked    Input for Form::check
+	 * @param array   $attributes Input for Form::check
+	 * @param text    $expected   Output for Form::check
 	 */
 	public function test_check($type, $name, $value, $checked, $attributes, $expected)
 	{
@@ -193,11 +193,11 @@ class Kohana_FormTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_text
-	 * @param text $type  Input for Form::textarea
-	 * @param text $name  Input for Form::textarea
-	 * @param text $body  Input for Form::textarea
-	 * @param array $attributes  Input for Form::textarea
-	 * @param text $expected Output for Form::textarea
+	 * @param text  $type       Input for Form::textarea
+	 * @param text  $name       Input for Form::textarea
+	 * @param text  $body       Input for Form::textarea
+	 * @param array $attributes Input for Form::textarea
+	 * @param text  $expected   Output for Form::textarea
 	 */
 	public function test_text($type, $name, $body, $attributes, $expected)
 	{
@@ -229,10 +229,10 @@ class Kohana_FormTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_select
-	 * @param text $name  Input for Form::select
-	 * @param array $options  Input for Form::select
-	 * @param boolean $selected  Input for Form::select
-	 * @param text $expected Output for Form::select
+	 * @param text    $name     Input for Form::select
+	 * @param array   $options  Input for Form::select
+	 * @param boolean $selected Input for Form::select
+	 * @param text    $expected Output for Form::select
 	 */
 	public function test_select($name, $options, $selected, $expected)
 	{
@@ -257,8 +257,8 @@ class Kohana_FormTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_submit
-	 * @param text $name  Input for Form::submit
-	 * @param text $value  Input for Form::submit
+	 * @param text $name     Input for Form::submit
+	 * @param text $value    Input for Form::submit
 	 * @param text $expected Output for Form::submit
 	 */
 	public function test_submit($name, $value, $expected)
@@ -285,10 +285,10 @@ class Kohana_FormTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_image
-	 * @param boolean $name         Input for Form::image
-	 * @param boolean $value        Input for Form::image
-	 * @param boolean $attributes  Input for Form::image
-	 * @param boolean $expected    Output for Form::image
+	 * @param boolean $name       Input for Form::image
+	 * @param boolean $value      Input for Form::image
+	 * @param boolean $attributes Input for Form::image
+	 * @param boolean $expected   Output for Form::image
 	 */
 	public function test_image($name, $value, $attributes, $expected)
 	{
@@ -321,10 +321,10 @@ class Kohana_FormTest extends Unittest_TestCase
 	 *
 	 * @test
 	 * @dataProvider provider_label
-	 * @param boolean $for         Input for Form::label
-	 * @param boolean $text        Input for Form::label
-	 * @param boolean $attributes  Input for Form::label
-	 * @param boolean $expected    Output for Form::label
+	 * @param boolean $for        Input for Form::label
+	 * @param boolean $text       Input for Form::label
+	 * @param boolean $attributes Input for Form::label
+	 * @param boolean $expected   Output for Form::label
 	 */
 	function test_label($for, $text, $attributes, $expected)
 	{

@@ -18,13 +18,13 @@ class Kohana_Kodoc {
 	/**
 	 * Make a class#member API link using an array of matches from [Kodoc::$regex_class_member]
 	 *
-	 * @param   array   $matches    array( 1 => link text, 2 => class name, [3 => member name] )
+	 * @param   array $matches array( 1 => link text, 2 => class name, [3 => member name] )
 	 * @return  string
 	 */
 	public static function link_class_member($matches)
 	{
-		$link = $matches[1];
-		$class = $matches[2];
+		$link   = $matches[1];
+		$class  = $matches[2];
 		$member = NULL;
 
 		if (isset($matches[3]))
@@ -200,8 +200,8 @@ class Kohana_Kodoc {
 	/**
 	 * Generate HTML for the content of a tag.
 	 *
-	 * @param   string  $tag    Name of the tag without @
-	 * @param   string  $text   Content of the tag
+	 * @param   string $tag  Name of the tag without @
+	 * @param   string $text Content of the tag
 	 * @return  string  HTML
 	 */
 	public static function format_tag($tag, $text)
@@ -256,8 +256,8 @@ class Kohana_Kodoc {
 	 *
 	 * [!!] Converting the output to HTML in this method is deprecated in 3.3
 	 *
-	 * @param   string  $comment    The DocBlock to parse
-	 * @param   boolean $html       Whether or not to convert the return values
+	 * @param   string  $comment The DocBlock to parse
+	 * @param   boolean $html    Whether or not to convert the return values
 	 *   to HTML (deprecated)
 	 * @return  array   array(string $description, array $tags)
 	 */
@@ -295,7 +295,7 @@ class Kohana_Kodoc {
 		};
 
 		$comment = $tag = NULL;
-		$end = count($lines[1]) - 1;
+		$end     = count($lines[1]) - 1;
 
 		foreach ($lines[1] as $i => $line)
 		{
@@ -308,7 +308,7 @@ class Kohana_Kodoc {
 					$add_tag($tag, $text);
 				}
 
-				$tag = $matches[1];
+				$tag  = $matches[1];
 				$text = isset($matches[2]) ? $matches[2] : '';
 
 				if ($i === $end)
@@ -377,7 +377,7 @@ class Kohana_Kodoc {
 	 * Test whether a class should be shown, based on the api_packages config option
 	 *
 	 * @param  Kodoc_Class  the class to test
-	 * @return  bool  whether this class should be shown
+	 * @return  boolean  whether this class should be shown
 	 */
 	public static function show_class(Kodoc_Class $class)
 	{
@@ -397,7 +397,9 @@ class Kohana_Kodoc {
 		{
 			// If this package is in the allowed packages, set show this to true
 			if (in_array($package, explode(',', $api_packages)))
+			{
 				$show_this = TRUE;
+			}
 		}
 
 		return $show_this;
@@ -420,8 +422,8 @@ class Kohana_Kodoc {
 	 * Module developers can therefore add their own transparent extension
 	 * namespaces and exclude them from the userguide.
 	 *
-	 * @param   string  $class            The name of the class to check for transparency
-	 * @param   array   $classes          An optional list of all defined classes
+	 * @param   string $class   The name of the class to check for transparency
+	 * @param   array  $classes An optional list of all defined classes
 	 * @return  false                     If this is not a transparent extension class
 	 * @return  string                    The name of the class that extends this (in the case provided)
 	 * @throws  InvalidArgumentException  If the $classes array is provided and the $class variable is not lowercase
