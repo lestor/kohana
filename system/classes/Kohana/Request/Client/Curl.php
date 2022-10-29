@@ -55,7 +55,7 @@ class Kohana_Request_Client_Curl extends Request_Client_External {
 		// Process cookies
 		if ($cookies = $request->cookie())
 		{
-			$options[CURLOPT_COOKIE] = http_build_query($cookies, NULL, '; ');
+			$options[CURLOPT_COOKIE] = http_build_query($cookies, '', '; ');
 		}
 
 		// Get any exisiting response headers
@@ -73,7 +73,7 @@ class Kohana_Request_Client_Curl extends Request_Client_External {
 
 		if ($query = $request->query())
 		{
-			$uri .= '?'.http_build_query($query, NULL, '&');
+			$uri .= '?'.http_build_query($query, '', '&');
 		}
 
 		// Open a new remote connection
