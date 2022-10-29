@@ -122,6 +122,7 @@ class Kohana_Config_Group extends ArrayObject {
 	 * @param mixed  $value The new array value
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	public function offsetSet($key, $value)
 	// @codingStandardsIgnoreEnd
 	{

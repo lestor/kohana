@@ -202,6 +202,7 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 *
 	 * @return  integer
 	 */
+	#[\ReturnTypeWillChange]
 	public function count()
 	{
 		return $this->_total_rows;
@@ -219,6 +220,7 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 * @return  boolean
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	public function offsetExists($offset)
 	// @codingStandardsIgnoreEnd
 	{
@@ -234,6 +236,7 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 * @return  mixed
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	public function offsetGet($offset)
 	// @codingStandardsIgnoreEnd
 	{
@@ -254,6 +257,7 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 * @throws  Kohana_Exception
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	final public function offsetSet($offset, $value)
 	// @codingStandardsIgnoreEnd
 	{
@@ -270,6 +274,7 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 * @throws  Kohana_Exception
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	final public function offsetUnset($offset)
 	// @codingStandardsIgnoreEnd
 	{
@@ -283,6 +288,7 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 *
 	 * @return  integer
 	 */
+	#[\ReturnTypeWillChange]
 	public function key()
 	{
 		return $this->_current_row;
@@ -295,6 +301,7 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 *
 	 * @return  $this
 	 */
+	#[\ReturnTypeWillChange]
 	public function next()
 	{
 		++$this->_current_row;
@@ -321,6 +328,7 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 *
 	 * @return  $this
 	 */
+	#[\ReturnTypeWillChange]
 	public function rewind()
 	{
 		$this->_current_row = 0;
@@ -334,6 +342,7 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 *
 	 * @return  boolean
 	 */
+	#[\ReturnTypeWillChange]
 	public function valid()
 	{
 		return $this->offsetExists($this->_current_row);
