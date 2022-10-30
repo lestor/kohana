@@ -10,7 +10,7 @@ abstract class Kohana_HTTP_Exception extends Kohana_Exception {
 	 * @param   array   $variables translation variables
 	 * @return  HTTP_Exception
 	 */
-	public static function factory($code, $message = NULL, array $variables = NULL, Exception $previous = NULL)
+	public static function factory($code, $message = '', array $variables = NULL, Exception $previous = NULL)
 	{
 		$class = 'HTTP_Exception_'.$code;
 
@@ -37,7 +37,7 @@ abstract class Kohana_HTTP_Exception extends Kohana_Exception {
 	 * @param   array  $variables translation variables
 	 * @return  void
 	 */
-	public function __construct($message = NULL, array $variables = NULL, Exception $previous = NULL)
+	public function __construct($message = '', array $variables = NULL, Exception $previous = NULL)
 	{
 		parent::__construct($message, $variables, $this->_code, $previous);
 	}
