@@ -50,7 +50,7 @@ class Kohana_Date {
 	 * @param   mixed  $now    UNIX timestamp or date string
 	 * @return  integer
 	 */
-	public static function offset($remote, $local = NULL, $now = NULL)
+	public static function offset($remote, $local = NULL, $now = 'now')
 	{
 		if ($local === NULL)
 		{
@@ -62,6 +62,11 @@ class Kohana_Date {
 		{
 			// Convert the timestamp into a string
 			$now = date(DateTime::RFC2822, $now);
+		}
+
+		if (is_null($now))
+		{
+			$now = 'now';
 		}
 
 		// Create timezone objects
