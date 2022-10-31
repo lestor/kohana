@@ -1,12 +1,18 @@
 # Usage
 
-	$ phpunit --bootstrap=modules/unittest/bootstrap.php modules/unittest/tests.php
+The PHPUnit command-line test runner can be invoked through the `phpunit` command.
 
-Alternatively you can use a phpunit.xml to have a more fine grained control over which tests are included and which files are whitelisted.
+The following code shows how to run tests with the command-line:
 
-Make sure you only whitelist the highest files in the cascading filesystem, else you could end up with a lot of "class cannot be redefined" errors.
+	$ phpunit
 
-If you use the tests.php testsuite loader then it will only whitelist the highest files. see config/unittest.php for details on configuring the tests.php whitelist.
+PHPUnit will look for the configuration file in the current working directory. If phpunit.xml or phpunit.xml.dist (in that order) exist in the current working directory and `--configuration` is not used, the configuration will be automatically read from that file.
+
+You can also specify a configuration file name or a specific test suite name:
+
+	$ phpunit --configuration phpunit.xml --testsuite default
+
+Please see the [PHPUnit Manual](https://phpunit.readthedocs.io/en/9.5/) for more details.
 
 ## Writing tests
 
@@ -88,7 +94,7 @@ Our convention is to use lowercase group names, with more specific levels in a g
 
 To actually limit your testing to the "somegroup" group, use:
 
-	$ phpunit --boostrap=index.php --group=somegroup modules/unittest/tests.php
+	$ phpunit --group=somegroup
 
 This functionality can be used to record which bug reports a test is for:
 
@@ -103,13 +109,13 @@ This functionality can be used to record which bug reports a test is for:
 
 To see all groups that are available in your code run:
 
-	$ phpunit --boostrap=modules/unittest/bootstrap.php --list-groups modules/unittest/tests.php
+	$ phpunit --list-groups
 
 *Note:* the `--list-groups` switch should appear before the path to the test suite loader
 
 You can also exclude groups while testing using the `--exclude-group` switch.  This can be useful if you want to ignore all kohana tests:
 
-	$ phpunit --bootstrap=modules/unittest/bootstrap.php --exclude-group=kohana modules/unittest/tests.php
+	$ phpunit --exclude-group=kohana
 
 For more info see:
 
