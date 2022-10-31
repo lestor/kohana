@@ -10,7 +10,8 @@
 
 	<testsuites>
 		<testsuite name="Kohana Tests">
-			<file>rel/path/to/unittest/tests.php</file>
+			<directory suffix=".php">./modules/*/tests</directory>
+			<directory suffix=".php">./system/tests</directory>
 		</testsuite>
 	</testsuites>
 
