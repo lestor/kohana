@@ -479,6 +479,7 @@ class Kohana_Text {
 	 */
 	public static function bytes($bytes, $force_unit = NULL, $format = NULL, $si = TRUE)
 	{
+		$force_unit = ($force_unit === NULL) ? '' : (string) $force_unit;
 		// Format string
 		$format = ($format === NULL) ? '%01.2f %s' : (string) $format;
 
@@ -496,7 +497,7 @@ class Kohana_Text {
 		}
 
 		// Determine unit to use
-		if (($power = array_search( (string) $force_unit, $units)) === FALSE)
+		if (($power = array_search($force_unit, $units)) === FALSE)
 		{
 			$power = ($bytes > 0) ? floor(log($bytes, $mod)) : 0;
 		}

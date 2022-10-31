@@ -334,7 +334,7 @@ class Kohana_Kodoc {
 			}
 		}
 
-		$comment = trim($comment, "\n");
+		$comment = ($comment !== NULL) ? trim($comment, "\n") : '';
 
 		if ($comment AND $html)
 		{
