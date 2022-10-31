@@ -57,6 +57,7 @@ class Kohana_DateTest extends Unittest_TestCase {
 	{
 		return array(
 			array(30600, 'Asia/Calcutta', 'America/Argentina/Buenos_Aires'),
+			array(30600, 'Asia/Calcutta', 'America/Argentina/Buenos_Aires', NULL),
 		);
 	}
 
@@ -71,7 +72,7 @@ class Kohana_DateTest extends Unittest_TestCase {
 	 * @param string  $local    Local TZ
 	 * @param integer $now      Current timestamp
 	 */
-	public function test_offset($expected, $remote, $local, $now = NULL)
+	public function test_offset($expected, $remote, $local, $now = 'now')
 	{
 		$this->assertSame($expected, Date::offset($remote, $local, $now));
 	}

@@ -61,6 +61,7 @@ class Kohana_Validation implements ArrayAccess {
 	 * @return  void
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	public function offsetSet($offset, $value)
 	// @codingStandardsIgnoreEnd
 	{
@@ -75,6 +76,7 @@ class Kohana_Validation implements ArrayAccess {
 	 * @return  bool    whether the key is set
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	public function offsetExists($offset)
 	// @codingStandardsIgnoreEnd
 	{
@@ -89,6 +91,7 @@ class Kohana_Validation implements ArrayAccess {
 	 * @param   string $offset key to unset
 	 * @return  void
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetUnset($offset)
 	{
 		throw new Kohana_Exception('Validation objects are read-only.');
@@ -102,6 +105,7 @@ class Kohana_Validation implements ArrayAccess {
 	 * @return  mixed   value from array
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	public function offsetGet($offset)
 	// @codingStandardsIgnoreEnd
 	{

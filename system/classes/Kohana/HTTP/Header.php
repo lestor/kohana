@@ -343,6 +343,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 * @since   3.2.0
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	public function offsetSet($index, $newval, $replace = TRUE)
 	// @codingStandardsIgnoreEnd
 	{
@@ -377,6 +378,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 * @since   3.2.0
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	public function offsetExists($index)
 	// @codingStandardsIgnoreEnd
 	{
@@ -392,6 +394,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 * @since   3.2.0
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	public function offsetUnset($index)
 	// @codingStandardsIgnoreEnd
 	{
@@ -407,6 +410,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 * @since   3.2.0
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	public function offsetGet($index)
 	// @codingStandardsIgnoreEnd
 	{
@@ -422,6 +426,7 @@ class Kohana_HTTP_Header extends ArrayObject {
 	 * @since   3.2.0
 	 */
 	// @codingStandardsIgnoreStart
+	#[\ReturnTypeWillChange]
 	public function exchangeArray($input)
 	// @codingStandardsIgnoreEnd
 	{

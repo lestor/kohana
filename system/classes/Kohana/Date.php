@@ -19,8 +19,9 @@ class Kohana_Date {
 	const MINUTE = 60;
 
 	// Available formats for Date::months()
-	const MONTHS_LONG  = '%B';
-	const MONTHS_SHORT = '%b';
+	// https://www.php.net/manual/en/datetime.format.php
+	const MONTHS_LONG  = 'F';
+	const MONTHS_SHORT = 'M';
 
 	/**
 	 * Default timestamp format for formatted_time
@@ -49,7 +50,7 @@ class Kohana_Date {
 	 * @param   mixed  $now    UNIX timestamp or date string
 	 * @return  integer
 	 */
-	public static function offset($remote, $local = NULL, $now = NULL)
+	public static function offset($remote, $local = NULL, $now = 'now')
 	{
 		if ($local === NULL)
 		{
@@ -61,6 +62,11 @@ class Kohana_Date {
 		{
 			// Convert the timestamp into a string
 			$now = date(DateTime::RFC2822, $now);
+		}
+
+		if (is_null($now))
+		{
+			$now = 'now';
 		}
 
 		// Create timezone objects
@@ -281,7 +287,7 @@ class Kohana_Date {
 		{
 			for ($i = 1; $i <= 12; ++$i)
 			{
-				$months[$i] = strftime($format, mktime(0, 0, 0, $i, 1));
+				$months[$i] = date($format, mktime(0, 0, 0, $i, 1));
 			}
 		}
 		else
