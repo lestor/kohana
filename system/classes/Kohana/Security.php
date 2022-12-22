@@ -57,7 +57,7 @@ class Kohana_Security {
 			else
 			{
 				// Otherwise, fall back to a hashed uniqid
-				$token = sha1(uniqid(NULL, TRUE));
+				$token = sha1(uniqid('', TRUE));
 			}
 
 			// Store the new token
