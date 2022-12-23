@@ -33,6 +33,6 @@ jobs:
         run: phpunit
 
       - name: Send code coverage report to Codecov.io
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
