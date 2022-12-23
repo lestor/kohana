@@ -21,6 +21,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
+          extensions: apcu
+          ini-values: apc.enabled=1, apc.enable_cli=1
           tools: composer, phpunit
           coverage: xdebug
 
