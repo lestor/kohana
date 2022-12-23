@@ -15,7 +15,7 @@ jobs:
         php: ['7.3', '7.4', '8.0']
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Prepare PHP
         uses: shivammathur/setup-php@v2
@@ -33,6 +33,6 @@ jobs:
         run: phpunit
 
       - name: Send code coverage report to Codecov.io
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
