@@ -342,13 +342,26 @@ class Kohana_UTF8Test extends Unittest_TestCase {
 	 */
 	public function provider_strcasecmp()
 	{
-		return array(
-			array('Cocoñùт',   'Cocoñùт', 0),
-			array('Čau',       'Čauo',   -1),
-			array('Čau',       'Ča',      1),
-			array('Cocoñùт',   'Cocoñ',   4),
-			array('Cocoñùт',   'Coco',    6),
-		);
+		if (version_compare(phpversion(), '8.2', '>='))
+		{
+			return array(
+				array('Cocoñùт',   'Cocoñùт', 0),
+				array('Čau',       'Čauo',   -1),
+				array('Čau',       'Ča',      1),
+				array('Cocoñùт',   'Cocoñ',   1),
+				array('Cocoñùт',   'Coco',    1),
+			);
+		}
+		else
+		{
+			return array(
+				array('Cocoñùт',   'Cocoñùт', 0),
+				array('Čau',       'Čauo',   -1),
+				array('Čau',       'Ča',      1),
+				array('Cocoñùт',   'Cocoñ',   4),
+				array('Cocoñùт',   'Coco',    6),
+			);
+		}
 	}
 
 	/**
