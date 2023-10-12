@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['7.3', '7.4', '8.0', '8.1']
+        php: ['7.3', '7.4', '8.0', '8.1', '8.2']
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -23,7 +23,7 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: apcu
           ini-values: apc.enabled=1, apc.enable_cli=1
-          tools: composer, phpunit
+          tools: composer, phpunit:9
           coverage: xdebug
 
       - name: Install dependencies
