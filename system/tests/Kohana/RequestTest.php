@@ -14,6 +14,7 @@
  * @copyright  (c) 2008-2012 Kohana Team
  * @license    http://kohanaframework.org/license
  */
+#[\AllowDynamicProperties]
 class Kohana_RequestTest extends Unittest_TestCase {
 
 	protected $_inital_request;
