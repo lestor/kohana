@@ -28,7 +28,7 @@ class Kohana_Cookie {
 	/**
 	 * @var  string  Restrict the domain that the cookie is available to
 	 */
-	public static $domain = NULL;
+	public static $domain = '';
 
 	/**
 	 * @var  boolean  Only transmit cookies over secure connections
