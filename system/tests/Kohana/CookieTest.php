@@ -266,7 +266,7 @@ class Kohana_CookieTest extends Unittest_TestCase {
 	{
 		$this->assertCount(1, Kohana_CookieTest_TestableCookie::$_mock_cookies_set);
 		$relevant_values = array_intersect_key(Kohana_CookieTest_TestableCookie::$_mock_cookies_set[0], $expected);
-		$this->assertEquals($expected, $relevant_values);
+		$this->assertSame($expected, $relevant_values);
 	}
 
 	/**
