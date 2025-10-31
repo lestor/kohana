@@ -246,7 +246,7 @@ class Kohana_CookieTest extends Unittest_TestCase {
 		// To delete the client-side cookie, Cookie::delete should send a new cookie with value NULL and expiry in the past
 		$this->assertSetCookieWith(array(
 			'name'     => $name,
-			'value'    => NULL,
+			'value'    => '',
 			'expire'   => -86400,
 			'path'     => Cookie::$path,
 			'domain'   => Cookie::$domain,
